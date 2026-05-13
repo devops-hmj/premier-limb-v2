@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================================================================
+   Premier Limb Lengthening — Design Tokens (CSS Variables)
+   Mirror the Tailwind theme so non-Tailwind consumers (e.g. third-party
+   embeds, MDX content) can reference the same canonical values.
+   ======================================================================== */
+@layer base {
+  :root {
+    /* Editorial spine */
+    --spine: #254A5D;
+    --spine-deep: #18323F;
+    --spine-wash: #EAF0F3;
+    --spine-tint: #F3F6F8;
+
+    /* Interactive accent */
+    --signal: #1E6FE5;
+    --signal-deep: #1556B8;
+
+    /* Conversion CTA */
+    --action: #2BBE7B;
+    --action-deep: #1F9C63;
+    --action-ink: #06281A;
+
+    /* Foundations */
+    --ink: #0F1417;
+    --ink-soft: #3A4047;
+    --paper: #FFFFFF;
+    --paper-off: #F8F6F1;
+    --paper-warm: #ECE8DE;
+    --cream: #F4F0E6;
+    --rule: #D9D5C9;
+    --rule-hard: #0F1417;
+    --muted: #6B6F72;
+    --warn: #B03A3A;
+  }
+
+  /* ---- Reset / base ---- */
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    /* `--font-sans`, `--font-serif`, and `--font-mono` are emitted by next/font in app/layout.tsx. */
+    font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    background: var(--paper-off);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Default headings — components opt into the editorial scale explicitly. */
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif), Georgia, serif;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+  }
+
+  ::selection {
+    background: var(--spine);
+    color: #fff;
+  }
+}
+
+/* ========================================================================
+   Editorial utilities — semantic, reusable, low-volume.
+   ======================================================================== */
+@layer components {
+  /* ---- Eyebrow: mono · uppercase · spine, with leading dash ---- */
+  .eyebrow {
+    @apply font-mono text-eyebrow tracking-eyebrow uppercase text-spine font-medium inline-flex items-center gap-3;
+  }
+  .eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 22px;
+    height: 1px;
+    background: currentColor;
+  }
+  .eyebrow--muted {
+    @apply text-muted;
+  }
+  .eyebrow--paper::before {
+    background: var(--paper);
+  }
+
+  /* ---- Editorial italic accent ---- */
+  /* The single most identifiable typographic move in the system. */
+  .em-spine {
+    font-style: italic;
+    color: var(--spine);
+  }
+  .em-signal {
+    font-style: italic;
+    color: var(--signal);
+  }
+  .em-action {
+    font-style: italic;
+    color: var(--action);
+  }
+  .em-cream {
+    font-style: italic;
+    color: var(--cream);
+  }
+
+  /* ---- Wrap: 1320 max, 48 gutter ---- */
+  .wrap {
+    @apply mx-auto w-full max-w-wrap px-6 md:px-8 lg:px-12;
+  }
+
+  /* ---- Rules / dividers ---- */
+  .rule-hair { background: var(--rule); height: 1px; }
+  .rule-thin { background: var(--ink); height: 1px; }
+  .rule-bold { background: var(--ink); height: 2px; }
+  .rule-thick { background: var(--ink); height: 3px; }
+  .rule-spine { background: var(--spine); height: 4px; }
+
+  /* ---- Editorial card surface ---- */
+  .surface {
+    background: var(--paper);
+    border: 1px solid var(--ink);
+  }
+  .surface-warm {
+    background: var(--cream);
+    border: 1px solid var(--ink);
+  }
+  .surface-wash {
+    background: var(--spine-wash);
+    border-left: 4px solid var(--spine);
+  }
+
+  /* ---- Cover strip (top bar) ---- */
+  .cover-strip {
+    background: var(--ink);
+    color: #D4D6D8;
+    @apply font-mono uppercase tracking-wider text-[10.5px];
+  }
+}
+
+/* Print: convert to monochrome editorial print sheet. */
+@media print {
+  body { background: #fff; }
+}
