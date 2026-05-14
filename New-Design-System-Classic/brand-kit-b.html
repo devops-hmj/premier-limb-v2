@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premier Limb Lengthening — Brand Kit · The Dossier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue:       #254A5D;
+  --blue-deep:  #18323f;
+  --blue-wash:  #eaf0f3;
+  --blue-tint:  #f3f6f8;
+  --ink:        #0f1417;
+  --ink-soft:   #3a4047;
+  --paper:      #ffffff;
+  --paper-off:  #f8f6f1;
+  --paper-2:    #ece8de;
+  --rule:       #d9d5c9;
+  --rule-hard:  #0f1417;
+  --muted:      #6b6f72;
+  --cream:      #f4f0e6;
+  --gold:       #f4d88a;
+  --gold-soft:  #f8e4ac;
+  --gold-deep:  #c79f3c;
+  --red:        #B03A3A;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter Tight', -apple-system, sans-serif;
+  background: var(--paper-off);
+  color: var(--ink);
+  font-size: 15px; line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+.serif { font-family: 'Newsreader', serif; font-weight: 400; }
+.mono { font-family: 'JetBrains Mono', monospace; }
+a { color: inherit; text-decoration: none; }
+
+.wrap { max-width: 1320px; margin: 0 auto; padding: 0 48px; }
+.eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--blue); font-weight: 500;
+  display: inline-flex; align-items: center; gap: 12px;
+}
+.eyebrow::before { content: ""; width: 22px; height: 1px; background: var(--blue); }
+
+/* ============ MASTHEAD COVER ============ */
+.cover-strip {
+  background: var(--ink); color: #d4d6d8;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase;
+  display: flex; justify-content: space-between;
+  padding: 10px 48px;
+}
+.cover-strip .b { display: inline-flex; align-items: center; gap: 10px; }
+.cover-strip .b::before { content: ""; width: 10px; height: 10px; background: var(--blue); }
+
+.cover {
+  border-bottom: 3px solid var(--ink);
+  background: var(--paper-off);
+  padding: 48px 0 80px;
+  position: relative;
+}
+.cover-head {
+  display: grid; grid-template-columns: auto 1fr auto;
+  gap: 40px; align-items: center;
+  padding-bottom: 28px;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 64px;
+}
+.cover-head .logo { display: flex; align-items: center; gap: 18px; }
+.cover-head .logo .mk {
+  width: 56px; height: 56px;
+  background: var(--blue); color: #fff;
+  display: grid; place-items: center;
+  font-family: 'Newsreader', serif; font-style: italic; font-weight: 500;
+  font-size: 32px; padding-bottom: 4px;
+}
+.cover-head .logo .t { line-height: 1.05; }
+.cover-head .logo .t .top {
+  font-family: 'Newsreader', serif;
+  font-size: 28px; font-weight: 500; letter-spacing: -0.01em;
+}
+.cover-head .logo .t .bot {
+  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--muted); margin-top: 4px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.cover-head .center {
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.28em; color: var(--muted); text-transform: uppercase;
+}
+.cover-head .center .v {
+  display: inline-block; background: var(--blue); color: #fff;
+  padding: 4px 12px; letter-spacing: 0.2em; margin-top: 6px;
+}
+.cover-head .right {
+  text-align: right; font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.18em; color: var(--muted);
+  text-transform: uppercase; line-height: 1.9;
+}
+
+.cover-grid {
+  display: grid; grid-template-columns: 70px 1fr 360px;
+  gap: 40px;
+}
+.cover-rail {
+  border-top: 1px solid var(--ink);
+  padding-top: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.22em;
+  color: var(--muted);
+  writing-mode: vertical-rl;
+  text-transform: uppercase;
+}
+.cover-title {
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  font-size: clamp(80px, 11vw, 168px);
+  line-height: 0.9;
+  letter-spacing: -0.025em;
+}
+.cover-title em { font-style: italic; color: var(--blue); }
+.cover-deck {
+  margin-top: 32px;
+  font-family: 'Newsreader', serif;
+  font-style: italic; font-weight: 400;
+  font-size: clamp(22px, 2.4vw, 30px);
+  line-height: 1.3; max-width: 36ch;
+  color: var(--ink-soft);
+  padding-top: 28px; border-top: 1px solid var(--ink);
+}
+.cover-side {
+  border-left: 1px solid var(--ink);
+  padding-left: 28px;
+  display: flex; flex-direction: column; gap: 26px;
+  font-size: 13px;
+}
+.cover-side .item {
+  display: grid; gap: 4px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--rule);
+}
+.cover-side .item .k {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.22em; color: var(--muted); text-transform: uppercase;
+}
+.cover-side .item .v {
+  font-family: 'Newsreader', serif; font-size: 22px; line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+.cover-side .item .v em { font-style: italic; color: var(--blue); }
+.cover-toc {
+  margin-top: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--muted); line-height: 2.1;
+}
+.cover-toc .t { display: flex; justify-content: space-between; }
+.cover-toc .t .n { color: var(--blue); }
+
+/* ============ SECTION ============ */
+.section { padding: 96px 0; border-bottom: 1px solid var(--rule); }
+.section.dark { background: var(--ink); color: #e5e7e9; border-bottom: 0; }
+.section.dark .eyebrow { color: var(--blue); }
+.section.dark .eyebrow::before { background: var(--blue); }
+.section-head {
+  display: grid; grid-template-columns: 90px 1fr auto;
+  gap: 28px; align-items: end;
+  padding-bottom: 24px; margin-bottom: 56px;
+  border-bottom: 2px solid var(--ink);
+}
+.section.dark .section-head { border-color: var(--blue); }
+.section-head .no {
+  font-family: 'Newsreader', serif;
+  font-style: italic; font-weight: 500;
+  font-size: 60px; line-height: 0.9; color: var(--blue);
+}
+.section-head h2 {
+  font-family: 'Newsreader', serif; font-weight: 500;
+  font-size: clamp(40px, 5.6vw, 80px);
+  line-height: 0.96; letter-spacing: -0.02em;
+}
+.section-head h2 em { font-style: italic; color: var(--blue); }
+.section.dark .section-head h2 { color: #fff; }
+.section-head .lbl {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.22em; color: var(--muted); text-transform: uppercase;
+  text-align: right;
+}
+
+/* ============ LOGO ============ */
+.logo-grid {
+  display: grid; grid-template-columns: 1.4fr 1fr; gap: 20px;
+}
+.logo-tile {
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  padding: 60px;
+  display: grid; place-items: center;
+  position: relative;
+  min-height: 320px;
+}
+.logo-tile.blue { background: var(--blue); }
+.logo-tile.dark { background: var(--ink); }
+.logo-tile.cream { background: var(--cream); }
+.logo-tile .tag {
+  position: absolute; top: 14px; left: 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.22em; color: var(--muted); text-transform: uppercase;
+}
+.logo-tile.blue .tag, .logo-tile.dark .tag { color: rgba(255,255,255,0.6); }
+.logo-tile .dim {
+  position: absolute; bottom: 14px; right: 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.16em; color: var(--muted);
+}
+.logo-tile.blue .dim, .logo-tile.dark .dim { color: rgba(255,255,255,0.45); }
+
+.lockup { display: flex; align-items: center; gap: 18px; }
+.lockup .mk {
+  width: 60px; height: 60px;
+  background: var(--blue); color: #fff;
+  display: grid; place-items: center;
+  font-family: 'Newsreader', serif; font-size: 36px; font-weight: 500; font-style: italic;
+  padding-bottom: 4px;
+}
+.lockup .text { line-height: 1.05; }
+.lockup .text .top {
+  font-family: 'Newsreader', serif;
+  font-size: 32px; font-weight: 500; letter-spacing: -0.01em;
+}
+.lockup .text .bottom {
+  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--muted); margin-top: 6px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.lockup.small .mk { width: 40px; height: 40px; font-size: 22px; }
+.lockup.small .text .top { font-size: 22px; }
+
+.logo-tile.blue .lockup .mk { background: #fff; color: var(--blue); }
+.logo-tile.blue .lockup .text .top { color: #fff; }
+.logo-tile.blue .lockup .text .bottom { color: rgba(255,255,255,0.7); }
+.logo-tile.dark .lockup .text .top { color: #fff; }
+.logo-tile.dark .lockup .text .bottom { color: rgba(255,255,255,0.55); }
+
+.lockup.stack { flex-direction: column; align-items: center; gap: 14px; }
+
+.logo-row {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 16px; margin-top: 16px;
+}
+.logo-row .logo-tile { padding: 32px; min-height: 180px; }
+
+/* ============ COLOR ============ */
+.color-grid {
+  display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 16px;
+}
+.swatch {
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  display: flex; flex-direction: column;
+}
+.swatch .chip {
+  flex: 1;
+  min-height: 220px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  padding: 22px 24px; position: relative;
+}
+.swatch .chip .role {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.swatch .chip .name {
+  font-family: 'Newsreader', serif; font-weight: 500;
+  font-size: 32px; line-height: 1; letter-spacing: -0.01em;
+}
+.swatch .chip .name em { font-style: italic; }
+.swatch .meta {
+  background: var(--paper); padding: 16px 24px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 6px;
+  border-top: 1px solid var(--ink);
+}
+.swatch .meta .k {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.18em; color: var(--muted); text-transform: uppercase;
+}
+.swatch .meta .v {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px; color: var(--ink); text-align: right;
+}
+
+.swatch.blue .chip { background: var(--blue); color: #fff; }
+.swatch.blue .chip .role { color: rgba(255,255,255,0.65); }
+.swatch.ink .chip { background: var(--ink); color: #fff; }
+.swatch.ink .chip .role { color: rgba(255,255,255,0.55); }
+.swatch.paper .chip { background: var(--paper); color: var(--ink); border-bottom: 1px solid var(--rule); }
+.swatch.paper .chip .role { color: var(--muted); }
+.swatch.paperoff .chip { background: var(--paper-off); color: var(--ink); border-bottom: 1px solid var(--rule); }
+.swatch.paperoff .chip .role { color: var(--muted); }
+.swatch.bluewash .chip { background: var(--blue-wash); color: var(--blue); }
+.swatch.bluewash .chip .role { color: var(--blue); opacity: 0.7; }
+.swatch.bluedeep .chip { background: var(--blue-deep); color: #fff; }
+.swatch.bluedeep .chip .role { color: rgba(255,255,255,0.6); }
+.swatch.cream .chip { background: var(--cream); color: var(--ink); border-bottom: 1px solid var(--rule); }
+.swatch.cream .chip .role { color: var(--muted); }
+.swatch.gold .chip { background: var(--gold); color: var(--ink); border-bottom: 1px solid var(--ink); }
+.swatch.gold .chip .role { color: var(--ink); opacity: 0.65; }
+.swatch.goldsoft .chip { background: var(--gold-soft); color: var(--ink); border-bottom: 1px solid var(--rule); }
+.swatch.goldsoft .chip .role { color: var(--ink); opacity: 0.6; }
+.swatch.golddeep .chip { background: var(--gold-deep); color: #fff; }
+.swatch.golddeep .chip .role { color: rgba(255,255,255,0.7); }
+
+/* Accent row — gold gets its own moment */
+.accent-row {
+  display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 16px; margin-top: 16px;
+}
+.accent-row .swatch.gold .chip { min-height: 220px; }
+.accent-row .swatch.gold .chip .name { font-size: 40px; }
+.accent-row .swatch.goldsoft .chip,
+.accent-row .swatch.golddeep .chip { min-height: 220px; }
+.accent-row .swatch.goldsoft .chip .name,
+.accent-row .swatch.golddeep .chip .name { font-size: 22px; }
+
+.color-row-2 {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 16px; margin-top: 16px;
+}
+.color-row-2 .swatch .chip { min-height: 160px; }
+.color-row-2 .swatch .chip .name { font-size: 22px; }
+
+.color-note {
+  margin-top: 32px; padding: 28px 32px;
+  background: var(--blue-wash);
+  border-left: 4px solid var(--blue);
+  font-family: 'Newsreader', serif;
+  font-style: italic; font-size: 22px; line-height: 1.4;
+  max-width: 80ch;
+}
+.color-note .k {
+  display: block; font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.22em; color: var(--blue); text-transform: uppercase;
+  font-style: normal; margin-bottom: 12px;
+}
+
+/* INDEX MARKER PICKER */
+.markers-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 0;
+  border: 1px solid var(--ink); background: var(--paper);
+}
+.marker-card {
+  padding: 36px; border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  display: flex; flex-direction: column; gap: 22px;
+}
+.marker-card:nth-child(2n) { border-right: 0; }
+.marker-card:nth-last-child(-n+2) { border-bottom: 0; }
+.marker-card .opt {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--blue);
+  display: inline-flex; align-items: center; gap: 12px;
+}
+.marker-card .opt::before {
+  content: ""; width: 8px; height: 8px; background: var(--gold);
+}
+.marker-card h4 {
+  font-family: 'Newsreader', serif; font-weight: 500;
+  font-size: 26px; line-height: 1.1; color: var(--ink);
+}
+.marker-card .desc {
+  font-size: 13.5px; line-height: 1.65; color: var(--ink-soft);
+  max-width: 50ch;
+}
+.marker-row {
+  display: grid; grid-template-columns: 56px 1fr; gap: 18px;
+  align-items: baseline; padding: 14px 0;
+  border-top: 1px solid var(--rule);
+}
+.marker-row:first-of-type { border-top: 1px solid var(--ink); }
+.marker-row .tx {
+  font-family: 'Newsreader', serif; font-size: 17px;
+  color: var(--ink); line-height: 1.3;
+}
+.mk.arabic-serif {
+  font-family: 'Newsreader', serif; font-style: italic;
+  font-size: 28px; color: var(--blue); line-height: 1;
+}
+.mk.mono-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px; letter-spacing: 0.18em; color: var(--blue);
+  display: inline-flex; align-items: baseline; gap: 8px;
+}
+.mk.mono-num::before { content: "—"; color: var(--gold-deep); }
+.mk.section-sign {
+  font-family: 'Newsreader', serif; font-size: 20px;
+  color: var(--blue);
+  display: inline-flex; align-items: baseline; gap: 6px;
+}
+.mk.section-sign .glyph { font-style: italic; color: var(--gold-deep); }
+.mk.dot-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px; letter-spacing: 0.18em; color: var(--ink);
+  display: inline-flex; align-items: center; gap: 10px;
+}
+.mk.dot-num::before {
+  content: ""; width: 7px; height: 7px; background: var(--blue);
+}
+@media (max-width: 768px) {
+  .markers-grid { grid-template-columns: 1fr; }
+  .marker-card { border-right: 0; }
+  .marker-card:nth-last-child(-n+2) { border-bottom: 1px solid var(--rule); }
+  .marker-card:last-child { border-bottom: 0; }
+}
+
+/* ============ TYPE ============ */
+.type-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.type-card {
+  border: 1px solid var(--ink); background: var(--paper);
+  padding: 40px 44px;
+}
+.type-card .meta {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding-bottom: 14px; border-bottom: 1px solid var(--ink); margin-bottom: 28px;
+}
+.type-card .meta .k {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.22em; color: var(--muted); text-transform: uppercase;
+}
+.type-card .meta .role { color: var(--blue); }
+.type-card .specimen-l {
+  font-family: 'Newsreader', serif; font-weight: 500;
+  font-size: 100px; line-height: 0.94; letter-spacing: -0.02em;
+}
+.type-card .specimen-l em { font-style: italic; color: var(--blue); }
+.type-card .specimen-s {
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 64px; font-weight: 400; line-height: 1; letter-spacing: -0.025em;
+}
+.type-card .pangram {
+  margin-top: 24px;
+  font-family: 'Newsreader', serif; font-style: italic;
+  font-size: 22px; line-height: 1.3; color: var(--ink-soft);
+}
+.type-card.sans .pangram { font-family: 'Inter Tight', sans-serif; font-style: normal; font-weight: 400; }
+.type-card .glyphs {
+  margin-top: 28px;
+  display: grid; grid-template-columns: repeat(8, 1fr); gap: 6px;
+  border-top: 1px solid var(--rule); padding-top: 18px;
+}
+.type-card .glyphs span {
+  font-family: 'Newsreader', serif;
+  font-size: 22px; text-align: center; padding: 6px 0;
+  color: var(--ink-soft); font-weight: 500;
+}
+.type-card.sans .glyphs span { font-family: 'Inter Tight', sans-serif; font-weight: 400; }
+
+.scale {
+  margin-top: 32px;
+  border: 1px solid var(--ink); background: var(--paper);
+}
+.scale-row {
+  display: grid; grid-template-columns: 90px 110px 1fr 140px;
+  align-items: baseline;
+  padding: 22px 28px;
+  border-bottom: 1px solid var(--rule); gap: 24px;
+}
+.scale-row:last-child { border-bottom: 0; }
+.scale-row .tag, .scale-row .px, .scale-row .role {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.16em; color: var(--muted);
+}
+.scale-row .role { color: var(--blue); text-transform: uppercase; text-align: right; }
+.scale-row .sp {
+  font-family: 'Newsreader', serif; font-weight: 500;
+  letter-spacing: -0.02em; line-height: 1; color: var(--ink);
+}
+.scale-row .sp em { font-style: italic; color: var(--blue); }
+.scale-row .sp.sans { font-family: 'Inter Tight', sans-serif; font-weight: 400; }
+
+/* ============ VOICE / PRINCIPLES ============ */
+.voice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.voice {
+  border: 1px solid var(--ink); background: var(--paper);
+  padding: 36px 32px;
+  min-height: 280px;
+  display: flex; flex-direction: column;
+}
+.voice .num {
+  font-family: 'Newsreader', serif; font-style: italic; font-weight: 500;
+  font-size: 38px; color: var(--blue); margin-bottom: 16px;
+}
+.voice h3 {
+  font-family: 'Newsreader', serif; font-weight: 500;
+  font-size: 28px; line-height: 1.1; margin-bottom: 16px; letter-spacing: -0.01em;
+}
+.voice h3 em { font-style: italic; color: var(--blue); }
+.voice p { color: var(--ink-soft); font-size: 14.5px; line-height: 1.65; }
+
+.dos-donts { margin-top: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.dlist { border: 1px solid var(--ink); background: var(--paper); padding: 32px 36px; }
+.dlist h4 {
+  font-family: 'Newsreader', serif; font-style: italic; font-weight: 500;
+  font-size: 28px; margin-bottom: 18px;
+  padding-bottom: 14px; border-bottom: 1px solid var(--ink);
+}
+.dlist .label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 6px; display: block;
+}
+.dlist.do .label { color: var(--blue); }
+.dlist.dont-list .label { color: var(--red); }
+.dlist ul { list-style: none; }
+.dlist li {
+  padding: 14px 0; border-bottom: 1px solid var(--rule);
+  display: grid; grid-template-columns: 32px 1fr; align-items: baseline;
+  font-size: 14.5px; line-height: 1.6;
+}
+.dlist li:last-child { border-bottom: 0; }
+.dlist li .t { font-family: 'Newsreader', serif; font-style: italic; font-weight: 500; font-size: 18px; }
+.dlist.do li .t { color: var(--blue); }
+.dlist.dont-list li .t { color: var(--red); }
+
+/* ============ MISUSE ============ */
+.dont-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
+.dont {
+  border: 1px solid var(--ink); background: var(--paper); padding: 32px;
+  min-height: 160px; display: grid; place-items: center;
+  position: relative;
+}
+.dont::after {
+  content: ""; position: absolute; top: 14px; right: 14px;
+  width: 18px; height: 18px;
+  background: linear-gradient(45deg, transparent 47%, var(--red) 47%, var(--red) 53%, transparent 53%);
+  border: 1.5px solid var(--red); border-radius: 50%;
+}
+.dont .label {
+  position: absolute; bottom: 14px; left: 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted);
+}
+
+/* ============ SPACING ============ */
+.spacing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.box { border: 1px solid var(--ink); background: var(--paper); padding: 40px; }
+.box h3 {
+  font-family: 'Newsreader', serif; font-weight: 500;
+  font-size: 26px; margin-bottom: 22px; padding-bottom: 14px;
+  border-bottom: 1px solid var(--ink);
+}
+.box h3 em { font-style: italic; color: var(--blue); }
+
+.spacing-stack { display: flex; flex-direction: column; gap: 12px; }
+.spacing-bar {
+  display: grid; grid-template-columns: 60px 1fr 80px;
+  align-items: center; gap: 18px; padding: 8px 0;
+}
+.spacing-bar .k {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; color: var(--muted);
+}
+.spacing-bar .vis { height: 16px; background: var(--blue); }
+.spacing-bar .px {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink); text-align: right;
+}
+
+.rules-stack { display: flex; flex-direction: column; gap: 22px; }
+.rule-row { display: grid; grid-template-columns: 110px 1fr; gap: 16px; align-items: center; }
+.rule-row .k {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted);
+}
+.rule-row .l { height: 1px; }
+.rule-row .l.hair { background: var(--rule); }
+.rule-row .l.thin { background: var(--ink); }
+.rule-row .l.bold { height: 2px; background: var(--ink); }
+.rule-row .l.thick { height: 3px; background: var(--ink); }
+.rule-row .l.blue { height: 4px; background: var(--blue); }
+
+/* ============ COMPONENTS ============ */
+.comp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.comp { border: 1px solid var(--ink); background: var(--paper); padding: 36px 40px; }
+.comp .head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding-bottom: 14px; border-bottom: 1px solid var(--ink); margin-bottom: 28px;
+}
+.comp h3 {
+  font-family: 'Newsreader', serif; font-weight: 500;
+  font-size: 24px; letter-spacing: -0.01em;
+}
+.comp h3 em { font-style: italic; color: var(--blue); }
+.comp .head .k {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.22em; color: var(--muted); text-transform: uppercase;
+}
+
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 22px; background: var(--blue); color: #fff;
+  font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 500;
+}
+.btn-primary .arr { font-family: 'Newsreader', serif; font-style: italic; font-size: 16px; }
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 13px 22px; background: transparent; color: var(--blue);
+  border: 1px solid var(--blue);
+  font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 500;
+}
+.btn-ink {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 22px; background: var(--ink); color: #fff;
+  font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 500;
+}
+.btn-row { display: flex; gap: 14px; flex-wrap: wrap; }
+
+.eyebrow-sample { display: flex; flex-direction: column; gap: 18px; }
+
+.stat-sample {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  border-top: 2px solid var(--blue);
+}
+.stat-sample .s { padding: 20px 16px 16px 0; border-right: 1px solid var(--rule); }
+.stat-sample .s:last-child { border-right: 0; }
+.stat-sample .n {
+  font-family: 'Newsreader', serif; font-weight: 500;
+  font-size: 44px; line-height: 1; letter-spacing: -0.02em;
+}
+.stat-sample .n em { font-style: italic; color: var(--blue); }
+.stat-sample .l {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--muted); margin-top: 10px;
+}
+
+.card-sample { padding: 0; }
+.card-sample .bar {
+  display: flex; align-items: center; gap: 12px;
+  font-family: 'JetBrains Mono', monospace; font-size: 10.5px;
+  letter-spacing: 0.22em; color: var(--blue); text-transform: uppercase;
+  padding-bottom: 14px; border-bottom: 2px solid var(--blue); margin-bottom: 16px;
+}
+.card-sample .bar .nm {
+  background: var(--blue); color: #fff; padding: 3px 8px;
+}
+.card-sample .h {
+  font-family: 'Newsreader', serif; font-weight: 500;
+  font-size: 28px; line-height: 1.1; margin-bottom: 10px; letter-spacing: -0.01em;
+}
+.card-sample .h em { font-style: italic; color: var(--blue); }
+.card-sample p { font-size: 14px; color: var(--ink-soft); line-height: 1.6; }
+
+/* ============ APPLICATIONS ============ */
+.app-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+.app {
+  border: 1px solid var(--ink); background: var(--paper);
+  aspect-ratio: 3 / 4;
+  position: relative; overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.app .label {
+  position: absolute; top: 14px; right: 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted);
+}
+
+/* business card */
+.app.card { padding: 30px; justify-content: space-between; }
+.app.card .top-bar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-bottom: 12px; border-bottom: 2px solid var(--blue); margin-bottom: 18px;
+}
+.app.card .nm {
+  font-family: 'Newsreader', serif; font-weight: 500;
+  font-size: 18px; letter-spacing: -0.01em;
+}
+.app.card .id {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; letter-spacing: 0.22em; color: var(--muted); text-transform: uppercase;
+}
+.app.card .name {
+  font-family: 'Newsreader', serif; font-weight: 500;
+  font-size: 32px; line-height: 1.05; letter-spacing: -0.015em;
+}
+.app.card .name em { font-style: italic; color: var(--blue); }
+.app.card .credentials {
+  margin-top: 8px; font-family: 'Newsreader', serif; font-style: italic;
+  font-size: 15px; color: var(--ink-soft);
+}
+.app.card .info {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--muted); line-height: 2;
+  padding-top: 14px; border-top: 1px solid var(--rule);
+}
+
+/* letterhead */
+.app.letter { background: var(--paper); padding: 0; }
+.app.letter .strip {
+  background: var(--ink); color: #d4d6d8;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
+  padding: 6px 14px; display: flex; justify-content: space-between;
+}
+.app.letter .strip .b { display: inline-flex; align-items: center; gap: 8px; }
+.app.letter .strip .b::before { content: ""; width: 7px; height: 7px; background: var(--blue); }
+.app.letter .head {
+  padding: 22px 24px 14px;
+  border-bottom: 2px solid var(--ink);
+  display: flex; justify-content: space-between; align-items: baseline;
+}
+.app.letter .head .nm {
+  font-family: 'Newsreader', serif; font-weight: 500;
+  font-size: 22px; letter-spacing: -0.01em;
+}
+.app.letter .head .nm em { font-style: italic; color: var(--blue); }
+.app.letter .head .ev {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; letter-spacing: 0.22em; color: var(--muted); text-transform: uppercase;
+}
+.app.letter .body {
+  padding: 22px 24px 14px;
+  font-family: 'Newsreader', serif; font-size: 14px; line-height: 1.55; color: var(--ink-soft);
+  flex: 1;
+}
+.app.letter .body p { margin-bottom: 12px; }
+.app.letter .body em { font-style: italic; color: var(--blue); }
+.app.letter .foot {
+  margin-top: auto; padding: 12px 24px;
+  border-top: 1px solid var(--rule);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; letter-spacing: 0.18em; color: var(--muted); text-transform: uppercase;
+  display: flex; justify-content: space-between;
+}
+
+/* IG post */
+.app.ig {
+  background: var(--paper-off); padding: 30px;
+  justify-content: space-between;
+}
+.app.ig .top {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-bottom: 10px; border-bottom: 2px solid var(--blue); margin-bottom: 14px;
+}
+.app.ig .top .ev {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--blue);
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.app.ig .top .ev::before { content: ""; width: 7px; height: 7px; background: var(--blue); }
+.app.ig .top .nm {
+  font-family: 'Newsreader', serif; font-style: italic; font-size: 14px; color: var(--ink-soft);
+}
+.app.ig .quote {
+  font-family: 'Newsreader', serif; font-weight: 500;
+  font-size: 28px; line-height: 1.18; letter-spacing: -0.01em;
+}
+.app.ig .quote em { font-style: italic; color: var(--blue); }
+.app.ig .attr {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.18em; color: var(--muted); text-transform: uppercase;
+  padding-top: 14px; border-top: 1px solid var(--rule);
+  line-height: 1.8;
+}
+
+/* ============ FOOTER ============ */
+.footer {
+  padding: 80px 0 60px;
+  background: var(--blue); color: #fff;
+}
+.footer .wrap {
+  display: grid; grid-template-columns: 1fr auto;
+  align-items: end; gap: 40px;
+}
+.footer .left {
+  font-family: 'Newsreader', serif; font-weight: 500;
+  font-size: clamp(36px, 5vw, 60px); line-height: 1; letter-spacing: -0.02em;
+}
+.footer .left em { font-style: italic; color: var(--cream); }
+.footer .right {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  text-align: right; line-height: 2;
+}
+.footer .right .swatch { display: inline-flex; align-items: center; gap: 10px; color: #fff; }
+.footer .right .swatch .dot {
+  width: 10px; height: 10px; background: #fff;
+}
+
+@media (max-width: 1024px) {
+  .cover-grid, .logo-grid, .color-grid, .type-grid, .voice-grid, .dos-donts, .spacing-grid, .comp-grid, .app-grid { grid-template-columns: 1fr; }
+  .logo-row, .color-row-2, .dont-grid { grid-template-columns: 1fr 1fr; }
+  .cover-rail { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ COVER ============ -->
+<div class="cover-strip">
+  <div class="b">PMS 2168 C · #254A5D</div>
+  <div>BRAND KIT · DIRECTION II</div>
+  <div>v1.0 · MAY 2026</div>
+</div>
+
+<section class="cover">
+  <div class="wrap">
+    <div class="cover-head">
+      <div class="logo">
+        <div class="mk">P</div>
+        <div class="t">
+          <div class="top">Premier Limb Lengthening</div>
+          <div class="bot">A Premier Orthopaedic &amp; Trauma Clinic</div>
+        </div>
+      </div>
+      <div class="center">
+        <div>The Identity Dossier</div>
+        <div class="v">№ 02</div>
+      </div>
+      <div class="right">
+        <div>Issued · May 2026</div>
+        <div>Pomona, California</div>
+        <div>Confidential</div>
+      </div>
+    </div>
+
+    <div class="cover-grid">
+      <div class="cover-rail">§ 00 — Identity Dossier · The Brand System</div>
+      <div>
+        <div class="eyebrow">Brand Kit · Direction II</div>
+        <h1 class="cover-title" style="margin-top: 24px;">The <em>Dossier.</em></h1>
+        <p class="cover-deck">An editorial, evidence-based identity for the limb lengthening surgeon trusted by patients who have already done their research.</p>
+      </div>
+      <aside class="cover-side">
+        <div class="item">
+          <div class="k">Direction</div>
+          <div class="v">Editorial <em>Clinical</em></div>
+        </div>
+        <div class="item">
+          <div class="k">Spine Color</div>
+          <div class="v"><em>Premier Blue</em> · 2168 C</div>
+        </div>
+        <div class="item">
+          <div class="k">Display Type</div>
+          <div class="v"><em>Newsreader</em></div>
+        </div>
+        <div class="item">
+          <div class="k">Issued</div>
+          <div class="v">May <em>2026</em></div>
+        </div>
+
+        <div class="cover-toc">
+          <div class="t"><span>The Mark</span><span class="n">§ 01</span></div>
+          <div class="t"><span>Color</span><span class="n">§ 02</span></div>
+          <div class="t"><span>Typography</span><span class="n">§ 03</span></div>
+          <div class="t"><span>Voice</span><span class="n">§ 04</span></div>
+          <div class="t"><span>Layout</span><span class="n">§ 05</span></div>
+          <div class="t"><span>Components</span><span class="n">§ 06</span></div>
+          <div class="t"><span>Applications</span><span class="n">§ 07</span></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 01 — LOGO ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="no">01</div>
+      <h2>The <em>mark.</em></h2>
+      <div class="lbl">§ 01 · Identity</div>
+    </div>
+
+    <div class="logo-grid">
+      <div class="logo-tile">
+        <span class="tag">Primary Lockup</span>
+        <div class="lockup">
+          <div class="mk">P</div>
+          <div class="text">
+            <div class="top">Premier Limb Lengthening</div>
+            <div class="bottom">A Premier Orthopaedic &amp; Trauma Clinic</div>
+          </div>
+        </div>
+        <span class="dim">600 × 84 px · clear-space 1×P</span>
+      </div>
+      <div class="logo-tile blue">
+        <span class="tag">Reverse · Premier Blue</span>
+        <div class="lockup">
+          <div class="mk">P</div>
+          <div class="text">
+            <div class="top">Premier Limb Lengthening</div>
+            <div class="bottom">A Premier Orthopaedic &amp; Trauma Clinic</div>
+          </div>
+        </div>
+        <span class="dim">Default for collateral</span>
+      </div>
+    </div>
+
+    <div class="logo-row">
+      <div class="logo-tile cream">
+        <span class="tag">Stacked</span>
+        <div class="lockup stack">
+          <div class="mk">P</div>
+          <div class="text" style="text-align: center;">
+            <div class="top">Premier <em style="font-style: italic; color: var(--blue);">Limb Lengthening</em></div>
+            <div class="bottom">Pomona, CA</div>
+          </div>
+        </div>
+        <span class="dim">Square surfaces</span>
+      </div>
+      <div class="logo-tile dark">
+        <span class="tag">Reverse · Ink</span>
+        <div class="lockup small">
+          <div class="mk">P</div>
+          <div class="text">
+            <div class="top">Premier Limb Lengthening</div>
+            <div class="bottom">Pomona, CA</div>
+          </div>
+        </div>
+        <span class="dim">For dark grounds</span>
+      </div>
+      <div class="logo-tile">
+        <span class="tag">Monogram</span>
+        <div style="width: 100px; height: 100px; background: var(--blue); color: #fff; display: grid; place-items: center; font-family: 'Newsreader', serif; font-style: italic; font-weight: 500; font-size: 60px; padding-bottom: 6px;">P</div>
+        <span class="dim">Avatar · favicon · seal</span>
+      </div>
+      <div class="logo-tile">
+        <span class="tag">Wordmark · Editorial</span>
+        <div style="font-family: 'Newsreader', serif; font-weight: 500; font-size: 30px; line-height: 1; letter-spacing: -0.01em; text-align: center;">Premier <em style="font-style: italic; color: var(--blue);">Limb Lengthening</em></div>
+        <span class="dim">Mastheads · folios</span>
+      </div>
+    </div>
+
+    <h3 style="font-family: 'Newsreader', serif; font-weight: 500; font-size: 28px; margin-top: 56px; margin-bottom: 8px;">Misuse</h3>
+    <p style="color: var(--muted); margin-bottom: 24px; font-size: 14px;">The mark depends on the blue spine, the hard rule, and exact proportions. These violations break the system.</p>
+    <div class="dont-grid">
+      <div class="dont">
+        <div class="lockup small">
+          <div class="mk" style="background: #c5a05e;">P</div>
+          <div class="text">
+            <div class="top">Premier Limb Lengthening</div>
+            <div class="bottom">Endorsement line</div>
+          </div>
+        </div>
+        <span class="label">Do not change the spine color</span>
+      </div>
+      <div class="dont">
+        <div class="lockup small">
+          <div class="mk" style="border-radius: 50%;">P</div>
+          <div class="text">
+            <div class="top">Premier Limb Lengthening</div>
+            <div class="bottom">Endorsement line</div>
+          </div>
+        </div>
+        <span class="label">Do not round the mark</span>
+      </div>
+      <div class="dont">
+        <div class="lockup small" style="transform: scaleX(0.7);">
+          <div class="mk">P</div>
+          <div class="text">
+            <div class="top">Premier Limb Lengthening</div>
+            <div class="bottom">Endorsement line</div>
+          </div>
+        </div>
+        <span class="label">Do not stretch</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 — COLOR ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="no">02</div>
+      <h2>The <em>palette.</em></h2>
+      <div class="lbl">§ 02 · Color</div>
+    </div>
+
+    <div class="color-grid">
+      <div class="swatch blue">
+        <div class="chip">
+          <div class="role">Spine · Primary</div>
+          <div class="name">Premier <em>Blue</em></div>
+        </div>
+        <div class="meta">
+          <div class="k">HEX</div><div class="v">#254A5D</div>
+          <div class="k">RGB</div><div class="v">37 · 74 · 93</div>
+          <div class="k">CMYK</div><div class="v">85 / 60 / 40 / 25</div>
+          <div class="k">Pantone</div><div class="v">2168 C</div>
+        </div>
+      </div>
+      <div class="swatch ink">
+        <div class="chip">
+          <div class="role">Foundation · Type</div>
+          <div class="name"><em>Ink</em></div>
+        </div>
+        <div class="meta">
+          <div class="k">HEX</div><div class="v">#0F1417</div>
+          <div class="k">RGB</div><div class="v">15 · 20 · 23</div>
+          <div class="k">CMYK</div><div class="v">35 / 0 / 0 / 91</div>
+          <div class="k">Pantone</div><div class="v">426 C</div>
+        </div>
+      </div>
+      <div class="swatch paperoff">
+        <div class="chip">
+          <div class="role">Foundation · Ground</div>
+          <div class="name"><em>Newsprint</em></div>
+        </div>
+        <div class="meta">
+          <div class="k">HEX</div><div class="v">#F8F6F1</div>
+          <div class="k">RGB</div><div class="v">248 · 246 · 241</div>
+          <div class="k">CMYK</div><div class="v">2 / 2 / 5 / 0</div>
+          <div class="k">Pantone</div><div class="v">11-0507 TCX</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="color-row-2">
+      <div class="swatch paper">
+        <div class="chip">
+          <div class="role">Surface · Pure</div>
+          <div class="name"><em>Paper</em></div>
+        </div>
+        <div class="meta">
+          <div class="k">HEX</div><div class="v">#FFFFFF</div>
+          <div class="k">Use</div><div class="v">Cards</div>
+        </div>
+      </div>
+      <div class="swatch cream">
+        <div class="chip">
+          <div class="role">Surface · Warm</div>
+          <div class="name"><em>Cream</em></div>
+        </div>
+        <div class="meta">
+          <div class="k">HEX</div><div class="v">#F4F0E6</div>
+          <div class="k">Use</div><div class="v">Quiet panels</div>
+        </div>
+      </div>
+      <div class="swatch bluewash">
+        <div class="chip">
+          <div class="role">Wash · Pull-out</div>
+          <div class="name"><em>Blue Wash</em></div>
+        </div>
+        <div class="meta">
+          <div class="k">HEX</div><div class="v">#EAF0F3</div>
+          <div class="k">Use</div><div class="v">Sidebars</div>
+        </div>
+      </div>
+      <div class="swatch bluedeep">
+        <div class="chip">
+          <div class="role">Hover · Press</div>
+          <div class="name"><em>Blue Deep</em></div>
+        </div>
+        <div class="meta">
+          <div class="k">HEX</div><div class="v">#18323F</div>
+          <div class="k">Use</div><div class="v">States</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accent-row">
+      <div class="swatch gold">
+        <div class="chip">
+          <div class="role">Accent · Punctuation</div>
+          <div class="name">Editorial <em>Gold</em></div>
+        </div>
+        <div class="meta">
+          <div class="k">HEX</div><div class="v">#F4D88A</div>
+          <div class="k">RGB</div><div class="v">244 · 216 · 138</div>
+          <div class="k">CMYK</div><div class="v">5 / 12 / 50 / 0</div>
+          <div class="k">Pantone</div><div class="v">7401 C</div>
+        </div>
+      </div>
+      <div class="swatch goldsoft">
+        <div class="chip">
+          <div class="role">Tint · Highlight</div>
+          <div class="name"><em>Gold Soft</em></div>
+        </div>
+        <div class="meta">
+          <div class="k">HEX</div><div class="v">#F8E4AC</div>
+          <div class="k">Use</div><div class="v">Wash</div>
+        </div>
+      </div>
+      <div class="swatch golddeep">
+        <div class="chip">
+          <div class="role">Press · Hover</div>
+          <div class="name"><em>Gold Deep</em></div>
+        </div>
+        <div class="meta">
+          <div class="k">HEX</div><div class="v">#C79F3C</div>
+          <div class="k">Use</div><div class="v">States</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="color-note">
+      <span class="k">Use Discipline · 60 · 30 · 8 · 2</span>
+      Sixty percent newsprint or paper ground. Thirty percent ink for type and rules. Eight percent <em>Premier Blue</em> as the structural spine — eyebrows, key data, the primary CTA. Two percent <em>Editorial Gold</em> as punctuation, reserved for moments that earn it: the highlighted word in a deck headline, the lead numeral in a stat, the single CTA on a dark section. Gold is jewelry, not paint.
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02b — INDEX MARKER ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="no">02·b</div>
+      <h2>The <em>index marker.</em></h2>
+      <div class="lbl">§ 02b · Spec</div>
+    </div>
+
+    <p style="font-size: 15.5px; line-height: 1.7; color: var(--ink-soft); max-width: 68ch; margin: -8px 0 32px;">
+      Pillars, list rows, candidate items, plate captions, and section headers are marked with <strong>italic serif Arabic numerals</strong>, zero-padded to two digits. The numeral takes <em>Premier Blue</em>; the row content takes <em>Ink</em>. The lowercase Roman numerals (<em>i, ii, iii…</em>) are retired — they're fussy past <em>iv</em> and don't scale.
+    </p>
+
+    <div class="markers-grid" style="grid-template-columns: 1fr;">
+      <div class="marker-card" style="border-right: 0; border-bottom: 0;">
+        <div class="opt">Standard · Editorial Numerals</div>
+        <h4>Italic serif Arabic numerals, zero-padded.</h4>
+        <div class="desc">Newsreader italic at 28px for primary list markers (candidate items, concierge rows, plate captions). Scales down to 22px for trust strips and 20px for inline tags. Always in <em>Premier Blue</em>. Numbers above 99 fall back to three-digit padding (<em>100, 101</em>).</div>
+        <div>
+          <div class="marker-row"><span class="mk arabic-serif">01</span><span class="tx">Generally healthy adults aged 18–55.</span></div>
+          <div class="marker-row"><span class="mk arabic-serif">02</span><span class="tx">Non-smoker or willing to quit 6 weeks before surgery.</span></div>
+          <div class="marker-row"><span class="mk arabic-serif">03</span><span class="tx">BMI under 35 (ideal under 30).</span></div>
+          <div class="marker-row"><span class="mk arabic-serif">04</span><span class="tx">No active bone disease or uncontrolled diabetes.</span></div>
+          <div class="marker-row"><span class="mk arabic-serif">05</span><span class="tx">Able to commit to 3–6 months of recovery and physical therapy.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="color-note" style="margin-top: 32px;">
+      <span class="k">Do · Don't</span>
+      <strong>Do</strong> zero-pad single digits (<em>01, 02</em>) for editorial rhythm. <strong>Do</strong> keep numerals in italic Newsreader and Premier Blue. <strong>Don't</strong> mix with lowercase Roman numerals — they're retired. <strong>Don't</strong> use the marker as decoration; if a list has no inherent order, drop it.
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 — TYPE ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="no">03</div>
+      <h2>The <em>type.</em></h2>
+      <div class="lbl">§ 03 · Typography</div>
+    </div>
+
+    <div class="type-grid">
+      <div class="type-card">
+        <div class="meta">
+          <div class="k">Display · Editorial</div>
+          <div class="k role">Newsreader · 400/500</div>
+        </div>
+        <div class="specimen-l">Aa <em>Aa</em></div>
+        <div class="pangram">Confidence you can <em style="color: var(--blue);">stand</em> behind.</div>
+        <div class="glyphs">
+          <span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span>
+          <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+        </div>
+      </div>
+      <div class="type-card sans">
+        <div class="meta">
+          <div class="k">Text · Functional</div>
+          <div class="k role">Inter Tight · 300–600</div>
+        </div>
+        <div class="specimen-s">Aa Aa</div>
+        <div class="pangram">Body, navigation, eyebrows, captions, controls.</div>
+        <div class="glyphs">
+          <span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span>
+          <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="scale">
+      <div class="scale-row">
+        <div class="tag">D-XL</div>
+        <div class="px">120 / 0.92 · serif</div>
+        <div class="sp" style="font-size: 86px;">Editorial <em>Display</em></div>
+        <div class="role">Hero · cover</div>
+      </div>
+      <div class="scale-row">
+        <div class="tag">D-L</div>
+        <div class="px">76 / 0.96 · serif</div>
+        <div class="sp" style="font-size: 56px;">Section <em>Title</em></div>
+        <div class="role">Section heads</div>
+      </div>
+      <div class="scale-row">
+        <div class="tag">D-M</div>
+        <div class="px">36 / 1.15 · serif italic</div>
+        <div class="sp" style="font-size: 32px;">Subhead Italic <em>Voice</em></div>
+        <div class="role">Pull quotes</div>
+      </div>
+      <div class="scale-row">
+        <div class="tag">T-L</div>
+        <div class="px">16 / 1.6 · sans</div>
+        <div class="sp sans" style="font-size: 16px;">Body — long-form reading copy. Inter Tight, 16 / 1.6.</div>
+        <div class="role">Paragraphs</div>
+      </div>
+      <div class="scale-row">
+        <div class="tag">T-S</div>
+        <div class="px">13 / 1.55 · sans</div>
+        <div class="sp sans" style="font-size: 13px;">Caption · meta · navigation links.</div>
+        <div class="role">UI</div>
+      </div>
+      <div class="scale-row">
+        <div class="tag">EB</div>
+        <div class="px">11 / 0.2em · mono</div>
+        <div class="sp sans" style="font-size: 11px; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.2em; text-transform: uppercase; color: var(--blue);">— Eyebrow · Section Label</div>
+        <div class="role">Labels</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 — VOICE ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="no">04</div>
+      <h2>The <em>voice.</em></h2>
+      <div class="lbl">§ 04 · Tone</div>
+    </div>
+
+    <div class="voice-grid">
+      <div class="voice">
+        <div class="num">01</div>
+        <h3><em>Editorial,</em> not promotional.</h3>
+        <p>We write like a periodical, not a brochure. Decks, captions, datelines, foliage. The reader is treated as an intelligent adult, not a customer to be persuaded.</p>
+      </div>
+      <div class="voice">
+        <div class="num">02</div>
+        <h3><em>Evidenced,</em> not asserted.</h3>
+        <p>Every claim earns its place with a number, a credential, or a named patient. "Hundreds of procedures." "Pomona Valley Hospital." "Marcus T., San Francisco." Specificity is the proof.</p>
+      </div>
+      <div class="voice">
+        <div class="num">03</div>
+        <h3><em>Direct,</em> not theatrical.</h3>
+        <p>Short sentences. Active voice. No hedging, no superlatives, no urgency theatre. The Premier blue speaks volume; the language stays measured.</p>
+      </div>
+    </div>
+
+    <div class="dos-donts">
+      <div class="dlist do">
+        <h4><em>Say</em> this</h4>
+        <span class="label">Aligned with the voice</span>
+        <ul>
+          <li><span class="t">01</span><span>"Confidence you can stand behind."</span></li>
+          <li><span class="t">02</span><span>"Hundreds of procedures performed."</span></li>
+          <li><span class="t">03</span><span>"Cases other surgeons won't take on."</span></li>
+          <li><span class="t">04</span><span>"Confidential consultation."</span></li>
+          <li><span class="t">05</span><span>"Results are permanent."</span></li>
+        </ul>
+      </div>
+      <div class="dlist dont-list">
+        <h4><em>Never</em> this</h4>
+        <span class="label">Breaks the voice</span>
+        <ul>
+          <li><span class="t">01</span><span>"World-class!" / unsubstantiated superlatives</span></li>
+          <li><span class="t">02</span><span>"Transform your life today!" / urgency theatre</span></li>
+          <li><span class="t">03</span><span>"#1 surgeon in California" / unverifiable claims</span></li>
+          <li><span class="t">04</span><span>"Limited time offer!" / discounts cheapen the brand</span></li>
+          <li><span class="t">05</span><span>Emoji. Exclamation marks. Hashtags. ALL CAPS sentences.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 05 — SPACING ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="no">05</div>
+      <h2>Space &amp; <em>rules.</em></h2>
+      <div class="lbl">§ 05 · Layout</div>
+    </div>
+
+    <div class="spacing-grid">
+      <div class="box">
+        <h3>Spacing <em>scale</em></h3>
+        <div class="spacing-stack">
+          <div class="spacing-bar"><div class="k">XS</div><div class="vis" style="width: 4%;"></div><div class="px">8 px</div></div>
+          <div class="spacing-bar"><div class="k">S</div><div class="vis" style="width: 8%;"></div><div class="px">16 px</div></div>
+          <div class="spacing-bar"><div class="k">M</div><div class="vis" style="width: 14%;"></div><div class="px">24 px</div></div>
+          <div class="spacing-bar"><div class="k">L</div><div class="vis" style="width: 24%;"></div><div class="px">40 px</div></div>
+          <div class="spacing-bar"><div class="k">XL</div><div class="vis" style="width: 36%;"></div><div class="px">64 px</div></div>
+          <div class="spacing-bar"><div class="k">2XL</div><div class="vis" style="width: 56%;"></div><div class="px">96 px</div></div>
+          <div class="spacing-bar"><div class="k">3XL</div><div class="vis" style="width: 80%;"></div><div class="px">160 px</div></div>
+        </div>
+      </div>
+      <div class="box">
+        <h3>Rules &amp; <em>dividers</em></h3>
+        <div class="rules-stack">
+          <div class="rule-row"><div class="k">Hairline</div><div class="l hair"></div></div>
+          <div class="rule-row"><div class="k">Default</div><div class="l thin"></div></div>
+          <div class="rule-row"><div class="k">Section</div><div class="l bold"></div></div>
+          <div class="rule-row"><div class="k">Masthead</div><div class="l thick"></div></div>
+          <div class="rule-row"><div class="k">Spine</div><div class="l blue"></div></div>
+        </div>
+        <h3 style="margin-top: 40px;">Grid &amp; <em>margins</em></h3>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; font-family: 'JetBrains Mono', monospace; font-size: 12px;">
+          <div style="padding: 14px; border: 1px solid var(--ink);"><div style="color: var(--muted); font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 6px;">Container</div>1320 px max</div>
+          <div style="padding: 14px; border: 1px solid var(--ink);"><div style="color: var(--muted); font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 6px;">Gutter</div>48 px desktop</div>
+          <div style="padding: 14px; border: 1px solid var(--ink);"><div style="color: var(--muted); font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 6px;">Columns</div>12-col magazine grid</div>
+          <div style="padding: 14px; border: 1px solid var(--ink);"><div style="color: var(--muted); font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 6px;">Section padding</div>96–150 px vertical</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 06 — COMPONENTS ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="no">06</div>
+      <h2><em>Components.</em></h2>
+      <div class="lbl">§ 06 · UI</div>
+    </div>
+
+    <div class="comp-grid">
+      <div class="comp">
+        <div class="head"><h3>Buttons</h3><div class="k">Three states</div></div>
+        <div class="btn-row">
+          <a class="btn-primary">Schedule Consultation <span class="arr">→</span></a>
+          <a class="btn-ghost">View Pricing →</a>
+          <a class="btn-ink">Ink Variant →</a>
+        </div>
+      </div>
+      <div class="comp">
+        <div class="head"><h3>Eyebrows</h3><div class="k">Section labels</div></div>
+        <div class="eyebrow-sample">
+          <div class="eyebrow">Why Premier · § 01</div>
+          <div class="eyebrow">The Process · § 04</div>
+          <div class="eyebrow">Patient Stories · § 08</div>
+        </div>
+      </div>
+      <div class="comp">
+        <div class="head"><h3>Stats</h3><div class="k">Numerical proof</div></div>
+        <div class="stat-sample">
+          <div class="s"><div class="n"><em>100s</em></div><div class="l">Procedures</div></div>
+          <div class="s"><div class="n">17+</div><div class="l">Surgeon Group</div></div>
+          <div class="s"><div class="n"><em>3–6</em>″</div><div class="l">Height Gain</div></div>
+        </div>
+      </div>
+      <div class="comp">
+        <div class="head"><h3>Card</h3><div class="k">List item</div></div>
+        <div class="card-sample">
+          <div class="bar"><span class="nm">№ 01</span><span>Pillar</span></div>
+          <div class="h">Surgical <em>Expertise</em></div>
+          <p>Hundreds of limb lengthening procedures performed in trauma, cosmetic, and revisional settings by Dr. Hrayr Basmajian.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 07 — APPLICATIONS ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="no">07</div>
+      <h2>In <em>application.</em></h2>
+      <div class="lbl">§ 07 · Applications</div>
+    </div>
+
+    <div class="app-grid">
+      <div class="app card">
+        <span class="label">Card</span>
+        <div class="top-bar">
+          <div class="nm">Premier <em style="font-style: italic; color: var(--blue);">LL</em></div>
+          <div class="id">N° 0142</div>
+        </div>
+        <div>
+          <div class="name">Dr. Hrayr<br><em>Basmajian.</em></div>
+          <div class="credentials">Orthopaedic Trauma Surgeon</div>
+        </div>
+        <div class="info">
+          1798 N. Garey Ave · Pomona<br>
+          (909) 461-4984<br>
+          premierlimblengthening.com
+        </div>
+      </div>
+
+      <div class="app letter">
+        <span class="label">Letter</span>
+        <div class="strip">
+          <div class="b">PMS 2168 C</div>
+          <div>N° 0142</div>
+        </div>
+        <div class="head">
+          <div class="nm">Premier <em>Limb Lengthening</em></div>
+          <div class="ev">Confidential</div>
+        </div>
+        <div class="body">
+          <p>Dear M—,</p>
+          <p>Thank you for your inquiry. We have reviewed your imaging and history. Dr. Basmajian would be glad to schedule a confidential consultation to discuss your <em>candidacy</em>.</p>
+          <p>Enclosed: our concierge program brochure and a preliminary itinerary for your consideration.</p>
+          <p style="margin-top: 16px;">With consideration,</p>
+          <p style="font-family: 'Newsreader', serif; font-style: italic; font-weight: 500; font-size: 17px;">The Patient Coordinator</p>
+        </div>
+        <div class="foot">
+          <span>Pomona · CA</span>
+          <span>04 · 2026</span>
+        </div>
+      </div>
+
+      <div class="app ig">
+        <span class="label">Instagram</span>
+        <div class="top">
+          <div class="ev">Patient Story · 03</div>
+          <div class="nm"><em>Marcus T.</em></div>
+        </div>
+        <div class="quote">"His honesty about what to expect — <em>including the hard parts</em> — is what convinced me."</div>
+        <div class="attr">
+          <div>Software Engineer</div>
+          <div>San Francisco · 2026</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="left">Premier Limb<br>Lengthening — <em>The Dossier.</em></div>
+    <div class="right">
+      <div class="swatch"><span class="dot"></span>Pantone 2168 C · #254A5D</div>
+      <div>Brand Kit · Direction 02 · v1.0</div>
+      <div>Issued May 2026</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

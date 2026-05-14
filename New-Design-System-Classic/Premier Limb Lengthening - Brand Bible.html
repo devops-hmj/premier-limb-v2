@@ -1,0 +1,1881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premier Limb Lengthening — Brand Bible · v2.0</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500;1,6..72,600&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue:       #254A5D;
+  --blue-deep:  #18323f;
+  --blue-wash:  #eaf0f3;
+  --blue-tint:  #f3f6f8;
+  --ink:        #0f1417;
+  --ink-soft:   #3a4047;
+  --paper:      #ffffff;
+  --paper-off:  #f8f6f1;
+  --paper-2:    #ece8de;
+  --rule:       #d9d5c9;
+  --muted:      #4d5258;
+  --cream:      #f4f0e6;
+  --gold:       #f4d88a;
+  --gold-soft:  #f8e4ac;
+  --gold-deep:  #c79f3c;
+  --red:        #B03A3A;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter Tight', -apple-system, sans-serif;
+  background: var(--paper-off);
+  color: var(--ink);
+  font-size: 15px; line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+.serif { font-family: 'Newsreader', serif; font-weight: 400; }
+.mono { font-family: 'JetBrains Mono', monospace; }
+a { color: inherit; text-decoration: none; }
+
+.wrap { max-width: 1320px; margin: 0 auto; padding: 0 48px; }
+.eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--blue); font-weight: 500;
+  display: inline-flex; align-items: center; gap: 12px;
+}
+.eyebrow::before { content: ""; width: 22px; height: 1px; background: var(--blue); }
+
+/* ============ MASTHEAD ============ */
+.cover-strip {
+  background: var(--ink); color: #d4d6d8;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase;
+  display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  padding: 10px 48px;
+}
+.cover-strip .b { display: inline-flex; align-items: center; gap: 10px; }
+.cover-strip .b::before { content: ""; width: 10px; height: 10px; background: var(--blue); }
+
+.cover {
+  border-bottom: 3px solid var(--ink);
+  background: var(--paper-off);
+  padding: 48px 0 88px;
+  position: relative;
+}
+.cover-head {
+  display: grid; grid-template-columns: auto 1fr auto;
+  gap: 40px; align-items: center;
+  padding-bottom: 28px;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 72px;
+}
+.logo { display: flex; align-items: center; gap: 18px; }
+.logo .mk {
+  width: 56px; height: 56px;
+  background: var(--blue); color: #fff;
+  display: grid; place-items: center;
+  font-family: 'Newsreader', serif; font-style: italic; font-weight: 500;
+  font-size: 32px; padding-bottom: 4px;
+}
+.logo .t { line-height: 1.05; }
+.logo .t .top {
+  font-family: 'Newsreader', serif;
+  font-size: 28px; font-weight: 500; letter-spacing: -0.01em;
+}
+.logo .t .bot {
+  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--muted); margin-top: 4px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.cover-head .center {
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.28em; color: var(--muted); text-transform: uppercase;
+}
+.cover-head .center .v {
+  display: inline-block; background: var(--blue); color: #fff;
+  padding: 4px 12px; letter-spacing: 0.2em; margin-top: 6px;
+}
+.cover-head .right {
+  text-align: right; font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.18em; color: var(--muted);
+  text-transform: uppercase; line-height: 1.9;
+}
+
+.cover-grid {
+  display: grid; grid-template-columns: 70px 1fr 380px;
+  gap: 48px;
+}
+.cover-rail {
+  border-top: 1px solid var(--ink);
+  padding-top: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.22em;
+  color: var(--muted);
+  writing-mode: vertical-rl;
+  text-transform: uppercase;
+}
+.cover-title {
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  font-size: clamp(72px, 10vw, 152px);
+  line-height: 0.9;
+  letter-spacing: -0.025em;
+}
+.cover-title em { font-style: italic; color: var(--blue); }
+.cover-deck {
+  margin-top: 32px;
+  font-family: 'Newsreader', serif;
+  font-style: italic; font-weight: 400;
+  font-size: clamp(20px, 2.2vw, 28px);
+  line-height: 1.35; max-width: 40ch;
+  color: var(--ink-soft);
+  padding-top: 28px; border-top: 1px solid var(--ink);
+}
+.cover-side {
+  border-left: 1px solid var(--ink);
+  padding-left: 28px;
+  display: flex; flex-direction: column; gap: 22px;
+  font-size: 13px;
+}
+.cover-side .item {
+  display: grid; gap: 4px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--rule);
+}
+.cover-side .item:last-of-type { border-bottom: 0; padding-bottom: 0; }
+.cover-side .item .k {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.22em; color: var(--muted); text-transform: uppercase;
+}
+.cover-side .item .v {
+  font-family: 'Newsreader', serif; font-size: 22px; line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+.cover-side .item .v em { font-style: italic; color: var(--blue); }
+
+/* ============ TABLE OF CONTENTS ============ */
+.toc { background: var(--paper); padding: 96px 0; border-bottom: 1px solid var(--rule); }
+.toc h2 {
+  font-family: 'Newsreader', serif; font-weight: 500;
+  font-size: clamp(40px, 5.6vw, 76px);
+  line-height: 0.96; letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+.toc h2 em { font-style: italic; color: var(--blue); }
+.toc-head {
+  display: grid; grid-template-columns: 1fr auto;
+  gap: 28px; align-items: end;
+  padding-bottom: 24px; margin-bottom: 56px;
+  border-bottom: 2px solid var(--ink);
+}
+.toc-head .lbl {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.22em; color: var(--muted); text-transform: uppercase;
+}
+.toc-grid {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px 56px;
+}
+.toc-item {
+  display: grid; grid-template-columns: 36px 1fr auto;
+  align-items: baseline; gap: 16px;
+  padding: 14px 0; border-top: 1px solid var(--rule);
+  font-size: 14px;
+}
+.toc-item .n {
+  font-family: 'Newsreader', serif; font-style: italic; font-weight: 500;
+  color: var(--blue); font-size: 18px;
+}
+.toc-item .t {
+  font-family: 'Newsreader', serif; font-size: 17px; font-weight: 500;
+  letter-spacing: -0.005em;
+}
+.toc-item .pg {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.22em; color: var(--muted); text-transform: uppercase;
+}
+
+/* ============ SECTION ============ */
+.section { padding: 110px 0; border-bottom: 1px solid var(--rule); }
+.section.paper { background: var(--paper); }
+.section.cream { background: var(--cream); }
+.section.dark { background: var(--ink); color: #e5e7e9; border-bottom: 0; }
+.section.dark .eyebrow { color: var(--gold); }
+.section.dark .eyebrow::before { background: var(--gold); }
+.section.blue { background: var(--blue); color: #fff; border-bottom: 0; }
+.section.blue .eyebrow { color: var(--gold); }
+.section.blue .eyebrow::before { background: var(--gold); }
+
+.section-head {
+  display: grid; grid-template-columns: 90px 1fr auto;
+  gap: 28px; align-items: end;
+  padding-bottom: 24px; margin-bottom: 56px;
+  border-bottom: 2px solid var(--ink);
+}
+.section.dark .section-head,
+.section.blue .section-head { border-color: var(--gold); }
+.section-head .no {
+  font-family: 'Newsreader', serif;
+  font-style: italic; font-weight: 500;
+  font-size: 62px; line-height: 0.9; color: var(--blue);
+}
+.section.dark .section-head .no,
+.section.blue .section-head .no { color: var(--gold); }
+.section-head h2 {
+  font-family: 'Newsreader', serif; font-weight: 500;
+  font-size: clamp(40px, 5.4vw, 76px);
+  line-height: 0.96; letter-spacing: -0.02em;
+}
+.section-head h2 em { font-style: italic; color: var(--blue); }
+.section.dark .section-head h2,
+.section.blue .section-head h2 { color: #fff; }
+.section.dark .section-head h2 em,
+.section.blue .section-head h2 em { color: var(--gold); }
+.section-head .lbl {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.22em; color: var(--muted); text-transform: uppercase;
+  text-align: right;
+}
+.section.dark .section-head .lbl,
+.section.blue .section-head .lbl { color: rgba(255,255,255,0.92); }
+
+.section-deck {
+  font-family: 'Newsreader', serif; font-style: italic;
+  font-size: clamp(22px, 2.2vw, 28px); line-height: 1.35;
+  color: var(--ink-soft);
+  max-width: 56ch; margin-bottom: 56px;
+  padding-left: 24px; border-left: 3px solid var(--blue);
+}
+.section.dark .section-deck { color: #c8ccd0; border-color: var(--gold); }
+.section.blue .section-deck { color: rgba(255,255,255,0.92); border-color: var(--gold); }
+
+h3.sub {
+  font-family: 'Newsreader', serif; font-weight: 500;
+  font-size: 30px; letter-spacing: -0.01em;
+  margin: 56px 0 8px;
+}
+h3.sub.first { margin-top: 0; }
+h3.sub em { font-style: italic; color: var(--blue); }
+.section.dark h3.sub em,
+.section.blue h3.sub em { color: var(--gold); }
+
+p.lede {
+  font-family: 'Newsreader', serif;
+  font-size: 22px; line-height: 1.5; color: var(--ink-soft);
+  max-width: 70ch; margin-top: 14px;
+}
+p.lede em { font-style: italic; color: var(--blue); }
+.section.dark p.lede { color: #dde0e3; }
+.section.dark p.lede em { color: var(--gold); }
+p.body {
+  max-width: 68ch; color: var(--ink-soft); margin-top: 16px;
+  font-size: 15px; line-height: 1.7;
+}
+.section.dark p.body { color: #d6dadd; }
+.section.dark p.body em { color: var(--gold); font-style: italic; }
+
+/* ============ GRIDS ============ */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+
+/* ============ CARDS ============ */
+.card {
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  padding: 36px;
+  display: flex; flex-direction: column;
+}
+.card .num {
+  font-family: 'Newsreader', serif; font-style: italic; font-weight: 500;
+  font-size: 32px; line-height: 1; color: var(--blue); margin-bottom: 14px;
+}
+.card .label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.22em; color: var(--blue); text-transform: uppercase;
+  margin-bottom: 14px;
+  display: inline-flex; align-items: center; gap: 10px;
+}
+.card .label::before { content: ""; width: 8px; height: 8px; background: var(--gold); }
+.card h4 {
+  font-family: 'Newsreader', serif; font-weight: 500;
+  font-size: 26px; line-height: 1.15; letter-spacing: -0.01em;
+  margin-bottom: 12px;
+}
+.card h4 em { font-style: italic; color: var(--blue); }
+.card p {
+  font-size: 14.5px; line-height: 1.65; color: var(--ink-soft);
+}
+.section.dark .card {
+  background: rgba(255,255,255,0.03);
+  border-color: rgba(255,255,255,0.18);
+  color: #e5e7e9;
+}
+.section.dark .card h4 { color: #fff; }
+.section.dark .card h4 em { color: var(--gold); }
+.section.dark .card p { color: #d6dadd; }
+.section.dark .card .num { color: var(--gold); }
+.section.dark .card .label { color: var(--gold); }
+.section.dark .card .label::before { background: #fff; }
+.section.blue .card {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.25);
+  color: #fff;
+}
+.section.blue .card h4 { color: #fff; }
+.section.blue .card h4 em { color: var(--gold); }
+.section.blue .card p { color: rgba(255,255,255,0.92); }
+.section.blue .card .num,
+.section.blue .card .label { color: var(--gold); }
+.section.blue .card .label::before { background: #fff; }
+
+/* ============ PILLAR (large card) ============ */
+.pillar {
+  background: var(--paper); border: 1px solid var(--ink);
+  padding: 40px; display: flex; flex-direction: column;
+}
+.pillar .head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding-bottom: 12px; border-bottom: 1px solid var(--ink); margin-bottom: 20px;
+}
+.pillar .nm {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.22em; color: var(--blue); text-transform: uppercase;
+  background: var(--gold); padding: 4px 10px;
+}
+.pillar .seq {
+  font-family: 'Newsreader', serif; font-style: italic; font-weight: 500;
+  font-size: 22px; color: var(--blue);
+}
+.pillar h4 {
+  font-family: 'Newsreader', serif; font-weight: 500;
+  font-size: 30px; line-height: 1.1; letter-spacing: -0.01em; margin-bottom: 14px;
+}
+.pillar h4 em { font-style: italic; color: var(--blue); }
+.pillar p { color: var(--ink-soft); font-size: 14.5px; line-height: 1.65; }
+
+/* ============ STAT BLOCK ============ */
+.stat-row {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  border-top: 2px solid var(--blue);
+  border-bottom: 1px solid var(--ink);
+  margin-top: 16px;
+}
+.stat-row .s {
+  padding: 28px 24px 22px 0;
+  border-right: 1px solid var(--rule);
+}
+.stat-row .s:last-child { border-right: 0; }
+.stat-row .n {
+  font-family: 'Newsreader', serif; font-weight: 500;
+  font-size: 56px; line-height: 1; letter-spacing: -0.02em; color: var(--ink);
+}
+.stat-row .n em { font-style: italic; color: var(--blue); }
+.stat-row .l {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--muted); margin-top: 14px; max-width: 26ch;
+}
+
+/* ============ TABLE ============ */
+.tbl {
+  width: 100%; border-collapse: collapse;
+  background: var(--paper); border: 1px solid var(--ink);
+  font-size: 14.5px;
+}
+.tbl thead th {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.22em; color: var(--blue); text-transform: uppercase;
+  text-align: left; padding: 18px 24px;
+  border-bottom: 2px solid var(--ink); font-weight: 500;
+  background: var(--blue-wash);
+}
+.tbl tbody td {
+  padding: 22px 24px; vertical-align: top;
+  border-bottom: 1px solid var(--rule);
+  line-height: 1.6; color: var(--ink-soft);
+}
+.tbl tbody tr:last-child td { border-bottom: 0; }
+.tbl tbody td.k {
+  font-family: 'Newsreader', serif; font-weight: 500;
+  font-size: 18px; color: var(--ink); letter-spacing: -0.01em;
+  width: 24%;
+}
+.tbl tbody td.k em { font-style: italic; color: var(--blue); }
+.tbl tbody td em { font-style: italic; color: var(--blue); }
+
+/* ============ KEYVAL LIST ============ */
+.kv {
+  background: var(--paper); border: 1px solid var(--ink);
+}
+.kv .row {
+  display: grid; grid-template-columns: 220px 1fr;
+  align-items: baseline; gap: 32px;
+  padding: 22px 28px;
+  border-bottom: 1px solid var(--rule);
+}
+.kv .row:last-child { border-bottom: 0; }
+.kv .row .k {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.22em; color: var(--blue); text-transform: uppercase;
+}
+.kv .row .v {
+  font-family: 'Newsreader', serif; font-size: 19px; line-height: 1.5;
+  color: var(--ink); letter-spacing: -0.005em;
+}
+.kv .row .v em { font-style: italic; color: var(--blue); }
+
+/* ============ QUOTE / CALLOUT ============ */
+.callout {
+  margin-top: 40px;
+  padding: 36px 40px;
+  background: var(--blue-wash);
+  border-left: 4px solid var(--blue);
+  font-family: 'Newsreader', serif; font-style: italic;
+  font-size: 26px; line-height: 1.4;
+  max-width: 80ch;
+}
+.callout .k {
+  display: block; font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.22em; color: var(--blue); text-transform: uppercase;
+  font-style: normal; margin-bottom: 12px; font-weight: 500;
+}
+.callout em { font-style: italic; color: var(--blue); }
+.callout.gold {
+  background: var(--gold-soft); border-color: var(--gold-deep);
+}
+.callout.gold .k { color: var(--gold-deep); }
+.callout.dark {
+  background: var(--ink); color: #e5e7e9; border-color: var(--gold);
+}
+.callout.dark .k { color: var(--gold); }
+.callout.dark em { color: var(--gold); }
+
+/* ============ PULL QUOTE ============ */
+.pull {
+  margin: 56px auto;
+  max-width: 90ch;
+  padding: 40px 0;
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  text-align: center;
+}
+.pull .q {
+  font-family: 'Newsreader', serif; font-style: italic; font-weight: 400;
+  font-size: clamp(28px, 3.6vw, 44px); line-height: 1.2; letter-spacing: -0.01em;
+}
+.pull .q em { color: var(--blue); }
+.pull .a {
+  margin-top: 22px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.22em; color: var(--muted); text-transform: uppercase;
+}
+.section.dark .pull, .section.blue .pull {
+  border-color: rgba(255,255,255,0.3);
+}
+.section.dark .pull .q em, .section.blue .pull .q em { color: var(--gold); }
+
+/* ============ TWO COL ============ */
+.twocol { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.twocol h4 {
+  font-family: 'Newsreader', serif; font-weight: 500;
+  font-size: 24px; line-height: 1.1; letter-spacing: -0.01em;
+  margin-bottom: 10px;
+}
+.twocol h4 em { font-style: italic; color: var(--blue); }
+.twocol p { color: var(--ink-soft); font-size: 15px; line-height: 1.7; }
+
+/* ============ DO / DONT LIST ============ */
+.dos-donts { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.dlist {
+  border: 1px solid var(--ink); padding: 36px; background: var(--paper);
+}
+.dlist h4 {
+  font-family: 'Newsreader', serif; font-style: italic; font-weight: 500;
+  font-size: 28px; margin-bottom: 18px;
+  padding-bottom: 12px; border-bottom: 1px solid var(--ink);
+}
+.dlist .lbl {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase;
+  margin-bottom: 8px; display: block;
+}
+.dlist.do .lbl { color: var(--blue); }
+.dlist.dont-list .lbl { color: var(--red); }
+.dlist ul { list-style: none; }
+.dlist li {
+  padding: 13px 0; border-bottom: 1px solid var(--rule);
+  display: grid; grid-template-columns: 28px 1fr; align-items: baseline; gap: 12px;
+  font-size: 14.5px; line-height: 1.55; color: var(--ink-soft);
+}
+.dlist li:last-child { border-bottom: 0; }
+.dlist li .t {
+  font-family: 'Newsreader', serif; font-style: italic; font-size: 17px;
+}
+.dlist.do li .t { color: var(--blue); }
+.dlist.dont-list li .t { color: var(--red); }
+
+/* ============ TIMELINE ============ */
+.timeline {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid var(--ink); background: var(--paper);
+}
+.phase {
+  padding: 36px 32px;
+  border-right: 1px solid var(--rule);
+}
+.phase:last-child { border-right: 0; }
+.phase .ph {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.22em; color: var(--blue); text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.phase h4 {
+  font-family: 'Newsreader', serif; font-weight: 500;
+  font-size: 26px; margin-bottom: 6px; line-height: 1.1;
+}
+.phase h4 em { font-style: italic; color: var(--blue); }
+.phase .when {
+  font-family: 'Newsreader', serif; font-style: italic;
+  font-size: 15px; color: var(--blue); margin-bottom: 22px;
+}
+.phase ul { list-style: none; }
+.phase ul li {
+  padding: 12px 0; border-top: 1px solid var(--rule);
+  font-size: 14px; line-height: 1.55; color: var(--ink-soft);
+  display: grid; grid-template-columns: 20px 1fr; gap: 10px; align-items: baseline;
+}
+.phase ul li::before {
+  content: "";
+  font-family: 'Newsreader', serif; font-style: italic; color: var(--gold-deep);
+}
+.phase ul li b {
+  font-weight: 500; color: var(--ink); font-family: 'Newsreader', serif;
+  font-size: 15px; letter-spacing: -0.005em;
+}
+/* Timeline on dark / blue grounds — readable */
+.section.dark .timeline,
+.section.blue .timeline { color: #fff; }
+.section.dark .phase ul li,
+.section.blue .phase ul li {
+  color: rgba(255,255,255,0.92);
+  border-color: rgba(255,255,255,0.18);
+}
+.section.dark .phase ul li b,
+.section.blue .phase ul li b { color: #fff; }
+.section.dark .phase h4,
+.section.blue .phase h4 { color: #fff; }
+.section.dark .phase h4 em,
+.section.blue .phase h4 em { color: var(--gold); }
+.section.dark .phase .ph,
+.section.blue .phase .ph,
+.section.dark .phase .when,
+.section.blue .phase .when { color: var(--gold); }
+.section.dark .phase,
+.section.blue .phase { border-color: rgba(255,255,255,0.18); }
+/* Tables on dark / blue grounds — readable */
+.section.dark .tbl,
+.section.blue .tbl { border-color: rgba(255,255,255,0.25); background: rgba(255,255,255,0.04); }
+.section.dark .tbl thead th,
+.section.blue .tbl thead th {
+  background: rgba(255,255,255,0.06);
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+.section.dark .tbl tbody td,
+.section.blue .tbl tbody td {
+  color: rgba(255,255,255,0.92);
+  border-color: rgba(255,255,255,0.15);
+}
+.section.dark .tbl tbody td.k,
+.section.blue .tbl tbody td.k { color: #fff; }
+.section.dark .tbl tbody td em,
+.section.blue .tbl tbody td em,
+.section.dark .tbl tbody td.k em,
+.section.blue .tbl tbody td.k em { color: var(--gold); }
+/* KV rows on dark / blue grounds */
+.section.dark .kv,
+.section.blue .kv { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.25); }
+.section.dark .kv .row,
+.section.blue .kv .row { border-color: rgba(255,255,255,0.15); }
+.section.dark .kv .row .k,
+.section.blue .kv .row .k { color: var(--gold); }
+.section.dark .kv .row .v,
+.section.blue .kv .row .v { color: #fff; }
+.section.dark .kv .row .v em,
+.section.blue .kv .row .v em { color: var(--gold); }
+/* Section deck explicit bright */
+.section.dark .section-deck { color: #e8eaec; }
+.section.blue .section-deck { color: rgba(255,255,255,0.94); }
+
+/* ============ FOOTER ============ */
+.footer {
+  padding: 96px 0 64px;
+  background: var(--blue); color: #fff;
+}
+.footer .wrap {
+  display: grid; grid-template-columns: 1fr auto;
+  align-items: end; gap: 40px;
+}
+.footer .left {
+  font-family: 'Newsreader', serif; font-weight: 500;
+  font-size: clamp(36px, 5vw, 60px); line-height: 1; letter-spacing: -0.02em;
+}
+.footer .left em { font-style: italic; color: var(--cream); }
+.footer .right {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(255,255,255,0.92);
+  text-align: right; line-height: 2;
+}
+.footer .right .swatch { display: inline-flex; align-items: center; gap: 10px; color: #fff; }
+.footer .right .swatch .dot {
+  width: 10px; height: 10px; background: #fff;
+}
+.footer-strip {
+  background: var(--ink); color: #d4d6d8;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  padding: 14px 48px;
+  display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+}
+
+@media (max-width: 1024px) {
+  .cover-grid, .grid-2, .grid-3, .grid-4, .grid-5, .twocol, .dos-donts, .toc-grid, .timeline { grid-template-columns: 1fr; }
+  .stat-row { grid-template-columns: 1fr 1fr; }
+  .cover-rail { display: none; }
+  .kv .row { grid-template-columns: 1fr; gap: 8px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ MASTHEAD STRIP ============ -->
+<div class="cover-strip">
+  <div class="b">PMS 2168 C · #254A5D</div>
+  <div>BRAND BIBLE · COMPREHENSIVE SYSTEM</div>
+  <div>v2.0 · MAY 2026 · CONFIDENTIAL</div>
+</div>
+
+<!-- ============ COVER ============ -->
+<section class="cover">
+  <div class="wrap">
+    <div class="cover-head">
+      <div class="logo">
+        <div class="mk">P</div>
+        <div class="t">
+          <div class="top">Premier Limb Lengthening</div>
+          <div class="bot">A Premier Orthopaedic &amp; Trauma Clinic</div>
+        </div>
+      </div>
+      <div class="center">
+        <div>The Brand Bible</div>
+        <div class="v">v 2.0</div>
+      </div>
+      <div class="right">
+        <div>Prepared by J Cubed Marketing</div>
+        <div>Pomona, California</div>
+        <div>Confidential</div>
+      </div>
+    </div>
+
+    <div class="cover-grid">
+      <div class="cover-rail">§ 00 — Brand Bible · The Comprehensive Brand System</div>
+      <div>
+        <div class="eyebrow">Brand Bible · v2.0 · May 2026</div>
+        <h1 class="cover-title" style="margin-top: 24px;">The <em>Bible.</em></h1>
+        <p class="cover-deck">The comprehensive system. Twenty-one chapters governing how Premier Limb Lengthening looks, sounds, behaves and earns trust — from masthead to motion, voice to vendor.</p>
+      </div>
+      <aside class="cover-side">
+        <div class="item">
+          <div class="k">Volume</div>
+          <div class="v">№ <em>02</em> · Bible</div>
+        </div>
+        <div class="item">
+          <div class="k">Companion</div>
+          <div class="v">Kit B · <em>The Dossier</em></div>
+        </div>
+        <div class="item">
+          <div class="k">Direction</div>
+          <div class="v">Editorial <em>Clinical</em></div>
+        </div>
+        <div class="item">
+          <div class="k">Sections</div>
+          <div class="v"><em>Twenty-one</em></div>
+        </div>
+        <div class="item">
+          <div class="k">Issued</div>
+          <div class="v">May <em>2026</em></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TABLE OF CONTENTS ============ -->
+<section class="toc">
+  <div class="wrap">
+    <div class="toc-head">
+      <div>
+        <div class="eyebrow" style="margin-bottom: 14px;">Folio · Contents</div>
+        <h2>The <em>contents.</em></h2>
+      </div>
+      <div class="lbl">21 Sections · 4 Volumes</div>
+    </div>
+
+    <div class="toc-grid">
+      <div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.22em; color: var(--blue); text-transform: uppercase; margin-bottom: 14px;">— Vol. I · Foundation</div>
+        <a class="toc-item" href="#s01"><span class="n">01</span><span class="t">Brand Foundation</span><span class="pg">§ 01</span></a>
+        <a class="toc-item" href="#s02"><span class="n">02</span><span class="t">Brand Positioning</span><span class="pg">§ 02</span></a>
+        <a class="toc-item" href="#s03"><span class="n">03</span><span class="t">Audience Personas</span><span class="pg">§ 03</span></a>
+        <a class="toc-item" href="#s04"><span class="n">04</span><span class="t">Personality &amp; Archetypes</span><span class="pg">§ 04</span></a>
+        <a class="toc-item" href="#s05"><span class="n">05</span><span class="t">Voice &amp; Tone</span><span class="pg">§ 05</span></a>
+        <a class="toc-item" href="#s06"><span class="n">06</span><span class="t">Brand Story &amp; Narrative</span><span class="pg">§ 06</span></a>
+      </div>
+      <div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.22em; color: var(--blue); text-transform: uppercase; margin-bottom: 14px;">— Vol. II · Expression</div>
+        <a class="toc-item" href="#s07"><span class="n">07</span><span class="t">Visual Identity Standards</span><span class="pg">§ 07</span></a>
+        <a class="toc-item" href="#s08"><span class="n">08</span><span class="t">Photography &amp; Art Direction</span><span class="pg">§ 08</span></a>
+        <a class="toc-item" href="#s09"><span class="n">09</span><span class="t">Iconography &amp; Data</span><span class="pg">§ 09</span></a>
+        <a class="toc-item" href="#s10"><span class="n">10</span><span class="t">Video &amp; Motion Direction</span><span class="pg">§ 10</span></a>
+        <a class="toc-item" href="#s11"><span class="n">11</span><span class="t">Digital Experience</span><span class="pg">§ 11</span></a>
+        <a class="toc-item" href="#s12"><span class="n">12</span><span class="t">The Intelligence Layer</span><span class="pg">§ 12</span></a>
+      </div>
+      <div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.22em; color: var(--blue); text-transform: uppercase; margin-bottom: 14px;">— Vol. III · Application</div>
+        <a class="toc-item" href="#s13"><span class="n">13</span><span class="t">Patient Experience</span><span class="pg">§ 13</span></a>
+        <a class="toc-item" href="#s14"><span class="n">14</span><span class="t">Social Media Standards</span><span class="pg">§ 14</span></a>
+        <a class="toc-item" href="#s15"><span class="n">15</span><span class="t">Print &amp; Collateral</span><span class="pg">§ 15</span></a>
+        <a class="toc-item" href="#s16"><span class="n">16</span><span class="t">Email &amp; Communication</span><span class="pg">§ 16</span></a>
+        <a class="toc-item" href="#s17"><span class="n">17</span><span class="t">Co-Branding &amp; Partners</span><span class="pg">§ 17</span></a>
+        <a class="toc-item" href="#s18"><span class="n">18</span><span class="t">Accessibility &amp; Compliance</span><span class="pg">§ 18</span></a>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.22em; color: var(--blue); text-transform: uppercase; margin: 28px 0 14px;">— Vol. IV · Operations</div>
+        <a class="toc-item" href="#s19"><span class="n">19</span><span class="t">Brand Glossary</span><span class="pg">§ 19</span></a>
+        <a class="toc-item" href="#s20"><span class="n">20</span><span class="t">Content Strategy</span><span class="pg">§ 20</span></a>
+        <a class="toc-item" href="#s21"><span class="n">21</span><span class="t">Implementation Roadmap</span><span class="pg">§ 21</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ § 01 — FOUNDATION ============ -->
+<section class="section paper" id="s01">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="no">01</div>
+      <h2>Brand <em>foundation.</em></h2>
+      <div class="lbl">§ 01 · Vol. I</div>
+    </div>
+    <p class="section-deck">Mission. Vision. Values. The non-negotiables that govern every decision downstream.</p>
+
+    <h3 class="sub first">Mission &amp; <em>vision</em></h3>
+    <div class="grid-2" style="margin-top: 24px;">
+      <div class="card">
+        <div class="label">Mission</div>
+        <h4>What we do, every day.</h4>
+        <p>Premier Limb Lengthening exists to deliver transformative height enhancement through surgical precision, concierge-level care, and an unwavering commitment to patient safety. We combine the clinical rigor of a Level I trauma center with the attentiveness of a private practice to help patients achieve measurable, life-changing results.</p>
+      </div>
+      <div class="card">
+        <div class="label">Vision</div>
+        <h4>Where this is going.</h4>
+        <p>To become the most trusted name in limb lengthening worldwide — the practice that other surgeons refer to, that patients travel continents to reach, and that sets the clinical standard for safety, outcomes, and patient experience in cosmetic orthopedic surgery.</p>
+      </div>
+    </div>
+
+    <h3 class="sub">Core <em>values</em></h3>
+    <p class="body" style="max-width: 70ch;">Five values, in order of operational priority. They govern hiring, communication, surgical decision-making, and what we will and will not say in marketing.</p>
+    <div class="grid-5" style="margin-top: 32px;">
+      <div class="card"><div class="num">01</div><h4>Precision</h4><p>Every millimeter matters. We measure twice, cut once, and obsess over outcomes that lesser practices accept as “good enough.”</p></div>
+      <div class="card"><div class="num">02</div><h4>Transparency</h4><p>No hidden fees, no vague timelines, no sugarcoating risk. Patients deserve the full picture before they commit.</p></div>
+      <div class="card"><div class="num">03</div><h4>Craft</h4><p>Surgery is not a commodity. Dr. Basmajian treats every procedure as a singular act of skill, refined through hundreds of cases.</p></div>
+      <div class="card"><div class="num">04</div><h4>Stewardship</h4><p>We are temporary custodians of our patients’ trust, mobility, and wellbeing. That responsibility extends long past discharge.</p></div>
+      <div class="card"><div class="num">05</div><h4>Transformation</h4><p>Height is the outcome. Confidence, presence, and a fundamentally different relationship with the world — that is the result.</p></div>
+    </div>
+
+    <div class="callout">
+      <span class="k">— Brand Promise</span>
+      The most qualified hands. The most attentive care. The height you’ve always envisioned — delivered <em>safely, precisely,</em> and with the discretion you expect at this level.
+    </div>
+
+    <h3 class="sub">Brand <em>pillars</em></h3>
+    <p class="body">Three structural columns. Every campaign, page, and proof point must ladder back to one of these. If it doesn’t, it doesn’t belong on a Premier surface.</p>
+    <div class="grid-3" style="margin-top: 32px;">
+      <div class="pillar">
+        <div class="head"><span class="nm">№ 01</span><span class="seq">i.</span></div>
+        <h4>Authority</h4>
+        <p>Board-certified, fellowship-trained, published, teaching other surgeons. Verifiable, institutional, peer-recognized credentials. The proof comes first.</p>
+      </div>
+      <div class="pillar">
+        <div class="head"><span class="nm">№ 02</span><span class="seq">ii.</span></div>
+        <h4>Technology</h4>
+        <p>PRECICE 4th-gen internal nail system. Skytron Glass operating suites. AI-powered patient communication platform. Instruments, not gimmicks.</p>
+      </div>
+      <div class="pillar">
+        <div class="head"><span class="nm">№ 03</span><span class="seq">iii.</span></div>
+        <h4>Concierge</h4>
+        <p>One surgeon. Direct access. Travel coordination, recovery planning, and a patient-to-surgeon ratio volume-driven competitors cannot match.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ § 02 — POSITIONING ============ -->
+<section class="section" id="s02">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="no">02</div>
+      <h2>Brand <em>positioning.</em></h2>
+      <div class="lbl">§ 02 · Vol. I</div>
+    </div>
+    <p class="section-deck">Where Premier sits in the market — and the empty quadrant no competitor has earned.</p>
+
+    <h3 class="sub first">Positioning <em>statement</em></h3>
+    <div class="callout gold" style="margin-top: 20px; max-width: none;">
+      For men 25–38 who refuse to accept their height as a limitation, <em>Premier Limb Lengthening</em> is the cosmetic orthopedic practice that combines Level I trauma surgical expertise with concierge-level care to deliver safe, precise, and transformative height enhancement. Unlike volume-driven competitors, PLL offers direct surgeon access, transparent pricing, and a practice built by a surgeon who has spent his career <em>fixing what others get wrong.</em>
+    </div>
+
+    <h3 class="sub">Competitive <em>landscape</em></h3>
+    <table class="tbl" style="margin-top: 24px;">
+      <thead>
+        <tr><th>Competitor</th><th>Positioning</th><th>The PLL Advantage</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="k">Mahboubian</td><td>High-volume Burbank. Heavy SEO/Ads. Bidding on competitor brand terms.</td><td>Trauma fellowship + revisional expertise. PLL fixes cases others get wrong.</td></tr>
+        <tr><td class="k">Paley Institute</td><td>17,000+ procedures since 1986. Global footprint. Volume leader.</td><td>Concierge vs. conveyor belt. One surgeon. West Coast.</td></tr>
+        <tr><td class="k">LimbplastX</td><td>Las Vegas. Lifestyle branding. Social-forward.</td><td>Published research. Academic teaching. Deeper clinical credibility.</td></tr>
+        <tr><td class="k">Rozbruch (HSS)</td><td>Academic pedigree. Hospital for Special Surgery, NYC.</td><td>West Coast. Concierge vs. bureaucracy. Transparent pricing.</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub">Positioning <em>map</em></h3>
+    <p class="body">Two axes — Clinical Depth (vertical) and Patient Experience (horizontal). PLL occupies the upper-right quadrant: maximum clinical depth with maximum patient experience. No competitor currently sits there.</p>
+
+    <div style="margin-top: 32px; border: 1px solid var(--ink); background: var(--paper); padding: 48px;">
+      <div style="position: relative; aspect-ratio: 16 / 9; max-width: 980px; margin: 0 auto;">
+        <!-- axes -->
+        <div style="position: absolute; inset: 8% 8% 8% 8%; border-left: 2px solid var(--ink); border-bottom: 2px solid var(--ink);"></div>
+        <!-- y label -->
+        <div style="position: absolute; left: -8px; top: 50%; transform: translateY(-50%) rotate(-90deg); transform-origin: left top; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.22em; color: var(--muted); text-transform: uppercase;">— Clinical Depth →</div>
+        <!-- x label -->
+        <div style="position: absolute; bottom: -4px; left: 50%; transform: translateX(-50%); font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.22em; color: var(--muted); text-transform: uppercase;">— Patient Experience →</div>
+        <!-- corner labels -->
+        <div style="position: absolute; top: 0; left: 8%; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; color: var(--muted); text-transform: uppercase;">Trauma-trained</div>
+        <div style="position: absolute; bottom: 14%; left: 8%; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; color: var(--muted); text-transform: uppercase;">Cosmetic-only</div>
+        <div style="position: absolute; bottom: 0; left: 8%; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; color: var(--muted); text-transform: uppercase;">Institutional / volume</div>
+        <div style="position: absolute; bottom: 0; right: 8%; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; color: var(--muted); text-transform: uppercase;">Concierge / bespoke</div>
+
+        <!-- plotted points -->
+        <div style="position: absolute; top: 14%; right: 12%; display: flex; flex-direction: column; align-items: center; gap: 8px;">
+          <div style="width: 22px; height: 22px; background: var(--blue); border: 3px solid var(--gold);"></div>
+          <div style="font-family: 'Newsreader', serif; font-style: italic; font-weight: 500; font-size: 22px; color: var(--blue);">Premier</div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.22em; color: var(--muted); text-transform: uppercase;">The empty quadrant</div>
+        </div>
+        <div style="position: absolute; top: 18%; left: 14%; display: flex; flex-direction: column; align-items: center; gap: 6px;">
+          <div style="width: 12px; height: 12px; background: var(--ink); border-radius: 50%;"></div>
+          <div style="font-family: 'Newsreader', serif; font-size: 14px; color: var(--ink-soft);">Paley</div>
+        </div>
+        <div style="position: absolute; bottom: 30%; left: 18%; display: flex; flex-direction: column; align-items: center; gap: 6px;">
+          <div style="width: 10px; height: 10px; background: var(--muted); border-radius: 50%;"></div>
+          <div style="font-family: 'Newsreader', serif; font-size: 14px; color: var(--ink-soft);">Mahboubian</div>
+        </div>
+        <div style="position: absolute; bottom: 26%; right: 18%; display: flex; flex-direction: column; align-items: center; gap: 6px;">
+          <div style="width: 10px; height: 10px; background: var(--muted); border-radius: 50%;"></div>
+          <div style="font-family: 'Newsreader', serif; font-size: 14px; color: var(--ink-soft);">LimbplastX</div>
+        </div>
+        <div style="position: absolute; top: 26%; left: 30%; display: flex; flex-direction: column; align-items: center; gap: 6px;">
+          <div style="width: 10px; height: 10px; background: var(--muted); border-radius: 50%;"></div>
+          <div style="font-family: 'Newsreader', serif; font-size: 14px; color: var(--ink-soft);">Rozbruch (HSS)</div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sub">Unique <em>value proposition</em></h3>
+    <div class="callout">
+      <span class="k">— UVP</span>
+      The only practice in the Western U.S. led by a <em>fellowship-trained orthopedic trauma surgeon</em> who serves as Medical Director of one of LA’s busiest trauma centers, has performed hundreds of limb lengthening procedures, teaches surgeons nationally, and still personally manages every case from consultation through recovery.
+    </div>
+
+    <h3 class="sub">Defensible <em>differentiators</em></h3>
+    <div class="kv" style="margin-top: 24px;">
+      <div class="row"><div class="k">Revisional Expertise</div><div class="v">Corrects cases performed incorrectly elsewhere. If he <em>fixes what others break,</em> he is the safer first choice.</div></div>
+      <div class="row"><div class="k">Trauma Pedigree</div><div class="v">Ortho Trauma Medical Director at PVHMC. Former Chair at Loma Linda University Medical Center.</div></div>
+      <div class="row"><div class="k">Teaching Authority</div><div class="v">Masters’ Fracture Meeting. AAOS/OTA national presenter. National board member, Infection Management Guidelines.</div></div>
+      <div class="row"><div class="k">Published Research</div><div class="v">Internationally published book on minimally invasive acetabular fractures. Multiple peer-reviewed journal articles.</div></div>
+      <div class="row"><div class="k">Dual Fellowship</div><div class="v">Sonoran Orthopaedic Trauma Surgeons (Scottsdale) + <em>Hannover, Germany.</em></div></div>
+      <div class="row"><div class="k">AI-Powered Comms</div><div class="v">First practice in cosmetic limb lengthening to deploy an AI clinical concierge and automated patient journey. <em>The competitive window is open.</em></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ § 03 — PERSONAS ============ -->
+<section class="section paper" id="s03">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="no">03</div>
+      <h2>Audience <em>personas.</em></h2>
+      <div class="lbl">§ 03 · Vol. I</div>
+    </div>
+    <p class="section-deck">Four patients. Four emotional arcs. The system speaks to all four — without diluting the voice for any.</p>
+
+    <div class="grid-2" style="margin-top: 32px; gap: 24px;">
+
+      <article class="card" style="padding: 44px;">
+        <div class="label">Persona 01 · The Optimizer</div>
+        <h4 style="font-size: 36px;">Marcus, <em>28.</em></h4>
+        <p class="serif" style="font-family: 'Newsreader', serif; font-style: italic; font-size: 17px; color: var(--ink-soft); margin: 8px 0 22px;">Software engineer or finance. $120K–$200K. Single. Major metro. 5'6″–5'8″.</p>
+        <div class="kv" style="border: 0;">
+          <div class="row" style="padding: 14px 0; grid-template-columns: 150px 1fr;"><div class="k">Psychographic</div><div class="v" style="font-size: 16px;">Self-improvement obsessed. Reads Huberman, tracks biometrics. Height is the one variable he cannot hack.</div></div>
+          <div class="row" style="padding: 14px 0; grid-template-columns: 150px 1fr;"><div class="k">Emotional Arc</div><div class="v" style="font-size: 16px;">Frustration → spreadsheet paralysis → <em>one trust-triggering moment</em> → evangelism.</div></div>
+          <div class="row" style="padding: 14px 0; grid-template-columns: 150px 1fr;"><div class="k">Decision Drivers</div><div class="v" style="font-size: 16px;">Surgeon credentials. Complication rates. Transparent pricing. Verifies independently.</div></div>
+          <div class="row" style="padding: 14px 0; grid-template-columns: 150px 1fr; border-bottom: 0;"><div class="k">Objections</div><div class="v" style="font-size: 16px;">Complications. Looking unnatural. Recovery impacting work.</div></div>
+        </div>
+      </article>
+
+      <article class="card" style="padding: 44px;">
+        <div class="label">Persona 02 · The Executive</div>
+        <h4 style="font-size: 36px;">James, <em>34.</em></h4>
+        <p class="serif" style="font-family: 'Newsreader', serif; font-style: italic; font-size: 17px; color: var(--ink-soft); margin: 8px 0 22px;">Director / VP. $200K–$400K+. Married. 5'5″–5'7″. Discretion is the constraint.</p>
+        <div class="kv" style="border: 0;">
+          <div class="row" style="padding: 14px 0; grid-template-columns: 150px 1fr;"><div class="k">Psychographic</div><div class="v" style="font-size: 16px;">Competitive, status-aware, deeply private. Would never discuss this with colleagues.</div></div>
+          <div class="row" style="padding: 14px 0; grid-template-columns: 150px 1fr;"><div class="k">Emotional Arc</div><div class="v" style="font-size: 16px;">Quiet dissatisfaction → private browsing → <em>partner-only confidence</em> → renewed presence.</div></div>
+          <div class="row" style="padding: 14px 0; grid-template-columns: 150px 1fr;"><div class="k">Decision Drivers</div><div class="v" style="font-size: 16px;">Discretion. Concierge experience. Surgeon reputation. Recovery planning around work.</div></div>
+          <div class="row" style="padding: 14px 0; grid-template-columns: 150px 1fr; border-bottom: 0;"><div class="k">Objections</div><div class="v" style="font-size: 16px;">Anyone finding out. Extended absence. Must not look obvious.</div></div>
+        </div>
+      </article>
+
+      <article class="card" style="padding: 44px;">
+        <div class="label">Persona 03 · The Correction</div>
+        <h4 style="font-size: 36px;">David, <em>31.</em></h4>
+        <p class="serif" style="font-family: 'Newsreader', serif; font-style: italic; font-size: 17px; color: var(--ink-soft); margin: 8px 0 22px;">Military, first responder, or trades. Injury-related limb length discrepancy. Insurance may cover part.</p>
+        <div class="kv" style="border: 0;">
+          <div class="row" style="padding: 14px 0; grid-template-columns: 150px 1fr;"><div class="k">Psychographic</div><div class="v" style="font-size: 16px;">Pragmatic. Cares about function and outcomes, not luxury branding.</div></div>
+          <div class="row" style="padding: 14px 0; grid-template-columns: 150px 1fr;"><div class="k">Emotional Arc</div><div class="v" style="font-size: 16px;">Chronic pain → skepticism from prior failures → <em>trauma-specific credential proof</em> → functional relief.</div></div>
+          <div class="row" style="padding: 14px 0; grid-template-columns: 150px 1fr;"><div class="k">Decision Drivers</div><div class="v" style="font-size: 16px;">Trauma experience. Revisional success. Insurance navigation. Return-to-activity timeline.</div></div>
+          <div class="row" style="padding: 14px 0; grid-template-columns: 150px 1fr; border-bottom: 0;"><div class="k">Objections</div><div class="v" style="font-size: 16px;">Skepticism from prior bad experience. Concern about re-injury.</div></div>
+        </div>
+      </article>
+
+      <article class="card" style="padding: 44px;">
+        <div class="label">Persona 04 · The International</div>
+        <h4 style="font-size: 36px;">Amir, <em>26.</em></h4>
+        <p class="serif" style="font-family: 'Newsreader', serif; font-style: italic; font-size: 17px; color: var(--ink-soft); margin: 8px 0 22px;">Middle East, SE Asia, or South America. Family-funded or self-saved. 5'4″–5'6″.</p>
+        <div class="kv" style="border: 0;">
+          <div class="row" style="padding: 14px 0; grid-template-columns: 150px 1fr;"><div class="k">Psychographic</div><div class="v" style="font-size: 16px;">Rejected lower-cost options due to safety concerns. Wants credibility of U.S. surgeon.</div></div>
+          <div class="row" style="padding: 14px 0; grid-template-columns: 150px 1fr;"><div class="k">Emotional Arc</div><div class="v" style="font-size: 16px;">Cultural pressure → cross-border research → <em>concierge resolves fear</em> → cultural validation.</div></div>
+          <div class="row" style="padding: 14px 0; grid-template-columns: 150px 1fr;"><div class="k">Decision Drivers</div><div class="v" style="font-size: 16px;">U.S. board certification. Hospital affiliation. Travel coordination. Virtual consultation.</div></div>
+          <div class="row" style="padding: 14px 0; grid-template-columns: 150px 1fr; border-bottom: 0;"><div class="k">Objections</div><div class="v" style="font-size: 16px;">Total cost including travel. Post-op care after returning home. Visa complexity.</div></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ § 04 — PERSONALITY ============ -->
+<section class="section dark" id="s04">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="no">04</div>
+      <h2>Personality &amp; <em>archetypes.</em></h2>
+      <div class="lbl">§ 04 · Vol. I</div>
+    </div>
+    <p class="section-deck">A hybrid archetype. The register is confident competence, not warmth-as-performance.</p>
+
+    <h3 class="sub first" style="color: #fff;">Primary archetype</h3>
+    <p class="lede" style="margin-top: 8px;">The <em>Sage-Creator.</em> A hybrid of the Sage (knowledge, expertise, truth-seeking) and the Creator (craftsmanship, vision, mastery). Not a Caregiver brand — the register is confident competence. Think of PLL as a master watchmaker who is also a structural engineer. The precision is the point.</p>
+
+    <div class="pull">
+      <div class="q">“A master watchmaker who is also a <em>structural engineer.</em> The precision is the point.”</div>
+      <div class="a">— Archetype Brief</div>
+    </div>
+
+    <h3 class="sub" style="color: #fff;">Personality <em>traits</em></h3>
+    <div class="grid-5" style="margin-top: 28px;">
+      <div class="card"><div class="num">01</div><h4>Authoritative</h4><p>Speaks from deep expertise without arrogance. Confidence rooted in verifiable credentials.</p></div>
+      <div class="card"><div class="num">02</div><h4>Precise</h4><p>Every detail matters — in communication, clinical planning, follow-up. Precision is a brand behavior.</p></div>
+      <div class="card"><div class="num">03</div><h4>Direct</h4><p>No jargon shields. Honest assessments, including “this procedure is not right for you.”</p></div>
+      <div class="card"><div class="num">04</div><h4>Discreet</h4><p>Never performative about patient transformations. Respects privacy boundaries.</p></div>
+      <div class="card"><div class="num">05</div><h4>Modern</h4><p>Technologically current without being trendy. Innovation for outcomes, not marketing.</p></div>
+    </div>
+
+    <h3 class="sub" style="color: #fff;">PLL is / <em>PLL is not</em></h3>
+    <table class="tbl" style="margin-top: 24px; background: rgba(255,255,255,0.04); color: #e5e7e9; border-color: rgba(255,255,255,0.2);">
+      <thead>
+        <tr><th style="background: rgba(255,255,255,0.06); color: var(--gold); border-color: var(--gold);">PLL Is</th><th style="background: rgba(255,255,255,0.06); color: var(--gold); border-color: var(--gold);">PLL Is Not</th></tr>
+      </thead>
+      <tbody style="color: #c8ccd0;">
+        <tr><td style="color: #e5e7e9; border-color: rgba(255,255,255,0.1);">A clinical authority with concierge execution</td><td style="border-color: rgba(255,255,255,0.1);">A luxury wellness spa that does surgery</td></tr>
+        <tr><td style="color: #e5e7e9; border-color: rgba(255,255,255,0.1);">Confident and direct in communication</td><td style="border-color: rgba(255,255,255,0.1);">Aggressive or salesy in tone</td></tr>
+        <tr><td style="color: #e5e7e9; border-color: rgba(255,255,255,0.1);">Discreet about patient privacy</td><td style="border-color: rgba(255,255,255,0.1);">Secretive about outcomes and process</td></tr>
+        <tr><td style="color: #e5e7e9; border-color: rgba(255,255,255,0.1);">Modern and technology-forward</td><td style="border-color: rgba(255,255,255,0.1);">Trendy or chasing social media aesthetics</td></tr>
+        <tr><td style="color: #e5e7e9; border-color: rgba(255,255,255,0.1);">Premium in price and experience</td><td style="border-color: rgba(255,255,255,0.1);">Expensive for exclusivity signaling</td></tr>
+        <tr><td style="color: #e5e7e9;">Technology as clinical instrument</td><td>Technology as gimmick or marketing novelty</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ § 05 — VOICE ============ -->
+<section class="section paper" id="s05">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="no">05</div>
+      <h2>Voice &amp; <em>tone.</em></h2>
+      <div class="lbl">§ 05 · Vol. I</div>
+    </div>
+    <p class="section-deck">We write like a periodical, not a brochure. The reader is treated as an intelligent adult, not a customer to be persuaded.</p>
+
+    <h3 class="sub first">The three <em>voice rules</em></h3>
+    <div class="grid-3" style="margin-top: 28px;">
+      <div class="pillar"><div class="head"><span class="nm">№ 01</span><span class="seq">i.</span></div><h4>Editorial, <em>not promotional</em></h4><p>Decks, datelines, captions. No urgency theater. No exclamation marks. No ALL CAPS.</p></div>
+      <div class="pillar"><div class="head"><span class="nm">№ 02</span><span class="seq">ii.</span></div><h4>Evidenced, <em>not asserted</em></h4><p>Every claim earns its place with a number, credential, or named patient. Specificity is the proof.</p></div>
+      <div class="pillar"><div class="head"><span class="nm">№ 03</span><span class="seq">iii.</span></div><h4>Direct, <em>not theatrical</em></h4><p>Short sentences. Active voice. No hedging, no superlatives. The Premier Blue speaks volume; language stays measured.</p></div>
+    </div>
+
+    <h3 class="sub">Voice <em>attributes</em></h3>
+    <div class="kv" style="margin-top: 20px;">
+      <div class="row"><div class="k">Clear, Not Clinical</div><div class="v">Precise medical terminology when it adds clarity, then plain-language explanation.</div></div>
+      <div class="row"><div class="k">Confident, Not Boastful</div><div class="v">Let credentials speak. <em>“Hundreds of procedures”</em> beats “best surgeon in the world.”</div></div>
+      <div class="row"><div class="k">Direct, Not Blunt</div><div class="v">State risks without dramatizing. Benefits without overselling. $75K+ decisions deserve directness.</div></div>
+      <div class="row"><div class="k">Warm, Not Casual</div><div class="v">Approachable but professional. First-person plural. Never slangy.</div></div>
+      <div class="row"><div class="k">Discreet, Not Evasive</div><div class="v">Acknowledge privacy without making the decision feel shameful.</div></div>
+    </div>
+
+    <h3 class="sub">Tone by <em>context</em></h3>
+    <table class="tbl" style="margin-top: 24px;">
+      <thead><tr><th>Context</th><th>Tone</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Procedure Pages</td><td>Clinical authority. Educate.</td><td><em>“The PRECICE nail allows controlled, gradual lengthening with millimeter-level precision.”</em></td></tr>
+        <tr><td class="k">About / Bio</td><td>Warm authority. Human.</td><td><em>“Dr. Basmajian knew from his first pelvic fracture case in medical school.”</em></td></tr>
+        <tr><td class="k">Consultations</td><td>Empathetic directness.</td><td><em>“Let me walk you through exactly what to expect — the good, the hard, and the timeline.”</em></td></tr>
+        <tr><td class="k">Social Media</td><td>Slightly warmer. Educational.</td><td><em>“3 questions every patient should ask their limb lengthening surgeon.”</em></td></tr>
+        <tr><td class="k">Email / Nurture</td><td>Personal. Surgeon’s voice.</td><td><em>“I wanted to share something most practices won’t tell you about recovery…”</em></td></tr>
+        <tr><td class="k">Post-Op Comms</td><td>Caring, specific, proactive.</td><td><em>“Here is exactly what you should be feeling this week — and when to call us.”</em></td></tr>
+        <tr><td class="k">AI Concierge</td><td>Knowledgeable, measured, never salesy.</td><td><em>“Based on what you’ve described, here’s what Dr. Basmajian would typically recommend.”</em></td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub">Say this / <em>never this</em></h3>
+    <div class="dos-donts" style="margin-top: 24px;">
+      <div class="dlist do">
+        <h4><em>Say</em> this</h4>
+        <span class="lbl">Aligned with the voice</span>
+        <ul>
+          <li><span class="t">01</span><span>“Confidence you can stand behind.”</span></li>
+          <li><span class="t">02</span><span>“Hundreds of procedures performed.”</span></li>
+          <li><span class="t">03</span><span>“Cases other surgeons won’t take on.”</span></li>
+          <li><span class="t">04</span><span>“Confidential consultation.”</span></li>
+          <li><span class="t">05</span><span>“Results are permanent.”</span></li>
+        </ul>
+      </div>
+      <div class="dlist dont-list">
+        <h4><em>Never</em> this</h4>
+        <span class="lbl">Breaks the voice</span>
+        <ul>
+          <li><span class="t">01</span><span>“World-class!” / unsubstantiated superlatives</span></li>
+          <li><span class="t">02</span><span>“Transform your life today!” / urgency theatre</span></li>
+          <li><span class="t">03</span><span>“#1 in California” / unverifiable claims</span></li>
+          <li><span class="t">04</span><span>“Limited time offer!” / discounts cheapen the brand</span></li>
+          <li><span class="t">05</span><span>Emoji. Exclamation marks. Hashtags. ALL CAPS sentences.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="sub">Worked <em>examples</em></h3>
+    <div class="grid-3" style="margin-top: 24px;">
+      <div class="card">
+        <div class="label">Procedure Page</div>
+        <p style="font-family: 'Newsreader', serif; font-size: 17px; line-height: 1.6; color: var(--ink);">Limb lengthening works by surgically placing a magnetic internal nail — the <em style="font-style: italic; color: var(--blue);">PRECICE system</em> — inside the bone. Over 3–4 months, the nail gradually lengthens at approximately 1mm per day, controlled by an external remote. No external hardware is visible. The bone regenerates naturally in the gap — a process called distraction osteogenesis. Results are permanent.</p>
+      </div>
+      <div class="card">
+        <div class="label">Consultation Follow-Up</div>
+        <p style="font-family: 'Newsreader', serif; font-size: 17px; line-height: 1.6; color: var(--ink);">Thank you for speaking with Dr. Basmajian. Attached is your <em style="font-style: italic; color: var(--blue);">personalized surgical plan</em>, including the timeline, expected height gain, and a fully itemized cost breakdown. If you have questions as you review it, you can reach Dr. Basmajian directly at the number below. There is no expiration on this consultation — we are here whenever you are ready.</p>
+      </div>
+      <div class="card">
+        <div class="label">Social Post</div>
+        <p style="font-family: 'Newsreader', serif; font-size: 17px; line-height: 1.6; color: var(--ink);">Most limb lengthening patients research for 6–18 months before making a call. <em style="font-style: italic; color: var(--blue);">That is not hesitation — that is diligence.</em> Here are three credentials you should verify before choosing any surgeon. (Thread)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ § 06 — STORY ============ -->
+<section class="section blue" id="s06">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="no">06</div>
+      <h2>Brand <em>story.</em></h2>
+      <div class="lbl">§ 06 · Vol. I</div>
+    </div>
+    <p class="section-deck">Origin, proof, and the path from trauma bay to private practice.</p>
+
+    <h3 class="sub first" style="color: #fff;">The <em>origin</em></h3>
+    <p class="lede" style="color: rgba(255,255,255,0.9); max-width: 80ch;">Dr. Hrayr Basmajian did not start in cosmetic surgery. He started in the emergency room in Detroit, drawn to the speed, stakes, and immediate impact of trauma medicine. When he rotated through orthopedics in medical school and encountered his first pelvic fracture case, the direction of his career became clear.</p>
+    <p class="body" style="color: rgba(255,255,255,0.92); max-width: 80ch; margin-top: 22px;">He trained at <em style="color: var(--gold); font-style: italic;">USC/LAC Medical Center</em> — one of the highest-volume trauma residencies in the country — then completed a trauma fellowship at <em style="color: var(--gold); font-style: italic;">Sonoran Orthopaedic Trauma Surgeons</em> in Scottsdale, followed by additional training in <em style="color: var(--gold); font-style: italic;">Hannover, Germany.</em></p>
+    <p class="body" style="color: rgba(255,255,255,0.92); max-width: 80ch;">He became Chair of Orthopaedic Trauma at Loma Linda University Medical Center before being recruited to Pomona Valley Hospital Medical Center as Orthopedic Trauma Medical Director.</p>
+    <p class="body" style="color: rgba(255,255,255,0.92); max-width: 80ch;">Through years of trauma work — rebuilding shattered limbs, correcting deformities — Dr. Basmajian developed particular expertise in limb lengthening. He noticed the transformation was as much psychological as physical. He also noticed patients arriving with complications from procedures performed elsewhere. The need for a practice built on clinical excellence became undeniable.</p>
+
+    <div class="pull">
+      <div class="q">Premier Limb Lengthening is the result: <em>a surgeon with the credentials of an academic trauma director</em> delivering the attention of a concierge physician.</div>
+      <div class="a">— One surgeon · Direct access · No compromises</div>
+    </div>
+
+    <h3 class="sub" style="color: #fff;">Proof <em>points</em></h3>
+    <div class="kv" style="margin-top: 24px; background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.25);">
+      <div class="row" style="border-color: rgba(255,255,255,0.15);"><div class="k" style="color: var(--gold);">Clinical Volume</div><div class="v" style="color: #fff;">Hundreds of procedures in trauma, cosmetic, and revisional settings.</div></div>
+      <div class="row" style="border-color: rgba(255,255,255,0.15);"><div class="k" style="color: var(--gold);">Institutional</div><div class="v" style="color: #fff;">Ortho Trauma Medical Director at PVHMC. Former Chair at Loma Linda.</div></div>
+      <div class="row" style="border-color: rgba(255,255,255,0.15);"><div class="k" style="color: var(--gold);">Academic</div><div class="v" style="color: #fff;">Assistant Professor. <em style="color: var(--gold); font-style: italic;">Masters’ Fracture Meeting.</em> AAOS/OTA presenter.</div></div>
+      <div class="row" style="border-color: rgba(255,255,255,0.15);"><div class="k" style="color: var(--gold);">Published</div><div class="v" style="color: #fff;">Internationally published book. Multiple peer-reviewed journal articles.</div></div>
+      <div class="row" style="border-color: rgba(255,255,255,0.15);"><div class="k" style="color: var(--gold);">Fellowship</div><div class="v" style="color: #fff;">Sonoran (Scottsdale) + Hannover, Germany.</div></div>
+      <div class="row" style="border-color: rgba(255,255,255,0.15);"><div class="k" style="color: var(--gold);">National Board</div><div class="v" style="color: #fff;">Evidence-Based Guidelines on Infection Management in Orthopaedics.</div></div>
+      <div class="row" style="border-color: rgba(255,255,255,0.15);"><div class="k" style="color: var(--gold);">Ratings</div><div class="v" style="color: #fff;">5/5 U.S. News. 112/120 ThreeBestRated.</div></div>
+      <div class="row" style="border-color: rgba(255,255,255,0.15);"><div class="k" style="color: var(--gold);">Innovation</div><div class="v" style="color: #fff;">First U.S. hospital with Skytron Glass Operating Room.</div></div>
+      <div class="row"><div class="k" style="color: var(--gold);">Languages</div><div class="v" style="color: #fff;">English, Armenian, Spanish.</div></div>
+    </div>
+
+    <div class="callout" style="background: rgba(255,255,255,0.08); border-color: var(--gold); color: rgba(255,255,255,0.95); margin-top: 40px;">
+      <span class="k" style="color: var(--gold);">— Placeholder · Action Item</span>
+      Record a 10-minute conversation with Dr. Basmajian. Prompts: <em style="color: var(--gold);">(1)</em> What moment made limb lengthening a core focus? <em style="color: var(--gold);">(2)</em> Most meaningful patient transformation? <em style="color: var(--gold);">(3)</em> What should every prospective patient understand? Record as conversation, not writing. We will shape it.
+    </div>
+  </div>
+</section>
+
+<!-- ============ § 07 — VISUAL IDENTITY ============ -->
+<section class="section paper" id="s07">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="no">07</div>
+      <h2>Visual <em>identity.</em></h2>
+      <div class="lbl">§ 07 · Vol. II</div>
+    </div>
+    <p class="section-deck">The system at a glance. The full kit lives in the companion volume — Kit B · The Dossier.</p>
+
+    <h3 class="sub first">Design <em>philosophy</em></h3>
+    <p class="lede">An <em>editorial, evidence-based</em> identity for the limb lengthening surgeon trusted by patients who have already done their research. Reference: Superpower × Function Health × A. Lange &amp; Söhne.</p>
+
+    <h3 class="sub">Typography <em>system</em></h3>
+    <div class="grid-3" style="margin-top: 24px;">
+      <div class="card">
+        <div class="label">Display · Editorial</div>
+        <div style="font-family: 'Newsreader', serif; font-weight: 500; font-size: 86px; line-height: 0.94; letter-spacing: -0.02em;">Aa <em style="font-style: italic; color: var(--blue);">Aa</em></div>
+        <div style="margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--rule);">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.22em; color: var(--blue); text-transform: uppercase;">Newsreader · 400 / 500</div>
+          <p style="margin-top: 8px;">Display/editorial voice. Headlines, pull quotes, section titles. Italic for emphasis.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="label">Text · Functional</div>
+        <div style="font-family: 'Inter Tight', sans-serif; font-weight: 400; font-size: 86px; line-height: 0.94; letter-spacing: -0.025em;">Aa Aa</div>
+        <div style="margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--rule);">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.22em; color: var(--blue); text-transform: uppercase;">Inter Tight · 300 – 600</div>
+          <p style="margin-top: 8px;">Functional voice. Body, navigation, eyebrows, captions, UI. 16/1.6 body.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="label">Precision · Data</div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 56px; line-height: 0.94; letter-spacing: -0.01em; padding-top: 16px;">Aa 01</div>
+        <div style="margin-top: 30px; padding-top: 16px; border-top: 1px solid var(--rule);">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.22em; color: var(--blue); text-transform: uppercase;">JetBrains Mono · 400 / 500</div>
+          <p style="margin-top: 8px;">Precision voice. Eyebrows, section labels, data, measurements. 11px, 0.2em tracking, uppercase.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sub">Color <em>palette</em></h3>
+    <div class="grid-4" style="margin-top: 24px; gap: 16px;">
+      <div style="background: var(--blue); color: #fff; padding: 24px; min-height: 180px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid var(--ink);">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase; opacity: 0.7;">Spine</div>
+        <div>
+          <div style="font-family: 'Newsreader', serif; font-style: italic; font-weight: 500; font-size: 28px;">Premier Blue</div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 6px; opacity: 0.75;">#254A5D · 2168 C</div>
+        </div>
+      </div>
+      <div style="background: var(--ink); color: #fff; padding: 24px; min-height: 180px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid var(--ink);">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase; opacity: 0.7;">Type · Rules</div>
+        <div>
+          <div style="font-family: 'Newsreader', serif; font-style: italic; font-weight: 500; font-size: 28px;">Ink</div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 6px; opacity: 0.7;">#0F1417 · 426 C</div>
+        </div>
+      </div>
+      <div style="background: var(--paper-off); color: var(--ink); padding: 24px; min-height: 180px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid var(--ink);">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted);">Ground</div>
+        <div>
+          <div style="font-family: 'Newsreader', serif; font-style: italic; font-weight: 500; font-size: 28px;">Newsprint</div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 6px; color: var(--muted);">#F8F6F1</div>
+        </div>
+      </div>
+      <div style="background: var(--gold); color: var(--ink); padding: 24px; min-height: 180px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid var(--ink);">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase; opacity: 0.65;">Accent · 2%</div>
+        <div>
+          <div style="font-family: 'Newsreader', serif; font-style: italic; font-weight: 500; font-size: 28px;">Editorial Gold</div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 6px; opacity: 0.65;">#F4D88A · 7401 C</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <span class="k">— Color Discipline · 60 / 30 / 8 / 2</span>
+      60% Newsprint ground. 30% Ink for type and rules. 8% Premier Blue as structural spine. <em>2% Editorial Gold</em> as punctuation, reserved for moments that earn it. Gold is jewelry, not paint.
+    </div>
+
+    <h3 class="sub">The <em>mark</em></h3>
+    <p class="body">Primary lockup: Blue square monogram (italic serif “P”) + Newsreader wordmark + mono endorsement line. Variants: Primary, Stacked, Reverse Blue, Reverse Ink, Monogram, Wordmark editorial. Clear-space = 1× monogram width.</p>
+
+    <h3 class="sub">Layout <em>system</em></h3>
+    <div class="kv" style="margin-top: 20px;">
+      <div class="row"><div class="k">Container</div><div class="v">1320 px max</div></div>
+      <div class="row"><div class="k">Gutter</div><div class="v">48 px desktop</div></div>
+      <div class="row"><div class="k">Grid</div><div class="v">12-column magazine</div></div>
+      <div class="row"><div class="k">Section padding</div><div class="v">96 – 150 px vertical</div></div>
+      <div class="row"><div class="k">Spacing scale</div><div class="v">XS 8 · S 16 · M 24 · L 40 · XL 64 · 2XL 96 · 3XL 160</div></div>
+      <div class="row"><div class="k">Index markers</div><div class="v">Italic serif Arabic numerals, zero-padded (<em>01, 02</em>). Premier Blue numeral, Ink content. Roman numerals retired.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ § 08 — PHOTOGRAPHY ============ -->
+<section class="section" id="s08">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="no">08</div>
+      <h2>Photography &amp; <em>art direction.</em></h2>
+      <div class="lbl">§ 08 · Vol. II</div>
+    </div>
+    <p class="section-deck">Editorial portraiture from a medical journal — not stock, not lifestyle, not clinical sterility.</p>
+
+    <h3 class="sub first">Photography <em>philosophy</em></h3>
+    <p class="lede">Every image answers the implicit question: <em>“Is this someone I can trust with a $75K–$150K decision about my body?”</em> The visual register is warm authority — real environments, real light, real surgeon.</p>
+
+    <h3 class="sub">Photography <em>categories</em></h3>
+    <div class="grid-4" style="margin-top: 24px;">
+      <div class="card" style="padding: 28px;">
+        <div style="aspect-ratio: 4/5; background: repeating-linear-gradient(135deg, var(--paper-2) 0 16px, var(--cream) 16px 32px); border: 1px solid var(--ink); margin-bottom: 18px; display: grid; place-items: center; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; color: var(--muted); text-transform: uppercase;">Plate 01 · Portrait</div>
+        <div class="label">Category 01</div>
+        <h4>Surgeon <em>portraits</em></h4>
+        <p>The primary brand asset. Warm lighting, ¾ turn or direct gaze. White coat or scrubs. Never arms crossed.</p>
+      </div>
+      <div class="card" style="padding: 28px;">
+        <div style="aspect-ratio: 4/5; background: repeating-linear-gradient(135deg, var(--paper-2) 0 16px, var(--cream) 16px 32px); border: 1px solid var(--ink); margin-bottom: 18px; display: grid; place-items: center; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; color: var(--muted); text-transform: uppercase;">Plate 02 · Suite</div>
+        <div class="label">Category 02</div>
+        <h4>Clinical <em>environment</em></h4>
+        <p>Skytron Glass OR, consultation rooms, imaging equipment. Modern, institutional depth. Not cold — precise.</p>
+      </div>
+      <div class="card" style="padding: 28px;">
+        <div style="aspect-ratio: 4/5; background: repeating-linear-gradient(135deg, var(--paper-2) 0 16px, var(--cream) 16px 32px); border: 1px solid var(--ink); margin-bottom: 18px; display: grid; place-items: center; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; color: var(--muted); text-transform: uppercase;">Plate 03 · Moment</div>
+        <div class="label">Category 03</div>
+        <h4>Patient <em>moments</em></h4>
+        <p>Recovery milestones, consultations (with consent). Candid, editorial, respectful. Hands, posture — not faces unless consented.</p>
+      </div>
+      <div class="card" style="padding: 28px;">
+        <div style="aspect-ratio: 4/5; background: repeating-linear-gradient(135deg, var(--paper-2) 0 16px, var(--cream) 16px 32px); border: 1px solid var(--ink); margin-bottom: 18px; display: grid; place-items: center; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; color: var(--muted); text-transform: uppercase;">Plate 04 · Place</div>
+        <div class="label">Category 04</div>
+        <h4>Facility &amp; <em>location</em></h4>
+        <p>Exterior architecture. Southern California environment. Aspirational SoCal — coastline, modern recovery suite. Supports concierge.</p>
+      </div>
+    </div>
+
+    <h3 class="sub">Lighting &amp; <em>color grading</em></h3>
+    <p class="body">Warm but controlled. Natural light preferred, supplemented with soft directional lighting. Slightly desaturated, cool shadows, warm highlights. Never over-processed, never HDR, never lifestyle-bright. The mood is quiet confidence, not aspirational energy.</p>
+
+    <div class="dos-donts" style="margin-top: 40px;">
+      <div class="dlist do">
+        <h4><em>Composition</em> rules</h4>
+        <span class="lbl">Editorial direction</span>
+        <ul>
+          <li><span class="t">01</span><span>Generous negative space. Let the subject breathe.</span></li>
+          <li><span class="t">02</span><span>Shallow depth of field for surgeon portraits.</span></li>
+          <li><span class="t">03</span><span>Rule of thirds, not centered. Editorial, not corporate.</span></li>
+          <li><span class="t">04</span><span>Monospace text overlays (Plate 01, Plate 02) in editorial contexts.</span></li>
+          <li><span class="t">05</span><span>Horizontal for web hero. Square for social. Vertical for mobile.</span></li>
+        </ul>
+      </div>
+      <div class="dlist dont-list">
+        <h4>Photography <em>don'ts</em></h4>
+        <span class="lbl">Breaks the register</span>
+        <ul>
+          <li><span class="t">01</span><span>Stock medical photography. No generic doctors, no handshakes, no clipboards.</span></li>
+          <li><span class="t">02</span><span>Patients in hospital gowns without clinical context + consent.</span></li>
+          <li><span class="t">03</span><span>Before/after imagery without written patient consent.</span></li>
+          <li><span class="t">04</span><span>Bright, warm, lifestyle-wellness color grading. This is not a spa.</span></li>
+          <li><span class="t">05</span><span>Over-composed group shots. PLL is one surgeon, not a team photo op.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ § 09 — ICONOGRAPHY & DATA ============ -->
+<section class="section paper" id="s09">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="no">09</div>
+      <h2>Iconography &amp; <em>data.</em></h2>
+      <div class="lbl">§ 09 · Vol. II</div>
+    </div>
+    <p class="section-deck">Monoline, geometric, restrained. The icon language feels like technical illustration — not consumer app design.</p>
+
+    <h3 class="sub first">Icon <em>system</em></h3>
+    <p class="lede">1.5 px stroke weight at default size (24 px). Premier Blue for active states. Ink for neutral. Muted for disabled. <em>No filled icons, no gradients, no rounded-playful styles.</em></p>
+
+    <h3 class="sub">Icon <em>categories</em></h3>
+    <div class="grid-5" style="margin-top: 24px;">
+      <div class="card"><div class="label">01</div><h4>Procedure</h4><p>Bone/nail cross-section, measurement caliper, surgical precision, height gain indicator.</p></div>
+      <div class="card"><div class="label">02</div><h4>Journey</h4><p>Consultation (conversation), Surgery (instrument), Recovery (milestone), Results (measurement).</p></div>
+      <div class="card"><div class="label">03</div><h4>Concierge</h4><p>Travel, accommodation, PT, coordinator, remote/video.</p></div>
+      <div class="card"><div class="label">04</div><h4>Candidacy</h4><p>Checklist, health assessment, age range, BMI indicator.</p></div>
+      <div class="card"><div class="label">05</div><h4>Trust</h4><p>Board certification, publication, fellowship, teaching podium, hospital.</p></div>
+    </div>
+
+    <h3 class="sub">Data <em>visualization</em></h3>
+    <p class="body">The stat components (“100s Procedures,” “3–6″ Height Gain”) establish the pattern. Large serif numeral in Ink or Premier Blue. Supporting label in mono uppercase. <em>Numbers always specific.</em> “Hundreds,” not “many.” “3–6 inches,” not “several inches.”</p>
+
+    <div class="stat-row">
+      <div class="s"><div class="n"><em>100s</em></div><div class="l">Procedures performed</div></div>
+      <div class="s"><div class="n">3 – 6<sup style="font-size: 0.4em; vertical-align: top;">″</sup></div><div class="l">Typical height gain</div></div>
+      <div class="s"><div class="n"><em>17</em>+</div><div class="l">Surgeon group</div></div>
+      <div class="s"><div class="n">5 / 5</div><div class="l">U.S. News rating</div></div>
+    </div>
+
+    <div class="dos-donts" style="margin-top: 40px;">
+      <div class="dlist do">
+        <h4><em>Charts</em></h4>
+        <span class="lbl">Approved usage</span>
+        <ul>
+          <li><span class="t">01</span><span>Stat cards: white background, hairline border, generous padding. No background fills.</span></li>
+          <li><span class="t">02</span><span>Charts: monochromatic Premier Blue scale.</span></li>
+          <li><span class="t">03</span><span>Bar and line charts only, if absolutely necessary.</span></li>
+          <li><span class="t">04</span><span>Data is evidence, not decoration.</span></li>
+        </ul>
+      </div>
+      <div class="dlist dont-list">
+        <h4>Never <em>this</em></h4>
+        <span class="lbl">Breaks the register</span>
+        <ul>
+          <li><span class="t">01</span><span>Infographic-style illustrations. PLL uses data as evidence, not decoration.</span></li>
+          <li><span class="t">02</span><span>Pie charts.</span></li>
+          <li><span class="t">03</span><span>3D effects, gradients, drop shadows on charts.</span></li>
+          <li><span class="t">04</span><span>Vague quantities. “Many,” “several,” “a lot.”</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ § 10 — VIDEO ============ -->
+<section class="section dark" id="s10">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="no">10</div>
+      <h2>Video &amp; <em>motion.</em></h2>
+      <div class="lbl">§ 10 · Vol. II</div>
+    </div>
+    <p class="section-deck">Editorial, not promotional. Every video educates first and builds trust second.</p>
+
+    <h3 class="sub first" style="color: #fff;">Video <em>philosophy</em></h3>
+    <p class="lede">The surgeon is the primary on-screen presence. Production quality is high but not over-produced — content should feel like <em>a consultation, not a commercial.</em></p>
+
+    <h3 class="sub" style="color: #fff;">Video <em>categories</em></h3>
+    <div class="grid-4" style="margin-top: 24px;">
+      <div class="card"><div class="label">Format 01</div><h4>Surgeon <em>explainers</em></h4><p>Dr. Basmajian explaining procedures, answering common questions, discussing case types (anonymized). 5–15 min. Clinical setting.</p></div>
+      <div class="card"><div class="label">Format 02</div><h4>Patient <em>stories</em></h4><p>With consent. Editorial documentary feel, not testimonial. Focus on decision-making and emotional arc.</p></div>
+      <div class="card"><div class="label">Format 03</div><h4>Process <em>walkthroughs</em></h4><p>Animation showing PRECICE nail, lengthening timeline, recovery milestones. Clean, technical, monochromatic.</p></div>
+      <div class="card"><div class="label">Format 04</div><h4>AI <em>avatar</em> (Ph. 3)</h4><p>HeyGen/Synthesia-generated Dr. Basmajian for patient education at scale. Same voice rules. Clinical instrument, not novelty.</p></div>
+    </div>
+
+    <h3 class="sub" style="color: #fff;">Production <em>standards</em></h3>
+    <div class="kv" style="margin-top: 20px; background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.2);">
+      <div class="row" style="border-color: rgba(255,255,255,0.12);"><div class="k" style="color: var(--gold);">Color Grade</div><div class="v" style="color: #fff;">Match photography: desaturated, cool shadows, warm highlights.</div></div>
+      <div class="row" style="border-color: rgba(255,255,255,0.12);"><div class="k" style="color: var(--gold);">Lower Thirds</div><div class="v" style="color: #fff;">JetBrains Mono, uppercase. Premier Blue background or Newsprint with Blue text.</div></div>
+      <div class="row" style="border-color: rgba(255,255,255,0.12);"><div class="k" style="color: var(--gold);">Title Cards</div><div class="v" style="color: #fff;">Newsreader serif on Ink. Section number in <em style="color: var(--gold);">Gold.</em> Monospace meta.</div></div>
+      <div class="row" style="border-color: rgba(255,255,255,0.12);"><div class="k" style="color: var(--gold);">Music</div><div class="v" style="color: #fff;">Minimal, ambient, instrumental. <em style="color: var(--gold);">Think Nils Frahm, not Musicbed corporate.</em></div></div>
+      <div class="row"><div class="k" style="color: var(--gold);">Pacing</div><div class="v" style="color: #fff;">Unhurried. Let statements land. Measured, confident, deliberate.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ § 11 — DIGITAL EXPERIENCE ============ -->
+<section class="section" id="s11">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="no">11</div>
+      <h2>Digital <em>experience.</em></h2>
+      <div class="lbl">§ 11 · Vol. II</div>
+    </div>
+    <p class="section-deck">The website is a clinical instrument, not a brochure. It listens to implicit questions and answers them in order of priority.</p>
+
+    <h3 class="sub first">Hierarchy of <em>trust signals</em></h3>
+    <p class="body">The order matters. Trust is earned through evidence first, testimonials second.</p>
+    <div class="kv" style="margin-top: 24px;">
+      <div class="row"><div class="k">01 · Surgeon Authority</div><div class="v">Credentials, affiliations, clinical volume — <em>above the fold.</em></div></div>
+      <div class="row"><div class="k">02 · Process Transparency</div><div class="v">Three-phase journey (Consultation, Surgery, Recovery) with specific timelines.</div></div>
+      <div class="row"><div class="k">03 · Technology Proof</div><div class="v">PRECICE 4th-gen named, explained, differentiated.</div></div>
+      <div class="row"><div class="k">04 · Concierge</div><div class="v">White-glove travel + recovery program presented as a unique program, not an afterthought.</div></div>
+      <div class="row"><div class="k">05 · Social Proof</div><div class="v">Patient stories <em>after</em> credentials and process — not before.</div></div>
+      <div class="row"><div class="k">06 · Pricing</div><div class="v">Fully itemized, visible on the site. Competitive advantage — most competitors gate this.</div></div>
+      <div class="row"><div class="k">07 · Conversion</div><div class="v"><em>“Schedule a Confidential Consultation.”</em> “Confidential” is a deliberate word choice.</div></div>
+    </div>
+
+    <h3 class="sub">UX <em>principles</em></h3>
+    <div class="grid-3" style="margin-top: 24px;">
+      <div class="card"><div class="label">Performance</div><h4>Sub-2s <em>load</em></h4><p>The Optimizer persona will bounce from slow sites. Performance is a trust signal.</p></div>
+      <div class="card"><div class="label">Mobile-first</div><h4>375 <em>and up</em></h4><p>Research-heavy Optimizer reads on mobile at night. Every page fully functional at 375 px.</p></div>
+      <div class="card"><div class="label">Navigation</div><h4>Folio <em>system</em></h4><p>Section-style nav (§ 01 · The Practice, § 02 · Your Surgeon). Maintains the periodical metaphor.</p></div>
+      <div class="card"><div class="label">Imagery</div><h4>Photography <em>plates</em></h4><p>Plate 01 · Portrait. Plate 02 · Suite. Mono captions. Treats imagery as editorial content, not decoration.</p></div>
+      <div class="card"><div class="label">Sections</div><h4>Dark, <em>blue, light</em></h4><p>Ink for high-impact (hero, CTA, testimonials). Newsprint for education. Blue for data/stats.</p></div>
+      <div class="card"><div class="label">AI Concierge</div><h4>Clinical <em>instrument</em></h4><p>Phase 2. Lower-right placement, not a generic chat bubble. Expands to full panel. Surgeon's voice.</p></div>
+    </div>
+
+    <h3 class="sub">Content <em>architecture</em></h3>
+    <div class="kv" style="margin-top: 20px;">
+      <div class="row"><div class="k">One job per page</div><div class="v">Procedure pages educate. Bio establishes trust. Pricing enables decision-making.</div></div>
+      <div class="row"><div class="k">FAQ for AEO</div><div class="v">Question-and-answer pairs with schema markup. Structured for AI search engines.</div></div>
+      <div class="row"><div class="k">Inclusive candidacy</div><div class="v"><em>“Many patients told no elsewhere are candidates here.”</em> Inclusive checklist, not exclusionary gate.</div></div>
+      <div class="row"><div class="k">International woven in</div><div class="v">Not siloed. Concierge, virtual consultation, multilingual support appear at every relevant touchpoint.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ § 12 — INTELLIGENCE LAYER ============ -->
+<section class="section blue" id="s12">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="no">12</div>
+      <h2>The <em>intelligence layer.</em></h2>
+      <div class="lbl">§ 12 · Vol. II</div>
+    </div>
+    <p class="section-deck">Not a feature — a structural brand differentiator. The competitive window is open. No competitor has it.</p>
+
+    <h3 class="sub first" style="color: #fff;">Strategic <em>context</em></h3>
+    <p class="lede" style="color: rgba(255,255,255,0.92);">The Intelligence Layer is a <em>first-mover opportunity</em> with a defined window. It reinforces every pillar: Authority (clinical precision in voice), Technology (the platform itself is cutting-edge), Concierge (the patient is never waiting for a response).</p>
+
+    <h3 class="sub" style="color: #fff;">The three <em>phases</em></h3>
+    <div class="timeline" style="margin-top: 24px; background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.25);">
+      <div class="phase" style="border-color: rgba(255,255,255,0.15);">
+        <div class="ph" style="color: var(--gold);">Phase 01</div>
+        <h4 style="color: #fff;">Automated <em style="color: var(--gold);">journey</em></h4>
+        <div class="when" style="color: var(--gold);">2 – 3 weeks · GoHighLevel</div>
+        <ul style="color: rgba(255,255,255,0.92);">
+          <li><span></span><span><b style="color: #fff;">Inquiry response.</b> Auto-acknowledge in minutes. Personal follow-up &lt;2 business hours.</span></li>
+          <li><span></span><span><b style="color: #fff;">Nurture sequence.</b> 5-email educational drip over 10–14 days.</span></li>
+          <li><span></span><span><b style="color: #fff;">Post-consult.</b> 3-email follow-up with plan recap, financing, open door.</span></li>
+          <li><span></span><span><b style="color: #fff;">Post-op milestones.</b> Week-by-week triggers from surgery date.</span></li>
+          <li><span></span><span><b style="color: #fff;">Reactivation.</b> 30/60/90-day check-ins, educational not salesy.</span></li>
+          <li><span></span><span><b style="color: #fff;">Pipeline.</b> Inquiry → Qualified → Booked → Pre-Op → Post-Op → Alumni.</span></li>
+        </ul>
+      </div>
+      <div class="phase" style="border-color: rgba(255,255,255,0.15);">
+        <div class="ph" style="color: var(--gold);">Phase 02</div>
+        <h4 style="color: #fff;">AI clinical <em style="color: var(--gold);">concierge</em></h4>
+        <div class="when" style="color: var(--gold);">Months 3 – 6 · Text-based</div>
+        <ul style="color: rgba(255,255,255,0.92);">
+          <li><span></span><span><b style="color: #fff;">Design philosophy.</b> Clinical instrument, not chatbot. Ink background. Monospace metadata. Serif AI responses.</span></li>
+          <li><span></span><span><b style="color: #fff;">Procedure Q&amp;A.</b> Curated knowledge base — never open-ended generation.</span></li>
+          <li><span></span><span><b style="color: #fff;">Candidacy pre-screen.</b> Age, BMI, conditions, expectations. Indicates appropriateness — does not diagnose.</span></li>
+          <li><span></span><span><b style="color: #fff;">Pricing transparency.</b> Same numbers as the site. No bait-and-switch.</span></li>
+          <li><span></span><span><b style="color: #fff;">Handoff.</b> When scope exceeded, says so clearly and offers direct connection.</span></li>
+        </ul>
+      </div>
+      <div class="phase">
+        <div class="ph" style="color: var(--gold);">Phase 03</div>
+        <h4 style="color: #fff;">AI video <em style="color: var(--gold);">avatar</em></h4>
+        <div class="when" style="color: var(--gold);">Months 6 – 12 · HeyGen / Synthesia</div>
+        <ul style="color: rgba(255,255,255,0.92);">
+          <li><span></span><span><b style="color: #fff;">Surgeon digital clone.</b> Patient education at scale, multilingual.</span></li>
+          <li><span></span><span><b style="color: #fff;">Uses.</b> Procedure explanation, FAQ responses, pre-consultation prep, international comms.</span></li>
+          <li><span></span><span><b style="color: #fff;">Production parity.</b> Same lower thirds, title cards, color grading.</span></li>
+          <li><span></span><span><b style="color: #fff;">Disclosure.</b> Every AI-generated video carries a non-hidden label.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout" style="background: rgba(255,255,255,0.08); border-color: var(--gold); color: rgba(255,255,255,0.95); margin-top: 40px;">
+      <span class="k" style="color: var(--gold);">— Voice Calibration</span>
+      The AI speaks in the same voice rules: <em style="color: var(--gold);">editorial, evidenced, direct.</em> No emoji. No exclamation marks. No urgency. It addresses the patient as an intelligent adult. It acknowledges uncertainty. It never makes claims the surgeon has not made.
+    </div>
+  </div>
+</section>
+
+<!-- ============ § 13 — PATIENT EXPERIENCE ============ -->
+<section class="section paper" id="s13">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="no">13</div>
+      <h2>Patient <em>experience.</em></h2>
+      <div class="lbl">§ 13 · Vol. III</div>
+    </div>
+    <p class="section-deck">Every touchpoint answers one question: does this feel like a $77,500 – $150,000 experience?</p>
+
+    <h3 class="sub first">The <em>standard</em></h3>
+    <div class="callout gold">
+      <span class="k">— The Rubric</span>
+      If any interaction feels <em>transactional, bureaucratic, or generic,</em> it fails. Every touchpoint either earns trust or erodes it. There is no neutral.
+    </div>
+
+    <h3 class="sub">Journey <em>touchpoints</em></h3>
+    <table class="tbl" style="margin-top: 24px;">
+      <thead><tr><th>Touchpoint</th><th>Standard</th><th>Differentiator</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Website</td><td>Sub-2s load. Clear value prop and surgeon authority above fold.</td><td>AI concierge for 24/7 Q&amp;A. Editorial design language.</td></tr>
+        <tr><td class="k">Initial Inquiry</td><td>Automated ack in minutes. Personal follow-up &lt;2 hours.</td><td>Clinical-capable responder. GoHighLevel automation.</td></tr>
+        <tr><td class="k">Consultation</td><td>Led by Dr. Basmajian. Goals, candidacy, cost, timeline.</td><td>Every consultation reviewed by surgeon. Educated, not sold.</td></tr>
+        <tr><td class="k">Pre-Op</td><td>Written plan. Checklist. Single contact.</td><td>International: complete travel coordination package.</td></tr>
+        <tr><td class="k">Surgery Day</td><td>No surprises. Family informed.</td><td>Dr. Basmajian personally briefs before and after.</td></tr>
+        <tr><td class="k">Recovery</td><td>Proactive milestone check-ins. 24/7 clinical access.</td><td>Automated milestone emails + personalized protocol.</td></tr>
+        <tr><td class="k">12-Month Post-Op</td><td>Final assessment. PT referral.</td><td>Alumni relationship. Annual check-in option.</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub">Experience <em>differentiators</em></h3>
+    <div class="grid-5" style="margin-top: 28px;">
+      <div class="card"><div class="num">01</div><h4>Direct surgeon access</h4><p>Patients communicate with Dr. Basmajian directly for clinical questions.</p></div>
+      <div class="card"><div class="num">02</div><h4>Proactive communication</h4><p>Automated milestone emails, check-in calls, weekly “what to expect” content.</p></div>
+      <div class="card"><div class="num">03</div><h4>Travel concierge</h4><p>Airport coordination, lodging, local orientation. Dedicated contact for 20% international patients.</p></div>
+      <div class="card"><div class="num">04</div><h4>Recovery planning</h4><p>Digital timeline tracking milestones, PT schedules, expected outcomes.</p></div>
+      <div class="card"><div class="num">05</div><h4>Privacy by design</h4><p>Secure channels default. Discretion is system-level, not an add-on.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ § 14 — SOCIAL ============ -->
+<section class="section" id="s14">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="no">14</div>
+      <h2>Social <em>media.</em></h2>
+      <div class="lbl">§ 14 · Vol. III</div>
+    </div>
+    <p class="section-deck">A visual journal of clinical authority — not a content factory. Editorial-medical, not motivational-lifestyle.</p>
+
+    <h3 class="sub first">Grid <em>aesthetic</em></h3>
+    <p class="lede">Cool tones. Generous whitespace. Premier Blue and Newsprint palette. The grid alternates between <em>three content types:</em> educational carousels (Blue/Ink), clinical environment photography (Newsprint/white), and stat/data cards (white with Blue accents).</p>
+
+    <h3 class="sub">Content <em>templates</em></h3>
+    <div class="grid-5" style="margin-top: 24px;">
+      <div class="card"><div class="label">Type 01</div><h4>Educational <em>carousel</em></h4><p>Ink or Premier Blue ground. Newsreader headline slide. Inter Tight body. Mono stat callouts. 5–8 slides.</p></div>
+      <div class="card"><div class="label">Type 02</div><h4>Patient <em>story card</em></h4><p>Newsprint ground. Serif pull-quote. Mono metadata (location, year). No patient photos unless consented.</p></div>
+      <div class="card"><div class="label">Type 03</div><h4>Stat / <em>data card</em></h4><p>White ground. Large serif numeral. Mono label. Single stat per card. Solo or as a series.</p></div>
+      <div class="card"><div class="label">Type 04</div><h4>Surgeon <em>insight</em></h4><p>Editorial portrait with serif pull-quote overlay. Clinical setting background.</p></div>
+      <div class="card"><div class="label">Type 05</div><h4>Behind <em>the scenes</em></h4><p>Facility, technology, team (with consent). Casual-editorial, not polished-corporate.</p></div>
+    </div>
+
+    <h3 class="sub">Platform-specific <em>rules</em></h3>
+    <div class="kv" style="margin-top: 20px;">
+      <div class="row"><div class="k">Instagram</div><div class="v">Primary social channel. <em>3–4 posts/week.</em> Carousels for education, single images for authority. No Reels unless production matches.</div></div>
+      <div class="row"><div class="k">YouTube</div><div class="v">Long-form education home. Dr. Basmajian explainers. SEO titles. Custom thumbnails using brand typography and color.</div></div>
+      <div class="row"><div class="k">LinkedIn</div><div class="v">Dr. Basmajian's professional presence. Thought leadership, presentations, research. <em>More clinical, less consumer.</em></div></div>
+      <div class="row"><div class="k">TikTok</div><div class="v">Evaluate but do not default. Educational format only. <em>No trends, no dances, no reaction videos.</em></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ § 15 — PRINT ============ -->
+<section class="section cream" id="s15">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="no">15</div>
+      <h2>Print &amp; <em>collateral.</em></h2>
+      <div class="lbl">§ 15 · Vol. III</div>
+    </div>
+    <p class="section-deck">Materials that signal the practice's standard before the patient ever meets the surgeon.</p>
+
+    <h3 class="sub first">Collateral <em>suite</em></h3>
+    <div class="grid-3" style="margin-top: 24px;">
+      <div class="card"><div class="label">Item 01</div><h4>Business <em>card</em></h4><p>N° 0142 format. Premier Blue monogram. Newsreader name, mono details. <em>600 gsm cotton, soft-touch matte.</em></p></div>
+      <div class="card"><div class="label">Item 02</div><h4>Welcome <em>packet</em></h4><p>Folder with branded inserts: procedure overview, what-to-expect, pricing, FAQ, concierge program. Newsprint stock.</p></div>
+      <div class="card"><div class="label">Item 03</div><h4>Consultation <em>leave-behind</em></h4><p>Single-sheet summary personalized post-consultation: name, procedure, timeline, quote. Handed, not mailed.</p></div>
+      <div class="card"><div class="label">Item 04</div><h4>Recovery <em>guide</em></h4><p>Physical booklet (12–16 pages). Week-by-week milestones, PT exercises, meds, emergency contacts.</p></div>
+      <div class="card"><div class="label">Item 05</div><h4>Physician <em>referral card</em></h4><p>Double-sided. Dr. Basmajian's credentials on front, practice capabilities and contact on back.</p></div>
+      <div class="card"><div class="label">Item 06</div><h4>Confidential <em>letter</em></h4><p>PMS 2168 C header, monogram, mono dateline. For formal patient correspondence.</p></div>
+    </div>
+
+    <h3 class="sub">Paper &amp; <em>finishing</em></h3>
+    <div class="callout">
+      <span class="k">— Print Standards</span>
+      Premium uncoated stock <em>(120 gsm+ for inserts, 300 gsm+ for cards).</em> Soft-touch matte lamination on covers. No glossy finishes — they read as consumer/promotional, not clinical-editorial. Spot UV on the monogram only, if budget allows. Envelope: uncoated Cream (#F4F0E6), monogram blind-embossed on flap.
+    </div>
+  </div>
+</section>
+
+<!-- ============ § 16 — EMAIL ============ -->
+<section class="section paper" id="s16">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="no">16</div>
+      <h2>Email &amp; <em>digital comms.</em></h2>
+      <div class="lbl">§ 16 · Vol. III</div>
+    </div>
+    <p class="section-deck">A real email beats a campaign. The surgeon's voice should sound like a surgeon.</p>
+
+    <h3 class="sub first">Email <em>design standards</em></h3>
+    <div class="kv" style="margin-top: 20px;">
+      <div class="row"><div class="k">Header</div><div class="v">Premier Blue monogram (40 px), left-aligned. <em>“Premier Limb Lengthening”</em> in system serif (Georgia fallback). Thin rule below.</div></div>
+      <div class="row"><div class="k">Body Typography</div><div class="v">System sans stack (Arial, Helvetica, sans-serif). 16 px body, 24 px line-height. Dark gray (#2C3E50) on white.</div></div>
+      <div class="row"><div class="k">CTA Button</div><div class="v">Premier Blue (#254A5D) fill. White text. 4 px radius. <em>One CTA per email maximum.</em></div></div>
+      <div class="row"><div class="k">Signature</div><div class="v">Dr. Basmajian or Patient Coordinator name. Monospace-style metadata. Monogram icon. No social icons.</div></div>
+      <div class="row"><div class="k">Footer</div><div class="v">Practice address, phone, unsubscribe. <em>“Confidential: This email and its contents are intended for the named recipient only.”</em></div></div>
+    </div>
+
+    <h3 class="sub">Email <em>types</em></h3>
+    <div class="grid-4" style="margin-top: 24px;">
+      <div class="card"><div class="label">Type 01</div><h4>Automated <em>nurture</em></h4><p>GoHighLevel templates. Educational, sequential. Surgeon's voice for clinical, coordinator's voice for logistics.</p></div>
+      <div class="card"><div class="label">Type 02</div><h4>Personal <em>surgeon email</em></h4><p>From Dr. Basmajian directly. Plain-text feel. Minimal HTML. <em>Feels like a real email, not a campaign.</em></p></div>
+      <div class="card"><div class="label">Type 03</div><h4>Transactional</h4><p>Appointment confirmations, surgical plan delivery, document requests. Clean, informational, no marketing language.</p></div>
+      <div class="card"><div class="label">Type 04</div><h4>Post-op <em>milestone</em></h4><p>Triggered by surgery date. Week-specific content. Proactive. Links to relevant resources.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ § 17 — CO-BRANDING ============ -->
+<section class="section" id="s17">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="no">17</div>
+      <h2>Co-branding &amp; <em>partners.</em></h2>
+      <div class="lbl">§ 17 · Vol. III</div>
+    </div>
+    <p class="section-deck">Hierarchy first. PLL leads. Affiliations are proof points, not co-brands.</p>
+
+    <h3 class="sub first">Brand <em>relationships</em></h3>
+    <div class="grid-2" style="margin-top: 24px;">
+      <div class="card">
+        <div class="label">PLL × Premier Ortho</div>
+        <h4>Parent <em>endorsement</em></h4>
+        <p>PLL is an <em style="font-style: italic; color: var(--blue);">institute</em> within Premier Orthopaedic &amp; Trauma Specialists. The endorsement line — “A Premier Orthopaedic &amp; Trauma Clinic” — reinforces this. On PLL materials, the Premier Ortho mark does not appear unless explicitly required.</p>
+      </div>
+      <div class="card">
+        <div class="label">PLL × PVHMC</div>
+        <h4>Affiliation, <em>not co-brand</em></h4>
+        <p>Dr. Basmajian's title (Orthopedic Trauma Medical Director) references PVHMC. The hospital logo does not appear on PLL materials, but the affiliation is stated in text. <em>PVHMC is a proof point.</em></p>
+      </div>
+      <div class="card">
+        <div class="label">PLL × Media</div>
+        <h4>Speaker <em>credit</em></h4>
+        <p>For podcasts, conferences, media placements: <em style="font-style: italic; color: var(--blue);">“Hrayr Basmajian, MD, MS — Founder, Premier Limb Lengthening; Director of Orthopedic Trauma, PVHMC.”</em> Full credentials. Monogram as speaker avatar.</p>
+      </div>
+      <div class="card">
+        <div class="label">PLL × Vendors</div>
+        <h4>Always <em>secondary</em></h4>
+        <p>CareCredit, PRECICE/NuVasive, GoHighLevel, HeyGen/Synthesia: vendor logos may appear on relevant pages (financing, technology). <em>Never at equal visual weight to the PLL mark.</em></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ § 18 — ACCESSIBILITY ============ -->
+<section class="section paper" id="s18">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="no">18</div>
+      <h2>Accessibility &amp; <em>compliance.</em></h2>
+      <div class="lbl">§ 18 · Vol. III</div>
+    </div>
+    <p class="section-deck">Not optional. An expression of the stewardship core value.</p>
+
+    <h3 class="sub first">Accessibility <em>standards</em></h3>
+    <p class="lede">All PLL digital properties must meet <em>WCAG 2.1 AA</em> compliance. This is a brand standard.</p>
+    <div class="kv" style="margin-top: 24px;">
+      <div class="row"><div class="k">Color Contrast</div><div class="v">All text 4.5:1 contrast (AA). Premier Blue on white passes. Gold on white does not. <em>Editorial Gold should never be used for text on light backgrounds.</em></div></div>
+      <div class="row"><div class="k">Alt Text</div><div class="v">Every image requires descriptive alt text. Decorative images use empty alt attributes.</div></div>
+      <div class="row"><div class="k">Keyboard Navigation</div><div class="v">All interactive elements must be keyboard-accessible. Focus states must be visible.</div></div>
+      <div class="row"><div class="k">Screen Reader</div><div class="v">Semantic HTML. Proper heading hierarchy. ARIA labels where semantic HTML is insufficient.</div></div>
+      <div class="row"><div class="k">Motion</div><div class="v">Respect <em>prefers-reduced-motion.</em> No auto-playing video. Animations must be pausable.</div></div>
+    </div>
+
+    <h3 class="sub">International <em>compliance</em></h3>
+    <div class="kv" style="margin-top: 20px;">
+      <div class="row"><div class="k">GDPR (EU)</div><div class="v">Geo-aware consent management (CookieYes recommended). Cookie banner before tracking. Right to erasure honored.</div></div>
+      <div class="row"><div class="k">CCPA (California)</div><div class="v">Privacy policy includes CCPA disclosures. <em>“Do Not Sell”</em> link in footer.</div></div>
+      <div class="row"><div class="k">Medical Disclaimers</div><div class="v">Risk disclosure on every procedure page. “Results may vary.” No guarantees of outcomes.</div></div>
+      <div class="row"><div class="k">Privacy Policy</div><div class="v">International language covering EU, UK, and California residents at minimum.</div></div>
+      <div class="row"><div class="k">Medical Schema</div><div class="v">Schema.org/MedicalProcedure and /Physician markup. Supports AEO and rich search results.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ § 19 — GLOSSARY ============ -->
+<section class="section cream" id="s19">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="no">19</div>
+      <h2>Brand <em>glossary.</em></h2>
+      <div class="lbl">§ 19 · Vol. IV</div>
+    </div>
+    <p class="section-deck">Standardized usage. Anyone creating content for PLL should reference this list before publishing.</p>
+
+    <div class="kv" style="margin-top: 32px;">
+      <div class="row"><div class="k">The Procedure</div><div class="v">“limb lengthening” or “height enhancement.” <em>Never</em> “leg lengthening surgery” or “bone breaking.”</div></div>
+      <div class="row"><div class="k">The Technology</div><div class="v">PRECICE system (capitalize), PRECICE nail, PRECICE MAX (4th gen). Always note “internal” and “no external hardware.” Manufacturer: NuVasive (do not emphasize).</div></div>
+      <div class="row"><div class="k">The Surgeon</div><div class="v">Dr. Basmajian (first reference: <em>Dr. Hrayr Basmajian, MD, MS</em>). Never “Doc B” or informal variants.</div></div>
+      <div class="row"><div class="k">The Practice</div><div class="v">Premier Limb Lengthening or PLL (internal only). Never abbreviate in patient-facing materials.</div></div>
+      <div class="row"><div class="k">The Parent Practice</div><div class="v">Premier Orthopaedic &amp; Trauma Specialists. Referenced as institutional depth, not as the primary brand.</div></div>
+      <div class="row"><div class="k">Patients</div><div class="v">Always <em>“patients.”</em> Never “clients,” “customers,” or “cases.”</div></div>
+      <div class="row"><div class="k">Recovery</div><div class="v">“Recovery protocol” or “recovery timeline.” Never “downtime.”</div></div>
+      <div class="row"><div class="k">Cost</div><div class="v"><em>“Investment”</em> when discussing value. “Pricing” when being transparent about numbers. Never “cost” in isolation.</div></div>
+      <div class="row"><div class="k">Height Gain</div><div class="v">Stated as a range with context: “2–3 inches per bone segment” or “up to 5–6 inches with staged procedures.” Never a single number without context.</div></div>
+      <div class="row"><div class="k">Consultation</div><div class="v">Always <em>“confidential consultation.”</em> “Confidential” is a deliberate brand choice for the privacy-conscious buyer.</div></div>
+      <div class="row"><div class="k">Concierge Program</div><div class="v">The white-glove travel and recovery coordination service. Always described as a <em>program,</em> not a perk.</div></div>
+      <div class="row"><div class="k">Revision Cases</div><div class="v">“Revision surgery” or “correction of prior procedures.” Framed as expertise, not as criticism of other surgeons.</div></div>
+      <div class="row"><div class="k">AI Concierge</div><div class="v">The text-based AI clinical interface. <em>“clinical concierge”</em> or “consultation assistant.” Never “chatbot.”</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ § 20 — CONTENT STRATEGY ============ -->
+<section class="section paper" id="s20">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="no">20</div>
+      <h2>Content <em>strategy.</em></h2>
+      <div class="lbl">§ 20 · Vol. IV</div>
+    </div>
+    <p class="section-deck">Show, don't tell. Educate, don't sell. Reduce the perceived risk of the decision.</p>
+
+    <h3 class="sub first">Content <em>mission</em></h3>
+    <div class="callout">
+      <span class="k">— Mission</span>
+      Move prospects toward the conclusion that PLL is the <em>safest, most credentialed, most attentive</em> choice — without ever explicitly saying so.
+    </div>
+
+    <h3 class="sub">Content <em>pillars</em></h3>
+    <div class="grid-5" style="margin-top: 24px;">
+      <div class="card"><div class="num">01</div><h4>Clinical <em>authority</em></h4><p>Credential breakdowns, research citations, teaching highlights, anonymized case discussions.</p></div>
+      <div class="card"><div class="num">02</div><h4>Process <em>transparency</em></h4><p>What happens, in what order, over what timeline, at what cost. Recovery milestones, PT protocols.</p></div>
+      <div class="card"><div class="num">03</div><h4>Patient <em>narratives</em></h4><p>Anonymized transformation stories. Emotional and functional impact.</p></div>
+      <div class="card"><div class="num">04</div><h4>Surgical <em>science</em></h4><p>Technology, technique evolution, trauma-trained vs. cosmetic-only approaches.</p></div>
+      <div class="card"><div class="num">05</div><h4>Concierge <em>differentiator</em></h4><p>What the PLL experience looks like: direct access, travel coordination, personalized protocols.</p></div>
+    </div>
+
+    <h3 class="sub">Channel <em>strategy</em></h3>
+    <table class="tbl" style="margin-top: 24px;">
+      <thead><tr><th>Channel</th><th>Format</th><th>Cadence</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Website / Blog</td><td>Long-form educational (1,500–2,500 words). AEO-optimized FAQ.</td><td>2 – 4 / month</td></tr>
+        <tr><td class="k">YouTube</td><td>Dr. Basmajian explainers. 5 – 15 min.</td><td>2 / month</td></tr>
+        <tr><td class="k">Instagram</td><td>Educational carousels, facility, stat cards.</td><td>3 – 4 / week</td></tr>
+        <tr><td class="k">Email</td><td>GoHighLevel: nurture, post-consult, post-op milestones.</td><td>Automated + 1 / month</td></tr>
+        <tr><td class="k">PR</td><td>Media placements, podcasts, thought leadership.</td><td>1 – 2 / quarter</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub">SEO <em>priority topics</em></h3>
+    <div class="grid-3" style="margin-top: 24px;">
+      <div class="card"><div class="label">Tier 01 · Now</div><h4>Foundational <em>queries</em></h4><p>Limb lengthening surgery California · cost · height lengthening surgeon SoCal · PRECICE nail · Dr. Basmajian.</p></div>
+      <div class="card"><div class="label">Tier 02 · Month 2–3</div><h4>Process <em>queries</em></h4><p>Recovery timeline · before/after · safety · vs. shoe lifts · leg length discrepancy.</p></div>
+      <div class="card"><div class="label">Tier 03 · Month 4+</div><h4>Edge <em>queries</em></h4><p>International surgery · revision surgery · complications · surgeon credentials · best surgeon USA.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ § 21 — ROADMAP ============ -->
+<section class="section dark" id="s21">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="no">21</div>
+      <h2>Implementation <em>roadmap.</em></h2>
+      <div class="lbl">§ 21 · Vol. IV</div>
+    </div>
+    <p class="section-deck">Twelve months. Three phases. One north star — one surgery per day by month twelve.</p>
+
+    <h3 class="sub first" style="color: #fff;">The <em>roadmap</em></h3>
+    <div class="timeline" style="margin-top: 24px; background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.2);">
+      <div class="phase" style="border-color: rgba(255,255,255,0.12);">
+        <div class="ph" style="color: var(--gold);">Phase 01 A</div>
+        <h4 style="color: #fff;">Foundation</h4>
+        <div class="when" style="color: var(--gold);">Weeks 1 – 4</div>
+        <ul style="color: rgba(255,255,255,0.92);">
+          <li><span></span><span><b style="color: #fff;">Website.</b> Phase 1 site live. Brand Kit Direction II applied. Editorial design language.</span></li>
+          <li><span></span><span><b style="color: #fff;">GoHighLevel.</b> Inquiry response, booking flow, nurture sequences, CRM pipeline.</span></li>
+          <li><span></span><span><b style="color: #fff;">GBP.</b> Google Business Profile optimized. Review solicitation process.</span></li>
+          <li><span></span><span><b style="color: #fff;">Brand Defense.</b> Campaign 0: ads defense against competitor brand bidding.</span></li>
+          <li><span></span><span><b style="color: #fff;">Frontend Dev.</b> Close contractor hire.</span></li>
+        </ul>
+      </div>
+      <div class="phase" style="border-color: rgba(255,255,255,0.12);">
+        <div class="ph" style="color: var(--gold);">Phase 01 B</div>
+        <h4 style="color: #fff;">Content <em style="color: var(--gold);">engine</em></h4>
+        <div class="when" style="color: var(--gold);">Weeks 4 – 8</div>
+        <ul style="color: rgba(255,255,255,0.92);">
+          <li><span></span><span><b style="color: #fff;">SEO Content.</b> Tier 1 articles. Medical schema. AEO-structured FAQ.</span></li>
+          <li><span></span><span><b style="color: #fff;">Dr. B Content.</b> Origin story interview. 2–3 YouTube videos. Social extraction.</span></li>
+          <li><span></span><span><b style="color: #fff;">Email Sequences.</b> Inquiry nurture, post-consult, recovery milestone series.</span></li>
+          <li><span></span><span><b style="color: #fff;">International.</b> Travel page, patient guide, virtual consultation booking.</span></li>
+        </ul>
+      </div>
+      <div class="phase">
+        <div class="ph" style="color: var(--gold);">Phase 02</div>
+        <h4 style="color: #fff;">Amplification</h4>
+        <div class="when" style="color: var(--gold);">Months 3 – 6</div>
+        <ul style="color: rgba(255,255,255,0.92);">
+          <li><span></span><span><b style="color: #fff;">Paid Media.</b> Google Ads non-brand. Retargeting. Budget phased with conversion data.</span></li>
+          <li><span></span><span><b style="color: #fff;">AI Concierge.</b> Text-based AI on website. Clinical instrument interface.</span></li>
+          <li><span></span><span><b style="color: #fff;">PR Launch.</b> Media outreach. Podcast appearances.</span></li>
+          <li><span></span><span><b style="color: #fff;">Review Engine.</b> Post-procedure solicitation. Google, Healthgrades, testimonial video.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline" style="margin-top: 16px; grid-template-columns: 1fr; background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.2);">
+      <div class="phase">
+        <div class="ph" style="color: var(--gold);">Phase 03</div>
+        <h4 style="color: #fff;">Scale</h4>
+        <div class="when" style="color: var(--gold);">Months 6 – 12</div>
+        <div class="grid-4" style="margin-top: 8px; gap: 16px;">
+          <div><b style="color: #fff; font-family: 'Newsreader', serif; font-size: 17px;">AI Video Avatar.</b><p style="color: rgba(255,255,255,0.92); font-size: 14px; line-height: 1.6; margin-top: 4px;">HeyGen/Synthesia for education at scale. Multilingual capability.</p></div>
+          <div><b style="color: #fff; font-family: 'Newsreader', serif; font-size: 17px;">International.</b><p style="color: rgba(255,255,255,0.92); font-size: 14px; line-height: 1.6; margin-top: 4px;">Spanish content. Multilingual architecture. Medical tourism outreach.</p></div>
+          <div><b style="color: #fff; font-family: 'Newsreader', serif; font-size: 17px;">Partnership.</b><p style="color: rgba(255,255,255,0.92); font-size: 14px; line-height: 1.6; margin-top: 4px;">Six-month equity / partnership discussion. IP ownership resolution.</p></div>
+          <div><b style="color: #fff; font-family: 'Newsreader', serif; font-size: 17px;">North Star.</b><p style="color: rgba(255,255,255,0.92); font-size: 14px; line-height: 1.6; margin-top: 4px;">One surgery per day. All KPIs reverse-engineered from this goal.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sub" style="color: #fff;">Success <em>metrics</em></h3>
+    <div class="stat-row" style="border-color: var(--gold); margin-top: 16px;">
+      <div class="s" style="border-color: rgba(255,255,255,0.15);">
+        <div class="n" style="color: #fff;"><em style="color: var(--gold);">01</em> / day</div>
+        <div class="l" style="color: rgba(255,255,255,0.92);">North Star · Month 12</div>
+      </div>
+      <div class="s" style="border-color: rgba(255,255,255,0.15);">
+        <div class="n" style="color: #fff;">&lt; <em style="color: var(--gold);">2 h</em></div>
+        <div class="l" style="color: rgba(255,255,255,0.92);">Time-to-response · Leading</div>
+      </div>
+      <div class="s" style="border-color: rgba(255,255,255,0.15);">
+        <div class="n" style="color: #fff;"><em style="color: var(--gold);">↑</em> Branded</div>
+        <div class="l" style="color: rgba(255,255,255,0.92);">Search · Direct traffic · Reviews</div>
+      </div>
+      <div class="s">
+        <div class="n" style="color: #fff;"><em style="color: var(--gold);">$75K</em>+</div>
+        <div class="l" style="color: rgba(255,255,255,0.92);">ROI anchor · One surgery / mo covers full investment</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<section class="footer">
+  <div class="wrap">
+    <div class="left">A practice of <em>consequence.</em><br>Built to be referred.</div>
+    <div class="right">
+      <div>Premier Limb Lengthening</div>
+      <div>Brand Bible · v2.0 · May 2026</div>
+      <div>Prepared by J Cubed Marketing</div>
+      <div>—</div>
+      <div class="swatch"><span class="dot"></span> PMS 2168 C · Premier Blue</div>
+      <div>Confidential</div>
+    </div>
+  </div>
+</section>
+
+<div class="footer-strip">
+  <div>End of Volume · § 21</div>
+  <div>Companion · Brand Kit B · The Dossier</div>
+  <div>v2.0 · May 2026</div>
+</div>
+
+</body>
+</html>

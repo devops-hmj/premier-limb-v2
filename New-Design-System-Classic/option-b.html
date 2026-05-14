@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premier Limb Lengthening — Dossier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue:       #254A5D;    /* Pantone 2168 C — the spine */
+  --blue-deep:  #18323f;
+  --blue-wash:  #eaf0f3;
+  --blue-tint:  #f3f6f8;
+  --ink:        #0f1417;
+  --ink-soft:   #3a4047;
+  --paper:      #ffffff;
+  --paper-off:  #f8f6f1;    /* warm newsprint */
+  --paper-2:    #ece8de;
+  --rule:       #d9d5c9;
+  --rule-hard:  #0f1417;
+  --muted:      #6b6f72;
+  --cream:      #f4f0e6;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter Tight', -apple-system, sans-serif;
+  background: var(--paper-off);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+.serif { font-family: 'Newsreader', 'Times New Roman', serif; font-weight: 400; }
+.mono  { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+a { color: inherit; text-decoration: none; }
+
+.wrap { max-width: 1320px; margin: 0 auto; padding: 0 48px; }
+
+.eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--blue); font-weight: 500;
+  display: inline-flex; align-items: center; gap: 12px;
+}
+.eyebrow::before {
+  content: ""; width: 22px; height: 1px; background: var(--blue);
+}
+
+/* =========================== NAV =========================== */
+.masthead {
+  background: var(--paper-off);
+  border-bottom: 2px solid var(--ink);
+  position: relative;
+  z-index: 5;
+}
+.masthead-strip {
+  background: var(--ink); color: #d4d6d8;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.16em;
+  display: flex; justify-content: space-between;
+  padding: 8px 48px;
+  text-transform: uppercase;
+}
+.masthead-strip .bluebar {
+  display: inline-flex; align-items: center; gap: 10px;
+}
+.masthead-strip .bluebar::before {
+  content: ""; width: 10px; height: 10px; background: var(--blue);
+}
+.nav {
+  display: grid; grid-template-columns: auto 1fr auto;
+  align-items: center; padding: 18px 48px;
+  gap: 40px;
+  max-width: 1320px; margin: 0 auto;
+}
+.logo { display: flex; align-items: center; gap: 16px; }
+.logo-mark {
+  width: 44px; height: 44px;
+  background: var(--blue); color: #fff;
+  display: grid; place-items: center;
+  font-family: 'Newsreader', serif; font-size: 26px; font-weight: 500;
+  font-style: italic; padding-bottom: 4px;
+}
+.logo-text { line-height: 1.05; }
+.logo-text .top {
+  font-family: 'Newsreader', serif;
+  font-size: 24px; letter-spacing: -0.01em; font-weight: 500;
+}
+.logo-text .bottom {
+  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--muted); margin-top: 3px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.nav-links {
+  display: flex; gap: 30px; justify-content: center;
+  font-size: 13.5px; color: var(--ink);
+  font-weight: 500;
+}
+.nav-links a:hover { color: var(--blue); }
+.nav-right { display: flex; align-items: center; gap: 18px; }
+.nav-phone {
+  font-family: 'Newsreader', serif;
+  font-size: 18px; font-style: italic; color: var(--blue);
+}
+.nav-cta {
+  font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: #fff; background: var(--blue);
+  padding: 14px 22px;
+  display: inline-flex; align-items: center; gap: 10px;
+  transition: background 180ms;
+  font-weight: 500;
+}
+.nav-cta:hover { background: var(--blue-deep); }
+.nav-cta .arr { font-family: 'Newsreader', serif; font-style: italic; font-size: 16px; }
+
+/* =========================== HERO =========================== */
+.hero {
+  background: var(--paper-off);
+  padding: 0 0 24px;
+  border-bottom: 1px solid var(--ink);
+}
+.hero-top {
+  padding: 32px 48px 0;
+  max-width: 1320px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 32px;
+  border-top: 1px solid var(--rule);
+  padding-top: 24px;
+}
+.hero-top .issue {
+  grid-column: 1 / 4;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--muted);
+}
+.hero-top .issue strong { color: var(--ink); font-weight: 500; }
+.hero-top .vol {
+  grid-column: 5 / 9;
+  text-align: center;
+  font-family: 'Newsreader', serif; font-style: italic;
+  font-size: 16px; color: var(--ink-soft);
+}
+.hero-top .loc {
+  grid-column: 10 / 13;
+  text-align: right;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--muted);
+}
+
+.hero-grid {
+  max-width: 1320px; margin: 48px auto 0;
+  padding: 0 48px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 32px;
+}
+
+.hero-headline { grid-column: 1 / 13; }
+.hero-headline .kicker {
+  font-family: 'Newsreader', serif; font-style: italic;
+  font-size: 26px; color: var(--blue);
+  margin-bottom: 16px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.hero h1 {
+  font-family: 'Newsreader', serif;
+  font-weight: 400;
+  font-size: clamp(68px, 9.6vw, 148px);
+  line-height: 0.92;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin-bottom: 8px;
+  max-width: 14ch;
+}
+.hero h1 em { font-style: italic; color: var(--blue); }
+
+.hero-deck {
+  grid-column: 1 / 13;
+  margin-top: 24px;
+  padding: 24px 0;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 32px;
+  align-items: baseline;
+}
+.hero-deck .tagline {
+  grid-column: 1 / 7;
+  font-family: 'Newsreader', serif; font-style: italic;
+  font-size: clamp(22px, 2.4vw, 32px);
+  line-height: 1.2;
+  color: var(--ink);
+}
+.hero-deck .byline {
+  grid-column: 8 / 13;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.8;
+}
+.hero-deck .byline strong { color: var(--ink); font-weight: 500; }
+
+/* lede columns: image + running body */
+.hero-lede {
+  grid-column: 1 / 13;
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 32px;
+}
+.hero-portrait {
+  grid-column: 1 / 6;
+  aspect-ratio: 4 / 5;
+  background: var(--paper-2);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--rule);
+}
+.hero-portrait::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(
+    0deg, transparent 0 16px, rgba(15,20,23,0.04) 16px 17px
+  );
+}
+.hero-portrait .plate {
+  position: absolute; top: 14px; left: 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--muted); background: var(--paper-off); padding: 5px 9px;
+}
+.hero-portrait .ctr {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  text-align: center; color: var(--muted); padding: 0 24px;
+  font-family: 'Newsreader', serif; font-style: italic; font-size: 18px;
+}
+.hero-portrait .ctr .kk {
+  display: block; font-family: 'JetBrains Mono', monospace; font-style: normal;
+  font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 12px;
+}
+.hero-portrait .cap {
+  position: absolute; bottom: 14px; left: 14px; right: 14px;
+  font-family: 'Newsreader', serif; font-style: italic;
+  font-size: 15px; color: var(--ink-soft);
+  padding-top: 10px;
+  border-top: 1px solid var(--rule);
+}
+
+.hero-body {
+  grid-column: 6 / 13;
+  padding-left: 0;
+}
+.hero-body .lead {
+  font-size: 18px; line-height: 1.6; color: var(--ink);
+  max-width: 54ch;
+  margin-bottom: 28px;
+}
+.hero-body .lead::first-letter {
+  font-family: 'Newsreader', serif;
+  font-size: 72px; line-height: 0.82;
+  float: left;
+  padding: 8px 16px 0 0;
+  color: var(--blue);
+  font-weight: 500;
+}
+.hero-body .cols {
+  columns: 2;
+  column-gap: 32px;
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  padding-top: 16px;
+  border-top: 1px solid var(--rule);
+}
+.hero-body .cols p + p { margin-top: 10px; }
+
+.hero-body .ctas {
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid var(--rule);
+  display: flex; gap: 12px; flex-wrap: wrap;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 14px 22px;
+  font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
+  background: var(--blue); color: #fff;
+  border: 1px solid var(--blue);
+  transition: background 180ms, color 180ms, border-color 180ms;
+  cursor: pointer;
+  font-weight: 500;
+}
+.btn:hover { background: var(--blue-deep); border-color: var(--blue-deep); }
+.btn.ghost { background: transparent; color: var(--blue); }
+.btn.ghost:hover { background: var(--blue); color: #fff; }
+.btn.ink { background: var(--ink); border-color: var(--ink); }
+.btn.ink:hover { background: var(--blue); border-color: var(--blue); }
+.btn .arr { font-family: 'Newsreader', serif; font-style: italic; font-size: 17px; margin-top: -2px; }
+
+/* Trust strip at bottom of hero */
+.trust-strip {
+  margin-top: 64px;
+  padding: 28px 48px;
+  max-width: 1320px; margin-left: auto; margin-right: auto;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+.trust {
+  padding-right: 24px;
+  border-right: 1px solid var(--rule);
+  display: flex; flex-direction: column; gap: 6px;
+}
+.trust:last-child { border-right: 0; }
+.trust .n {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--muted);
+}
+.trust .h {
+  font-family: 'Newsreader', serif; font-size: 22px; line-height: 1.15;
+  letter-spacing: -0.01em; color: var(--ink);
+}
+.trust .h em { font-style: italic; color: var(--blue); }
+.trust .d {
+  font-size: 12px; color: var(--muted); line-height: 1.55;
+}
+
+/* ===================== SECTIONS ===================== */
+.section { padding: 120px 0; background: var(--paper-off); }
+.section-head {
+  padding-bottom: 32px;
+  margin-bottom: 56px;
+  border-bottom: 1px solid var(--ink);
+}
+.section-head .eyebrow { margin-bottom: 16px; }
+.section-head h2 {
+  font-family: 'Newsreader', serif;
+  font-weight: 400;
+  font-size: clamp(44px, 6vw, 84px);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  max-width: 24ch;
+  text-wrap: balance;
+}
+.section-head h2 em { font-style: italic; color: var(--blue); }
+
+/* PILLARS */
+.pillars {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--ink);
+}
+.pillar {
+  padding: 36px 28px 36px 0;
+  border-right: 1px solid var(--rule);
+  display: flex; flex-direction: column; gap: 16px;
+  min-height: 340px;
+}
+.pillar:last-child { border-right: 0; padding-right: 0; }
+.pillar .tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--muted);
+  display: inline-flex; align-items: center; gap: 10px;
+}
+.pillar .tag .dot { width: 8px; height: 8px; background: var(--blue); }
+.pillar h3 {
+  font-family: 'Newsreader', serif; font-weight: 500;
+  font-size: 28px; line-height: 1.1; letter-spacing: -0.01em;
+}
+.pillar p {
+  font-size: 14.5px; color: var(--ink-soft); line-height: 1.65;
+  flex: 1;
+}
+.pillar .link {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--blue);
+  display: inline-flex; align-items: center; gap: 10px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--blue);
+  align-self: flex-start;
+}
+.pillar .link .arr { font-family: 'Newsreader', serif; font-style: italic; font-size: 16px; }
+
+/* BIO — feature layout */
+.section-bio { background: var(--paper); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+
+.bio-feature {
+  display: grid; grid-template-columns: 5fr 7fr;
+  gap: 56px; align-items: start;
+}
+.bio-port {
+  aspect-ratio: 4 / 5;
+  background: var(--paper-2);
+  position: relative; overflow: hidden;
+  border: 1px solid var(--rule);
+}
+.bio-port::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(0deg, transparent 0 14px, rgba(15,20,23,0.04) 14px 15px);
+}
+.bio-port .plate {
+  position: absolute; top: 14px; left: 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--muted); background: var(--paper); padding: 5px 9px;
+}
+.bio-port .ctr {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  text-align: center; color: var(--muted); padding: 0 24px;
+  font-family: 'Newsreader', serif; font-style: italic; font-size: 17px;
+}
+.bio-port .ctr .kk {
+  display: block; font-family: 'JetBrains Mono', monospace; font-style: normal;
+  font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 12px;
+}
+.bio-port .cap {
+  position: absolute; bottom: 14px; left: 14px; right: 14px;
+  padding: 10px 14px;
+  background: var(--paper);
+  border-left: 2px solid var(--blue);
+  font-family: 'Newsreader', serif; font-style: italic;
+  font-size: 16px; color: var(--ink);
+}
+
+.bio-body h2 {
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  font-size: clamp(48px, 6.4vw, 88px);
+  line-height: 0.95; letter-spacing: -0.025em;
+  margin: 20px 0 12px;
+}
+.bio-body h2 em { font-style: italic; color: var(--blue); }
+.bio-body .credentials {
+  padding: 14px 0;
+  margin-bottom: 28px;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ink);
+}
+.bio-body p {
+  font-size: 15.5px; line-height: 1.7; color: var(--ink-soft);
+  margin-bottom: 18px;
+  max-width: 62ch;
+}
+.bio-body p:first-of-type {
+  font-size: 18px;
+  color: var(--ink);
+  font-family: 'Newsreader', serif;
+  line-height: 1.5;
+}
+.bio-stats {
+  margin-top: 40px;
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--ink);
+}
+.bio-stat {
+  padding: 22px 18px 22px 0;
+  border-right: 1px solid var(--rule);
+}
+.bio-stat:last-child { border-right: 0; }
+.bio-stat .n {
+  font-family: 'Newsreader', serif;
+  font-size: 48px; line-height: 1; letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.bio-stat .n em { font-style: italic; color: var(--blue); }
+.bio-stat .l {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--muted); margin-top: 10px;
+}
+.bio-body .btn { margin-top: 36px; }
+
+/* PROCESS — horizontal timeline w/ heavy rules */
+.section-process { background: var(--blue); color: #fff; padding: 140px 0; }
+.section-process .section-head { border-color: rgba(255,255,255,0.35); }
+.section-process .section-head h2 em { color: #f4d88a; }
+.section-process .eyebrow { color: #f4d88a; }
+.section-process .eyebrow::before { background: #f4d88a; }
+
+.process {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid rgba(255,255,255,0.3);
+}
+.step {
+  position: relative;
+  padding: 48px 32px 48px 0;
+  border-right: 1px solid rgba(255,255,255,0.14);
+}
+.step:last-child { border-right: 0; }
+.step .tick {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(255,255,255,0.88);
+  display: flex; align-items: center; gap: 14px;
+  margin-bottom: 28px;
+}
+.step .tick::after { content: ""; flex: 1; height: 1px; background: rgba(255,255,255,0.15); }
+.step .big {
+  font-family: 'Newsreader', serif; font-style: italic;
+  font-size: 120px; line-height: 0.82;
+  color: rgba(255,255,255,0.1);
+  position: absolute; top: 38px; right: 14px; pointer-events: none;
+}
+.step h3 {
+  font-family: 'Newsreader', serif; font-weight: 500;
+  font-size: 34px; line-height: 1.08; letter-spacing: -0.01em;
+  margin-bottom: 18px;
+  max-width: 14ch;
+}
+.step h3 em { font-style: italic; color: #f4d88a; }
+.step p {
+  font-size: 14.5px; line-height: 1.7; color: rgba(255,255,255,0.92);
+  max-width: 36ch;
+}
+
+/* CONCIERGE */
+.section-concierge { background: var(--paper-off); }
+.concierge {
+  display: grid; grid-template-columns: 7fr 5fr;
+  gap: 72px; align-items: start;
+}
+.c-left h2 {
+  font-family: 'Newsreader', serif; font-weight: 500;
+  font-size: clamp(48px, 6.4vw, 86px);
+  line-height: 0.98; letter-spacing: -0.025em;
+  margin: 16px 0 16px;
+}
+.c-left h2 em { font-style: italic; color: var(--blue); }
+.c-lead {
+  font-family: 'Newsreader', serif; font-style: italic;
+  font-size: 26px; line-height: 1.25;
+  color: var(--ink);
+  padding: 20px 0;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--rule);
+  max-width: 32ch;
+  margin-bottom: 28px;
+}
+.c-body {
+  font-size: 15.5px; line-height: 1.7; color: var(--ink-soft);
+  max-width: 54ch;
+  margin-bottom: 40px;
+}
+
+.c-list {
+  border-top: 1px solid var(--ink);
+}
+.c-list .row {
+  display: grid;
+  grid-template-columns: 36px 1.2fr 2fr 80px;
+  gap: 24px;
+  align-items: baseline;
+  padding: 26px 0;
+  border-bottom: 1px solid var(--rule);
+  transition: background 180ms;
+}
+.c-list .row:hover { background: var(--blue-tint); }
+.c-list .row .no {
+  font-family: 'Newsreader', serif; font-style: italic;
+  color: var(--blue); font-size: 22px;
+}
+.c-list .row h4 {
+  font-family: 'Newsreader', serif; font-weight: 500;
+  font-size: 22px; line-height: 1.15; letter-spacing: -0.01em;
+}
+.c-list .row p {
+  font-size: 14px; color: var(--ink-soft); line-height: 1.6;
+}
+.c-list .row .mk {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--blue);
+  text-align: right; white-space: nowrap;
+}
+
+.c-right { position: sticky; top: 24px; }
+.c-visual {
+  aspect-ratio: 4 / 5;
+  background: var(--paper-2);
+  position: relative; overflow: hidden;
+  border: 1px solid var(--rule);
+  margin-bottom: 16px;
+}
+.c-visual::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(135deg, transparent 0 24px, rgba(15,20,23,0.04) 24px 25px);
+}
+.c-visual .plate {
+  position: absolute; top: 14px; left: 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--muted); background: var(--paper-off); padding: 5px 9px;
+}
+.c-visual .ctr {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  text-align: center; color: var(--muted); padding: 0 24px;
+  font-family: 'Newsreader', serif; font-style: italic; font-size: 17px;
+}
+.c-visual .ctr .kk {
+  display: block; font-family: 'JetBrains Mono', monospace; font-style: normal;
+  font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 12px;
+}
+
+.c-stats {
+  display: grid; grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+}
+.c-stats .cs {
+  padding: 22px 18px;
+  border-right: 1px solid var(--rule);
+}
+.c-stats .cs:last-child { border-right: 0; }
+.c-stats .cs .n {
+  font-family: 'Newsreader', serif; font-size: 44px;
+  line-height: 1; letter-spacing: -0.02em;
+}
+.c-stats .cs .n em { font-style: italic; color: var(--blue); }
+.c-stats .cs .l {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--muted); margin-top: 10px;
+}
+
+/* CANDIDATE */
+.section-candidate { background: var(--paper); }
+.cand {
+  display: grid; grid-template-columns: 7fr 5fr;
+  gap: 56px; align-items: start;
+}
+.cand-ul {
+  border-top: 1px solid var(--ink);
+}
+.cand-ul li {
+  list-style: none;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--rule);
+  display: grid; grid-template-columns: 44px 1fr;
+  font-size: 15.5px; color: var(--ink);
+  align-items: baseline;
+}
+.cand-ul li .t {
+  font-family: 'Newsreader', serif; font-style: italic;
+  color: var(--blue); font-size: 20px;
+}
+.cand-aside {
+  background: var(--blue);
+  color: #fff;
+  padding: 48px 44px;
+  position: relative;
+}
+.cand-aside::before {
+  content: "";
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 4px; background: #f4d88a;
+}
+.cand-aside .eyebrow { color: #f4d88a; }
+.cand-aside .eyebrow::before { background: #f4d88a; }
+.cand-aside h3 {
+  font-family: 'Newsreader', serif; font-weight: 500;
+  font-size: 36px; line-height: 1.1; letter-spacing: -0.01em;
+  margin: 18px 0 20px;
+  max-width: 16ch;
+}
+.cand-aside h3 em { font-style: italic; color: #f4d88a; }
+.cand-aside p {
+  font-size: 15px; line-height: 1.7; color: rgba(255,255,255,0.95);
+  margin-bottom: 28px;
+}
+.cand-aside .btn {
+  background: #f4d88a; color: var(--ink); border-color: #f4d88a;
+}
+.cand-aside .btn:hover { background: #fff; border-color: #fff; }
+
+/* RESULTS */
+.section-results { background: var(--ink); color: #fff; padding: 140px 0; }
+.section-results .section-head { border-color: rgba(255,255,255,0.3); }
+.section-results .section-head h2 em { color: #f4d88a; }
+.section-results .eyebrow { color: #f4d88a; }
+.section-results .eyebrow::before { background: #f4d88a; }
+
+.results {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid rgba(255,255,255,0.25);
+  margin-bottom: 32px;
+}
+.result {
+  padding: 56px 28px 56px 0;
+  border-right: 1px solid rgba(255,255,255,0.12);
+}
+.result:last-child { border-right: 0; }
+.result .n {
+  font-family: 'Newsreader', serif;
+  font-size: clamp(100px, 12vw, 180px);
+  line-height: 0.88; letter-spacing: -0.035em;
+  color: #fff;
+}
+.result .n em { font-style: italic; color: #f4d88a; }
+.result .sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(255,255,255,0.82); margin-top: 22px;
+}
+.result .desc {
+  font-size: 14px; color: rgba(255,255,255,0.88); line-height: 1.65;
+  margin-top: 14px; max-width: 30ch;
+}
+.results-foot {
+  display: flex; justify-content: space-between; align-items: end; gap: 32px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.15);
+}
+.results-foot p {
+  max-width: 60ch; font-size: 14.5px; color: rgba(255,255,255,0.88);
+  line-height: 1.65;
+}
+
+/* PRICING — editorial plan table */
+.section-pricing { background: var(--paper-off); }
+.pricing {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+.plan {
+  padding: 40px 28px 36px 0;
+  border-right: 1px solid var(--rule);
+  position: relative;
+  background: var(--paper-off);
+}
+.plan:last-child { border-right: 0; padding-right: 0; }
+.plan.featured { background: var(--paper); padding-left: 28px; padding-right: 28px; }
+.plan .bar {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 18px;
+  display: flex; align-items: center; gap: 10px;
+}
+.plan.featured .bar .badge {
+  background: var(--blue); color: #fff;
+  padding: 4px 10px; letter-spacing: 0.22em;
+  font-weight: 500;
+}
+.plan h3 {
+  font-family: 'Newsreader', serif; font-weight: 500;
+  font-size: 30px; line-height: 1.1; letter-spacing: -0.01em;
+  margin-bottom: 6px;
+}
+.plan .gen {
+  font-family: 'Newsreader', serif; font-style: italic;
+  font-size: 15px; color: var(--muted);
+  margin-bottom: 28px;
+}
+.plan .price {
+  font-family: 'Newsreader', serif;
+  font-size: 62px; line-height: 1; letter-spacing: -0.025em;
+  color: var(--ink);
+  padding-top: 24px; border-top: 1px solid var(--rule);
+}
+.plan .from {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--muted); margin-top: 8px; margin-bottom: 28px;
+}
+.plan ul {
+  list-style: none;
+  border-top: 1px solid var(--rule);
+}
+.plan ul li {
+  padding: 13px 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 13.5px; color: var(--ink-soft);
+  display: grid; grid-template-columns: 20px 1fr; gap: 6px;
+  align-items: baseline;
+}
+.plan ul li::before {
+  content: "+";
+  font-family: 'Newsreader', serif; font-weight: 500;
+  color: var(--blue); font-size: 15px;
+}
+.pricing-foot {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 28px;
+  gap: 20px; flex-wrap: wrap;
+}
+.pricing-foot p { color: var(--muted); font-size: 13px; max-width: 60ch; }
+
+/* TESTIMONIALS — editorial quote grid */
+.section-testimonials { background: var(--paper); }
+.quotes {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+  border-top: 1px solid var(--ink);
+  padding-top: 48px;
+}
+.quote {
+  position: relative;
+}
+.quote .mark {
+  font-family: 'Newsreader', serif; font-style: italic;
+  font-size: 88px; line-height: 0.6; color: var(--blue);
+  margin-bottom: 12px;
+}
+.quote blockquote {
+  font-family: 'Newsreader', serif;
+  font-size: 23px; line-height: 1.35; letter-spacing: -0.005em;
+  color: var(--ink);
+  margin-bottom: 24px;
+}
+.quote blockquote em { font-style: italic; color: var(--blue); }
+.quote .attr {
+  padding-top: 16px;
+  border-top: 1px solid var(--rule);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.quote .attr strong { color: var(--blue); font-weight: 500; }
+
+.quotes-foot { text-align: center; margin-top: 56px; }
+
+/* FAQ */
+.section-faq { background: var(--paper-off); }
+.faq {
+  border-top: 1px solid var(--ink);
+  max-width: 1020px; margin: 0 auto;
+}
+.faq details {
+  border-bottom: 1px solid var(--rule);
+  padding: 28px 0;
+}
+.faq summary {
+  list-style: none;
+  cursor: pointer;
+  display: grid; grid-template-columns: 60px 1fr 36px;
+  align-items: baseline; gap: 24px;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary .n {
+  font-family: 'Newsreader', serif; font-style: italic;
+  font-size: 24px; color: var(--blue); line-height: 1;
+}
+.faq summary .q {
+  font-family: 'Newsreader', serif; font-weight: 500;
+  font-size: 24px; line-height: 1.25; letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.faq summary .pl {
+  font-family: 'Newsreader', serif; font-style: italic;
+  font-size: 30px; line-height: 1; color: var(--blue);
+  justify-self: end;
+  transition: transform 200ms;
+}
+.faq details[open] summary .pl { transform: rotate(45deg); }
+.faq details .a {
+  padding: 16px 44px 8px 84px;
+  font-size: 14.5px; line-height: 1.7; color: var(--ink-soft);
+  max-width: 72ch;
+}
+
+/* FINAL CTA */
+.final {
+  background: var(--blue); color: #fff;
+  padding: 140px 0;
+  position: relative;
+}
+.final .wrap {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 32px;
+  align-items: end;
+}
+.final .lcol {
+  grid-column: 1 / 8;
+}
+.final .eyebrow { color: #f4d88a; }
+.final .eyebrow::before { background: #f4d88a; }
+.final h2 {
+  font-family: 'Newsreader', serif; font-weight: 500;
+  font-size: clamp(54px, 7vw, 110px);
+  line-height: 0.96; letter-spacing: -0.03em;
+  margin-top: 20px;
+}
+.final h2 em { font-style: italic; color: #f4d88a; }
+.final .rcol {
+  grid-column: 9 / 13;
+  padding-left: 20px;
+  border-left: 1px solid rgba(255,255,255,0.25);
+}
+.final .rcol p {
+  font-family: 'Newsreader', serif; font-style: italic;
+  font-size: 22px; color: rgba(255,255,255,0.92);
+  margin-bottom: 28px; line-height: 1.3;
+}
+.final .rcol .ctas { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+.final .rcol .btn {
+  background: #f4d88a; color: var(--ink); border-color: #f4d88a;
+}
+.final .rcol .btn.ghost {
+  background: transparent; color: #fff; border-color: rgba(255,255,255,0.4);
+}
+.final .rcol .btn.ghost:hover { background: #fff; color: var(--blue); border-color: #fff; }
+
+/* FOOTER */
+.footer {
+  background: var(--ink); color: #d9d9d9;
+  padding: 72px 0 32px;
+}
+.footer .wrap { padding: 0 48px; }
+.footer-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 56px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+.footer .f-logo {
+  display: flex; align-items: center; gap: 14px; margin-bottom: 24px;
+}
+.footer .f-logo .mk {
+  width: 40px; height: 40px; background: var(--blue); color: #fff;
+  display: grid; place-items: center;
+  font-family: 'Newsreader', serif; font-style: italic;
+  font-size: 22px; padding-bottom: 3px;
+}
+.footer .f-logo .t {
+  font-family: 'Newsreader', serif; font-weight: 500; font-size: 22px; color: #fff;
+}
+.footer .f-tag {
+  font-family: 'Newsreader', serif; font-style: italic;
+  font-size: 18px; color: rgba(255,255,255,0.92);
+  max-width: 34ch; margin-bottom: 24px;
+}
+.footer .f-addr {
+  font-size: 13px; color: rgba(255,255,255,0.85); line-height: 1.8;
+}
+.footer h4 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.24em; text-transform: uppercase;
+  color: #f4d88a; margin-bottom: 18px; font-weight: 500;
+}
+.footer ul { list-style: none; }
+.footer ul li { padding: 6px 0; }
+.footer ul li a { font-size: 13.5px; color: rgba(255,255,255,0.88); }
+.footer ul li a:hover { color: #f4d88a; }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 24px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.14em;
+  color: rgba(255,255,255,0.85);
+  gap: 24px; flex-wrap: wrap;
+}
+.footer-bottom .sw { display: inline-flex; align-items: center; gap: 10px; }
+.footer-bottom .sw a { color: rgba(255,255,255,0.88); }
+.footer-bottom .sw a:hover { color: #f4d88a; }
+
+@media (max-width: 1024px) {
+  .hero-top { grid-template-columns: 1fr; }
+  .hero-top .vol, .hero-top .loc { text-align: left; grid-column: 1; }
+  .nav-links { display: none; }
+  .pillars, .results, .pricing, .concierge, .cand, .quotes, .footer-grid,
+  .hero-lede, .bio-feature, .process { grid-template-columns: 1fr; }
+  .trust-strip { grid-template-columns: 1fr 1fr; }
+  .section-head { grid-template-columns: 1fr; }
+  .section-head .right { text-align: left; }
+  .final .lcol, .final .rcol { grid-column: 1 / 13; border-left: 0; padding-left: 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="masthead-strip">
+    <span class="bluebar">Pantone 2168 C · Identity</span>
+    <span>Vol. 12 · Nº 01 · Spring 2026</span>
+    <span>Pomona · Southern California</span>
+  </div>
+  <div class="nav">
+    <div class="logo">
+      <div class="logo-mark">P</div>
+      <div class="logo-text">
+        <div class="top">Premier Limb Lengthening</div>
+        <div class="bottom">A Premier Orthopaedic &amp; Trauma Clinic</div>
+      </div>
+    </div>
+    <nav class="nav-links">
+      <a href="#surgery">Your Surgery</a>
+      <a href="#results">Results</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#dr">Dr. Basmajian</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-right">
+      <a class="nav-phone" href="tel:+19094614984">(909) 461-4984</a>
+      <a class="nav-cta" href="#consult">Schedule Consultation <span class="arr">→</span></a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-top">
+    <div class="issue"><strong>The Practice</strong> · Cosmetic Limb Lengthening</div>
+    <div class="vol">“Confidence you can stand behind.”</div>
+    <div class="loc"><strong>Southern California</strong> · Est. Pomona</div>
+  </div>
+
+  <div class="hero-grid">
+
+    <div class="hero-headline">
+      <div class="kicker">A West-Coast authority on a procedure most surgeons won't perform.</div>
+      <h1>Cosmetic<br>limb<br>lengthening, <em>done<br>with care.</em></h1>
+    </div>
+
+    <div class="hero-deck">
+      <div class="tagline">Gain up to 3–6 inches with one of the most experienced limb lengthening surgeons on the West Coast.</div>
+      <div class="byline">
+        <div><strong>Surgeon</strong> &nbsp; Dr. Hrayr Basmajian, MD</div>
+        <div><strong>Practice</strong> &nbsp; Premier Orthopaedic &amp; Trauma Specialists</div>
+        <div><strong>Location</strong> &nbsp; Pomona, Southern California</div>
+      </div>
+    </div>
+
+    <div class="hero-lede">
+      <div class="hero-portrait">
+        <div class="plate">Plate 01</div>
+        <div class="ctr">
+          <span class="kk">Portrait</span>
+          Dr. Basmajian, editorial — clinical setting, warm lighting, ¾ turn.
+        </div>
+        <div class="cap">Dr. Basmajian, reviewing a pre-op plan. Pomona, California.</div>
+      </div>
+
+      <div class="hero-body">
+        <p class="lead">Concierge care from your first consultation through full recovery. We combine a trauma surgeon's precision with a private-clinic's level of discretion — the result is a practice that accepts cases others decline, in a setting designed around the patient.</p>
+
+        <div class="cols">
+          <p>Our program is the only US limb lengthening practice offering a full white-glove travel and recovery coordination service — flights, housing, physical therapy, and a single dedicated coordinator from first call to final follow-up.</p>
+          <p>Every procedure uses the latest internal Precice® nail technology: no external hardware, no visible frame, faster recovery, and a virtually invisible result once healed.</p>
+        </div>
+
+        <div class="ctas">
+          <a class="btn" href="#consult">Schedule a Confidential Consultation <span class="arr">→</span></a>
+          <a class="btn ghost" href="#pricing">View Pricing Options <span class="arr">→</span></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="trust-strip">
+    <div class="trust">
+      <div class="n">01</div>
+      <div class="h"><em>Hundreds</em> of procedures</div>
+      <div class="d">Trauma, cosmetic &amp; revision combined.</div>
+    </div>
+    <div class="trust">
+      <div class="n">02</div>
+      <div class="h"><em>Precice®</em> nail technology</div>
+      <div class="d">Internal magnetic lengthening — no external frame.</div>
+    </div>
+    <div class="trust">
+      <div class="n">03</div>
+      <div class="h"><em>Concierge</em> travel program</div>
+      <div class="d">White-glove logistics, domestic &amp; international.</div>
+    </div>
+    <div class="trust">
+      <div class="n">04</div>
+      <div class="h"><em>Transparent</em> pricing</div>
+      <div class="d">Fully itemised quote before you commit.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section class="section" id="why">
+  <div class="wrap">
+    <div class="section-head">
+        <div class="eyebrow">Why Premier Limb Lengthening</div>
+        <h2>Four reasons patients <em>choose us.</em></h2>
+      </div>
+    </div>
+
+    <div class="pillars">
+      <div class="pillar">
+        <div class="tag"><span class="dot"></span>01 · Expertise</div>
+        <h3>Surgical Expertise</h3>
+        <p>Hundreds of limb lengthening procedures performed in trauma, cosmetic, and revisional settings by Dr. Hrayr Basmajian.</p>
+        <a class="link" href="#dr">Meet Dr. Basmajian <span class="arr">→</span></a>
+      </div>
+      <div class="pillar">
+        <div class="tag"><span class="dot"></span>02 · Technology</div>
+        <h3>Internal Nail Technology</h3>
+        <p>Precice 4th-generation magnetic lengthening nails. No external hardware. Less pain, faster recovery, virtually invisible.</p>
+        <a class="link" href="#surgery">How It Works <span class="arr">→</span></a>
+      </div>
+      <div class="pillar">
+        <div class="tag"><span class="dot"></span>03 · Service</div>
+        <h3>Concierge Experience</h3>
+        <p>We coordinate flights, hotels, ground transportation, and recovery housing for out-of-area patients. White-glove care, start to finish.</p>
+        <a class="link" href="#concierge">Travel Program <span class="arr">→</span></a>
+      </div>
+      <div class="pillar">
+        <div class="tag"><span class="dot"></span>04 · Institution</div>
+        <h3>Institutional Depth</h3>
+        <p>Backed by Premier Orthopaedic &amp; Trauma Specialists — 17+ surgeons, in-house physical therapy, on-site imaging.</p>
+        <a class="link" href="#practice">About Our Practice <span class="arr">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BIO -->
+<section class="section section-bio" id="dr">
+  <div class="wrap">
+    <div class="section-head">
+        <div class="eyebrow">Your Surgeon</div>
+        <h2>Dr. Hrayr <em>Basmajian.</em></h2>
+      </div>
+    </div>
+
+    <div class="bio-feature">
+      <div class="bio-port">
+        <div class="plate">Plate 02</div>
+        <div class="ctr">
+          <span class="kk">Portrait</span>
+          Editorial portrait — white coat or scrubs, warm lighting, approachable but authoritative.
+        </div>
+        <div class="cap">“A rare combination of trauma precision and cosmetic judgment.”</div>
+      </div>
+      <div class="bio-body">
+        <div class="credentials">
+          Orthopaedic Trauma Surgeon · Fellowship-Trained · Director, PVHMC
+        </div>
+
+        <p>Dr. Basmajian brings a rare combination of precision trauma surgery and cosmetic limb lengthening expertise to every procedure.</p>
+
+        <p>His fellowship training in complex fracture reconstruction gives him an unmatched ability to manage the nuances of bone lengthening — including revision cases other surgeons won't take on.</p>
+
+        <p>As Director of Orthopaedic Trauma at Pomona Valley Hospital Medical Center and a leading surgeon at Premier Orthopaedic &amp; Trauma Specialists, he operates with the institutional support of a 17+ surgeon orthopaedic group.</p>
+
+        <a class="btn ink" href="#dr-full">Learn more about Dr. Basmajian <span class="arr">→</span></a>
+
+        <div class="bio-stats">
+          <div class="bio-stat">
+            <div class="n"><em>100s</em></div>
+            <div class="l">Procedures</div>
+          </div>
+          <div class="bio-stat">
+            <div class="n">17+</div>
+            <div class="l">Surgeon Group</div>
+          </div>
+          <div class="bio-stat">
+            <div class="n"><em>3–6</em>″</div>
+            <div class="l">Height Gain</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section section-process" id="surgery">
+  <div class="wrap">
+    <div class="section-head">
+        <div class="eyebrow">The Process</div>
+        <h2>How limb lengthening <em>works.</em></h2>
+      </div>
+    </div>
+
+    <div class="process">
+      <div class="step">
+        <div class="tick">Phase 01</div>
+        <div class="big">01</div>
+        <h3><em>Consultation</em> &amp; Planning</h3>
+        <p>Confidential in-person or virtual consultation. Dr. Basmajian evaluates your health, discusses realistic expectations, and creates a personalized surgical plan.</p>
+      </div>
+      <div class="step">
+        <div class="tick">Phase 02</div>
+        <div class="big">02</div>
+        <h3><em>Surgery</em> &amp; Lengthening</h3>
+        <p>A Precice internal nail is surgically placed. Over 3–4 months, the nail gradually lengthens your bone by ~1mm per day using an external magnetic remote. No visible hardware.</p>
+      </div>
+      <div class="step">
+        <div class="tick">Phase 03</div>
+        <div class="big">03</div>
+        <h3><em>Recovery</em> &amp; Results</h3>
+        <p>Physical therapy begins immediately. Most patients return to daily activities within 3–4 months and full activity by 6–12 months. Final height gain: 3–6 inches.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONCIERGE -->
+<section class="section section-concierge" id="concierge">
+  <div class="wrap">
+    <div class="section-head">
+        <div class="eyebrow">Only at Premier</div>
+        <h2>Your surgery. <em>Our concierge.</em></h2>
+      </div>
+    </div>
+
+    <div class="concierge">
+      <div class="c-left">
+        <div class="c-lead">You focus on your transformation. We handle everything else.</div>
+        <p class="c-body">Most limb lengthening patients travel for their procedure — and most clinics leave you to figure out the logistics alone. Not here. Premier Limb Lengthening is the only practice offering a full white-glove concierge program that coordinates every detail of your surgical journey.</p>
+
+        <div class="c-list">
+          <div class="row">
+            <div class="no">01</div>
+            <h4>Travel Coordination</h4>
+            <p>Flight booking assistance, airport transfers, and ground transportation throughout your stay in Southern California.</p>
+            <div class="mk">Global</div>
+          </div>
+          <div class="row">
+            <div class="no">02</div>
+            <h4>Recovery Accommodations</h4>
+            <p>Pre-vetted, surgeon-approved extended-stay housing near our Pomona facility. Wheelchair-accessible, fully furnished, discounted rates.</p>
+            <div class="mk">Vetted</div>
+          </div>
+          <div class="row">
+            <div class="no">03</div>
+            <h4>PT &amp; Follow-Up Scheduling</h4>
+            <p>Your physical therapy schedule is set before you arrive. All post-op visits coordinated. Nothing falls through the cracks.</p>
+            <div class="mk">Pre-Set</div>
+          </div>
+          <div class="row">
+            <div class="no">04</div>
+            <h4>Dedicated Patient Coordinator</h4>
+            <p>One person. One phone number. From your first call through your final follow-up. Available 7 days a week during your recovery.</p>
+            <div class="mk">1-to-1</div>
+          </div>
+          <div class="row">
+            <div class="no">05</div>
+            <h4>Virtual Pre-Op &amp; Remote Follow-Up</h4>
+            <p>Initial consultation via secure video. Post-op check-ins from home once you return. Minimizes trips to California.</p>
+            <div class="mk">Remote</div>
+          </div>
+        </div>
+
+        <div style="display:flex; gap: 14px; margin-top: 40px; flex-wrap: wrap;">
+          <a class="btn" href="#concierge-full">Learn About Our Concierge Program <span class="arr">→</span></a>
+          <a class="btn ghost" href="#virtual">Schedule a Virtual Consultation <span class="arr">→</span></a>
+        </div>
+      </div>
+
+      <aside class="c-right">
+        <div class="c-visual">
+          <div class="plate">Plate 03</div>
+          <div class="ctr">
+            <span class="kk">Visual</span>
+            Aspirational SoCal imagery — coastline, modern recovery suite, Dr. B reviewing X-rays via video.
+          </div>
+        </div>
+        <div class="c-stats">
+          <div class="cs">
+            <div class="n"><em>50</em>+</div>
+            <div class="l">States &amp; Countries</div>
+          </div>
+          <div class="cs">
+            <div class="n"><em>100</em>%</div>
+            <div class="l">Logistics Handled</div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- CANDIDATE -->
+<section class="section section-candidate">
+  <div class="wrap">
+    <div class="section-head">
+        <div class="eyebrow">Am I a Candidate?</div>
+        <h2>Who is a good candidate for <em>limb lengthening?</em></h2>
+      </div>
+    </div>
+
+    <div class="cand">
+      <ul class="cand-ul">
+        <li><span class="t">01</span><span>Generally healthy adults aged 18–55 (older patients evaluated case-by-case).</span></li>
+        <li><span class="t">02</span><span>Non-smoker or willing to quit 6 weeks before surgery.</span></li>
+        <li><span class="t">03</span><span>BMI under 35 (ideal under 30).</span></li>
+        <li><span class="t">04</span><span>No active bone disease or uncontrolled diabetes.</span></li>
+        <li><span class="t">05</span><span>Able to commit to 3–6 months of recovery and physical therapy.</span></li>
+        <li><span class="t">06</span><span>Realistic expectations about height gain (2–3″ per bone, up to 6″ combined).</span></li>
+        <li><span class="t">07</span><span>Cosmetic height enhancement OR limb-length discrepancy correction.</span></li>
+        <li><span class="t">08</span><span>Revision patients: previous surgery complications or unsatisfactory results.</span></li>
+      </ul>
+
+      <aside class="cand-aside">
+        <div class="eyebrow">Not sure if you qualify?</div>
+        <h3>Many patients told <em>“no”</em> elsewhere are candidates here.</h3>
+        <p>The best way to find out is through a confidential consultation. Dr. Basmajian evaluates each patient individually — many patients who were told "no" by other surgeons are candidates at our practice due to our trauma reconstruction expertise.</p>
+        <a class="btn" href="#consult">Schedule Your Assessment <span class="arr">→</span></a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="section section-results" id="results">
+  <div class="wrap">
+    <div class="section-head">
+        <div class="eyebrow">What to Expect</div>
+        <h2>Results you can <em>measure.</em></h2>
+      </div>
+    </div>
+
+    <div class="results">
+      <div class="result">
+        <div class="n"><em>3–6</em>″</div>
+        <div class="sub">Total Height Gain (Staged)</div>
+        <div class="desc">Across femur and tibia procedures.</div>
+      </div>
+      <div class="result">
+        <div class="n"><em>3–4</em></div>
+        <div class="sub">Months Active Lengthening</div>
+        <div class="desc">~1 mm / day via internal magnetic nail.</div>
+      </div>
+      <div class="result">
+        <div class="n"><em>6–12</em></div>
+        <div class="sub">Months to Full Recovery</div>
+        <div class="desc">Physical therapy from day one.</div>
+      </div>
+    </div>
+
+    <div class="results-foot">
+      <p>Femur lengthening typically adds 2–3 inches. Tibia lengthening adds an additional 2–3 inches. Combined staged procedures can achieve up to 5–6 inches total. Results are permanent.</p>
+      <a class="btn" style="background:#f4d88a; color: var(--ink); border-color:#f4d88a;" href="#ba">See Before &amp; After Results <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section section-pricing" id="pricing">
+  <div class="wrap">
+    <div class="section-head">
+        <div class="eyebrow">Transparent Pricing</div>
+        <h2>Limb lengthening <em>surgery cost.</em></h2>
+      </div>
+    </div>
+
+    <p style="max-width: 60ch; font-size: 15px; color: var(--ink-soft); margin: -32px 0 40px; line-height: 1.7;">
+      No hidden fees. Every quote includes surgery, implant, anesthesia, hospitalization, and follow-up care.
+    </p>
+
+    <div class="pricing">
+      <div class="plan">
+        <div class="bar">Plan 01 · Precice 2.2</div>
+        <h3>Femur Lengthening</h3>
+        <div class="gen">Internal Nail — Precice 2.2</div>
+        <div class="price">$77,500</div>
+        <div class="from">Starting from</div>
+        <ul>
+          <li><span>Surgery + anesthesia</span></li>
+          <li><span>Precice 2.2 nail implant</span></li>
+          <li><span>Hospital stay (1–2 nights)</span></li>
+          <li><span>Post-op follow-up visits</span></li>
+          <li><span>Height gain: up to 3″</span></li>
+        </ul>
+      </div>
+
+      <div class="plan featured">
+        <div class="bar"><span class="badge">Most Selected</span> &nbsp; Plan 02 · 4th Gen</div>
+        <h3>Femur Lengthening</h3>
+        <div class="gen">Precice 4th-Gen (MAX) Nail</div>
+        <div class="price">$80,000</div>
+        <div class="from">Latest technology</div>
+        <ul>
+          <li><span>Surgery + anesthesia</span></li>
+          <li><span>Precice MAX nail (4th gen)</span></li>
+          <li><span>Hospital stay (1–2 nights)</span></li>
+          <li><span>Post-op follow-up visits</span></li>
+          <li><span>Height gain: up to 3″</span></li>
+        </ul>
+      </div>
+
+      <div class="plan">
+        <div class="bar">Plan 03 · Tibia</div>
+        <h3>Tibia Lengthening</h3>
+        <div class="gen">Internal Nail — Precice</div>
+        <div class="price">$83–85k</div>
+        <div class="from">Depending on nail generation</div>
+        <ul>
+          <li><span>Surgery + anesthesia</span></li>
+          <li><span>Precice nail implant</span></li>
+          <li><span>Hospital stay (1–2 nights)</span></li>
+          <li><span>Post-op follow-up visits</span></li>
+          <li><span>Height gain: up to 2–3″</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pricing-foot">
+      <p>Financing available through CareCredit. As low as $1,200/month with approved credit.</p>
+      <a class="btn" href="#pricing-full">View Full Pricing Details <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section section-testimonials">
+  <div class="wrap">
+    <div class="section-head">
+        <div class="eyebrow">Patient Stories</div>
+        <h2>What our patients <em>say.</em></h2>
+      </div>
+    </div>
+
+    <div class="quotes">
+      <figure class="quote">
+        <div class="mark">“</div>
+        <blockquote>I researched for two years and consulted three surgeons before choosing Dr. Basmajian. His honesty about what to expect — <em>including the hard parts</em> — is what convinced me. I gained 3 inches and my only regret is not doing it sooner.</blockquote>
+        <figcaption class="attr">
+          <div><strong>Marcus T.</strong></div>
+          <div>Software Engineer · San Francisco</div>
+        </figcaption>
+      </figure>
+      <figure class="quote">
+        <div class="mark">“</div>
+        <blockquote>I traveled from New York for the concierge program. They handled my flights, hotel, and even had a PT schedule ready before I landed. The whole experience <em>felt like a medical retreat</em>, not a surgery trip.</blockquote>
+        <figcaption class="attr">
+          <div><strong>David R.</strong></div>
+          <div>Finance · New York</div>
+        </figcaption>
+      </figure>
+      <figure class="quote">
+        <div class="mark">“</div>
+        <blockquote>I had a failed surgery in Turkey and was terrified to try again. Dr. Basmajian's trauma background gave me confidence. He was honest about what he could fix and what he couldn't. <em>I'm walking normally again.</em></blockquote>
+        <figcaption class="attr">
+          <div><strong>James K.</strong></div>
+          <div>Revision Patient · Texas</div>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="quotes-foot">
+      <a class="btn ghost" href="#stories">Read More Patient Stories <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section-faq" id="faq">
+  <div class="wrap">
+    <div class="section-head">
+        <div class="eyebrow">Common Questions</div>
+        <h2>Frequently asked <em>questions.</em></h2>
+      </div>
+    </div>
+
+    <div class="faq">
+      <details open>
+        <summary>
+          <span class="n">01</span>
+          <span class="q">How much does limb lengthening surgery cost?</span>
+          <span class="pl">+</span>
+        </summary>
+        <div class="a">Femur lengthening starts at $77,500 (Precice 2.2) or $80,000 (Precice MAX). Tibia lengthening ranges from $83,000–$85,000. Every quote includes surgery, implant, anesthesia, hospitalization, and follow-up care. Financing available through CareCredit.</div>
+      </details>
+      <details>
+        <summary>
+          <span class="n">02</span>
+          <span class="q">How much height can I gain?</span>
+          <span class="pl">+</span>
+        </summary>
+        <div class="a">Femur lengthening typically adds 2–3 inches. Tibia lengthening adds another 2–3 inches. Combined staged procedures can achieve up to 5–6 inches total. Results are permanent.</div>
+      </details>
+      <details>
+        <summary>
+          <span class="n">03</span>
+          <span class="q">How long is the recovery?</span>
+          <span class="pl">+</span>
+        </summary>
+        <div class="a">Active lengthening takes 3–4 months. Most patients return to daily activities within 3–4 months and full activity by 6–12 months.</div>
+      </details>
+      <details>
+        <summary>
+          <span class="n">04</span>
+          <span class="q">Will there be visible scars or hardware?</span>
+          <span class="pl">+</span>
+        </summary>
+        <div class="a">The Precice system is entirely internal — no external frames, no visible hardware. Small incisions heal to minimal scars.</div>
+      </details>
+      <details>
+        <summary>
+          <span class="n">05</span>
+          <span class="q">Do you accept out-of-state &amp; international patients?</span>
+          <span class="pl">+</span>
+        </summary>
+        <div class="a">Yes — our concierge program coordinates flights, ground transportation, extended-stay housing, and physical therapy. We've served patients from 50+ states and countries.</div>
+      </details>
+      <details>
+        <summary>
+          <span class="n">06</span>
+          <span class="q">Can you handle revision cases?</span>
+          <span class="pl">+</span>
+        </summary>
+        <div class="a">Yes. Dr. Basmajian's trauma reconstruction expertise means we accept revision cases many surgeons decline. We will review your history and imaging before committing to any plan.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final" id="consult">
+  <div class="wrap">
+    <div class="lcol">
+      <div class="eyebrow">Begin</div>
+      <h2>The most important call<br>you'll make this <em>year.</em></h2>
+    </div>
+    <div class="rcol">
+      <p>Confidential · no obligation. Consultations are private, discreet, and can be held virtually.</p>
+      <div class="ctas">
+        <a class="btn" href="#book">Schedule a Confidential Consultation <span class="arr">→</span></a>
+        <a class="btn ghost" href="tel:+19094614984">Call (909) 461-4984 <span class="arr">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="f-logo">
+          <div class="mk">P</div>
+          <div class="t">Premier Limb Lengthening</div>
+        </div>
+        <div class="f-tag">A Premier Orthopaedic &amp; Trauma Specialists Clinic</div>
+        <div class="f-addr">
+          160 E Artesia Street, Suite 255<br>
+          Pomona, CA 91767<br>
+          <a href="tel:+19094614984" style="color:#f4d88a;">(909) 461-4984</a>
+        </div>
+      </div>
+      <div>
+        <h4>Procedures</h4>
+        <ul>
+          <li><a href="#femur">Femur Lengthening</a></li>
+          <li><a href="#tibia">Tibia Lengthening</a></li>
+          <li><a href="#revision">Revision Surgery</a></li>
+          <li><a href="#discrepancy">Limb-Length Discrepancy</a></li>
+          <li><a href="#precice">Precice Nail Technology</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#recovery">Recovery Timeline</a></li>
+          <li><a href="#ba">Before &amp; After</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#blog">Blog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>For Patients</h4>
+        <ul>
+          <li><a href="#consult">Schedule Consultation</a></li>
+          <li><a href="#virtual">Virtual Consultation</a></li>
+          <li><a href="#concierge">Concierge Travel Program</a></li>
+          <li><a href="#financing">Financing Options</a></li>
+          <li><a href="#portal">Patient Portal</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Premier Limb Lengthening. All rights reserved.</div>
+      <div class="sw">
+        <a href="#privacy">Privacy Policy</a> ·
+        <a href="#terms">Terms</a> ·
+        <a href="#accessibility">Accessibility</a> ·
+        <a href="#sitemap">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

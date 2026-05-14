@@ -1,0 +1,143 @@
+/* ============================================================================
+   /v2 — Editorial / Video-First Homepage Variation
+   Page-scoped styles. Imported only by app/v2/page.tsx. Class names prefixed
+   `v2-` so they cannot collide with the existing system.
+   ============================================================================ */
+
+/* ---- Video stage ---- */
+.v2-video-stage {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #0a1218;
+}
+.v2-vbg,
+.v2-vbg video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+/* Static gradient — serves as the load-time placeholder behind the video.
+   No animations / blur / grain, because the <video> covers this element
+   once playing and any movement here only burns GPU + CSS compositing
+   budget that the video decoder needs. The result was visible as choppy /
+   slow playback on slower machines. */
+.v2-vbg {
+  background:
+    radial-gradient(120% 80% at 70% 20%, rgba(120, 170, 200, 0.45), transparent 60%),
+    radial-gradient(90% 70% at 20% 90%, rgba(37, 74, 93, 0.85), transparent 55%),
+    linear-gradient(135deg, #1a3441 0%, #254a5d 45%, #0e2733 100%);
+}
+
+.v2-vshade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  /* Even top-band so the kicker isn't visually framed by a darker box.
+     Light middle so the video reads, then radial reinforcement at the
+     bottom for the deck. */
+  background:
+    radial-gradient(110% 55% at 50% 100%, rgba(8, 16, 22, 0.5) 0%, rgba(8, 16, 22, 0) 70%),
+    linear-gradient(
+      180deg,
+      rgba(8, 16, 22, 0.58) 0%,
+      rgba(8, 16, 22, 0.5) 28%,
+      rgba(8, 16, 22, 0.48) 55%,
+      rgba(8, 16, 22, 0.6) 80%,
+      rgba(248, 246, 241, 0) 95%,
+      var(--paper-off) 100%
+    );
+}
+
+.v2-vplate {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  transform-origin: right center;
+  z-index: 3;
+  font-family: var(--font-mono), monospace;
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  pointer-events: none;
+}
+.v2-vplate::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: #f4d88a;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(244, 216, 138, 0.18);
+  animation: v2-pulse 1.6s ease-in-out infinite;
+}
+@keyframes v2-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+/* ---- Editorial portrait textures ---- */
+.v2-portrait {
+  position: relative;
+  overflow: hidden;
+}
+.v2-portrait::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(0deg, transparent 0 16px, rgba(15, 20, 23, 0.04) 16px 17px);
+  pointer-events: none;
+}
+.v2-portrait-diag::before {
+  background: repeating-linear-gradient(135deg, transparent 0 24px, rgba(15, 20, 23, 0.04) 24px 25px);
+}
+
+/* ---- Drop cap on hero lede ---- */
+.v2-dropcap::first-letter {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 72px;
+  line-height: 0.82;
+  float: left;
+  padding: 8px 16px 0 0;
+  color: var(--spine);
+  font-weight: 500;
+}
+
+/* ---- Two-column body for hero article ---- */
+.v2-cols {
+  columns: 2;
+  column-gap: 32px;
+}
+.v2-cols p + p {
+  margin-top: 10px;
+}
+
+/* ---- Process big-numeral ghost ---- */
+.v2-step-ghost {
+  font-family: var(--font-serif), serif;
+  font-style: italic;
+  font-size: 120px;
+  line-height: 0.82;
+  color: rgba(255, 255, 255, 0.1);
+  position: absolute;
+  top: 38px;
+  right: 14px;
+  pointer-events: none;
+}
+
+/* ---- FAQ summary marker reset (we use Framer Motion for the chevron) ---- */
+.v2-faq-summary::-webkit-details-marker { display: none; }
+.v2-faq-summary { list-style: none; }
+
+@media (max-width: 1024px) {
+  .v2-cols { columns: 1; }
+}

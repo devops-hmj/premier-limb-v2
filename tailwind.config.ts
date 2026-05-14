@@ -59,6 +59,7 @@ const config: Config = {
           warm: "#ECE8DE",
         },
         cream: "#F4F0E6",
+        gold: "#F4D88A",
         rule: {
           DEFAULT: "#D9D5C9",
           hard: "#0F1417",

@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import { fontVariables } from "@/lib/fonts";
-import { Nav } from "@/components/layout/Nav";
-import { SiteFooter } from "@/components/layout/SiteFooter";
 import { JsonLd } from "@/components/content/JsonLd";
 import { siteGraph } from "@/lib/jsonld";
 import { site } from "@/lib/site";
@@ -28,6 +26,18 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
+/**
+ * Root layout — minimal shell now that the V2 design is canonical.
+ *
+ * Every route mounts its own NavV2 + FooterV2 inline, so the root layout
+ * holds only:
+ *   • the fonts + globals
+ *   • the accessibility skip-link
+ *   • the site-wide MedicalBusiness + WebSite JSON-LD
+ *
+ * No more <Nav /> / <SiteFooter /> / <ConditionalChrome /> — those were
+ * the legacy chrome and have been deleted alongside the legacy routes.
+ */
 export default function RootLayout({
   children,
 }: {
@@ -42,10 +52,7 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        <Nav />
         <main id="main">{children}</main>
-        <SiteFooter />
-        {/* Site-wide MedicalBusiness + WebSite schema, emitted on every page. */}
         <JsonLd data={siteGraph()} />
       </body>
     </html>
