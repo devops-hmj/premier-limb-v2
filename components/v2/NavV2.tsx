@@ -8,35 +8,47 @@ import { site } from "@/lib/site";
 import { Logo } from "@/components/primitives/Logo";
 
 /**
- * NavV2 — the V2 masthead.
+ * NavV2 — the V2 nav system.
  *
- * Two states:
- *   • Over hero: transparent ground, white text, sits inside the video stage.
- *   • Post-scroll (>120px): condensed sticky bar on paper-off with ink text.
+ *   <NavV2 />              → homepage sticky bar that fades in past 120 px.
+ *   <NavV2 forceVisible /> → inner-page bar that shows immediately at y=0.
+ *   <NavV2Overlay />       → transparent variant rendered inside HeroStage.
  *
- * The "over hero" version is rendered as a child of HeroStage so the cover
- * strip + main row sit naturally above the video. The "condensed" version
- * is mounted here as a fixed-top bar that fades in once the user scrolls.
+ * "Your Surgery" is the only nav item with a sub-menu. On desktop it opens
+ * on hover; on mobile it expands inline inside the sheet.
  */
-const navLinks = [
+
+type NavItem = {
+  label: string;
+  href: string;
+  submenu?: ReadonlyArray<{ label: string; href: string }>;
+};
+
+const surgerySubmenu = [
+  { label: "Surgery Overview", href: "/v2/your-surgery" },
+  { label: "External vs. Internal Lengthening", href: "/v2/your-surgery/external-internal-lengthening" },
+  { label: "Recovery & Expectations", href: "/v2/your-surgery/limb-lengthening-expectations" },
+  { label: "Will Limb Lengthening Hurt?", href: "/v2/your-surgery/will-limb-lengthening-hurt" },
+  { label: "Is There an Age Limit?", href: "/v2/your-surgery/is-there-an-age-limit-for-limb-lengthening" },
+  { label: "How Much Taller Can I Get?", href: "/v2/your-surgery/how-much-taller-can-i-get-with-limb-lengthening" },
+  { label: "Can I Bend My Lengthening Nail?", href: "/v2/your-surgery/can-i-bend-my-lengthening-nail" },
+  { label: "Exercise After Limb Lengthening", href: "/v2/your-surgery/exercise-after-limb-lengthening" },
+] as const;
+
+const navItems: NavItem[] = [
+  { label: "Your Surgery", href: "/v2/your-surgery", submenu: surgerySubmenu },
   { label: "Pricing", href: "/v2/pricing" },
   { label: "Dr. Basmajian", href: "/v2/dr-basmajian" },
   { label: "About", href: "/v2/about" },
   { label: "Journal", href: "/v2/journal" },
   { label: "Contact", href: "/v2/contact" },
-] as const;
+];
 
-/**
- * NavV2 sticky bar.
- *
- * - On the homepage: hidden initially (the hero has its own `NavV2Overlay`),
- *   slides down once the user scrolls past 120 px.
- * - On inner pages with no hero: pass `forceVisible` so the bar shows
- *   immediately from scroll position 0.
- */
 export function NavV2({ forceVisible = false }: { forceVisible?: boolean } = {}) {
   const [scrolled, setScrolled] = useState(forceVisible);
   const [open, setOpen] = useState(false);
+  const [openSubKey, setOpenSubKey] = useState<string | null>(null);
+  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
 
   useEffect(() => {
     if (forceVisible) {
@@ -77,11 +89,75 @@ export function NavV2({ forceVisible = false }: { forceVisible?: boolean } = {})
               </Link>
 
               <nav className="hidden lg:flex items-center gap-7 text-[13.5px] text-ink font-medium" aria-label="Primary">
-                {navLinks.map((l) => (
-                  <a key={l.href} href={l.href} className="hover:text-spine transition-colors">
-                    {l.label}
-                  </a>
-                ))}
+                {navItems.map((item) =>
+                  item.submenu ? (
+                    <div
+                      key={item.href}
+                      className="relative"
+                      onMouseEnter={() => setOpenSubKey(item.href)}
+                      onMouseLeave={() => setOpenSubKey(null)}
+                    >
+                      <Link
+                        href={item.href}
+                        className="inline-flex items-center gap-1.5 hover:text-spine transition-colors"
+                        aria-haspopup="true"
+                        aria-expanded={openSubKey === item.href}
+                      >
+                        {item.label}
+                        <span
+                          aria-hidden
+                          className={cn(
+                            "font-serif italic text-[14px] transition-transform",
+                            openSubKey === item.href && "rotate-180",
+                          )}
+                        >
+                          ⌄
+                        </span>
+                      </Link>
+                      <AnimatePresence>
+                        {openSubKey === item.href && (
+                          <motion.div
+                            initial={{ opacity: 0, y: -6 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -6 }}
+                            transition={{ duration: 0.2, ease: [0.2, 0.65, 0.3, 1] }}
+                            className="absolute left-1/2 -translate-x-1/2 top-full pt-4 z-50"
+                          >
+                            <div className="min-w-[360px] bg-paper border border-ink shadow-[0_24px_48px_-12px_rgba(15,20,23,0.25)]">
+                              <div className="px-6 pt-5 pb-2 border-b border-rule">
+                                <div className="font-mono uppercase tracking-[0.22em] text-[10.5px] text-spine inline-flex items-center gap-2.5">
+                                  <span aria-hidden className="inline-block w-[22px] h-px bg-spine" />
+                                  Your Surgery · Dossier
+                                </div>
+                              </div>
+                              <ul className="list-none py-2">
+                                {item.submenu.map((s, i) => (
+                                  <li key={s.href}>
+                                    <Link
+                                      href={s.href}
+                                      className="group flex items-baseline gap-4 px-6 py-2.5 hover:bg-spine-tint transition-colors"
+                                    >
+                                      <span className="font-mono uppercase tracking-[0.18em] text-[10px] text-muted shrink-0 w-6">
+                                        {String(i + 1).padStart(2, "0")}
+                                      </span>
+                                      <span className="font-serif text-[15.5px] leading-[1.3] tracking-[-0.005em] text-ink group-hover:text-spine transition-colors">
+                                        {s.label}
+                                      </span>
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  ) : (
+                    <Link key={item.href} href={item.href} className="hover:text-spine transition-colors">
+                      {item.label}
+                    </Link>
+                  ),
+                )}
               </nav>
 
               <div className="hidden md:flex items-center gap-3">
@@ -92,7 +168,7 @@ export function NavV2({ forceVisible = false }: { forceVisible?: boolean } = {})
                   {site.phone}
                 </a>
                 <a
-                  href="#consult"
+                  href="/v2/contact"
                   className="inline-flex items-center gap-2.5 px-5 py-2.5 bg-spine text-paper font-medium uppercase tracking-wide text-[11.5px] hover:bg-spine-deep transition-colors"
                 >
                   Schedule Consultation
@@ -124,23 +200,75 @@ export function NavV2({ forceVisible = false }: { forceVisible?: boolean } = {})
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-paper-off md:hidden"
+            className="fixed inset-0 z-40 bg-paper-off md:hidden overflow-y-auto"
           >
-            <div className="px-6 pt-20 pb-10 flex flex-col gap-6">
+            <div className="px-6 pt-20 pb-10 flex flex-col gap-2">
               <nav aria-label="Primary mobile" className="flex flex-col">
-                {navLinks.map((l) => (
-                  <a
-                    key={l.href}
-                    href={l.href}
-                    onClick={() => setOpen(false)}
-                    className="font-serif text-[28px] py-4 border-b border-rule tracking-[-0.01em] text-ink"
-                  >
-                    {l.label}
-                  </a>
-                ))}
+                {navItems.map((item) =>
+                  item.submenu ? (
+                    <div key={item.href} className="border-b border-rule">
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setMobileExpanded(mobileExpanded === item.href ? null : item.href)
+                        }
+                        aria-expanded={mobileExpanded === item.href}
+                        className="w-full text-left flex items-baseline justify-between gap-4 py-4 font-serif text-[28px] tracking-[-0.01em] text-ink"
+                      >
+                        {item.label}
+                        <span
+                          aria-hidden
+                          className={cn(
+                            "font-serif italic text-[20px] text-spine transition-transform",
+                            mobileExpanded === item.href && "rotate-45",
+                          )}
+                        >
+                          +
+                        </span>
+                      </button>
+                      <AnimatePresence initial={false}>
+                        {mobileExpanded === item.href && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.3, ease: [0.2, 0.65, 0.3, 1] }}
+                            className="overflow-hidden"
+                          >
+                            <ul className="list-none pb-4 pl-4 border-l-2 border-spine">
+                              {item.submenu.map((s, i) => (
+                                <li key={s.href}>
+                                  <Link
+                                    href={s.href}
+                                    onClick={() => setOpen(false)}
+                                    className="flex items-baseline gap-3 py-2.5 font-serif text-[17px] leading-[1.3] tracking-[-0.005em] text-ink"
+                                  >
+                                    <span className="font-mono uppercase tracking-[0.18em] text-[10px] text-muted shrink-0 w-6">
+                                      {String(i + 1).padStart(2, "0")}
+                                    </span>
+                                    <span>{s.label}</span>
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  ) : (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setOpen(false)}
+                      className="font-serif text-[28px] py-4 border-b border-rule tracking-[-0.01em] text-ink"
+                    >
+                      {item.label}
+                    </Link>
+                  ),
+                )}
               </nav>
-              <div className="flex flex-col gap-3 pt-2">
-                <a href="#consult" className="inline-flex items-center justify-center gap-2.5 px-5 py-3 bg-spine text-paper font-medium uppercase tracking-wide text-[11.5px]">
+              <div className="flex flex-col gap-3 pt-6">
+                <a href="/v2/contact" className="inline-flex items-center justify-center gap-2.5 px-5 py-3 bg-spine text-paper font-medium uppercase tracking-wide text-[11.5px]">
                   Schedule Consultation <span className="font-serif italic" aria-hidden>→</span>
                 </a>
                 <a href={site.phoneHref} className="inline-flex items-center justify-center gap-2.5 px-5 py-3 border border-spine text-spine font-medium uppercase tracking-wide text-[11.5px]">
@@ -157,11 +285,14 @@ export function NavV2({ forceVisible = false }: { forceVisible?: boolean } = {})
 
 /**
  * NavV2Overlay — the version that sits inside the hero/video stage.
- * Pure markup, no scroll state — keeps the dark-ground variant decoupled.
+ * Pure markup, no scroll state — the dark-ground variant decoupled from
+ * the sticky bar. Submenu opens on hover here too.
  */
 export function NavV2Overlay() {
+  const [openSubKey, setOpenSubKey] = useState<string | null>(null);
+
   return (
-    <header className="relative z-10 border-b border-white/15">
+    <header className="relative z-30 border-b border-white/15">
       <div className="mx-auto max-w-wrap px-6 lg:px-12 py-4 lg:py-5 grid grid-cols-[auto_1fr_auto] items-center gap-6 lg:gap-10">
         <Link href="/v2" aria-label="Premier Limb Lengthening — home" className="flex items-center shrink-0">
           <Logo
@@ -176,11 +307,75 @@ export function NavV2Overlay() {
           className="hidden lg:flex items-center justify-center gap-7 text-[13.5px] font-medium text-white/90"
           aria-label="Primary"
         >
-          {navLinks.map((l) => (
-            <a key={l.href} href={l.href} className="hover:text-cream transition-colors">
-              {l.label}
-            </a>
-          ))}
+          {navItems.map((item) =>
+            item.submenu ? (
+              <div
+                key={item.href}
+                className="relative"
+                onMouseEnter={() => setOpenSubKey(item.href)}
+                onMouseLeave={() => setOpenSubKey(null)}
+              >
+                <Link
+                  href={item.href}
+                  className="inline-flex items-center gap-1.5 hover:text-cream transition-colors"
+                  aria-haspopup="true"
+                  aria-expanded={openSubKey === item.href}
+                >
+                  {item.label}
+                  <span
+                    aria-hidden
+                    className={cn(
+                      "font-serif italic text-[14px] transition-transform",
+                      openSubKey === item.href && "rotate-180",
+                    )}
+                  >
+                    ⌄
+                  </span>
+                </Link>
+                <AnimatePresence>
+                  {openSubKey === item.href && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -6 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -6 }}
+                      transition={{ duration: 0.2, ease: [0.2, 0.65, 0.3, 1] }}
+                      className="absolute left-1/2 -translate-x-1/2 top-full pt-4 z-50"
+                    >
+                      <div className="min-w-[360px] bg-paper border border-ink shadow-[0_24px_48px_-12px_rgba(0,0,0,0.4)]">
+                        <div className="px-6 pt-5 pb-2 border-b border-rule">
+                          <div className="font-mono uppercase tracking-[0.22em] text-[10.5px] text-spine inline-flex items-center gap-2.5">
+                            <span aria-hidden className="inline-block w-[22px] h-px bg-spine" />
+                            Your Surgery · Dossier
+                          </div>
+                        </div>
+                        <ul className="list-none py-2">
+                          {item.submenu.map((s, i) => (
+                            <li key={s.href}>
+                              <Link
+                                href={s.href}
+                                className="group flex items-baseline gap-4 px-6 py-2.5 hover:bg-spine-tint transition-colors"
+                              >
+                                <span className="font-mono uppercase tracking-[0.18em] text-[10px] text-muted shrink-0 w-6">
+                                  {String(i + 1).padStart(2, "0")}
+                                </span>
+                                <span className="font-serif text-[15.5px] leading-[1.3] tracking-[-0.005em] text-ink group-hover:text-spine transition-colors">
+                                  {s.label}
+                                </span>
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ) : (
+              <Link key={item.href} href={item.href} className="hover:text-cream transition-colors">
+                {item.label}
+              </Link>
+            ),
+          )}
         </nav>
 
         <div className="flex items-center gap-4 lg:gap-5 justify-self-end">
@@ -192,7 +387,7 @@ export function NavV2Overlay() {
             {site.phone}
           </a>
           <a
-            href="#consult"
+            href="/v2/contact"
             className="inline-flex items-center gap-2.5 px-4 lg:px-5 py-3 lg:py-3.5 bg-spine text-paper font-medium uppercase tracking-wide text-[11px] lg:text-[12px] hover:bg-spine-deep transition-colors"
           >
             <span className="hidden sm:inline">Schedule Consultation</span>
