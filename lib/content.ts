@@ -82,7 +82,11 @@ function detectKind(file: string, route: string): PageKind {
   return "article";
 }
 
-/** Strip the leading `# Title` and `**URL:** …` lines. */
+/** Strip the leading `# Title`, `**URL:** …` lines, and the trailing
+ *  "Related Articles" block (we render our own related-articles card grid
+ *  at the bottom of every article template, which links to local /v2/
+ *  routes — keeping the legacy section in-body would duplicate it as
+ *  broken-image blue text links to the old WP URLs). */
 function parseMarkdown(raw: string): {
   rawTitle: string;
   body: string;
@@ -99,7 +103,16 @@ function parseMarkdown(raw: string): {
     if (line.startsWith("**URL:**")) continue;
     keep.push(line);
   }
-  const body = keep.join("\n").trim();
+  let body = keep.join("\n").trim();
+
+  // Drop the "### Related Articles" section and everything after it.
+  // The scraped articles end with a legacy related-articles widget that
+  // links back to the WordPress origin — we replace it with our own
+  // properly-routed related grid in the template.
+  const relatedIdx = body.search(/^###\s+Related Articles\s*$/m);
+  if (relatedIdx !== -1) {
+    body = body.slice(0, relatedIdx).trim();
+  }
 
   // First meaningful paragraph — strip markdown syntax for the meta description.
   const firstParaMatch = body.match(/^(?!#|!\[|>|\*|-|_)(.{40,}?)(?=\n\n|\n#|$)/m);

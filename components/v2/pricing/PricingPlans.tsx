@@ -41,7 +41,7 @@ const plans = [
     bar: "Plan 03 · Combined · Most Selected",
     badge: "Most Selected",
     title: "Combined Tibia + Femur",
-    gen: "Up to 5 cm each (3 weeks apart) — 10 cm / 4 in. total",
+    gen: "Up to 10 cm / 4 in. total — 5 cm per leg",
     price: "$209,500",
     from: "Two surgeries, three weeks apart",
     featured: true,
@@ -57,19 +57,20 @@ const plans = [
     bar: "Plan 04 · Staged Femur → Tibia",
     title: "Femur, then Tibia (1 year apart)",
     gen: "Up to 13 cm / 5.5 in. total",
-    price: "$201,500 – $219,500",
+    price: "$201–$220k",
     from: "Two staged surgeries, twelve months apart",
     features: [
       "Two complete procedures with all associated costs",
       "Implants, hospitalization, surgical fees, anesthesia twice",
       "Follow-up + PT block for each stage",
       "Range reflects the implant generation selected",
+      "Height gain: up to 13 cm / 5.5 in. total",
     ],
   },
   {
     bar: "Plan 05 · Maximum Height",
     title: "Maximum Height Increase",
-    gen: "Up to 16 cm / 6.3 in. total — three surgeries",
+    gen: "Up to 16 cm / 6.3 in. — three surgeries",
     price: "$293,000",
     from: "Three staged surgeries over time",
     features: [
@@ -77,6 +78,7 @@ const plans = [
       "All implants, hospitalization, surgical fees, anesthesia",
       "Full follow-up + extended PT block",
       "For candidates seeking the largest possible result",
+      "Height gain: up to 16 cm / 6.3 in. total",
     ],
   },
   {
@@ -90,6 +92,7 @@ const plans = [
       "Initial 2-week stay for surgery + activation",
       "Remote lengthening with periodic follow-ups",
       "PT and follow-up support",
+      "Height gain: up to 5 cm / 2 in.",
     ],
   },
 ] as const;
@@ -139,7 +142,10 @@ export function PricingPlans() {
                   ${"featured" in p && p.featured ? "bg-paper md:px-7 lg:px-6" : "bg-paper-off"}
                 `}
               >
-                <div className="mb-5 flex items-center gap-2.5 font-mono uppercase tracking-[0.22em] text-[10.5px] text-muted">
+                {/* Each row below is given a min-height that fits the worst case
+                    (longest title / 2-line gen / wrapped range price) so the
+                    horizontal rules between rows align across every card. */}
+                <div className="mb-5 min-h-[32px] flex items-center gap-2.5 font-mono uppercase tracking-[0.22em] text-[10.5px] text-muted">
                   {"featured" in p && p.featured && "badge" in p && (
                     <span className="bg-spine text-paper font-medium px-2.5 py-1 tracking-[0.22em]">
                       {p.badge}
@@ -147,17 +153,17 @@ export function PricingPlans() {
                   )}
                   <span>{p.bar}</span>
                 </div>
-                <h3 className="font-serif font-medium text-[24px] lg:text-[26px] leading-[1.15] tracking-[-0.01em] text-ink mb-1.5 max-w-[20ch]">
+                <h3 className="font-serif font-medium text-[24px] lg:text-[26px] leading-[1.15] tracking-[-0.01em] text-ink mb-1.5 max-w-[20ch] min-h-[58px] lg:min-h-[62px]">
                   {p.title}
                 </h3>
-                <div className="font-serif italic text-[14.5px] text-muted mb-7 max-w-[36ch]">
+                <div className="font-serif italic text-[14.5px] leading-[1.5] text-muted mb-7 max-w-[36ch] min-h-[48px]">
                   {p.gen}
                 </div>
                 <div className="pt-6 border-t border-rule">
-                  <div className="font-serif text-[42px] lg:text-[50px] leading-none tracking-[-0.025em] text-ink">
+                  <div className="font-serif text-[42px] lg:text-[50px] leading-none tracking-[-0.025em] text-ink min-h-[42px] lg:min-h-[50px]">
                     {p.price}
                   </div>
-                  <div className="mt-2 mb-7 font-mono uppercase tracking-[0.18em] text-[10.5px] text-muted">
+                  <div className="mt-2 mb-7 font-mono uppercase tracking-[0.18em] text-[10.5px] text-muted min-h-[28px]">
                     {p.from}
                   </div>
                 </div>

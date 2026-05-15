@@ -115,25 +115,10 @@ export function Prose({ children, className, skipFirstParagraph = false }: Prose
             </blockquote>
           ),
           hr: () => <div className="my-10 rule-hair" />,
-          img: ({ src, alt }) =>
-            src ? (
-              <figure className="my-10">
-                {/* Use plain <img> here so external WP-hosted urls (already
-                    absolute) load without next/image domain whitelisting. */}
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={src}
-                  alt={alt ?? ""}
-                  loading="lazy"
-                  className="block w-full h-auto border border-ink"
-                />
-                {alt && (
-                  <figcaption className="mt-3 font-mono text-eyebrow tracking-eyebrow uppercase text-muted">
-                    {alt}
-                  </figcaption>
-                )}
-              </figure>
-            ) : null,
+          // Embedded markdown images point at legacy wp-content/uploads/
+          // URLs that aren't reachable from this deployment. Suppressing
+          // them entirely until real assets get wired in.
+          img: () => null,
           table: ({ children }) => (
             <div className="my-8 overflow-x-auto border border-ink">
               <table className="w-full border-collapse text-t-m">{children}</table>

@@ -95,7 +95,7 @@ export default async function Page({ params }: { params: Promise<RouteParams> })
         </header>
 
         <div className="mx-auto max-w-wrap px-6 lg:px-12 py-16 lg:py-24 grid grid-cols-12 gap-6 lg:gap-8">
-          <Reveal className="col-span-12 lg:col-span-8 lg:col-start-2">
+          <Reveal className="col-span-12 lg:col-span-8">
             <Prose>{page.body}</Prose>
           </Reveal>
         </div>
