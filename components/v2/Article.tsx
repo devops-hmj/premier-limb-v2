@@ -63,7 +63,7 @@ export function Article() {
                 <span className="font-serif italic text-[17px] transition-transform group-hover:translate-x-1" aria-hidden>→</span>
               </a>
               <a
-                href="/pricing"
+                href="/limb-lengthening-pricing-options"
                 className="group inline-flex items-center gap-3 px-5 py-3.5 bg-transparent text-spine border border-spine uppercase tracking-wide text-[12px] font-medium hover:bg-spine hover:text-paper transition-colors"
               >
                 View Pricing Options

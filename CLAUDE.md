@@ -8,10 +8,10 @@ This repository contains the Next.js 15 App Router codebase, design system token
 - **Phase 1 (Foundation): ✅ DONE**
 - **Phase 2 (Homepage): ✅ DONE** (V2 editorial design is canonical: [components/v2/HomePage.tsx](components/v2/HomePage.tsx) assembled at [app/page.tsx](app/page.tsx))
 - **Phase 3 (Shared Layouts): ✅ DONE** ([components/v2/NavV2.tsx](components/v2/NavV2.tsx) + [components/v2/FooterV2.tsx](components/v2/FooterV2.tsx) used on every route)
-- **Phase 4 (Content Migration): ✅ DONE** (16 articles via [app/[slug]/page.tsx](app/[slug]/page.tsx); 7 surgery sub-pages via [app/your-surgery/[slug]/page.tsx](app/your-surgery/[slug]/page.tsx); surfaces: /about, /contact, /dr-basmajian, /pricing, /your-surgery, /journal)
+- **Phase 4 (Content Migration): ✅ DONE** (16 articles via [app/[slug]/page.tsx](app/[slug]/page.tsx); 7 surgery sub-pages via [app/your-surgery/[slug]/page.tsx](app/your-surgery/[slug]/page.tsx); surfaces: /about, /consult, /dr-basmajian, /limb-lengthening-pricing-options, /your-surgery, /blog)
 - **Phase 5 (QA & Polish): 🟡 IN PROGRESS**
   - ✅ Pre-launch SEO baseline: noindex flags lifted, hand-written metadata, expanded sitemap (see [SEO_AUDIT.md](SEO_AUDIT.md))
-  - ✅ **Option A executed (2026-05-28)**: dropped the `/v2/` prefix; every legacy WordPress URL now matches its new path 1:1 with zero redirect hops. The 23 carry-over pages are direct hits. Cross-route renames (`/consult/ → /contact`, `/blog/ → /journal`, `/limb-lengthening-pricing-options/ → /pricing`) keep a single-hop 301 — slugs come from the live-site audit ([SEO_AUDIT.md §2a](SEO_AUDIT.md)), not brand preference. The journal section is labeled **"Resources"** in nav, hero, and page title; the URL stays `/journal` to preserve the audit-aligned single hop from legacy `/blog/`. A defensive `/v2/:path*` catch-all stays in [next.config.mjs](next.config.mjs).
+  - ✅ **Option A + literal path preservation (2026-05-28)**: dropped the `/v2/` prefix AND kept every URL slug exactly as it appears on the legacy WordPress site (`scraped_content/sitemap_data.json`). **Zero redirect hops** for every legacy URL that has a built destination, including the long legacy slugs `/consult`, `/blog`, and `/limb-lengthening-pricing-options`. URL slugs and UI labels are decoupled: `/consult` ⇒ label "Contact", `/blog` ⇒ label "Resources", `/limb-lengthening-pricing-options` ⇒ label "Pricing". A defensive `/v2/:path*` catch-all and interim 302s for the 9 not-yet-built category/author/video pages stay in [next.config.mjs](next.config.mjs).
   - ✅ Brand copy compliance: procedure-count claim → "thousands"; "Up to" qualifier on height claims; project-wide no-dash rule applied to homepage flow
   - ⬜ JSON-LD builders not yet wired per-page (see [SEO_AUDIT.md §5.3](SEO_AUDIT.md))
   - ⬜ Em-dash sweep still pending across pricing detail components ([AddOns.tsx](components/v2/pricing/AddOns.tsx), [Financing.tsx](components/v2/pricing/Financing.tsx), [IncludedExcluded.tsx](components/v2/pricing/IncludedExcluded.tsx), [PricingPlans.tsx](components/v2/pricing/PricingPlans.tsx)) and subpage body copy
@@ -19,8 +19,9 @@ This repository contains the Next.js 15 App Router codebase, design system token
   - ⬜ Canonical domain confirmation before production sitemap
 
 ## Pending validation
-- `npm install` + `npm run dev` smoke test against the consolidated routes (`/`, `/about`, `/contact`, `/dr-basmajian`, `/pricing`, `/your-surgery`, `/resources`, plus one article + one surgery sub-page).
-- Spot-check redirects with `curl -I`: `/blog/` → 308 `/resources`; `/consult/` → 308 `/contact`; `/v2/about` → 308 `/about`; one legacy article slug → 200 direct hit.
+- `npm install` + `npm run dev` smoke test against every route (`/`, `/about`, `/consult`, `/dr-basmajian`, `/limb-lengthening-pricing-options`, `/your-surgery`, `/blog`, plus one article + one surgery sub-page).
+- Spot-check direct-hit (legacy URL = new URL, expect 200): `/blog/`, `/consult/`, `/limb-lengthening-pricing-options/`, `/are-you-a-good-candidate-for-limb-lengthening/`.
+- Spot-check the defensive `/v2` catch-all (expect 308 to root): `/v2/about` → `/about`; `/v2/blog` → `/blog`.
 
 ## Developer / Agent Instructions
 
@@ -47,13 +48,13 @@ PLL-design/
 │   ├── v2.css               # Editorial / video-stage page styles
 │   ├── layout.tsx           # Root layout (fonts, site-wide JSON-LD)
 │   ├── page.tsx             # Homepage (renders V2HomePage)
-│   ├── about/               # /about
-│   ├── contact/             # /contact
-│   ├── dr-basmajian/        # /dr-basmajian
-│   ├── pricing/             # /pricing
-│   ├── journal/             # /journal (URL stays /journal per audit; UI label is "Resources")
-│   ├── your-surgery/        # /your-surgery + [slug]/
-│   ├── [slug]/              # /<article-slug> (16 articles)
+│   ├── about/                                  # /about (new; no legacy URL)
+│   ├── blog/                                   # /blog        — UI label "Resources"
+│   ├── consult/                                # /consult     — UI label "Contact"
+│   ├── dr-basmajian/                           # /dr-basmajian
+│   ├── limb-lengthening-pricing-options/       # legacy slug — UI label "Pricing"
+│   ├── your-surgery/                           # /your-surgery + [slug]/ (7 sub-pages)
+│   ├── [slug]/                                 # /<article-slug> (16 articles, direct WP slugs)
 │   ├── sitemap.ts
 │   ├── robots.ts
 │   └── design-system/       # /design-system (internal dossier)

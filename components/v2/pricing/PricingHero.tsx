@@ -1,7 +1,7 @@
 import { Reveal } from "../Reveal";
 
 /**
- * PricingHero, top-of-page editorial header for /pricing. Sits flush
+ * PricingHero, top-of-page editorial header for /limb-lengthening-pricing-options. Sits flush
  * under NavV2 (sticky variant) on the paper-off ground; no video stage.
  */
 export function PricingHero() {

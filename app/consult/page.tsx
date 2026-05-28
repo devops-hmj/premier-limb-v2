@@ -12,12 +12,12 @@ export const metadata: Metadata = {
   title: "Schedule a Limb Lengthening Consultation",
   description:
     "Schedule a consultation with Premier Limb Lengthening in Pomona, Southern California. Confidential intake, virtual visits, and white-glove travel coordination.",
-  alternates: { canonical: "/contact" },
+  alternates: { canonical: "/consult" },
   openGraph: {
     title: "Schedule a Limb Lengthening Consultation · Premier",
     description:
       "Confidential intake, virtual visits, and white-glove travel coordination from Pomona, Southern California.",
-    url: "/contact",
+    url: "/consult",
     type: "website",
   },
   robots: { index: true, follow: true },
@@ -27,7 +27,7 @@ const directions =
   "http://www.google.com/maps/dir/160+E+Artesia+St,+Pomona,+CA+91767/@34.0764064,-117.7535405,15z/";
 
 /**
- * /contact — editorial contact page.
+ * /consult — editorial contact page.
  *
  * Two-column body: form on the left, structured contact card on the right
  * (address, phone, fax, hours, directions link, virtual consult CTA). Sits
@@ -41,7 +41,7 @@ export default function V2ContactPage() {
       <JsonLd
         data={breadcrumb([
           { name: "Home", url: "/" },
-          { name: "Contact", url: "/contact" },
+          { name: "Contact", url: "/consult" },
         ])}
       />
 

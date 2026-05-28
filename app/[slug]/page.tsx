@@ -63,7 +63,7 @@ export default async function Page({ params }: { params: Promise<RouteParams> })
           articleSchema(page),
           breadcrumb([
             { name: "Home", url: "/" },
-            { name: "Resources", url: "/journal" },
+            { name: "Resources", url: "/blog" },
             { name: page.title, url: page.route },
           ]),
         ]}
@@ -79,7 +79,7 @@ export default async function Page({ params }: { params: Promise<RouteParams> })
               >
                 <Link href="/" className="hover:text-spine transition-colors">Home</Link>
                 <span aria-hidden className="mx-2">·</span>
-                <Link href="/journal" className="hover:text-spine transition-colors">Resources</Link>
+                <Link href="/blog" className="hover:text-spine transition-colors">Resources</Link>
                 {page.category && (
                   <>
                     <span aria-hidden className="mx-2">·</span>
@@ -131,7 +131,7 @@ export default async function Page({ params }: { params: Promise<RouteParams> })
                   Keep <em className="italic text-spine">reading.</em>
                 </h2>
                 <Link
-                  href="/journal"
+                  href="/blog"
                   className="font-mono uppercase tracking-[0.18em] text-[11px] text-spine border-b border-spine pb-1 hover:text-spine-deep"
                 >
                   All articles →

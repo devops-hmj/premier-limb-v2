@@ -111,27 +111,34 @@ These render under `/v2/[slug]` from scraped markdown. Original URL was `/<slug>
 
 ## 3. URL strategy (Option A executed)
 
-**Status: ✅ Option A shipped.** Every customer-facing route was physically
-moved out of `app/v2/*` to `app/*`. The 23 pages that carry over verbatim
-from the legacy WordPress site (16 articles + 7 surgery sub-pages) now
-match their original WP URLs 1:1 with zero redirect hops. The "New path"
-column in section 2 stays accurate after dropping the `/v2/` prefix.
+**Status: ✅ Option A + literal-path preservation shipped.** Every
+customer-facing route was physically moved out of `app/v2/*` to `app/*`
+**at the exact slug the legacy WordPress site used**. The 38-row live-site
+crawl in `scraped_content/sitemap_data.json` is the source of truth for
+every URL slug; the new app mirrors it 1:1.
 
-Single-hop 301s remain in `next.config.mjs` for the three cross-route
-renames where the new slug deliberately differs from the legacy WP slug.
-**The new slug is the audit's proposed path, NOT brand preference** —
-brand wording lives in the UI (nav label, hero, page title); URL slugs
-are decided by the live-site audit:
+That means:
 
-| Legacy WP URL | New URL | UI label | Reason for slug |
-|---|---|---|---|
-| `/consult/` | `/contact` | Contact | Standard convention |
-| `/blog/` | `/journal` | Resources | Audit-proposed slug; brand uses "Resources" in nav/hero, URL stays `/journal` to keep a single 301 hop from legacy `/blog/` |
-| `/limb-lengthening-pricing-options/` | `/pricing` | Pricing | Shorter, cleaner |
+| Legacy WP URL | New URL | UI label |
+|---|---|---|
+| `/` | `/` | — |
+| `/dr-basmajian/` | `/dr-basmajian` | Dr. Basmajian |
+| `/your-surgery/` (+ 7 sub-pages) | `/your-surgery` (+ subs) | Your Surgery |
+| `/consult/` | `/consult` | Contact |
+| `/blog/` | `/blog` | Resources |
+| `/limb-lengthening-pricing-options/` | `/limb-lengthening-pricing-options` | Pricing |
+| `/<article-slug>/` (×16) | `/<slug>` | — |
 
-Plus interim 302s for the 9 not-yet-built pages (5 categories, 3
-authors, 1 video) all landing on `/journal` until the per-category and
-per-author routes get built (proposed paths in §2d-e).
+**Brand labels in nav and page titles are decoupled from URL slugs.** The
+"Resources" label sits on `/blog`; the "Contact" label sits on `/consult`;
+the "Pricing" label sits on `/limb-lengthening-pricing-options`. URL
+slugs are decided by the audit (max SEO authority preservation); labels
+are decided by brand.
+
+**Zero redirect hops** for every legacy URL that has a built destination.
+The 9 not-yet-built pages (5 categories, 3 authors, 1 video) take an
+interim 302 to `/blog`. A defensive `/v2/:path*` catch-all stays in
+`next.config.mjs` to absorb cached or pre-launch shared links.
 
 The previous "Option B" 301 map for per-article and per-surgery-sub
 redirects has been deleted: those pages are now direct hits.

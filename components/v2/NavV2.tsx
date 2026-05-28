@@ -37,11 +37,11 @@ const surgerySubmenu = [
 
 const navItems: NavItem[] = [
   { label: "Your Surgery", href: "/your-surgery", submenu: surgerySubmenu },
-  { label: "Pricing", href: "/pricing" },
+  { label: "Pricing", href: "/limb-lengthening-pricing-options" },
   { label: "Dr. Basmajian", href: "/dr-basmajian" },
   { label: "About", href: "/about" },
-  { label: "Resources", href: "/journal" },
-  { label: "Contact", href: "/contact" },
+  { label: "Resources", href: "/blog" },
+  { label: "Contact", href: "/consult" },
 ];
 
 export function NavV2({ forceVisible = false }: { forceVisible?: boolean } = {}) {
@@ -169,7 +169,7 @@ export function NavV2({ forceVisible = false }: { forceVisible?: boolean } = {})
                   {site.phone}
                 </a>
                 <a
-                  href="/contact"
+                  href="/consult"
                   className="inline-flex items-center gap-2.5 px-5 py-2.5 bg-spine text-paper font-medium uppercase tracking-wide text-[11.5px] hover:bg-spine-deep transition-colors"
                 >
                   Schedule Consultation
@@ -269,7 +269,7 @@ export function NavV2({ forceVisible = false }: { forceVisible?: boolean } = {})
                 )}
               </nav>
               <div className="flex flex-col gap-3 pt-6">
-                <a href="/contact" className="inline-flex items-center justify-center gap-2.5 px-5 py-3 bg-spine text-paper font-medium uppercase tracking-wide text-[11.5px]">
+                <a href="/consult" className="inline-flex items-center justify-center gap-2.5 px-5 py-3 bg-spine text-paper font-medium uppercase tracking-wide text-[11.5px]">
                   Schedule Consultation <span className="font-serif italic" aria-hidden>→</span>
                 </a>
                 <a href={site.phoneHref} className="inline-flex items-center justify-center gap-2.5 px-5 py-3 border border-spine text-spine font-medium uppercase tracking-wide text-[11.5px]">
@@ -388,7 +388,7 @@ export function NavV2Overlay() {
             {site.phone}
           </a>
           <a
-            href="/contact"
+            href="/consult"
             className="inline-flex items-center gap-2.5 px-4 lg:px-5 py-3 lg:py-3.5 bg-spine text-paper font-medium uppercase tracking-wide text-[11px] lg:text-[12px] hover:bg-spine-deep transition-colors"
           >
             <span className="hidden sm:inline">Schedule Consultation</span>

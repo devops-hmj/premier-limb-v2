@@ -6,8 +6,8 @@ const sections = {
   practice: [
     { label: "Dr. Basmajian", href: "/dr-basmajian" },
     { label: "About the Practice", href: "/about" },
-    { label: "Pricing", href: "/pricing" },
-    { label: "Contact", href: "/contact" },
+    { label: "Pricing", href: "/limb-lengthening-pricing-options" },
+    { label: "Contact", href: "/consult" },
   ],
   homepage: [
     { label: "Your Surgery", href: "/#surgery" },
@@ -17,9 +17,9 @@ const sections = {
     { label: "FAQ", href: "/#faq" },
   ],
   resources: [
-    { label: "Resources", href: "/journal" },
-    { label: "Schedule Consultation", href: "/contact" },
-    { label: "Financing Options", href: "/pricing#financing" },
+    { label: "Resources", href: "/blog" },
+    { label: "Schedule Consultation", href: "/consult" },
+    { label: "Financing Options", href: "/limb-lengthening-pricing-options#financing" },
   ],
 } as const;
 

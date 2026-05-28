@@ -133,7 +133,7 @@ export function Pricing() {
             approved credit.
           </p>
           <a
-            href="/pricing"
+            href="/limb-lengthening-pricing-options"
             className="group self-start lg:self-auto inline-flex items-center gap-3 px-5 py-3.5 bg-spine text-paper uppercase tracking-wide text-[12px] font-medium hover:bg-spine-deep transition-colors"
           >
             View Full Pricing Details
