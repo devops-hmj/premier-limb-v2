@@ -40,7 +40,7 @@ const navItems: NavItem[] = [
   { label: "Pricing", href: "/pricing" },
   { label: "Dr. Basmajian", href: "/dr-basmajian" },
   { label: "About", href: "/about" },
-  { label: "Resources", href: "/resources" },
+  { label: "Resources", href: "/journal" },
   { label: "Contact", href: "/contact" },
 ];
 

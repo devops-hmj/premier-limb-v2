@@ -6,7 +6,7 @@ import { getArticles, getPagesByKind, ORIGIN } from "@/lib/content";
  *
  * Enumerates every customer-facing URL that should be indexed:
  *   homepage (`/`)
- *   surface pages (about, contact, dr-basmajian, resources, pricing, your-surgery)
+ *   surface pages (about, contact, dr-basmajian, journal, pricing, your-surgery)
  *   each top-level article at `/<slug>`
  *   each "Your Surgery" sub-page at `/your-surgery/<slug>`
  *
@@ -14,7 +14,7 @@ import { getArticles, getPagesByKind, ORIGIN } from "@/lib/content";
  * disallowed in `robots.ts`).
  *
  * Priorities are hand-tuned: homepage 1.0; pricing, contact, bio 0.9;
- * your-surgery, about, resources 0.7; articles 0.6; surgery sub-pages 0.6.
+ * your-surgery, about, journal 0.7; articles 0.6; surgery sub-pages 0.6.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -26,7 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${ORIGIN}/dr-basmajian`,     lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${ORIGIN}/your-surgery`,     lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${ORIGIN}/about`,            lastModified: now, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${ORIGIN}/resources`,        lastModified: now, changeFrequency: "weekly",  priority: 0.7 },
+    { url: `${ORIGIN}/journal`,        lastModified: now, changeFrequency: "weekly",  priority: 0.7 },
   ];
 
   const articles: MetadataRoute.Sitemap = getArticles().map((a) => ({

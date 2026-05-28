@@ -14,12 +14,12 @@ export const metadata: Metadata = {
   title: "Limb Lengthening Resources, Articles & Patient Guides",
   description:
     "Editorial coverage of cosmetic limb lengthening: candidacy, recovery, pricing, and the science behind bone regeneration. Written for patients, not for SEO bots.",
-  alternates: { canonical: "/resources" },
+  alternates: { canonical: "/journal" },
   openGraph: {
     title: "Limb Lengthening Resources, Articles & Patient Guides",
     description:
       "Patient-grade articles on candidacy, recovery, pricing, and the science of bone regeneration.",
-    url: "/resources",
+    url: "/journal",
     type: "website",
   },
   robots: { index: true, follow: true },
@@ -36,7 +36,7 @@ export default function V2JournalPage() {
           collectionPageSchema("Limb Lengthening Resources", articles),
           breadcrumb([
             { name: "Home", url: "/" },
-            { name: "Resources", url: "/resources" },
+            { name: "Resources", url: "/journal" },
           ]),
         ]}
       />

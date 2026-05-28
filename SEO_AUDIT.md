@@ -115,21 +115,23 @@ These render under `/v2/[slug]` from scraped markdown. Original URL was `/<slug>
 moved out of `app/v2/*` to `app/*`. The 23 pages that carry over verbatim
 from the legacy WordPress site (16 articles + 7 surgery sub-pages) now
 match their original WP URLs 1:1 with zero redirect hops. The "New path"
-column in section 2 is stale; treat it as historical context only. The
-true new path for any legacy `/<slug>/` URL is simply `/<slug>` in the
-new app.
+column in section 2 stays accurate after dropping the `/v2/` prefix.
 
 Single-hop 301s remain in `next.config.mjs` for the three cross-route
-renames where the new slug deliberately differs from the legacy WP slug:
+renames where the new slug deliberately differs from the legacy WP slug.
+**The new slug is the audit's proposed path, NOT brand preference** —
+brand wording lives in the UI (nav label, hero, page title); URL slugs
+are decided by the live-site audit:
 
-| Legacy WP URL | New path | Reason for rename |
-|---|---|---|
-| `/consult/` | `/contact` | Standard convention |
-| `/blog/` | `/resources` | Brand rebrand (Resources, not Journal) |
-| `/limb-lengthening-pricing-options/` | `/pricing` | Shorter, cleaner |
+| Legacy WP URL | New URL | UI label | Reason for slug |
+|---|---|---|---|
+| `/consult/` | `/contact` | Contact | Standard convention |
+| `/blog/` | `/journal` | Resources | Audit-proposed slug; brand uses "Resources" in nav/hero, URL stays `/journal` to keep a single 301 hop from legacy `/blog/` |
+| `/limb-lengthening-pricing-options/` | `/pricing` | Pricing | Shorter, cleaner |
 
 Plus interim 302s for the 9 not-yet-built pages (5 categories, 3
-authors, 1 video) all landing on `/resources`.
+authors, 1 video) all landing on `/journal` until the per-category and
+per-author routes get built (proposed paths in §2d-e).
 
 The previous "Option B" 301 map for per-article and per-surgery-sub
 redirects has been deleted: those pages are now direct hits.

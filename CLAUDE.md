@@ -8,10 +8,10 @@ This repository contains the Next.js 15 App Router codebase, design system token
 - **Phase 1 (Foundation): ✅ DONE**
 - **Phase 2 (Homepage): ✅ DONE** (V2 editorial design is canonical: [components/v2/HomePage.tsx](components/v2/HomePage.tsx) assembled at [app/page.tsx](app/page.tsx))
 - **Phase 3 (Shared Layouts): ✅ DONE** ([components/v2/NavV2.tsx](components/v2/NavV2.tsx) + [components/v2/FooterV2.tsx](components/v2/FooterV2.tsx) used on every route)
-- **Phase 4 (Content Migration): ✅ DONE** (16 articles via [app/[slug]/page.tsx](app/[slug]/page.tsx); 7 surgery sub-pages via [app/your-surgery/[slug]/page.tsx](app/your-surgery/[slug]/page.tsx); surfaces: /about, /contact, /dr-basmajian, /pricing, /your-surgery, /resources)
+- **Phase 4 (Content Migration): ✅ DONE** (16 articles via [app/[slug]/page.tsx](app/[slug]/page.tsx); 7 surgery sub-pages via [app/your-surgery/[slug]/page.tsx](app/your-surgery/[slug]/page.tsx); surfaces: /about, /contact, /dr-basmajian, /pricing, /your-surgery, /journal)
 - **Phase 5 (QA & Polish): 🟡 IN PROGRESS**
   - ✅ Pre-launch SEO baseline: noindex flags lifted, hand-written metadata, expanded sitemap (see [SEO_AUDIT.md](SEO_AUDIT.md))
-  - ✅ **Option A executed (2026-05-28)**: dropped the `/v2/` prefix; every legacy WordPress URL now matches its new path 1:1 with zero redirect hops. The 23 carry-over pages are direct hits. Journal renamed to Resources (`/resources`). Cross-route renames (`/consult/`, `/blog/`, `/limb-lengthening-pricing-options/`) keep a single-hop 301. A defensive `/v2/:path*` catch-all stays in [next.config.mjs](next.config.mjs).
+  - ✅ **Option A executed (2026-05-28)**: dropped the `/v2/` prefix; every legacy WordPress URL now matches its new path 1:1 with zero redirect hops. The 23 carry-over pages are direct hits. Cross-route renames (`/consult/ → /contact`, `/blog/ → /journal`, `/limb-lengthening-pricing-options/ → /pricing`) keep a single-hop 301 — slugs come from the live-site audit ([SEO_AUDIT.md §2a](SEO_AUDIT.md)), not brand preference. The journal section is labeled **"Resources"** in nav, hero, and page title; the URL stays `/journal` to preserve the audit-aligned single hop from legacy `/blog/`. A defensive `/v2/:path*` catch-all stays in [next.config.mjs](next.config.mjs).
   - ✅ Brand copy compliance: procedure-count claim → "thousands"; "Up to" qualifier on height claims; project-wide no-dash rule applied to homepage flow
   - ⬜ JSON-LD builders not yet wired per-page (see [SEO_AUDIT.md §5.3](SEO_AUDIT.md))
   - ⬜ Em-dash sweep still pending across pricing detail components ([AddOns.tsx](components/v2/pricing/AddOns.tsx), [Financing.tsx](components/v2/pricing/Financing.tsx), [IncludedExcluded.tsx](components/v2/pricing/IncludedExcluded.tsx), [PricingPlans.tsx](components/v2/pricing/PricingPlans.tsx)) and subpage body copy
@@ -51,7 +51,7 @@ PLL-design/
 │   ├── contact/             # /contact
 │   ├── dr-basmajian/        # /dr-basmajian
 │   ├── pricing/             # /pricing
-│   ├── resources/           # /resources (renamed from /v2/journal)
+│   ├── journal/             # /journal (URL stays /journal per audit; UI label is "Resources")
 │   ├── your-surgery/        # /your-surgery + [slug]/
 │   ├── [slug]/              # /<article-slug> (16 articles)
 │   ├── sitemap.ts
