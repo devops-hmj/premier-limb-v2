@@ -13,14 +13,14 @@ const steps = [
     n: "02",
     titleA: "Surgery",
     titleB: "& Lengthening",
-    body: "A Precice internal nail is surgically placed. Over 3–4 months, the nail gradually lengthens your bone by ~1mm per day using an external magnetic remote. No visible hardware.",
+    body: "A Precice internal nail is surgically placed. Over 3 to 4 months, the nail gradually lengthens your bone by approximately 1 mm per day using an external magnetic remote. No visible hardware.",
   },
   {
     phase: "Phase 03",
     n: "03",
     titleA: "Recovery",
     titleB: "& Results",
-    body: "Physical therapy begins immediately. Most patients return to daily activities within 3–4 months and full activity by 6–12 months. Final height gain: 3–6 inches.",
+    body: "Physical therapy begins immediately. Most patients return to daily activities within 3 to 4 months and full activity by 6 to 12 months. Final height gain: up to 6 inches.",
   },
 ] as const;
 

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Premier Limb Lengthening — Cosmetic Limb Lengthening Surgery",
     description:
-      "Hundreds of procedures performed. Transparent pricing. Concierge travel program for patients nationwide.",
+      "Thousands of procedures performed. Transparent pricing. Concierge travel program for patients nationwide.",
     url: `https://${site.domain}`,
     siteName: site.name,
     type: "website",

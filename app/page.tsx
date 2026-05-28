@@ -6,7 +6,7 @@ import "./v2/v2.css";
 export const metadata: Metadata = {
   title: "Cosmetic Limb Lengthening Surgery in Southern California",
   description:
-    "Gain up to 3–6 inches with one of the most experienced limb lengthening surgeons on the West Coast. Concierge care from your first consultation through full recovery.",
+    "Gain up to 6 inches with one of the most experienced limb lengthening surgeons on the West Coast. Concierge care from your first consultation through full recovery.",
   alternates: { canonical: "/" },
 };
 

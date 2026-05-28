@@ -15,15 +15,15 @@ const faqs = [
   },
   {
     q: "How long is the recovery?",
-    a: "Active lengthening takes 3–4 months. Most patients return to daily activities within 3–4 months and full activity by 6–12 months.",
+    a: "Active lengthening takes 3 to 4 months. Most patients return to daily activities within 3 to 4 months and full activity by 6 to 12 months.",
   },
   {
     q: "Will there be visible scars or hardware?",
-    a: "The Precice system is entirely internal — no external frames, no visible hardware. Small incisions heal to minimal scars.",
+    a: "The Precice system is entirely internal (no external frames, no visible hardware). Small incisions heal to minimal scars.",
   },
   {
     q: "Do you accept out-of-state & international patients?",
-    a: "Yes — our concierge program coordinates flights, ground transportation, extended-stay housing, and physical therapy. We've served patients from 50+ states and countries.",
+    a: "Yes. Our concierge program coordinates flights, ground transportation, extended-stay housing, and physical therapy. We've served patients from 50+ states and countries.",
   },
   {
     q: "Can you handle revision cases?",

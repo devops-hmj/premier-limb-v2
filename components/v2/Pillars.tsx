@@ -7,7 +7,7 @@ const pillars = [
   {
     tag: "01 · Expertise",
     title: "Surgical Expertise",
-    body: "Hundreds of limb lengthening procedures performed in trauma, cosmetic, and revisional settings by Dr. Hrayr Basmajian.",
+    body: "Thousands of limb lengthening procedures performed in trauma, cosmetic, and revisional settings by Dr. Hrayr Basmajian.",
     link: { label: "Meet Dr. Basmajian", href: "#dr" },
   },
   {
@@ -25,7 +25,7 @@ const pillars = [
   {
     tag: "04 · Institution",
     title: "Institutional Depth",
-    body: "Backed by Premier Orthopaedic & Trauma Specialists — 17+ surgeons, in-house physical therapy, on-site imaging.",
+    body: "Backed by Premier Orthopaedic & Trauma Specialists: 17+ surgeons, in-house physical therapy, on-site imaging.",
     link: { label: "About Our Practice", href: "#practice" },
   },
 ] as const;

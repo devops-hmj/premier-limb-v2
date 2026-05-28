@@ -7,11 +7,18 @@ import { Reveal } from "@/components/v2/Reveal";
 import "../v2.css";
 
 export const metadata: Metadata = {
-  title: "About the Practice · Premier Orthopaedic & Trauma Specialists",
+  title: "About the Practice — Premier Orthopaedic & Trauma Specialists",
   description:
-    "Premier Limb Lengthening is the cosmetic and reconstructive arm of Premier Orthopaedic & Trauma Specialists — 17+ surgeons, in-house physical therapy, and on-site imaging in Pomona, California.",
+    "Premier Limb Lengthening is the cosmetic and reconstructive practice within Premier Orthopaedic & Trauma Specialists — 17+ surgeons, in-house PT, on-site imaging in Pomona, California.",
   alternates: { canonical: "/v2/about" },
-  robots: { index: false, follow: false },
+  openGraph: {
+    title: "About the Practice — Premier Orthopaedic & Trauma Specialists",
+    description:
+      "The cosmetic and reconstructive practice within a 17+ surgeon orthopaedic trauma group, based in Pomona, Southern California.",
+    url: "/v2/about",
+    type: "website",
+  },
+  robots: { index: true, follow: true },
 };
 
 const pillars = [
@@ -38,7 +45,7 @@ const pillars = [
 ] as const;
 
 const stats = [
-  { value: "100s", italic: true, label: "Procedures Performed" },
+  { value: "1,000s", italic: true, label: "Procedures Performed" },
   { value: "17+",  italic: false, label: "Surgeon Group" },
   { value: "1",    italic: true,  label: "Dedicated Coordinator" },
   { value: "50+",  italic: true,  label: "States & Countries Served" },

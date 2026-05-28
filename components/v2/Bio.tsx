@@ -54,8 +54,8 @@ export function Bio() {
             </p>
             <p className="text-[15.5px] leading-[1.7] text-ink-soft mb-4 max-w-[62ch]">
               His fellowship training in complex fracture reconstruction gives
-              him an unmatched ability to manage the nuances of bone lengthening
-              — including revision cases other surgeons won&rsquo;t take on.
+              him an unmatched ability to manage the nuances of bone lengthening,
+              including revision cases other surgeons won&rsquo;t take on.
             </p>
             <p className="text-[15.5px] leading-[1.7] text-ink-soft mb-7 max-w-[62ch]">
               As Director of Orthopaedic Trauma at Pomona Valley Hospital
@@ -75,7 +75,7 @@ export function Bio() {
             <div className="mt-10 grid grid-cols-3 border-t border-ink">
               <div className="pt-6 pb-2 pr-4 border-r border-rule">
                 <div className="font-serif text-[36px] lg:text-[48px] leading-none tracking-[-0.02em] text-ink">
-                  <em className="italic text-spine">100s</em>
+                  <em className="italic text-spine">1,000s</em>
                 </div>
                 <div className="mt-2.5 font-mono uppercase tracking-[0.2em] text-[10.5px] text-muted">
                   Procedures
@@ -91,7 +91,7 @@ export function Bio() {
               </div>
               <div className="pt-6 pb-2 pr-4">
                 <div className="font-serif text-[36px] lg:text-[48px] leading-none tracking-[-0.02em] text-ink">
-                  <em className="italic text-spine">3–6</em>″
+                  Up to <em className="italic text-spine">6</em>″
                 </div>
                 <div className="mt-2.5 font-mono uppercase tracking-[0.2em] text-[10.5px] text-muted">
                   Height Gain

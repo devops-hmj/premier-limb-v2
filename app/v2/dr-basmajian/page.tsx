@@ -8,11 +8,19 @@ import { FinalCta } from "@/components/v2/FinalCta";
 import "../v2.css";
 
 export const metadata: Metadata = {
-  title: "Dr. Hrayr Basmajian · Limb Lengthening Surgeon",
+  title: "Dr. Hrayr Basmajian — Limb Lengthening Surgeon",
   description:
-    "Dr. Hrayr Basmajian is a board-certified orthopaedic trauma surgeon and Medical Director of Orthopaedic Trauma at Pomona Valley Hospital Medical Center.",
+    "Board-certified orthopaedic trauma surgeon and Medical Director of Orthopaedic Trauma at Pomona Valley Hospital. Thousands of limb lengthening procedures performed.",
   alternates: { canonical: "/v2/dr-basmajian" },
-  robots: { index: false, follow: false },
+  openGraph: {
+    title: "Dr. Hrayr Basmajian — Limb Lengthening Surgeon",
+    description:
+      "Board-certified orthopaedic trauma surgeon. Director, Orthopaedic Trauma at Pomona Valley Hospital. Thousands of limb lengthening procedures performed.",
+    url: "/v2/dr-basmajian",
+    type: "profile",
+    images: [{ url: "/dr-picture.jpg", width: 800, height: 1000, alt: "Dr. Hrayr Basmajian" }],
+  },
+  robots: { index: true, follow: true },
 };
 
 const credentials = [
@@ -20,7 +28,7 @@ const credentials = [
   { label: "Director", value: "Orthopaedic Trauma · Pomona Valley Hospital Medical Center" },
   { label: "Faculty", value: "Assistant Professor of Orthopaedic Surgery" },
   { label: "Previously", value: "Chair of Orthopaedic Trauma · Loma Linda University Medical Center" },
-  { label: "Procedures", value: "Several hundred limb lengthening procedures performed" },
+  { label: "Procedures", value: "Thousands of limb lengthening procedures performed" },
   { label: "Teaching", value: "Lectures regularly to residents and surgeons on advanced trauma care" },
 ] as const;
 
@@ -99,8 +107,8 @@ export default function V2DrBasmajianPage() {
               lengthening for several reasons, not least of which is the
               stunning transformation a patient undergoes physically and
               emotionally. Further, as a trauma surgeon, safe and effective
-              limb lengthening is a cornerstone of his practice, with several
-              hundred of these procedures performed successfully over his
+              limb lengthening is a cornerstone of his practice, with
+              thousands of these procedures performed successfully over his
               time in practice. Dr. Basmajian has also seen the effects of
               improper limb lengthening that can result in deformity and a
               need for costly and painful correction.

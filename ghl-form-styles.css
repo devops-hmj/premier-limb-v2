@@ -1,0 +1,343 @@
+/* ==========================================================================
+   Premier Limb Lengthening — GHL Form Custom CSS  (v2)
+   Paste into: GHL Form Builder → Styles → Custom CSS
+   Form preview: api.leadconnectorhq.com/widget/form/0LVB2kJu7A1t2SNAHlOy
+   Targets the actual GHL shell: #_builder-form, .hl-app, .fields-container,
+   .flex-col. The form has placeholder-only inputs (no visible labels), so
+   placeholders are styled as the primary field affordance.
+   ========================================================================== */
+
+/* @import MUST be the first rule. */
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
+
+/* --- Tokens ------------------------------------------------------------- */
+:root {
+  --pll-spine:       #254A5D;
+  --pll-spine-deep:  #18323F;
+  --pll-spine-wash:  #EAF0F3;
+  --pll-ink:         #0F1417;
+  --pll-ink-soft:    #3A4047;
+  --pll-paper:       #FFFFFF;
+  --pll-paper-off:   #F8F6F1;
+  --pll-cream:       #F4F0E6;
+  --pll-gold:        #F4D88A;
+  --pll-rule:        #D9D5C9;
+  --pll-muted:       #6B6F72;
+  --pll-warn:        #B03A3A;
+
+  --pll-serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --pll-sans:  "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --pll-mono:  "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+/* --- App shell: override GHL's Roboto + grey defaults ------------------- */
+html,
+body,
+.hl-app {
+  background: var(--pll-paper-off) !important;
+  color: var(--pll-ink) !important;
+  font-family: var(--pll-sans) !important;
+  font-size: 15.5px !important;
+  line-height: 1.6 !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* --- Form container ----------------------------------------------------- */
+#_builder-form {
+  background: var(--pll-paper-off) !important;
+  max-width: 640px !important;
+  margin: 0 auto !important;
+  padding: 36px 28px !important;
+  border: 1px solid var(--pll-ink) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Kill any rounded corners GHL injects */
+#_builder-form,
+#_builder-form *,
+.hl-app input,
+.hl-app textarea,
+.hl-app select,
+.hl-app button {
+  border-radius: 0 !important;
+}
+
+/* --- Field rows / columns ---------------------------------------------- */
+#_builder-form .fields-container,
+#_builder-form .fields-container.row {
+  padding: 0 !important;
+  margin: 0 !important;
+  gap: 16px !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+}
+
+#_builder-form .flex-col {
+  flex: 1 1 100% !important;
+  min-width: 0 !important;
+  margin-bottom: 14px !important;
+}
+
+/* Side-by-side first/last name on wider widths.
+   .flex-col elements inside a row share width when more than one exists. */
+@media (min-width: 520px) {
+  #_builder-form .fields-container.row > .flex-col + .flex-col {
+    /* two cols in one row */
+  }
+  #_builder-form .fields-container.row:has(> .flex-col + .flex-col) > .flex-col {
+    flex: 1 1 calc(50% - 8px) !important;
+  }
+}
+
+/* --- Inputs ------------------------------------------------------------- */
+#_builder-form input[type="text"],
+#_builder-form input[type="email"],
+#_builder-form input[type="tel"],
+#_builder-form input[type="number"],
+#_builder-form input[type="url"],
+#_builder-form input[type="date"],
+#_builder-form input[type="password"],
+#_builder-form textarea,
+#_builder-form select,
+.hl-app input[type="text"],
+.hl-app input[type="email"],
+.hl-app input[type="tel"],
+.hl-app textarea,
+.hl-app select {
+  width: 100% !important;
+  background: var(--pll-paper) !important;
+  color: var(--pll-ink) !important;
+  font-family: var(--pll-sans) !important;
+  font-size: 15.5px !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  padding: 13px 14px !important;
+  border: 1px solid var(--pll-ink) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  transition: border-color 160ms ease, box-shadow 160ms ease, background-color 160ms ease !important;
+  height: auto !important;
+}
+
+/* Placeholders are the only label affordance on this form -- style them
+   like editorial eyebrows in spine blue so each field reads as a label. */
+#_builder-form input::placeholder,
+#_builder-form textarea::placeholder,
+.hl-app input::placeholder,
+.hl-app textarea::placeholder {
+  color: var(--pll-spine) !important;
+  opacity: 1 !important;
+  font-family: var(--pll-mono) !important;
+  font-size: 11.5px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+}
+
+/* Hide placeholder once the user starts typing (so it doesn't look weird). */
+#_builder-form input:focus::placeholder,
+#_builder-form textarea:focus::placeholder {
+  color: var(--pll-muted) !important;
+  letter-spacing: 0.06em !important;
+}
+
+#_builder-form input:hover,
+#_builder-form textarea:hover,
+#_builder-form select:hover {
+  background: var(--pll-spine-wash) !important;
+}
+
+#_builder-form input:focus,
+#_builder-form textarea:focus,
+#_builder-form select:focus,
+.hl-app input:focus,
+.hl-app textarea:focus {
+  border-color: var(--pll-spine) !important;
+  box-shadow: 0 0 0 1px var(--pll-spine) !important;
+  background: var(--pll-paper) !important;
+}
+
+#_builder-form textarea {
+  min-height: 120px !important;
+  resize: vertical !important;
+}
+
+/* --- Phone field (intl-tel-input flag dropdown) ------------------------ */
+#_builder-form .iti,
+.hl-app .iti {
+  width: 100% !important;
+  display: block !important;
+}
+#_builder-form .iti__flag-container {
+  border-right: 1px solid var(--pll-rule) !important;
+}
+#_builder-form .iti__selected-flag {
+  background: var(--pll-paper) !important;
+  padding: 0 10px !important;
+  border-radius: 0 !important;
+}
+#_builder-form .iti--separate-dial-code .iti__selected-dial-code {
+  font-family: var(--pll-mono) !important;
+  font-size: 12px !important;
+  color: var(--pll-ink) !important;
+  letter-spacing: 0.06em !important;
+}
+
+/* --- Checkboxes & their inline consent labels -------------------------- */
+#_builder-form input[type="checkbox"],
+.hl-app input[type="checkbox"] {
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  margin: 3px 12px 0 0 !important;
+  accent-color: var(--pll-spine) !important;
+  border: 1px solid var(--pll-ink) !important;
+  border-radius: 0 !important;
+  vertical-align: top !important;
+  flex: 0 0 auto !important;
+}
+
+/* The checkbox + consent text wrapper. GHL renders these as <label> rows. */
+#_builder-form label,
+.hl-app label {
+  display: flex !important;
+  align-items: flex-start !important;
+  font-family: var(--pll-sans) !important;
+  font-size: 13.5px !important;
+  font-weight: 400 !important;
+  line-height: 1.55 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  color: var(--pll-ink-soft) !important;
+  margin: 6px 0 !important;
+  cursor: pointer !important;
+}
+
+/* --- Submit button ----------------------------------------------------- */
+#_builder-form button[type="submit"],
+#_builder-form button,
+.hl-app button[type="submit"],
+.hl-app .ghl-btn,
+.hl-app .ghl-submit-btn,
+button[type="submit"] {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 12px !important;
+  width: 100% !important;
+  background: var(--pll-spine) !important;
+  background-color: var(--pll-spine) !important;
+  color: var(--pll-paper) !important;
+  font-family: var(--pll-sans) !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.16em !important;
+  text-transform: uppercase !important;
+  padding: 16px 24px !important;
+  border: 1px solid var(--pll-spine) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  cursor: pointer !important;
+  margin-top: 14px !important;
+  transition: background-color 160ms ease, border-color 160ms ease !important;
+}
+
+#_builder-form button[type="submit"]:hover,
+#_builder-form button:hover,
+.hl-app button[type="submit"]:hover {
+  background: var(--pll-spine-deep) !important;
+  background-color: var(--pll-spine-deep) !important;
+  border-color: var(--pll-spine-deep) !important;
+  color: var(--pll-paper) !important;
+}
+
+#_builder-form button[type="submit"]:focus-visible {
+  outline: 2px solid var(--pll-gold) !important;
+  outline-offset: 2px !important;
+}
+
+#_builder-form button[type="submit"]:disabled {
+  opacity: 0.55 !important;
+  cursor: not-allowed !important;
+}
+
+/* Italic arrow after submit text (matches V2 site CTAs). */
+#_builder-form button[type="submit"]::after {
+  content: "→" !important;
+  font-family: var(--pll-serif) !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+  font-size: 17px !important;
+  line-height: 1 !important;
+  transition: transform 160ms ease !important;
+}
+#_builder-form button[type="submit"]:hover::after {
+  transform: translateX(3px) !important;
+}
+
+/* --- Links (Privacy / ToS in footer, in-form anchors) ------------------ */
+#_builder-form a,
+.hl-app a {
+  color: var(--pll-spine) !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px !important;
+  text-decoration-thickness: 1px !important;
+}
+#_builder-form a:hover,
+.hl-app a:hover {
+  color: var(--pll-spine-deep) !important;
+}
+
+/* --- Validation / error states ---------------------------------------- */
+#_builder-form .invalid,
+#_builder-form input.invalid,
+#_builder-form .has-error input,
+#_builder-form input[aria-invalid="true"] {
+  border-color: var(--pll-warn) !important;
+  box-shadow: 0 0 0 1px var(--pll-warn) !important;
+}
+#_builder-form .error,
+#_builder-form .error-message,
+#_builder-form .invalid-feedback,
+#_builder-form .field-error {
+  display: block !important;
+  font-family: var(--pll-mono) !important;
+  font-size: 11px !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  color: var(--pll-warn) !important;
+  margin-top: 6px !important;
+}
+
+/* --- Footer area (Privacy / Terms links) ------------------------------ */
+.hl-app footer,
+#_builder-form ~ footer {
+  font-family: var(--pll-mono) !important;
+  font-size: 10.5px !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  color: var(--pll-muted) !important;
+  margin-top: 18px !important;
+  text-align: center !important;
+}
+
+/* --- Mobile tightening ------------------------------------------------- */
+@media (max-width: 520px) {
+  #_builder-form {
+    padding: 24px 18px !important;
+  }
+  #_builder-form button[type="submit"] {
+    font-size: 11.5px !important;
+    padding: 14px 18px !important;
+  }
+  #_builder-form input::placeholder,
+  #_builder-form textarea::placeholder {
+    font-size: 11px !important;
+    letter-spacing: 0.18em !important;
+  }
+}

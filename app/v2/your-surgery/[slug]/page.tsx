@@ -28,6 +28,13 @@ export async function generateMetadata(
     title: `${p.title} · Your Surgery`,
     description: p.description,
     alternates: { canonical: `/v2/your-surgery/${slug}` },
+    openGraph: {
+      title: p.title,
+      description: p.description,
+      url: `/v2/your-surgery/${slug}`,
+      type: "article",
+    },
+    robots: { index: true, follow: true },
   };
 }
 

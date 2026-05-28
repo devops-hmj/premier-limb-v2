@@ -9,11 +9,18 @@ import { getArticles } from "@/lib/content";
 import "../v2.css";
 
 export const metadata: Metadata = {
-  title: "Journal · Articles on Limb Lengthening",
+  title: "Limb Lengthening Journal — Articles & Patient Guides",
   description:
-    "Editorial coverage of cosmetic limb lengthening — candidacy, recovery, costs, and the science behind bone regeneration.",
+    "Editorial coverage of cosmetic limb lengthening — candidacy, recovery, pricing, and the science behind bone regeneration. Written for patients, not for SEO bots.",
   alternates: { canonical: "/v2/journal" },
-  robots: { index: false, follow: false },
+  openGraph: {
+    title: "Limb Lengthening Journal — Articles & Patient Guides",
+    description:
+      "Patient-grade articles on candidacy, recovery, pricing, and the science of bone regeneration.",
+    url: "/v2/journal",
+    type: "website",
+  },
+  robots: { index: true, follow: true },
 };
 
 export default function V2JournalPage() {
@@ -26,12 +33,12 @@ export default function V2JournalPage() {
       <section className="bg-paper-off border-b border-ink pt-28 lg:pt-36 pb-16 lg:pb-20">
         <div className="mx-auto max-w-wrap px-6 lg:px-12 grid grid-cols-12 gap-6 lg:gap-8">
           <Reveal className="col-span-12 lg:col-span-8">
-            <span className="eyebrow mb-5">Journal · Reading List</span>
+            <span className="eyebrow mb-5">Resources · Patient Library</span>
             <h1
               className="mt-5 font-serif font-normal tracking-[-0.025em] text-ink leading-[0.95] max-w-[16ch]"
               style={{ fontSize: "clamp(44px, 7.4vw, 120px)" }}
             >
-              The editorial <em className="italic text-spine">reading list.</em>
+              Everything worth <em className="italic text-spine">knowing.</em>
             </h1>
           </Reveal>
           <Reveal delay={0.1} className="col-span-12 lg:col-span-4 lg:pl-6 lg:border-l border-rule lg:self-end">

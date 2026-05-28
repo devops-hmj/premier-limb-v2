@@ -7,11 +7,18 @@ import { site } from "@/lib/site";
 import "../v2.css";
 
 export const metadata: Metadata = {
-  title: "Contact · Schedule a Limb Lengthening Consultation",
+  title: "Schedule a Limb Lengthening Consultation",
   description:
-    "Reach Premier Limb Lengthening in Pomona, Southern California. Confidential consultations, virtual visits, and white-glove travel coordination.",
+    "Schedule a consultation with Premier Limb Lengthening in Pomona, Southern California. Confidential intake, virtual visits, and white-glove travel coordination.",
   alternates: { canonical: "/v2/contact" },
-  robots: { index: false, follow: false },
+  openGraph: {
+    title: "Schedule a Limb Lengthening Consultation · Premier",
+    description:
+      "Confidential intake, virtual visits, and white-glove travel coordination from Pomona, Southern California.",
+    url: "/v2/contact",
+    type: "website",
+  },
+  robots: { index: true, follow: true },
 };
 
 const directions =

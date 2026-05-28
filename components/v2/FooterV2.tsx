@@ -17,7 +17,7 @@ const sections = {
     { label: "FAQ", href: "/v2#faq" },
   ],
   resources: [
-    { label: "Journal", href: "/v2/journal" },
+    { label: "Resources", href: "/v2/journal" },
     { label: "Schedule Consultation", href: "/v2/contact" },
     { label: "Financing Options", href: "/v2/pricing#financing" },
   ],

@@ -1,9 +1,9 @@
 import { Reveal } from "./Reveal";
 
 const results = [
-  { emph: "3–6", suffix: "″", sub: "Total Height Gain (Staged)", desc: "Across femur and tibia procedures." },
-  { emph: "3–4", suffix: "",  sub: "Months Active Lengthening",  desc: "~1 mm / day via internal magnetic nail." },
-  { emph: "6–12", suffix: "", sub: "Months to Full Recovery",     desc: "Physical therapy from day one." },
+  { prefix: "Up to", emph: "6", suffix: "″", sub: "Total Height Gain (Staged)", desc: "Across femur and tibia procedures." },
+  { prefix: "",      emph: "3 to 4", suffix: "",  sub: "Months Active Lengthening",  desc: "Approximately 1 mm per day via internal magnetic nail." },
+  { prefix: "",      emph: "6 to 12", suffix: "", sub: "Months to Full Recovery",     desc: "Physical therapy from day one." },
 ] as const;
 
 export function Results() {
@@ -32,12 +32,19 @@ export function Results() {
               delay={i * 0.08}
               className={`py-14 pr-7 ${i < results.length - 1 ? "lg:border-r border-white/12" : ""}`}
             >
-              <div
-                className="font-serif text-paper leading-[0.88] tracking-[-0.035em]"
-                style={{ fontSize: "clamp(88px, 12vw, 180px)" }}
-              >
-                <em className="italic" style={{ color: "#F4D88A" }}>{r.emph}</em>
-                {r.suffix}
+              <div className="font-serif text-paper leading-[0.88] tracking-[-0.035em]">
+                {r.prefix && (
+                  <div
+                    className="font-mono uppercase tracking-[0.22em] not-italic text-paper/75 mb-3"
+                    style={{ fontSize: "clamp(12px, 1.1vw, 16px)" }}
+                  >
+                    {r.prefix}
+                  </div>
+                )}
+                <div style={{ fontSize: "clamp(72px, 11vw, 168px)" }}>
+                  <em className="italic" style={{ color: "#F4D88A" }}>{r.emph}</em>
+                  {r.suffix}
+                </div>
               </div>
               <div className="mt-5 font-mono uppercase tracking-[0.2em] text-[11px] text-paper/80">
                 {r.sub}
@@ -49,9 +56,9 @@ export function Results() {
 
         <Reveal className="pt-5 border-t border-white/15 flex flex-col lg:flex-row lg:justify-between lg:items-end gap-6">
           <p className="max-w-[60ch] text-[14.5px] leading-[1.65] text-paper/85">
-            Femur lengthening typically adds 2–3 inches. Tibia lengthening adds
-            an additional 2–3 inches. Combined staged procedures can achieve up
-            to 5–6 inches total. Results are permanent.
+            Femur lengthening typically adds 2 to 3 inches. Tibia lengthening
+            adds an additional 2 to 3 inches. Combined staged procedures can
+            achieve up to 6 inches total. Results are permanent.
           </p>
           <a
             href="#ba"

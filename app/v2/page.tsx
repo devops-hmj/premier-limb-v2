@@ -4,10 +4,18 @@ import { V2HomePage } from "@/components/v2/HomePage";
 import "./v2.css";
 
 export const metadata: Metadata = {
-  title: "Cosmetic Limb Lengthening — Premier Limb Lengthening",
+  title: "Limb Lengthening Surgery in Southern California · Dr. Hrayr Basmajian",
   description:
-    "Premier Limb Lengthening — video-led editorial homepage. Concierge care from your first consultation through full recovery.",
+    "Cosmetic limb lengthening surgery with one of the West Coast's most experienced surgeons. Gain up to 6 inches with concierge care from first consult through full recovery.",
   alternates: { canonical: "/v2" },
+  openGraph: {
+    title: "Limb Lengthening Surgery in Southern California · Premier",
+    description:
+      "Gain up to 6 inches with one of the most experienced limb lengthening surgeons on the West Coast. Concierge care, transparent pricing.",
+    url: "/v2",
+    type: "website",
+  },
+  robots: { index: true, follow: true },
 };
 
 export default function Page() {

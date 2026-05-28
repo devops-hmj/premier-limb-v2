@@ -5,8 +5,8 @@ const quotes = [
     body: (
       <>
         I researched for two years and consulted three surgeons before choosing
-        Dr. Basmajian. His honesty about what to expect —{" "}
-        <em className="italic text-spine">including the hard parts</em> — is
+        Dr. Basmajian. His honesty about what to expect (
+        <em className="italic text-spine">including the hard parts</em>) is
         what convinced me. I gained 3 inches and my only regret is not doing it
         sooner.
       </>

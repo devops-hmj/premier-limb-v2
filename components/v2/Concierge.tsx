@@ -34,7 +34,7 @@ export function Concierge() {
               You focus on your transformation. We handle everything else.
             </p>
             <p className="text-[15.5px] leading-[1.7] text-ink-soft max-w-[54ch] mb-10">
-              Most limb lengthening patients travel for their procedure — and
+              Most limb lengthening patients travel for their procedure, and
               most clinics leave you to figure out the logistics alone. Not
               here. Premier Limb Lengthening is the only practice offering a
               full white-glove concierge program that coordinates every detail

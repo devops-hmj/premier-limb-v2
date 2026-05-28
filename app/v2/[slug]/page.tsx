@@ -36,7 +36,13 @@ export async function generateMetadata(
     title: p.title,
     description: p.description,
     alternates: { canonical: `/v2/${slug}` },
-    robots: { index: false, follow: false },
+    openGraph: {
+      title: p.title,
+      description: p.description,
+      url: `/v2/${slug}`,
+      type: "article",
+    },
+    robots: { index: true, follow: true },
   };
 }
 
@@ -61,7 +67,7 @@ export default async function Page({ params }: { params: Promise<RouteParams> })
               >
                 <Link href="/v2" className="hover:text-spine transition-colors">Home</Link>
                 <span aria-hidden className="mx-2">·</span>
-                <Link href="/v2/journal" className="hover:text-spine transition-colors">Journal</Link>
+                <Link href="/v2/journal" className="hover:text-spine transition-colors">Resources</Link>
                 {page.category && (
                   <>
                     <span aria-hidden className="mx-2">·</span>

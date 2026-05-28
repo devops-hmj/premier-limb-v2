@@ -11,10 +11,18 @@ import { getPageByRoute, getPagesByKind } from "@/lib/content";
 import "../v2.css";
 
 export const metadata: Metadata = {
-  title: "Limb Lengthening Surgery · Your Surgery",
+  title: "Limb Lengthening Surgery — How It Works",
   description:
-    "How limb lengthening surgery works — from osteotomy and Precice internal nail placement through gradual distraction and full recovery.",
+    "How limb lengthening works — distraction osteogenesis, Precice internal nail placement, gradual distraction, and a recovery timeline you can plan your life around.",
   alternates: { canonical: "/v2/your-surgery" },
+  openGraph: {
+    title: "Limb Lengthening Surgery — How It Works",
+    description:
+      "Distraction osteogenesis, internal Precice technology, and a recovery timeline you can plan your life around.",
+    url: "/v2/your-surgery",
+    type: "article",
+  },
+  robots: { index: true, follow: true },
 };
 
 /**

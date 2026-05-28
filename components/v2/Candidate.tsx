@@ -1,12 +1,12 @@
 import { Reveal } from "./Reveal";
 
 const items = [
-  "Generally healthy adults aged 18–55 (older patients evaluated case-by-case).",
+  "Generally healthy adults aged 18 to 55 (older patients evaluated case by case).",
   "Non-smoker or willing to quit 6 weeks before surgery.",
   "BMI under 35 (ideal under 30).",
   "No active bone disease or uncontrolled diabetes.",
-  "Able to commit to 3–6 months of recovery and physical therapy.",
-  "Realistic expectations about height gain (2–3″ per bone, up to 6″ combined).",
+  "Able to commit to 3 to 6 months of recovery and physical therapy.",
+  "Realistic expectations about height gain (up to 3″ per bone, up to 6″ combined).",
   "Cosmetic height enhancement OR limb-length discrepancy correction.",
   "Revision patients: previous surgery complications or unsatisfactory results.",
 ] as const;
@@ -56,7 +56,7 @@ export function Candidate() {
               </h3>
               <p className="text-[15px] leading-[1.7] text-paper/95 mb-7">
                 The best way to find out is through a confidential consultation.
-                Dr. Basmajian evaluates each patient individually — many
+                Dr. Basmajian evaluates each patient individually. Many
                 patients who were told &ldquo;no&rdquo; by other surgeons are candidates
                 at our practice due to our trauma reconstruction expertise.
               </p>

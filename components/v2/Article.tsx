@@ -27,7 +27,7 @@ export function Article() {
                 Plate 01
               </span>
               <figcaption className="absolute z-10 bottom-3 left-3 right-3 px-3 py-2 bg-paper-off/95 backdrop-blur-sm border-t-2 border-spine font-serif italic text-[14px] lg:text-[15px] text-ink-soft">
-                Dr. Basmajian, reviewing a pre-op plan. Pomona, California.
+                Dr. Basmajian, examining a femur in clinic. Pomona, California.
               </figcaption>
             </figure>
           </Reveal>
@@ -36,14 +36,14 @@ export function Article() {
             <p className="v2-dropcap text-[18px] leading-[1.6] text-ink mb-7 max-w-[54ch]">
               Concierge care from your first consultation through full recovery.
               We combine a trauma surgeon&rsquo;s precision with a private-clinic&rsquo;s
-              level of discretion — the result is a practice that accepts cases
+              level of discretion. The result is a practice that accepts cases
               others decline, in a setting designed around the patient.
             </p>
 
             <div className="v2-cols text-[14.5px] leading-[1.7] text-ink-soft pt-4 border-t border-rule">
               <p>
                 Our program is the only US limb lengthening practice offering a
-                full white-glove travel and recovery coordination service —
+                full white-glove travel and recovery coordination service:
                 flights, housing, physical therapy, and a single dedicated
                 coordinator from first call to final follow-up.
               </p>
@@ -95,8 +95,8 @@ export function Article() {
 }
 
 const trust = [
-  { n: "01", emph: "Hundreds", rest: "of procedures", desc: "Trauma, cosmetic & revision combined." },
-  { n: "02", emph: "Precice®", rest: "nail technology", desc: "Internal magnetic lengthening — no external frame." },
+  { n: "01", emph: "Thousands", rest: "of procedures", desc: "Trauma, cosmetic, and revision combined." },
+  { n: "02", emph: "Precice®", rest: "nail technology", desc: "Internal magnetic lengthening (no external frame)." },
   { n: "03", emph: "Concierge", rest: "travel program", desc: "White-glove logistics, domestic & international." },
   { n: "04", emph: "Transparent", rest: "pricing", desc: "Fully itemised quote before you commit." },
 ] as const;

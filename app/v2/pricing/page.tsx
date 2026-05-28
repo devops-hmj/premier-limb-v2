@@ -10,11 +10,18 @@ import { PricingPlans } from "@/components/v2/pricing/PricingPlans";
 import "../v2.css";
 
 export const metadata: Metadata = {
-  title: "Limb Lengthening Surgery Pricing — Premier",
+  title: "Limb Lengthening Cost — Pricing & Financing",
   description:
-    "Transparent 2026 pricing for cosmetic limb lengthening surgery. Every quote bundles implants, OR time, hospitalization, anesthesia, follow-up care, and physical therapy.",
+    "Transparent 2026 pricing for cosmetic limb lengthening. Every quote bundles implants, OR time, hospitalization, anesthesia, follow-up care, and physical therapy.",
   alternates: { canonical: "/v2/pricing" },
-  robots: { index: false, follow: false },
+  openGraph: {
+    title: "Limb Lengthening Cost — Pricing & Financing",
+    description:
+      "Transparent 2026 pricing for cosmetic limb lengthening. Bundled implants, OR time, hospitalization, anesthesia, follow-up care, and physical therapy.",
+    url: "/v2/pricing",
+    type: "website",
+  },
+  robots: { index: true, follow: true },
 };
 
 /**

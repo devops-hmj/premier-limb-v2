@@ -94,7 +94,7 @@ export function HeroStage() {
           className="mt-auto pt-5 pb-5 border-t border-white/35 border-b grid grid-cols-12 gap-4 items-baseline"
         >
           <p className="col-span-12 lg:col-span-7 font-serif italic text-white leading-[1.2]" style={{ fontSize: "clamp(18px, 2.1vw, 26px)" }}>
-            Gain up to 3–6 inches with one of the most experienced limb
+            Gain up to 6 inches with one of the most experienced limb
             lengthening surgeons on the West Coast.
           </p>
           <div className="col-span-12 lg:col-span-5 font-mono uppercase text-[10.5px] tracking-[0.18em] text-white/85 leading-[1.7]">
