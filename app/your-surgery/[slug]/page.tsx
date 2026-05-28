@@ -6,7 +6,9 @@ import { FooterV2 } from "@/components/v2/FooterV2";
 import { NavV2 } from "@/components/v2/NavV2";
 import { Reveal } from "@/components/v2/Reveal";
 import { Prose } from "@/components/content/Prose";
+import { JsonLd } from "@/components/content/JsonLd";
 import { getPageByRoute, getPagesByKind } from "@/lib/content";
+import { articleSchema, breadcrumb } from "@/lib/jsonld";
 
 import "../../v2.css";
 
@@ -59,6 +61,16 @@ export default async function V2YourSurgerySubPage({
   return (
     <>
       <NavV2 forceVisible />
+      <JsonLd
+        data={[
+          articleSchema(page),
+          breadcrumb([
+            { name: "Home", url: "/" },
+            { name: "Your Surgery", url: "/your-surgery" },
+            { name: page.title, url: page.route },
+          ]),
+        ]}
+      />
 
       <article className="bg-paper-off">
         <header className="border-b border-ink pt-28 lg:pt-36 pb-12 lg:pb-16">

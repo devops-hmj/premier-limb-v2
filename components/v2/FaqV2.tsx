@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { Reveal } from "./Reveal";
 
-const faqs = [
+export const faqs = [
   {
     q: "How much does limb lengthening surgery cost?",
     a: "Femur lengthening starts at $77,500 (Precice 2.2) or $80,000 (Precice MAX). Tibia lengthening ranges from $83,000–$85,000. Every quote includes surgery, implant, anesthesia, hospitalization, and follow-up care. Financing available through CareCredit.",

@@ -8,7 +8,7 @@ import { Reveal } from "../Reveal";
  * Numbers reflect the Paley Stature Center 2026 schedule — review against
  * Premier's actual pricing before publishing.
  */
-const plans = [
+export const plans = [
   {
     bar: "Plan 01 · Bilateral Femur",
     title: "Bilateral Femur Lengthening",

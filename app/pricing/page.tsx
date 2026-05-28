@@ -5,7 +5,9 @@ import { FooterV2 } from "@/components/v2/FooterV2";
 import { IncludedExcluded } from "@/components/v2/pricing/IncludedExcluded";
 import { NavV2 } from "@/components/v2/NavV2";
 import { PricingHero } from "@/components/v2/pricing/PricingHero";
-import { PricingPlans } from "@/components/v2/pricing/PricingPlans";
+import { PricingPlans, plans } from "@/components/v2/pricing/PricingPlans";
+import { JsonLd } from "@/components/content/JsonLd";
+import { breadcrumb, pricingSchema } from "@/lib/jsonld";
 
 import "../v2.css";
 
@@ -46,6 +48,15 @@ export default function V2PricingPage() {
   return (
     <>
       <NavV2 forceVisible />
+      <JsonLd
+        data={[
+          pricingSchema(plans.map((p) => ({ name: p.title, price: p.price }))),
+          breadcrumb([
+            { name: "Home", url: "/" },
+            { name: "Pricing", url: "/pricing" },
+          ]),
+        ]}
+      />
       <PricingHero />
       <PricingPlans />
       <AddOns />

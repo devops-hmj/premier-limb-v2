@@ -4,6 +4,8 @@ import { FooterV2 } from "@/components/v2/FooterV2";
 import { NavV2 } from "@/components/v2/NavV2";
 import { Reveal } from "@/components/v2/Reveal";
 import { FinalCta } from "@/components/v2/FinalCta";
+import { JsonLd } from "@/components/content/JsonLd";
+import { breadcrumb, physicianSchema } from "@/lib/jsonld";
 
 import "../v2.css";
 
@@ -48,6 +50,15 @@ export default function V2DrBasmajianPage() {
   return (
     <>
       <NavV2 forceVisible />
+      <JsonLd
+        data={[
+          physicianSchema(),
+          breadcrumb([
+            { name: "Home", url: "/" },
+            { name: "Dr. Basmajian", url: "/dr-basmajian" },
+          ]),
+        ]}
+      />
 
       <section className="bg-paper-off border-b border-ink pt-28 lg:pt-36 pb-16 lg:pb-20">
         <div className="mx-auto max-w-wrap px-6 lg:px-12 grid grid-cols-12 gap-6 lg:gap-8 items-end">

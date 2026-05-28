@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
+import { JsonLd } from "@/components/content/JsonLd";
 import { V2HomePage } from "@/components/v2/HomePage";
+import { faqs } from "@/components/v2/FaqV2";
+import { faqPageSchema } from "@/lib/jsonld";
 
 import "./v2.css";
 
@@ -19,5 +22,10 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <V2HomePage />;
+  return (
+    <>
+      <V2HomePage />
+      <JsonLd data={faqPageSchema(faqs.map(({ q, a }) => ({ q, a })))} />
+    </>
+  );
 }

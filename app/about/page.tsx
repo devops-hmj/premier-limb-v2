@@ -3,6 +3,8 @@ import { FinalCta } from "@/components/v2/FinalCta";
 import { FooterV2 } from "@/components/v2/FooterV2";
 import { NavV2 } from "@/components/v2/NavV2";
 import { Reveal } from "@/components/v2/Reveal";
+import { JsonLd } from "@/components/content/JsonLd";
+import { breadcrumb } from "@/lib/jsonld";
 
 import "../v2.css";
 
@@ -55,6 +57,12 @@ export default function V2AboutPage() {
   return (
     <>
       <NavV2 forceVisible />
+      <JsonLd
+        data={breadcrumb([
+          { name: "Home", url: "/" },
+          { name: "About", url: "/about" },
+        ])}
+      />
 
       <section className="bg-paper-off border-b border-ink pt-28 lg:pt-36 pb-16 lg:pb-20">
         <div className="mx-auto max-w-wrap px-6 lg:px-12 grid grid-cols-12 gap-6 lg:gap-8">
