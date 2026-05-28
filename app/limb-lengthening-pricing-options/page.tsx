@@ -5,7 +5,8 @@ import { FooterV2 } from "@/components/v2/FooterV2";
 import { IncludedExcluded } from "@/components/v2/pricing/IncludedExcluded";
 import { NavV2 } from "@/components/v2/NavV2";
 import { PricingHero } from "@/components/v2/pricing/PricingHero";
-import { PricingPlans, plans } from "@/components/v2/pricing/PricingPlans";
+import { PricingPlans } from "@/components/v2/pricing/PricingPlans";
+import { plans } from "@/lib/pricing-plans";
 import { JsonLd } from "@/components/content/JsonLd";
 import { breadcrumb, pricingSchema } from "@/lib/jsonld";
 

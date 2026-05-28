@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/content/JsonLd";
 import { V2HomePage } from "@/components/v2/HomePage";
-import { faqs } from "@/components/v2/FaqV2";
+import { faqs } from "@/lib/faqs";
 import { faqPageSchema } from "@/lib/jsonld";
 
 import "./v2.css";
