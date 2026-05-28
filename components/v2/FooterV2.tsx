@@ -4,22 +4,22 @@ import { Logo } from "@/components/primitives/Logo";
 
 const sections = {
   practice: [
-    { label: "Dr. Basmajian", href: "/v2/dr-basmajian" },
-    { label: "About the Practice", href: "/v2/about" },
-    { label: "Pricing", href: "/v2/pricing" },
-    { label: "Contact", href: "/v2/contact" },
+    { label: "Dr. Basmajian", href: "/dr-basmajian" },
+    { label: "About the Practice", href: "/about" },
+    { label: "Pricing", href: "/pricing" },
+    { label: "Contact", href: "/contact" },
   ],
   homepage: [
-    { label: "Your Surgery", href: "/v2#surgery" },
-    { label: "Results", href: "/v2#results" },
-    { label: "Concierge Program", href: "/v2#concierge" },
-    { label: "Testimonials", href: "/v2#testimonials" },
-    { label: "FAQ", href: "/v2#faq" },
+    { label: "Your Surgery", href: "/#surgery" },
+    { label: "Results", href: "/#results" },
+    { label: "Concierge Program", href: "/#concierge" },
+    { label: "Testimonials", href: "/#testimonials" },
+    { label: "FAQ", href: "/#faq" },
   ],
   resources: [
-    { label: "Resources", href: "/v2/journal" },
-    { label: "Schedule Consultation", href: "/v2/contact" },
-    { label: "Financing Options", href: "/v2/pricing#financing" },
+    { label: "Resources", href: "/resources" },
+    { label: "Schedule Consultation", href: "/contact" },
+    { label: "Financing Options", href: "/pricing#financing" },
   ],
 } as const;
 
@@ -53,11 +53,11 @@ export function FooterV2() {
         <div className="pt-6 flex flex-col md:flex-row md:justify-between md:items-center gap-4 font-mono uppercase text-[10.5px] tracking-[0.14em] text-paper/80">
           <div>© {year} Premier Limb Lengthening. All rights reserved.</div>
           <div className="flex flex-wrap items-center gap-3">
-            <Link href="/v2/privacy" className="hover:text-cream transition-colors">Privacy Policy</Link>
+            <Link href="/privacy" className="hover:text-cream transition-colors">Privacy Policy</Link>
             <span aria-hidden>·</span>
-            <Link href="/v2/terms" className="hover:text-cream transition-colors">Terms</Link>
+            <Link href="/terms" className="hover:text-cream transition-colors">Terms</Link>
             <span aria-hidden>·</span>
-            <Link href="/v2/accessibility" className="hover:text-cream transition-colors">Accessibility</Link>
+            <Link href="/accessibility" className="hover:text-cream transition-colors">Accessibility</Link>
           </div>
         </div>
       </div>

@@ -109,29 +109,34 @@ These render under `/v2/[slug]` from scraped markdown. Original URL was `/<slug>
 
 ---
 
-## 3. Recommended URL strategy
+## 3. URL strategy (Option A executed)
 
-The new site uses a `/v2/` prefix that doesn't exist on the live site. There are two viable paths:
+**Status: ✅ Option A shipped.** Every customer-facing route was physically
+moved out of `app/v2/*` to `app/*`. The 23 pages that carry over verbatim
+from the legacy WordPress site (16 articles + 7 surgery sub-pages) now
+match their original WP URLs 1:1 with zero redirect hops. The "New path"
+column in section 2 is stale; treat it as historical context only. The
+true new path for any legacy `/<slug>/` URL is simply `/<slug>` in the
+new app.
 
-### Option A — Drop the `/v2/` prefix (recommended)
+Single-hop 301s remain in `next.config.mjs` for the three cross-route
+renames where the new slug deliberately differs from the legacy WP slug:
 
-Move every `/v2/<x>` route to `/<x>` so URLs match the original WordPress
-structure 1:1. Result: zero 301 redirects needed for the 23 pages whose
-content carried over verbatim, and inbound Google links continue to work
-unchanged. Cost: a few hours of file/folder renames in `app/`.
+| Legacy WP URL | New path | Reason for rename |
+|---|---|---|
+| `/consult/` | `/contact` | Standard convention |
+| `/blog/` | `/resources` | Brand rebrand (Resources, not Journal) |
+| `/limb-lengthening-pricing-options/` | `/pricing` | Shorter, cleaner |
 
-### Option B — Keep `/v2/` and add a comprehensive 301 map
+Plus interim 302s for the 9 not-yet-built pages (5 categories, 3
+authors, 1 video) all landing on `/resources`.
 
-Keep the prefix as the canonical path and 301-redirect every original URL
-in section 2 to its new home. Cost: a redirects table in
-`next.config.mjs` (we've added a starter version in this commit).
-Trade-off: link equity flows through one redirect hop, which is fine but
-non-zero loss; and any old backlink anchor text still pointing at the
-WP-style URL takes the small hop penalty forever.
+The previous "Option B" 301 map for per-article and per-surgery-sub
+redirects has been deleted: those pages are now direct hits.
 
-This commit ships Option B as the safety net so nothing 404s. **We
-recommend executing Option A before public launch** and then deleting
-the redirects.
+A defensive `/v2/:path*` → `/:path*` catch-all stays in `next.config.mjs`
+to guard against any cached or pre-launch shared link that still uses
+the `/v2/` prefix.
 
 ---
 
@@ -142,12 +147,10 @@ the redirects.
 - **Added a redirects map in `next.config.mjs`** sending every original WordPress URL (sections 2a–2c) to its new home, plus catch-alls for the 11 not-yet-built URLs (category, author, video) pointing at the most relevant existing destination.
 - **Expanded `app/sitemap.ts`** to enumerate every built page (articles + service-sub + surfaces), so Google Search Console can crawl the full inventory.
 
-## 5. Open items (NOT in this commit)
+## 5. Open items
 
-These need a product decision before code:
-
-1. **Build the 5 category pages, 3 author pages, and 1 video page** — or accept the redirects added here as the permanent answer. If the team plans on continuing to publish under the Journal, category pages are worth building.
-2. **Decide Option A vs. Option B** (URL prefix). If Option A: move the routes; this audit's "New path" column changes accordingly and the redirects in `next.config.mjs` can be deleted.
+1. ✅ **Decide Option A vs. Option B** (URL prefix). Resolved 2026-05-28: Option A executed. Routes moved, redirects cleaned, sitemap reissued at root paths.
+2. **Build the 5 category pages, 3 author pages, and 1 video page**, or accept the interim 302s as permanent. If the team plans on continuing to publish, category pages are worth building.
 3. **Wire the JSON-LD builders into each page.** `lib/jsonld.ts` exposes `articleSchema`, `physicianSchema`, `medicalProcedureSchema`, `pricingSchema`, `faqPageSchema`, `breadcrumb`, and `collectionPageSchema` but only the site-wide graph is mounted in `app/layout.tsx`. Each template should emit its own schema.
 4. **Open-graph imagery.** No `openGraph.images` are set on any individual page. Once hero imagery is locked in, add a `metadata.openGraph.images` array per page (recommended size 1200×630).
 5. **Confirm the canonical domain.** Everything in `lib/site.ts` and `lib/jsonld.ts` assumes `premierlimblengthening.com`. If the launch domain is different (e.g. a staging subdomain), update `site.domain` before generating the production sitemap.

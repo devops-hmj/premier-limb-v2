@@ -10,12 +10,12 @@ export const metadata: Metadata = {
   title: "Schedule a Limb Lengthening Consultation",
   description:
     "Schedule a consultation with Premier Limb Lengthening in Pomona, Southern California. Confidential intake, virtual visits, and white-glove travel coordination.",
-  alternates: { canonical: "/v2/contact" },
+  alternates: { canonical: "/contact" },
   openGraph: {
     title: "Schedule a Limb Lengthening Consultation · Premier",
     description:
       "Confidential intake, virtual visits, and white-glove travel coordination from Pomona, Southern California.",
-    url: "/v2/contact",
+    url: "/contact",
     type: "website",
   },
   robots: { index: true, follow: true },
@@ -25,7 +25,7 @@ const directions =
   "http://www.google.com/maps/dir/160+E+Artesia+St,+Pomona,+CA+91767/@34.0764064,-117.7535405,15z/";
 
 /**
- * /v2/contact — editorial contact page.
+ * /contact — editorial contact page.
  *
  * Two-column body: form on the left, structured contact card on the right
  * (address, phone, fax, hours, directions link, virtual consult CTA). Sits

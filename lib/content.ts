@@ -84,9 +84,9 @@ function detectKind(file: string, route: string): PageKind {
 
 /** Strip the leading `# Title`, `**URL:** …` lines, and the trailing
  *  "Related Articles" block (we render our own related-articles card grid
- *  at the bottom of every article template, which links to local /v2/
- *  routes — keeping the legacy section in-body would duplicate it as
- *  broken-image blue text links to the old WP URLs). */
+ *  at the bottom of every article template, which links to local routes.
+ *  Keeping the legacy section in-body would duplicate it as broken-image
+ *  blue text links to the old WP URLs). */
 function parseMarkdown(raw: string): {
   rawTitle: string;
   body: string;

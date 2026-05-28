@@ -1,7 +1,9 @@
 /* ============================================================================
-   /v2 — Editorial / Video-First Homepage Variation
-   Page-scoped styles. Imported only by app/v2/page.tsx. Class names prefixed
-   `v2-` so they cannot collide with the existing system.
+   Editorial / Video-First Homepage Styles
+   Page-scoped styles imported by every app/* page. Class names prefixed
+   `v2-` for historical reasons (this was originally the /v2 design variant
+   before it became canonical). File kept at app/v2.css so existing
+   imports continue to resolve.
    ============================================================================ */
 
 /* ---- Video stage ---- */

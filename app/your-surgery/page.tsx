@@ -14,19 +14,19 @@ export const metadata: Metadata = {
   title: "Limb Lengthening Surgery — How It Works",
   description:
     "How limb lengthening works — distraction osteogenesis, Precice internal nail placement, gradual distraction, and a recovery timeline you can plan your life around.",
-  alternates: { canonical: "/v2/your-surgery" },
+  alternates: { canonical: "/your-surgery" },
   openGraph: {
     title: "Limb Lengthening Surgery — How It Works",
     description:
       "Distraction osteogenesis, internal Precice technology, and a recovery timeline you can plan your life around.",
-    url: "/v2/your-surgery",
+    url: "/your-surgery",
     type: "article",
   },
   robots: { index: true, follow: true },
 };
 
 /**
- * /v2/your-surgery — service-overview editorial page.
+ * /your-surgery — service-overview editorial page.
  *
  * Composition:
  *   Hero band         → eyebrow + h1 + lede
@@ -100,7 +100,7 @@ export default function V2YourSurgeryPage() {
                   border-rule
                 `}
               >
-                <Link href={`/v2${p.route}`} className="group block">
+                <Link href={p.route} className="group block">
                   <div className="font-mono uppercase tracking-[0.2em] text-[10.5px] text-spine mb-3">
                     {String(i + 1).padStart(2, "0")} · {p.readingTime} min read
                   </div>

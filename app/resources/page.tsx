@@ -9,15 +9,15 @@ import { getArticles } from "@/lib/content";
 import "../v2.css";
 
 export const metadata: Metadata = {
-  title: "Limb Lengthening Journal — Articles & Patient Guides",
+  title: "Limb Lengthening Resources, Articles & Patient Guides",
   description:
-    "Editorial coverage of cosmetic limb lengthening — candidacy, recovery, pricing, and the science behind bone regeneration. Written for patients, not for SEO bots.",
-  alternates: { canonical: "/v2/journal" },
+    "Editorial coverage of cosmetic limb lengthening: candidacy, recovery, pricing, and the science behind bone regeneration. Written for patients, not for SEO bots.",
+  alternates: { canonical: "/resources" },
   openGraph: {
-    title: "Limb Lengthening Journal — Articles & Patient Guides",
+    title: "Limb Lengthening Resources, Articles & Patient Guides",
     description:
       "Patient-grade articles on candidacy, recovery, pricing, and the science of bone regeneration.",
-    url: "/v2/journal",
+    url: "/resources",
     type: "website",
   },
   robots: { index: true, follow: true },
@@ -60,7 +60,7 @@ export default function V2JournalPage() {
             {articles.map((a, i) => (
               <Reveal key={a.route} delay={Math.min(i, 6) * 0.04}>
                 <Link
-                  href={`/v2${a.route}`}
+                  href={a.route}
                   className="group grid grid-cols-1 md:grid-cols-[80px_1fr_auto] gap-x-6 gap-y-3 items-baseline py-7 border-b border-rule hover:bg-spine-tint transition-colors px-1"
                 >
                   <div className="font-mono uppercase tracking-[0.2em] text-[10.5px] text-spine">

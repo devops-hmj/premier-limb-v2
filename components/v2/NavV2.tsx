@@ -25,23 +25,23 @@ type NavItem = {
 };
 
 const surgerySubmenu = [
-  { label: "Surgery Overview", href: "/v2/your-surgery" },
-  { label: "External vs. Internal Lengthening", href: "/v2/your-surgery/external-internal-lengthening" },
-  { label: "Recovery & Expectations", href: "/v2/your-surgery/limb-lengthening-expectations" },
-  { label: "Will Limb Lengthening Hurt?", href: "/v2/your-surgery/will-limb-lengthening-hurt" },
-  { label: "Is There an Age Limit?", href: "/v2/your-surgery/is-there-an-age-limit-for-limb-lengthening" },
-  { label: "How Much Taller Can I Get?", href: "/v2/your-surgery/how-much-taller-can-i-get-with-limb-lengthening" },
-  { label: "Can I Bend My Lengthening Nail?", href: "/v2/your-surgery/can-i-bend-my-lengthening-nail" },
-  { label: "Exercise After Limb Lengthening", href: "/v2/your-surgery/exercise-after-limb-lengthening" },
+  { label: "Surgery Overview", href: "/your-surgery" },
+  { label: "External vs. Internal Lengthening", href: "/your-surgery/external-internal-lengthening" },
+  { label: "Recovery & Expectations", href: "/your-surgery/limb-lengthening-expectations" },
+  { label: "Will Limb Lengthening Hurt?", href: "/your-surgery/will-limb-lengthening-hurt" },
+  { label: "Is There an Age Limit?", href: "/your-surgery/is-there-an-age-limit-for-limb-lengthening" },
+  { label: "How Much Taller Can I Get?", href: "/your-surgery/how-much-taller-can-i-get-with-limb-lengthening" },
+  { label: "Can I Bend My Lengthening Nail?", href: "/your-surgery/can-i-bend-my-lengthening-nail" },
+  { label: "Exercise After Limb Lengthening", href: "/your-surgery/exercise-after-limb-lengthening" },
 ] as const;
 
 const navItems: NavItem[] = [
-  { label: "Your Surgery", href: "/v2/your-surgery", submenu: surgerySubmenu },
-  { label: "Pricing", href: "/v2/pricing" },
-  { label: "Dr. Basmajian", href: "/v2/dr-basmajian" },
-  { label: "About", href: "/v2/about" },
-  { label: "Resources", href: "/v2/journal" },
-  { label: "Contact", href: "/v2/contact" },
+  { label: "Your Surgery", href: "/your-surgery", submenu: surgerySubmenu },
+  { label: "Pricing", href: "/pricing" },
+  { label: "Dr. Basmajian", href: "/dr-basmajian" },
+  { label: "About", href: "/about" },
+  { label: "Resources", href: "/resources" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export function NavV2({ forceVisible = false }: { forceVisible?: boolean } = {}) {
@@ -84,7 +84,7 @@ export function NavV2({ forceVisible = false }: { forceVisible?: boolean } = {})
             className="fixed inset-x-0 top-0 z-50 bg-paper-off/95 backdrop-blur border-b border-ink"
           >
             <div className="mx-auto max-w-wrap px-6 lg:px-12 py-3 flex items-center justify-between gap-6">
-              <Link href="/v2" aria-label="Premier Limb Lengthening — home" className="flex items-center shrink-0">
+              <Link href="/" aria-label="Premier Limb Lengthening — home" className="flex items-center shrink-0">
                 <Logo tone="light" width={170} priority />
               </Link>
 
@@ -169,7 +169,7 @@ export function NavV2({ forceVisible = false }: { forceVisible?: boolean } = {})
                   {site.phone}
                 </a>
                 <a
-                  href="/v2/contact"
+                  href="/contact"
                   className="inline-flex items-center gap-2.5 px-5 py-2.5 bg-spine text-paper font-medium uppercase tracking-wide text-[11.5px] hover:bg-spine-deep transition-colors"
                 >
                   Schedule Consultation
@@ -269,7 +269,7 @@ export function NavV2({ forceVisible = false }: { forceVisible?: boolean } = {})
                 )}
               </nav>
               <div className="flex flex-col gap-3 pt-6">
-                <a href="/v2/contact" className="inline-flex items-center justify-center gap-2.5 px-5 py-3 bg-spine text-paper font-medium uppercase tracking-wide text-[11.5px]">
+                <a href="/contact" className="inline-flex items-center justify-center gap-2.5 px-5 py-3 bg-spine text-paper font-medium uppercase tracking-wide text-[11.5px]">
                   Schedule Consultation <span className="font-serif italic" aria-hidden>→</span>
                 </a>
                 <a href={site.phoneHref} className="inline-flex items-center justify-center gap-2.5 px-5 py-3 border border-spine text-spine font-medium uppercase tracking-wide text-[11.5px]">
@@ -295,7 +295,7 @@ export function NavV2Overlay() {
   return (
     <header className="relative z-30 border-b border-white/15">
       <div className="mx-auto max-w-wrap px-6 lg:px-12 py-4 lg:py-5 grid grid-cols-[auto_1fr_auto] items-center gap-6 lg:gap-10">
-        <Link href="/v2" aria-label="Premier Limb Lengthening — home" className="flex items-center shrink-0">
+        <Link href="/" aria-label="Premier Limb Lengthening — home" className="flex items-center shrink-0">
           <Logo
             tone="dark"
             width={210}
@@ -388,7 +388,7 @@ export function NavV2Overlay() {
             {site.phone}
           </a>
           <a
-            href="/v2/contact"
+            href="/contact"
             className="inline-flex items-center gap-2.5 px-4 lg:px-5 py-3 lg:py-3.5 bg-spine text-paper font-medium uppercase tracking-wide text-[11px] lg:text-[12px] hover:bg-spine-deep transition-colors"
           >
             <span className="hidden sm:inline">Schedule Consultation</span>

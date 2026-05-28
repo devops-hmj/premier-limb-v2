@@ -27,11 +27,11 @@ export async function generateMetadata(
   return {
     title: `${p.title} · Your Surgery`,
     description: p.description,
-    alternates: { canonical: `/v2/your-surgery/${slug}` },
+    alternates: { canonical: `/your-surgery/${slug}` },
     openGraph: {
       title: p.title,
       description: p.description,
-      url: `/v2/your-surgery/${slug}`,
+      url: `/your-surgery/${slug}`,
       type: "article",
     },
     robots: { index: true, follow: true },
@@ -39,7 +39,7 @@ export async function generateMetadata(
 }
 
 /**
- * /v2/your-surgery/[slug] — generic service-sub page renderer.
+ * /your-surgery/[slug] — generic service-sub page renderer.
  *
  * Each of the 7 surgery sub-topics (external vs internal, recovery,
  * will it hurt, etc.) is its own dossier-style page with breadcrumb,
@@ -68,9 +68,9 @@ export default async function V2YourSurgerySubPage({
                 aria-label="Breadcrumb"
                 className="font-mono uppercase tracking-[0.2em] text-[10.5px] text-muted mb-5"
               >
-                <Link href="/v2" className="hover:text-spine transition-colors">Home</Link>
+                <Link href="/" className="hover:text-spine transition-colors">Home</Link>
                 <span aria-hidden className="mx-2">·</span>
-                <Link href="/v2/your-surgery" className="hover:text-spine transition-colors">Your Surgery</Link>
+                <Link href="/your-surgery" className="hover:text-spine transition-colors">Your Surgery</Link>
                 <span aria-hidden className="mx-2">·</span>
                 <span className="text-ink">{page.title}</span>
               </nav>
@@ -114,7 +114,7 @@ export default async function V2YourSurgerySubPage({
                   Other <em className="italic text-spine">surgery topics.</em>
                 </h2>
                 <Link
-                  href="/v2/your-surgery"
+                  href="/your-surgery"
                   className="font-mono uppercase tracking-[0.18em] text-[11px] text-spine border-b border-spine pb-1 hover:text-spine-deep"
                 >
                   Back to overview →
@@ -124,7 +124,7 @@ export default async function V2YourSurgerySubPage({
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 border-t border-rule pt-10">
               {siblings.slice(0, 3).map((s, i) => (
                 <Reveal key={s.route} delay={i * 0.08} as="article">
-                  <Link href={`/v2${s.route}`} className="group block">
+                  <Link href={s.route} className="group block">
                     <div className="font-mono uppercase tracking-[0.18em] text-[10.5px] text-muted mb-3">
                       Your Surgery · {s.readingTime} min
                     </div>

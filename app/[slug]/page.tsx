@@ -13,7 +13,7 @@ import "../v2.css";
 type RouteParams = { slug: string };
 
 /**
- * /v2/[slug] — internal content (article) template.
+ * /[slug] — internal content (article) template.
  *
  * Mirrors the legacy article route shape (uses the same content loader
  * + Prose renderer) so any of the ~16 top-level articles render with the
@@ -35,11 +35,11 @@ export async function generateMetadata(
   return {
     title: p.title,
     description: p.description,
-    alternates: { canonical: `/v2/${slug}` },
+    alternates: { canonical: `/${slug}` },
     openGraph: {
       title: p.title,
       description: p.description,
-      url: `/v2/${slug}`,
+      url: `/${slug}`,
       type: "article",
     },
     robots: { index: true, follow: true },
@@ -65,9 +65,9 @@ export default async function Page({ params }: { params: Promise<RouteParams> })
                 aria-label="Breadcrumb"
                 className="font-mono uppercase tracking-[0.2em] text-[10.5px] text-muted mb-5"
               >
-                <Link href="/v2" className="hover:text-spine transition-colors">Home</Link>
+                <Link href="/" className="hover:text-spine transition-colors">Home</Link>
                 <span aria-hidden className="mx-2">·</span>
-                <Link href="/v2/journal" className="hover:text-spine transition-colors">Resources</Link>
+                <Link href="/resources" className="hover:text-spine transition-colors">Resources</Link>
                 {page.category && (
                   <>
                     <span aria-hidden className="mx-2">·</span>
@@ -119,7 +119,7 @@ export default async function Page({ params }: { params: Promise<RouteParams> })
                   Keep <em className="italic text-spine">reading.</em>
                 </h2>
                 <Link
-                  href="/v2/journal"
+                  href="/resources"
                   className="font-mono uppercase tracking-[0.18em] text-[11px] text-spine border-b border-spine pb-1 hover:text-spine-deep"
                 >
                   All articles →
@@ -129,7 +129,7 @@ export default async function Page({ params }: { params: Promise<RouteParams> })
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 border-t border-rule pt-10">
               {related.map((r, i) => (
                 <Reveal key={r.route} delay={i * 0.08} as="article">
-                  <Link href={`/v2${r.route}`} className="group block">
+                  <Link href={r.route} className="group block">
                     <div className="font-mono uppercase tracking-[0.18em] text-[10.5px] text-muted mb-3">
                       {(r.category ?? "article").replace(/-/g, " ")} · {r.readingTime} min
                     </div>

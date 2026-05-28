@@ -11,12 +11,12 @@ export const metadata: Metadata = {
   title: "Dr. Hrayr Basmajian — Limb Lengthening Surgeon",
   description:
     "Board-certified orthopaedic trauma surgeon and Medical Director of Orthopaedic Trauma at Pomona Valley Hospital. Thousands of limb lengthening procedures performed.",
-  alternates: { canonical: "/v2/dr-basmajian" },
+  alternates: { canonical: "/dr-basmajian" },
   openGraph: {
     title: "Dr. Hrayr Basmajian — Limb Lengthening Surgeon",
     description:
       "Board-certified orthopaedic trauma surgeon. Director, Orthopaedic Trauma at Pomona Valley Hospital. Thousands of limb lengthening procedures performed.",
-    url: "/v2/dr-basmajian",
+    url: "/dr-basmajian",
     type: "profile",
     images: [{ url: "/dr-picture.jpg", width: 800, height: 1000, alt: "Dr. Hrayr Basmajian" }],
   },
@@ -33,7 +33,7 @@ const credentials = [
 ] as const;
 
 /**
- * /v2/dr-basmajian — extended editorial bio page.
+ * /dr-basmajian — extended editorial bio page.
  *
  * Composition:
  *   Hero band         → eyebrow + h1 + portrait

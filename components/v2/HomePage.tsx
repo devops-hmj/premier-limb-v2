@@ -16,8 +16,7 @@ import { Testimonials } from "./Testimonials";
 /**
  * V2HomePage — the canonical V2 homepage composition.
  *
- * Rendered by both /page.tsx and /v2/page.tsx so the two routes stay in
- * lockstep without duplicating JSX.
+ * Rendered by /page.tsx (the canonical homepage at /).
  *
  * Composition (top → bottom):
  *   1. HeroStage      → video-backed masthead + headline (NavV2Overlay inside)

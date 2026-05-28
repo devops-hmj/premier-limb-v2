@@ -10,12 +10,12 @@ export const metadata: Metadata = {
   title: "About the Practice — Premier Orthopaedic & Trauma Specialists",
   description:
     "Premier Limb Lengthening is the cosmetic and reconstructive practice within Premier Orthopaedic & Trauma Specialists — 17+ surgeons, in-house PT, on-site imaging in Pomona, California.",
-  alternates: { canonical: "/v2/about" },
+  alternates: { canonical: "/about" },
   openGraph: {
     title: "About the Practice — Premier Orthopaedic & Trauma Specialists",
     description:
       "The cosmetic and reconstructive practice within a 17+ surgeon orthopaedic trauma group, based in Pomona, Southern California.",
-    url: "/v2/about",
+    url: "/about",
     type: "website",
   },
   robots: { index: true, follow: true },

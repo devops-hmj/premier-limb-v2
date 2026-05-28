@@ -6,21 +6,21 @@ This repository contains the Next.js 15 App Router codebase, design system token
 ## Current Status
 
 - **Phase 1 (Foundation): ✅ DONE**
-  - Design tokens live in [tailwind.config.ts](tailwind.config.ts), [app/globals.css](app/globals.css), and [lib/tokens.ts](lib/tokens.ts).
-  - Typography: `next/font` loads Newsreader (serif), Inter Tight (sans), JetBrains Mono (mono) → see [lib/fonts.ts](lib/fonts.ts).
-  - Core primitives (`Button`, `Card`, `SectionHead`, `Logo`, `Eyebrow`, `Swatch`, `Input`, `PullQuote`, `Stat`, `Rule`, `Badge`, `Container`, `Section`, `CoverStrip`) shipped in [components/primitives/](components/primitives/).
-  - Live design-system dossier rendered at **`/design-system`** ([app/design-system/page.tsx](app/design-system/page.tsx)).
-- **Phase 2 (Homepage): ✅ DONE**
-  - Hero, BragBar, Concierge, ClosingCta, AeoBoilerplate built in [components/home/](components/home/) and assembled in [app/page.tsx](app/page.tsx).
-  - Copy lifted **verbatim** from [scraped_content/netlify_homepage.md](scraped_content/netlify_homepage.md). No paraphrasing.
-  - Global Nav and SiteFooter in [components/layout/](components/layout/) wired into [app/layout.tsx](app/layout.tsx).
-- **Phase 3 (Shared Layouts): 🟡 PARTIAL** — Nav + Footer + root layout done; per-route shells (article view, service-detail view) not yet built.
-- **Phase 4 (Content Migration): ⬜ NOT STARTED**
-  - 38 pages of content + JSON sitemap exist in [scraped_content/](scraped_content/).
-- **Phase 5 (QA & Polish): ⬜ NOT STARTED**
+- **Phase 2 (Homepage): ✅ DONE** (V2 editorial design is canonical: [components/v2/HomePage.tsx](components/v2/HomePage.tsx) assembled at [app/page.tsx](app/page.tsx))
+- **Phase 3 (Shared Layouts): ✅ DONE** ([components/v2/NavV2.tsx](components/v2/NavV2.tsx) + [components/v2/FooterV2.tsx](components/v2/FooterV2.tsx) used on every route)
+- **Phase 4 (Content Migration): ✅ DONE** (16 articles via [app/[slug]/page.tsx](app/[slug]/page.tsx); 7 surgery sub-pages via [app/your-surgery/[slug]/page.tsx](app/your-surgery/[slug]/page.tsx); surfaces: /about, /contact, /dr-basmajian, /pricing, /your-surgery, /resources)
+- **Phase 5 (QA & Polish): 🟡 IN PROGRESS**
+  - ✅ Pre-launch SEO baseline: noindex flags lifted, hand-written metadata, expanded sitemap (see [SEO_AUDIT.md](SEO_AUDIT.md))
+  - ✅ **Option A executed (2026-05-28)**: dropped the `/v2/` prefix; every legacy WordPress URL now matches its new path 1:1 with zero redirect hops. The 23 carry-over pages are direct hits. Journal renamed to Resources (`/resources`). Cross-route renames (`/consult/`, `/blog/`, `/limb-lengthening-pricing-options/`) keep a single-hop 301. A defensive `/v2/:path*` catch-all stays in [next.config.mjs](next.config.mjs).
+  - ✅ Brand copy compliance: procedure-count claim → "thousands"; "Up to" qualifier on height claims; project-wide no-dash rule applied to homepage flow
+  - ⬜ JSON-LD builders not yet wired per-page (see [SEO_AUDIT.md §5.3](SEO_AUDIT.md))
+  - ⬜ Em-dash sweep still pending across pricing detail components ([AddOns.tsx](components/v2/pricing/AddOns.tsx), [Financing.tsx](components/v2/pricing/Financing.tsx), [IncludedExcluded.tsx](components/v2/pricing/IncludedExcluded.tsx), [PricingPlans.tsx](components/v2/pricing/PricingPlans.tsx)) and subpage body copy
+  - ⬜ Open-graph imagery not set per page
+  - ⬜ Canonical domain confirmation before production sitemap
 
 ## Pending validation
-- `npm install` and `npm run dev` have **not** been run. First agent to pick up should `cd` to the project, install, and verify the homepage + `/design-system` render cleanly. Type-check with `npm run typecheck`.
+- `npm install` + `npm run dev` smoke test against the consolidated routes (`/`, `/about`, `/contact`, `/dr-basmajian`, `/pricing`, `/your-surgery`, `/resources`, plus one article + one surgery sub-page).
+- Spot-check redirects with `curl -I`: `/blog/` → 308 `/resources`; `/consult/` → 308 `/contact`; `/v2/about` → 308 `/about`; one legacy article slug → 200 direct hit.
 
 ## Developer / Agent Instructions
 
@@ -44,36 +44,42 @@ This repository contains the Next.js 15 App Router codebase, design system token
 PLL-design/
 ├── app/
 │   ├── globals.css          # Tokens + base + editorial utilities
-│   ├── layout.tsx           # Root layout (Nav + Footer + fonts)
-│   ├── page.tsx             # Homepage
-│   └── design-system/
-│       └── page.tsx         # /design-system — the brand dossier
+│   ├── v2.css               # Editorial / video-stage page styles
+│   ├── layout.tsx           # Root layout (fonts, site-wide JSON-LD)
+│   ├── page.tsx             # Homepage (renders V2HomePage)
+│   ├── about/               # /about
+│   ├── contact/             # /contact
+│   ├── dr-basmajian/        # /dr-basmajian
+│   ├── pricing/             # /pricing
+│   ├── resources/           # /resources (renamed from /v2/journal)
+│   ├── your-surgery/        # /your-surgery + [slug]/
+│   ├── [slug]/              # /<article-slug> (16 articles)
+│   ├── sitemap.ts
+│   ├── robots.ts
+│   └── design-system/       # /design-system (internal dossier)
 ├── components/
-│   ├── layout/
-│   │   ├── Nav.tsx          # Global nav (desktop + mobile)
-│   │   └── SiteFooter.tsx   # Global footer
-│   ├── home/
-│   │   ├── Hero.tsx
-│   │   ├── BragBar.tsx
-│   │   ├── Concierge.tsx
-│   │   ├── ClosingCta.tsx
-│   │   └── AeoBoilerplate.tsx
-│   ├── primitives/          # 14 design-system components
-│   └── showcase/            # Brand-dossier sections (rendered at /design-system)
+│   ├── v2/                  # Current/canonical design components
+│   │   ├── NavV2.tsx        # Sticky nav + overlay variant
+│   │   ├── FooterV2.tsx
+│   │   ├── HomePage.tsx     # Top-level homepage composition
+│   │   ├── HeroStage.tsx, Article.tsx, Pillars.tsx, Bio.tsx,
+│   │   │   Process.tsx, Concierge.tsx, Candidate.tsx, Pricing.tsx,
+│   │   │   Results.tsx, Testimonials.tsx, FaqV2.tsx, FinalCta.tsx
+│   │   └── pricing/         # AddOns, Financing, IncludedExcluded,
+│   │                        # PricingPlans, PricingHero
+│   ├── primitives/          # Design-system primitives
+│   ├── content/Prose.tsx    # Markdown renderer for scraped articles
+│   ├── home/                # Legacy V1 homepage components (unused)
+│   └── layout/              # Legacy V1 nav/footer (unused)
 ├── lib/
-│   ├── cn.ts                # clsx + tailwind-merge
-│   ├── fonts.ts             # next/font config
-│   ├── site.ts              # Site constants + nav data
-│   └── tokens.ts            # Typed design tokens
+│   ├── content.ts           # Scraped-markdown loader
+│   ├── jsonld.ts            # Schema.org builders
+│   ├── cn.ts, fonts.ts, site.ts, tokens.ts
 ├── scraped_content/         # Verbatim source-of-truth content
 ├── Skills/                  # Reference skills (catalog, not runtime)
-├── tailwind.config.ts
-├── tsconfig.json
-├── next.config.mjs
-├── package.json
-├── CLAUDE.md                # This file
-├── SKILLS.md
-├── DESIGN_SYSTEM.md
-├── README.md
-└── project_plan.md
+├── next.config.mjs          # Redirects (Option A in effect)
+├── tailwind.config.ts, tsconfig.json, package.json
+├── CLAUDE.md (this), SKILLS.md, DESIGN_SYSTEM.md, README.md
+├── SEO_AUDIT.md, HIPAA_AUDIT.md, project_plan.md
+└── ghl-form-styles.css      # GHL embedded-form custom CSS
 ```

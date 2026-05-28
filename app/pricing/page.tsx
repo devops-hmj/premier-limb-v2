@@ -13,19 +13,19 @@ export const metadata: Metadata = {
   title: "Limb Lengthening Cost — Pricing & Financing",
   description:
     "Transparent 2026 pricing for cosmetic limb lengthening. Every quote bundles implants, OR time, hospitalization, anesthesia, follow-up care, and physical therapy.",
-  alternates: { canonical: "/v2/pricing" },
+  alternates: { canonical: "/pricing" },
   openGraph: {
     title: "Limb Lengthening Cost — Pricing & Financing",
     description:
       "Transparent 2026 pricing for cosmetic limb lengthening. Bundled implants, OR time, hospitalization, anesthesia, follow-up care, and physical therapy.",
-    url: "/v2/pricing",
+    url: "/pricing",
     type: "website",
   },
   robots: { index: true, follow: true },
 };
 
 /**
- * /v2/pricing — full editorial pricing page.
+ * /pricing — full editorial pricing page.
  *
  * Content + dollar amounts mirrored from limblengthening.org/leg-lengthening-surgery
  * (Paley Stature Center 2026 schedule). These are PLACEHOLDER numbers for
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
  *   AddOns               → optional corrections + hardware removal tables
  *   IncludedExcluded     → two-column dossier of bundled vs. separate costs
  *   Financing            → spine-blue CTA callout with monthly + CareCredit
- *   FooterV2             → ink-ground footer (shared with /v2)
+ *   FooterV2             → ink-ground footer (site-wide)
  */
 export default function V2PricingPage() {
   return (
