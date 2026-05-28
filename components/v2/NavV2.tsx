@@ -163,8 +163,7 @@ export function NavV2({ forceVisible = false }: { forceVisible?: boolean } = {})
               <div className="hidden md:flex items-center gap-3">
                 <a
                   href={site.phoneHref}
-                  className="font-serif italic text-[16px] hover:opacity-80 transition-opacity"
-                  style={{ color: "#F4D88A" }}
+                  className="font-serif italic text-[16px] text-spine hover:text-spine-deep transition-colors"
                 >
                   {site.phone}
                 </a>

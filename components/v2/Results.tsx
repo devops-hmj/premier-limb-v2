@@ -1,9 +1,9 @@
 import { Reveal } from "./Reveal";
 
 const results = [
-  { prefix: "Up to", emph: "6", suffix: "″", sub: "Total Height Gain (Staged)", desc: "Across femur and tibia procedures." },
-  { prefix: "",      emph: "3 to 4", suffix: "",  sub: "Months Active Lengthening",  desc: "Approximately 1 mm per day via internal magnetic nail." },
-  { prefix: "",      emph: "6 to 12", suffix: "", sub: "Months to Full Recovery",     desc: "Physical therapy from day one." },
+  { prefix: "Up to",  emph: "3-6", suffix: "″", sub: "Total Height Gain (Staged)", desc: "Across femur and tibia procedures." },
+  { prefix: "",       emph: "3-4", suffix: "",  sub: "Months Active Lengthening",  desc: "Approximately 1 mm per day via internal magnetic nail." },
+  { prefix: "Approx", emph: "6-12", suffix: "", sub: "Months to Full Recovery",    desc: "Physical therapy from day one." },
 ] as const;
 
 export function Results() {
