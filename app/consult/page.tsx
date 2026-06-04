@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { FooterV2 } from "@/components/v2/FooterV2";
 import { NavV2 } from "@/components/v2/NavV2";
 import { Reveal } from "@/components/v2/Reveal";
@@ -64,6 +65,18 @@ export default function V2ContactPage() {
           </Reveal>
         </div>
       </section>
+
+      {/*
+        GoHighLevel (LeadConnector) chat widget. Renders a floating chat
+        bubble for live chat / lead capture. Loaded after the page is
+        interactive so it never blocks first paint of the form below.
+      */}
+      <Script
+        src="https://beta.leadconnectorhq.com/loader.js"
+        data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js"
+        data-widget-id="6a20bb6795223f3846a01136"
+        strategy="afterInteractive"
+      />
 
       <section className="bg-paper-off py-20 lg:py-28">
         <div className="mx-auto max-w-wrap px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-[7fr_5fr] gap-12 lg:gap-16 items-start">
