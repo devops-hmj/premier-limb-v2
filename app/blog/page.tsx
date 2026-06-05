@@ -1,22 +1,23 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { FinalCta } from "@/components/v2/FinalCta";
 import { FooterV2 } from "@/components/v2/FooterV2";
 import { NavV2 } from "@/components/v2/NavV2";
 import { Reveal } from "@/components/v2/Reveal";
 import { JsonLd } from "@/components/content/JsonLd";
+import { BlogIndex } from "@/components/v2/blog/BlogIndex";
+import type { PostDTO } from "@/components/v2/blog/PostCard";
 import { getArticles } from "@/lib/content";
 import { breadcrumb, collectionPageSchema } from "@/lib/jsonld";
 
 import "../v2.css";
 
 export const metadata: Metadata = {
-  title: "Limb Lengthening Resources, Articles & Patient Guides",
+  title: "Limb Lengthening Blog, Articles & Patient Guides",
   description:
     "Honest, plain-language coverage of cosmetic limb lengthening: candidacy, recovery, pricing, and the science of bone regeneration, written to help patients decide with confidence.",
   alternates: { canonical: "/blog" },
   openGraph: {
-    title: "Limb Lengthening Resources, Articles & Patient Guides",
+    title: "Limb Lengthening Blog, Articles & Patient Guides",
     description:
       "Patient-grade articles on candidacy, recovery, pricing, and the science of bone regeneration.",
     url: "/blog",
@@ -25,29 +26,71 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-export default function V2JournalPage() {
+/** Human labels + display order for the deriveCategory() taxonomy. */
+const CATEGORY_LABELS: Record<string, string> = {
+  "limb-lengthening": "Limb Lengthening",
+  "bone-health": "Bone Health",
+  "impact-on-the-body": "Impact on the Body",
+  "after-limb-lengthening": "After Limb Lengthening",
+  "paying-for-limb-lengthening": "Paying for Limb Lengthening",
+};
+const CATEGORY_ORDER = [
+  "limb-lengthening",
+  "bone-health",
+  "impact-on-the-body",
+  "after-limb-lengthening",
+  "paying-for-limb-lengthening",
+];
+
+export default function V2BlogPage() {
   const articles = getArticles();
+
+  const posts: PostDTO[] = articles.map((a) => {
+    const category = a.category ?? "limb-lengthening";
+    return {
+      route: a.route,
+      title: a.title,
+      description: a.description,
+      readingTime: a.readingTime,
+      category,
+      categoryLabel: CATEGORY_LABELS[category] ?? category.replace(/-/g, " "),
+      image: a.featuredImage,
+    };
+  });
+
+  const counts = posts.reduce<Record<string, number>>((acc, p) => {
+    acc[p.category] = (acc[p.category] ?? 0) + 1;
+    return acc;
+  }, {});
+  const categories = [
+    { slug: "all", label: "All", count: posts.length },
+    ...CATEGORY_ORDER.filter((slug) => counts[slug]).map((slug) => ({
+      slug,
+      label: CATEGORY_LABELS[slug],
+      count: counts[slug],
+    })),
+  ];
 
   return (
     <>
       <NavV2 forceVisible />
       <JsonLd
         data={[
-          collectionPageSchema("Limb Lengthening Resources", articles),
+          collectionPageSchema("Limb Lengthening Blog", articles),
           breadcrumb([
             { name: "Home", url: "/" },
-            { name: "Resources", url: "/blog" },
+            { name: "Blog", url: "/blog" },
           ]),
         ]}
       />
 
-      <section className="bg-paper-off border-b border-ink pt-28 lg:pt-36 pb-16 lg:pb-20">
+      <section className="bg-paper-off border-b border-ink pt-28 lg:pt-36 pb-12 lg:pb-14">
         <div className="mx-auto max-w-wrap px-6 lg:px-12 grid grid-cols-12 gap-6 lg:gap-8">
           <Reveal className="col-span-12 lg:col-span-8">
             <span className="eyebrow mb-5">Resources · Patient Guides</span>
             <h1
               className="mt-5 font-serif font-normal tracking-[-0.025em] text-ink leading-[0.95] max-w-[16ch]"
-              style={{ fontSize: "clamp(44px, 7.4vw, 120px)" }}
+              style={{ fontSize: "clamp(40px, 6vw, 92px)" }}
             >
               Everything worth <em className="italic text-spine">knowing.</em>
             </h1>
@@ -62,44 +105,7 @@ export default function V2JournalPage() {
         </div>
       </section>
 
-      <section className="bg-paper-off py-20 lg:py-28">
-        <div className="mx-auto max-w-wrap px-6 lg:px-12">
-          <div className="font-mono uppercase tracking-[0.22em] text-[10.5px] text-muted mb-4">
-            {articles.length} articles · newest first
-          </div>
-          <div className="border-t border-ink">
-            {articles.map((a, i) => (
-              <Reveal key={a.route} delay={Math.min(i, 6) * 0.04}>
-                <Link
-                  href={a.route}
-                  className="group grid grid-cols-1 md:grid-cols-[80px_1fr_auto] gap-x-6 gap-y-3 items-baseline py-7 border-b border-rule hover:bg-spine-tint transition-colors px-1"
-                >
-                  <div className="font-mono uppercase tracking-[0.2em] text-[10.5px] text-spine">
-                    {String(i + 1).padStart(2, "0")}
-                  </div>
-                  <div className="min-w-0">
-                    <h2 className="font-serif font-medium text-[22px] lg:text-[26px] leading-[1.2] tracking-[-0.01em] text-ink group-hover:text-spine transition-colors max-w-[42ch]">
-                      {a.title}
-                    </h2>
-                    <p className="mt-2 text-[14px] leading-[1.6] text-ink-soft max-w-[68ch]">
-                      {a.description}
-                    </p>
-                    <div className="mt-3 font-mono uppercase tracking-[0.18em] text-[10.5px] text-muted">
-                      {(a.category ?? "article").replace(/-/g, " ")} · {a.readingTime} min
-                    </div>
-                  </div>
-                  <span
-                    aria-hidden
-                    className="hidden md:inline-block font-serif italic text-spine text-[24px] transition-transform group-hover:translate-x-1.5"
-                  >
-                    →
-                  </span>
-                </Link>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      <BlogIndex posts={posts} categories={categories} />
 
       <FinalCta />
       <FooterV2 />

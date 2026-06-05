@@ -50,6 +50,8 @@ export type Page = {
   slug: string;
   /** Raw markdown body (with the `**URL:**` line removed). */
   body: string;
+  /** Featured/hero image for articles (from blog_featured_images.json). */
+  featuredImage?: { src: string; alt: string };
 };
 
 type SitemapEntry = { title: string; url: string; file: string };
@@ -57,6 +59,13 @@ type SitemapEntry = { title: string; url: string; file: string };
 /** Read once at module load — server-side, runs at build time. */
 const sitemapRaw: SitemapEntry[] = JSON.parse(
   fs.readFileSync(path.join(CONTENT_DIR, "sitemap_data.json"), "utf8"),
+);
+
+/** Featured-image manifest (one hero per blog article), keyed by slug. */
+const featuredImagesRaw: { posts: { slug: string; heroUrl: string; alt: string }[] } =
+  JSON.parse(fs.readFileSync(path.join(CONTENT_DIR, "blog_featured_images.json"), "utf8"));
+const featuredImageBySlug = new Map(
+  featuredImagesRaw.posts.map((p) => [p.slug, { src: p.heroUrl, alt: p.alt }] as const),
 );
 
 /** Map a legacy WordPress URL to a local Next.js route. */
@@ -207,6 +216,7 @@ export function getAllPages(): Page[] {
       category: kind === "article" ? deriveCategory(entry.file) : undefined,
       slug: slugFromFile(entry.file, kind),
       body,
+      featuredImage: featuredImageBySlug.get(slugFromFile(entry.file, kind)),
     };
   });
   _allCache = pages;
