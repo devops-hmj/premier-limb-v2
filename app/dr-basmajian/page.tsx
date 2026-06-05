@@ -6,6 +6,14 @@ import { Reveal } from "@/components/v2/Reveal";
 import { FinalCta } from "@/components/v2/FinalCta";
 import { JsonLd } from "@/components/content/JsonLd";
 import { breadcrumb, physicianSchema } from "@/lib/jsonld";
+import {
+  specialties,
+  credentials,
+  training,
+  memberships,
+  publications,
+  bookChapter,
+} from "@/lib/basmajian";
 
 import "../v2.css";
 
@@ -25,26 +33,20 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-const credentials = [
-  { label: "Board Certified", value: "American Board of Orthopaedic Surgery" },
-  { label: "Director", value: "Orthopaedic Trauma · Pomona Valley Hospital Medical Center" },
-  { label: "Faculty", value: "Assistant Professor of Orthopaedic Surgery" },
-  { label: "Previously", value: "Chair of Orthopaedic Trauma · Loma Linda University Medical Center" },
-  { label: "Procedures", value: "Thousands of limb lengthening procedures performed" },
-  { label: "Teaching", value: "Lectures regularly to residents and surgeons on advanced trauma care" },
-] as const;
-
 /**
  * /dr-basmajian — extended editorial bio page.
  *
  * Composition:
- *   Hero band         → eyebrow + h1 + portrait
- *   Lede + intro      → drop-cap paragraph + supporting body
- *   Pull quote        → Dr. Basmajian's mission statement, set as a feature quote
- *   Continued body    → training-other-surgeons paragraph
- *   Credentials       → dossier-style two-column table
- *   CV link           → editorial download CTA
- *   FinalCta          → shared closing
+ *   Hero band            → eyebrow + h1 + portrait + specialties
+ *   Lede + intro         → drop-cap paragraph + supporting body + pull quote
+ *   Credentials          → dossier-style two-column table
+ *   Education & Training  → reverse-chronological training record
+ *   Memberships          → professional society affiliations
+ *   Research             → peer-reviewed publications + book chapter
+ *   CV link              → editorial download CTA
+ *   FinalCta             → shared closing
+ *
+ * CV data lives in lib/basmajian.ts (verified from Dr. Basmajian's CV).
  */
 export default function V2DrBasmajianPage() {
   return (
@@ -71,8 +73,18 @@ export default function V2DrBasmajianPage() {
               Dr. Hrayr <em className="italic text-spine">Basmajian.</em>
             </h1>
             <div className="mt-6 pt-4 border-t border-rule font-mono uppercase tracking-[0.18em] text-[12px] text-ink">
-              Orthopaedic Trauma Surgeon · Fellowship-Trained · Director, PVHMC
+              MD · Fellowship-Trained Trauma Surgeon · Director, PVHMC
             </div>
+            <ul className="mt-5 flex flex-wrap gap-2">
+              {specialties.map((s) => (
+                <li
+                  key={s}
+                  className="font-mono uppercase tracking-[0.16em] text-[10px] text-spine border border-spine/40 px-2.5 py-1.5"
+                >
+                  {s}
+                </li>
+              ))}
+            </ul>
           </Reveal>
 
           <Reveal delay={0.1} className="col-span-12 lg:col-span-5">
@@ -137,8 +149,8 @@ export default function V2DrBasmajianPage() {
                 lengthening, and medicine in general is as significant today as
                 ever. Despite technological advances, a surgeon&rsquo;s
                 dedication to their craft can still be the difference between
-                good and great results. At Premier&rsquo;s Limb-lengthening
-                Institute, each patient is integral to our practice and
+                good and great results. At Premier Limb Lengthening, each
+                patient is integral to our practice and
                 deserves the utmost in attention and care. Our patients always
                 come first and know they will receive direct and honest advice
                 from our team.
@@ -191,14 +203,143 @@ export default function V2DrBasmajianPage() {
               medical centers to enhance quality of care through novel
               operating room procedures and setups.
             </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Education & Training */}
+      <section className="bg-paper-off py-20 lg:py-28 border-b border-rule">
+        <div className="mx-auto max-w-wrap px-6 lg:px-12">
+          <Reveal>
+            <header className="pb-8 mb-12 border-b border-ink">
+              <span className="eyebrow mb-4">Education &amp; Training</span>
+              <h2
+                className="mt-4 font-serif font-normal tracking-[-0.02em] text-ink leading-[0.98] max-w-[24ch]"
+                style={{ fontSize: "clamp(36px, 5.4vw, 76px)" }}
+              >
+                Trained at the <em className="italic text-spine">busiest trauma centers.</em>
+              </h2>
+            </header>
+          </Reveal>
+          <Reveal>
+            <div className="border-t border-ink">
+              {training.map((t) => (
+                <div
+                  key={`${t.role}-${t.place}`}
+                  className="grid grid-cols-1 sm:grid-cols-[200px_1fr_auto] gap-1 sm:gap-8 py-5 border-b border-rule items-baseline"
+                >
+                  <div className="font-mono uppercase tracking-[0.2em] text-[10.5px] text-spine">
+                    {t.role}
+                  </div>
+                  <div className="max-w-[60ch]">
+                    <div className="font-serif text-[18px] lg:text-[20px] leading-[1.3] text-ink">
+                      {t.detail}
+                    </div>
+                    <div className="mt-1 text-[14px] leading-[1.5] text-ink-soft">
+                      {t.place}
+                    </div>
+                  </div>
+                  <div className="font-mono uppercase tracking-[0.18em] text-[10.5px] text-muted sm:text-right">
+                    {t.year}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Memberships & Affiliations */}
+      <section className="bg-paper py-20 lg:py-28 border-b border-rule">
+        <div className="mx-auto max-w-wrap px-6 lg:px-12 grid grid-cols-12 gap-6 lg:gap-8">
+          <Reveal className="col-span-12 lg:col-span-4">
+            <span className="eyebrow mb-4">Memberships</span>
+            <h2
+              className="mt-4 font-serif font-normal tracking-[-0.02em] text-ink leading-[1] max-w-[14ch]"
+              style={{ fontSize: "clamp(32px, 4.2vw, 56px)" }}
+            >
+              Societies &amp; <em className="italic text-spine">affiliations.</em>
+            </h2>
+          </Reveal>
+          <Reveal delay={0.1} className="col-span-12 lg:col-span-8">
+            <ul className="border-t border-ink">
+              {memberships.map((m) => (
+                <li
+                  key={m}
+                  className="grid grid-cols-[24px_1fr] gap-3 items-baseline py-4 border-b border-rule text-[16px] lg:text-[17px] leading-[1.4] text-ink"
+                >
+                  <span aria-hidden className="font-serif font-medium text-spine text-[18px]">+</span>
+                  <span>{m}</span>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Research & Publications */}
+      <section className="bg-paper-off py-20 lg:py-28 border-b border-rule">
+        <div className="mx-auto max-w-wrap px-6 lg:px-12">
+          <Reveal>
+            <header className="pb-8 mb-12 border-b border-ink">
+              <span className="eyebrow mb-4">Research</span>
+              <h2
+                className="mt-4 font-serif font-normal tracking-[-0.02em] text-ink leading-[0.98] max-w-[26ch]"
+                style={{ fontSize: "clamp(36px, 5.4vw, 76px)" }}
+              >
+                Peer-reviewed <em className="italic text-spine">publications.</em>
+              </h2>
+              <p className="mt-5 text-[15.5px] leading-[1.7] text-ink-soft max-w-[62ch]">
+                Selected publications in the orthopaedic literature, alongside
+                national podium presentations at the Orthopaedic Trauma
+                Association and the American Academy of Orthopaedic Surgeons.
+              </p>
+            </header>
+          </Reveal>
+          <Reveal>
+            <ol className="border-t border-ink">
+              {publications.map((p, i) => (
+                <li
+                  key={p.title}
+                  className="grid grid-cols-1 sm:grid-cols-[44px_1fr] gap-2 sm:gap-6 py-6 border-b border-rule"
+                >
+                  <div className="font-mono uppercase tracking-[0.2em] text-[10.5px] text-spine pt-1">
+                    {String(i + 1).padStart(2, "0")}
+                  </div>
+                  <div className="max-w-[78ch]">
+                    <p className="font-serif text-[17px] lg:text-[19px] leading-[1.4] text-ink">
+                      {p.title}
+                    </p>
+                    <p className="mt-1.5 text-[13.5px] leading-[1.5] text-ink-soft">
+                      {p.authors}
+                    </p>
+                    <p className="mt-1 font-mono uppercase tracking-[0.14em] text-[10.5px] text-muted">
+                      <span className="text-spine">{p.journal}</span> · {p.year}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+
+            <div className="mt-8 border border-rule bg-paper p-6 lg:p-7 max-w-[80ch]">
+              <div className="font-mono uppercase tracking-[0.2em] text-[10.5px] text-spine mb-2">
+                Book Chapter
+              </div>
+              <p className="font-serif text-[17px] lg:text-[19px] leading-[1.4] text-ink">
+                {bookChapter.title}
+              </p>
+              <p className="mt-1.5 text-[13.5px] leading-[1.5] text-ink-soft">
+                {bookChapter.authors} {bookChapter.source}
+              </p>
+            </div>
 
             <a
               href="https://premierlimblengthening.com/wp-content/uploads/2023/09/Basmajian-CV.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="group mt-8 inline-flex items-center gap-3 px-5 py-3.5 bg-ink text-paper uppercase tracking-wide text-[12px] font-medium hover:bg-spine transition-colors"
+              className="group mt-10 inline-flex items-center gap-3 px-5 py-3.5 bg-ink text-paper uppercase tracking-wide text-[12px] font-medium hover:bg-spine transition-colors"
             >
-              Curriculum Vitae &amp; PubMed Articles
+              Full Curriculum Vitae &amp; PubMed Articles
               <span className="font-serif italic text-[17px] transition-transform group-hover:translate-x-1" aria-hidden>→</span>
             </a>
           </Reveal>
