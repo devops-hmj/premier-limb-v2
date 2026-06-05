@@ -2,14 +2,14 @@
 
 **URL:** https://premierlimblengthening.com/your-surgery/how-much-taller-can-i-get-with-limb-lengthening/
 
-![Height Comparison Scale](/images/your-surgery/how-much-taller-scale.png)
+![Height Comparison Scale](/images/your-surgery/how-much-taller-scale.webp)
 
 How Much Taller Can I Get With Limb Lengthening?
 ================================================
 
 To get right to the point, the most you can safely achieve with limb lengthening is, theoretically, about 6 inches. However, as we get closer to that maximum lengthening, the risk of complications and poor outcomes increases dramatically. To understand how tall you can get, we must discuss the implant used to facilitate the extension. Modern limb lengthening relies on what is known as an intramedullary nail. This is a metal device that fits inside the bone and provides stability during the distraction or lengthening process. Each of these rods has a maximum lengthening capability of approximately 3 inches. We can, in theory, achieve 3 inches in the femur or thigh bone above the knee and the tibia below the knee. As mentioned above, getting too close to this maximum length is problematic, especially with the lower bone or tibia. As such, we tend to max out the tibial distraction to approximately 2-2.5 inches, while we can get closer to 3 inches with the femur.
 
-![Femur and Tibia Lengthening Margins](/images/your-surgery/how-much-taller-anatomy.png)
+![Femur and Tibia Lengthening Margins](/images/your-surgery/how-much-taller-anatomy.webp)
 
 Why Can’t I Get Even Taller?
 ----------------------------

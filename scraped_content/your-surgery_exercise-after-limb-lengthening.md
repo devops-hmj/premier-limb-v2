@@ -2,7 +2,7 @@
 
 **URL:** https://premierlimblengthening.com/your-surgery/exercise-after-limb-lengthening/
 
-![Athlete Stretching Leg Muscles](/images/your-surgery/exercise-muscle-stretch.png)
+![Athlete Stretching Leg Muscles](/images/your-surgery/exercise-muscle-stretch.webp)
 
 Can I Exercise After Limb Lengthening?
 ======================================
@@ -16,7 +16,7 @@ First, **don’t start the process before the bone is fully healed**. You will a
 
 **Start slow**. Whether you were an athlete or casual exerciser before your procedure, exercise routines must start slowly as you get back on your feet. This is for several reasons. While the bone lengthening process is relatively straightforward, tendons and muscles in the leg are not as easily manipulated. You will experience tension in these soft tissues that require exercises to loosen and adapt them – starting too quickly can lead to injuries and significant downtime. Your physical therapist will give you at-home exercises to perform after the surgery.
 
-![Guided Physical Therapy Exercise](/images/your-surgery/exercise-physical-therapy.png)
+![Guided Physical Therapy Exercise](/images/your-surgery/exercise-physical-therapy.webp)
 
 **Complete your physical therapy exercises**. Depending on how long you have been off your feet, you will need to complete an intense physical therapy regimen to ensure that the soft tissue of the limb you have lengthened remains solid and supportive. Physical therapy is one of the best ways to ensure you return to regular activity as soon as possible and is essential to mitigate potential injury once your exercise routine begins.
 

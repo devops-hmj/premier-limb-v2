@@ -2,7 +2,7 @@
 
 **URL:** https://premierlimblengthening.com/your-surgery/can-i-bend-my-lengthening-nail/
 
-![Intramedullary Lengthening Nail](/images/your-surgery/bend-nail-im-nail.png)
+![Intramedullary Lengthening Nail](/images/your-surgery/bend-nail-im-nail.webp)
 
 Can I Bend My Lengthening Nail?
 ===============================
@@ -24,4 +24,4 @@ Bending the intramedullary rod used to lengthen a leg is unlikely but possible. 
 
 [Consult](https://premierlimblengthening.com/consult/)
 
-![Implant Load Limits and Stress Points](/images/your-surgery/bend-nail-load-limits.png)
+![Implant Load Limits and Stress Points](/images/your-surgery/bend-nail-load-limits.webp)

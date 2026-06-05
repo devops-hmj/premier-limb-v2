@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     type: "article",
     images: [
       {
-        url: "/images/your-surgery/overview-magnetic-lengthening.png",
+        url: "/images/your-surgery/overview-magnetic-lengthening.webp",
         alt: "Magnetic Limb Lengthening Diagram",
       },
     ],

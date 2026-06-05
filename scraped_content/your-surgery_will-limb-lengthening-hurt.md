@@ -2,7 +2,7 @@
 
 **URL:** https://premierlimblengthening.com/your-surgery/will-limb-lengthening-hurt/
 
-![Clinical Consultation](/images/your-surgery/will-hurt-consultation.png)
+![Clinical Consultation](/images/your-surgery/will-hurt-consultation.webp)
 
 Will Limb Lengthening Hurt?
 ===========================
@@ -19,6 +19,6 @@ Minimally Invasive
 
 As for incisions, modern technology has allowed us to use the most minimally invasive tools, minimizing any incisions and scarring after surgery. It is worth understanding your post-operative instructions and responsibilities to reduce any pain or chance of infection after surgery.
 
-![Modern Pain Management Diagram](/images/your-surgery/will-hurt-pain-management.png)
+![Modern Pain Management Diagram](/images/your-surgery/will-hurt-pain-management.webp)
 
 While the healing process is usually well tolerated, we strongly suggest aggressive physical therapy. Preemptively working on the affected muscles and nerves can speed the process dramatically and reduce the risk of complications in the future.

@@ -2,7 +2,7 @@
 
 **URL:** https://premierlimblengthening.com/your-surgery/
 
-![Magnetic Limb Lengthening](/images/your-surgery/overview-magnetic-lengthening.png)
+![Magnetic Limb Lengthening](/images/your-surgery/overview-magnetic-lengthening.webp)
 
 What Is Limb Lengthening Surgery?
 =================================
@@ -18,7 +18,7 @@ You may wonder how the procedure works and should be happy to know it is very st
 
 Regardless of the technology employed, the bone needs to be cut in a surgery known as osteotomy. At this point, an external or internal guidance system is used to distract or pull the ends of the bone away from each other.
 
-![Remote Control Device](/images/your-surgery/overview-controller-device.png)
+![Remote Control Device](/images/your-surgery/overview-controller-device.webp)
 
 ### **External Fixation**
 

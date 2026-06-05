@@ -2,7 +2,7 @@
 
 **URL:** https://premierlimblengthening.com/your-surgery/external-internal-lengthening/
 
-![External vs Internal Lengthening Comparison](/images/your-surgery/ext-int-comparison.png)
+![External vs Internal Lengthening Comparison](/images/your-surgery/ext-int-comparison.webp)
 
 Comparing External Fixation to Internal Lengthening
 ===================================================
@@ -24,7 +24,7 @@ Similarly, the external fixator necessarily requires obvious scars. The external
 
 While cosmetically, the intramedullary rod is preferable, it requires that the patient not put any weight on the leg until the lengthening is complete and the bone has hardened. While this was addressed with a newer generation nail (Precice Stryde) that allowed for weight-bearing during the process, this nail was recalled and remains off the market until the manufacturer can address the biocompatibility concerns of the recall. We expect that this will occur sometime in early 2023.
 
-![Cosmetic Considerations and Scarring](/images/your-surgery/ext-int-cosmetic.png)
+![Cosmetic Considerations and Scarring](/images/your-surgery/ext-int-cosmetic.webp)
 
 Under and Overcorrection
 ------------------------
