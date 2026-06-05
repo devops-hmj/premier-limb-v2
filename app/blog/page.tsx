@@ -6,7 +6,7 @@ import { Reveal } from "@/components/v2/Reveal";
 import { JsonLd } from "@/components/content/JsonLd";
 import { BlogIndex } from "@/components/v2/blog/BlogIndex";
 import type { PostDTO } from "@/components/v2/blog/PostCard";
-import { formatDate, getArticles } from "@/lib/content";
+import { CATEGORY_LABELS, CATEGORY_ORDER, formatDate, getArticles } from "@/lib/content";
 import { breadcrumb, collectionPageSchema } from "@/lib/jsonld";
 
 import "../v2.css";
@@ -25,22 +25,6 @@ export const metadata: Metadata = {
   },
   robots: { index: true, follow: true },
 };
-
-/** Human labels + display order for the deriveCategory() taxonomy. */
-const CATEGORY_LABELS: Record<string, string> = {
-  "limb-lengthening": "Limb Lengthening",
-  "bone-health": "Bone Health",
-  "impact-on-the-body": "Impact on the Body",
-  "after-limb-lengthening": "After Limb Lengthening",
-  "paying-for-limb-lengthening": "Paying for Limb Lengthening",
-};
-const CATEGORY_ORDER = [
-  "limb-lengthening",
-  "bone-health",
-  "impact-on-the-body",
-  "after-limb-lengthening",
-  "paying-for-limb-lengthening",
-];
 
 export default function V2BlogPage() {
   const articles = getArticles();

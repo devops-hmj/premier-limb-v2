@@ -286,6 +286,35 @@ export function getAllRoutes(): string[] {
   return getAllPages().map((p) => p.route);
 }
 
+/** Blog taxonomy (mirrors the deriveCategory slugs): labels, display order,
+ *  and short archive descriptions. Shared by /blog and /category/<slug>. */
+export const CATEGORY_LABELS: Record<string, string> = {
+  "limb-lengthening": "Limb Lengthening",
+  "bone-health": "Bone Health",
+  "impact-on-the-body": "Impact on the Body",
+  "after-limb-lengthening": "After Limb Lengthening",
+  "paying-for-limb-lengthening": "Paying for Limb Lengthening",
+};
+export const CATEGORY_ORDER = [
+  "limb-lengthening",
+  "bone-health",
+  "impact-on-the-body",
+  "after-limb-lengthening",
+  "paying-for-limb-lengthening",
+];
+export const CATEGORY_DESCRIPTIONS: Record<string, string> = {
+  "limb-lengthening": "Guides to cosmetic and reconstructive limb lengthening: candidacy, the procedure, and what to expect.",
+  "bone-health": "How bone regenerates, and the nutrition that supports lengthening and recovery.",
+  "impact-on-the-body": "What limb lengthening means for your muscles, pain, and the rest of the body.",
+  "after-limb-lengthening": "Recovery, physical therapy, travel, and life after limb lengthening surgery.",
+  "paying-for-limb-lengthening": "Cost, insurance, and financing for limb lengthening.",
+};
+
+/** Articles in a given category, newest-first. */
+export function getArticlesByCategory(slug: string): Page[] {
+  return getArticles().filter((p) => (p.category ?? "limb-lengthening") === slug);
+}
+
 /**
  * Extract H2 headings (text + anchor id) from a markdown body, for the article
  * table of contents. The ids match the slugs Prose assigns to each <h2>.

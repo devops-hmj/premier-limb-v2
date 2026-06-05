@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getArticles, getPagesByKind, ORIGIN } from "@/lib/content";
+import { CATEGORY_ORDER, getArticles, getPagesByKind, ORIGIN } from "@/lib/content";
 
 /**
  * Sitemap, Next.js native route.
@@ -31,9 +31,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const articles: MetadataRoute.Sitemap = getArticles().map((a) => ({
     url: `${ORIGIN}/${a.slug}`,
-    lastModified: now,
+    lastModified: a.date ? new Date(a.date) : now,
     changeFrequency: "monthly",
     priority: 0.6,
+  }));
+
+  const categories: MetadataRoute.Sitemap = CATEGORY_ORDER.map((slug) => ({
+    url: `${ORIGIN}/category/${slug}`,
+    lastModified: now,
+    changeFrequency: "weekly",
+    priority: 0.5,
   }));
 
   const surgerySub: MetadataRoute.Sitemap = getPagesByKind("service-sub").map((s) => ({
@@ -43,5 +50,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...surfaces, ...articles, ...surgerySub];
+  return [...surfaces, ...articles, ...surgerySub, ...categories];
 }

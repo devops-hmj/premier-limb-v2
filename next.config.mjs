@@ -25,15 +25,6 @@
  * See: SEO_AUDIT.md §3 "Option A".
  */
 
-/** Category pages, not yet built. Land on /blog. */
-const categorySlugs = [
-  "limb-lengthening",
-  "bone-health",
-  "after-limb-lengthening",
-  "paying-for-limb-lengthening",
-  "impact-on-the-body",
-];
-
 /** Author pages, not yet built. Land on /blog. */
 const authorSlugs = ["ccatandella", "cjpeters", "edusenbury"];
 
@@ -44,12 +35,6 @@ const nextConfig = {
 
   async redirects() {
     return [
-      // Category pages, interim until built (audit §2d).
-      ...categorySlugs.flatMap((slug) => [
-        { source: `/category/${slug}`,  destination: "/blog", permanent: false },
-        { source: `/category/${slug}/`, destination: "/blog", permanent: false },
-      ]),
-
       // Author pages, interim until built (audit §2e).
       ...authorSlugs.flatMap((slug) => [
         { source: `/author/${slug}`,  destination: "/blog", permanent: false },

@@ -7,7 +7,7 @@ import { NavV2 } from "@/components/v2/NavV2";
 import { Reveal } from "@/components/v2/Reveal";
 import { Prose } from "@/components/content/Prose";
 import { JsonLd } from "@/components/content/JsonLd";
-import { formatDate, getArticles, getHeadings, getPageByRoute, getRelatedArticles } from "@/lib/content";
+import { CATEGORY_LABELS, formatDate, getArticles, getHeadings, getPageByRoute, getRelatedArticles } from "@/lib/content";
 import { articleSchema, breadcrumb } from "@/lib/jsonld";
 
 import "../v2.css";
@@ -77,6 +77,9 @@ export default async function Page({ params }: { params: Promise<RouteParams> })
           breadcrumb([
             { name: "Home", url: "/" },
             { name: "Blog", url: "/blog" },
+            ...(page.category
+              ? [{ name: CATEGORY_LABELS[page.category] ?? page.category, url: `/category/${page.category}` }]
+              : []),
             { name: page.title, url: page.route },
           ]),
         ]}
@@ -96,7 +99,12 @@ export default async function Page({ params }: { params: Promise<RouteParams> })
                 {page.category && (
                   <>
                     <span aria-hidden className="mx-2">·</span>
-                    <span className="text-ink">{page.category.replace(/-/g, " ")}</span>
+                    <Link
+                      href={`/category/${page.category}`}
+                      className="text-ink hover:text-spine transition-colors"
+                    >
+                      {CATEGORY_LABELS[page.category] ?? page.category.replace(/-/g, " ")}
+                    </Link>
                   </>
                 )}
               </nav>
@@ -114,7 +122,13 @@ export default async function Page({ params }: { params: Promise<RouteParams> })
                 </span>
                 {page.category && (
                   <span>
-                    <span className="text-ink font-medium">Category</span> · {page.category.replace(/-/g, " ")}
+                    <span className="text-ink font-medium">Category</span> ·{" "}
+                    <Link
+                      href={`/category/${page.category}`}
+                      className="hover:text-spine transition-colors"
+                    >
+                      {CATEGORY_LABELS[page.category] ?? page.category.replace(/-/g, " ")}
+                    </Link>
                   </span>
                 )}
                 <span>
