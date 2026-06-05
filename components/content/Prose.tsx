@@ -77,16 +77,33 @@ export function Prose({ children, className, skipFirstParagraph = false }: Prose
           p: ({ children }) => (
             <p className="text-t-l text-ink-soft leading-[1.7] mb-5">{children}</p>
           ),
-          a: ({ href, children }) => (
-            <a
-              href={href}
-              className="text-signal underline decoration-signal/40 underline-offset-4 hover:decoration-signal transition-colors"
-              target={href?.startsWith("http") ? "_blank" : undefined}
-              rel={href?.startsWith("http") ? "noopener noreferrer" : undefined}
-            >
-              {children}
-            </a>
-          ),
+          a: ({ href, children }) => {
+            // Scraped article bodies contain absolute links to the live
+            // WordPress site. Rewrite same-site links to internal relative
+            // paths so they navigate inside the new app (no jump to the old
+            // domain); leave genuinely external links to open in a new tab.
+            const raw = typeof href === "string" ? href : "";
+            const stripped = raw.replace(
+              /^https?:\/\/(www\.)?premierlimblengthening\.com/i,
+              "",
+            );
+            const isSameSite = stripped !== raw;
+            let finalHref = raw;
+            if (isSameSite) {
+              finalHref = stripped.replace(/\/+$/, "") || "/"; // slashless routes
+            }
+            const isExternal = !isSameSite && /^https?:\/\//i.test(raw);
+            return (
+              <a
+                href={finalHref}
+                className="text-signal underline decoration-signal/40 underline-offset-4 hover:decoration-signal transition-colors"
+                target={isExternal ? "_blank" : undefined}
+                rel={isExternal ? "noopener noreferrer" : undefined}
+              >
+                {children}
+              </a>
+            );
+          },
           strong: ({ children }) => (
             <strong className="font-medium text-ink">{children}</strong>
           ),
