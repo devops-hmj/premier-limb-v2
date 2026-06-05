@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import { NavV2Overlay } from "./NavV2";
 
 /**
@@ -17,23 +18,83 @@ import { NavV2Overlay } from "./NavV2";
  *   <hero content>   → headline + deck. z-10.
  */
 export function HeroStage() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [muted, setMuted] = useState(true);
+
+  // Browsers only permit autoplay while muted. Start muted (so it autoplays),
+  // then enable sound at the visitor's first interaction — click, tap, key, or
+  // scroll. This is the closest behaviour to "autoplay with sound" that the
+  // browser autoplay policy allows. A manual toggle is also provided.
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = true;
+    let armed = true;
+    const enableSound = () => {
+      if (!armed) return;
+      armed = false;
+      v.muted = false;
+      setMuted(false);
+      void v.play?.().catch(() => {});
+      teardown();
+    };
+    const teardown = () => {
+      window.removeEventListener("pointerdown", enableSound);
+      window.removeEventListener("keydown", enableSound);
+      window.removeEventListener("touchstart", enableSound);
+      window.removeEventListener("scroll", enableSound);
+    };
+    window.addEventListener("pointerdown", enableSound);
+    window.addEventListener("keydown", enableSound);
+    window.addEventListener("touchstart", enableSound);
+    window.addEventListener("scroll", enableSound, { passive: true });
+    return teardown;
+  }, []);
+
+  const toggleSound = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = !v.muted;
+    setMuted(v.muted);
+    if (!v.muted) void v.play?.().catch(() => {});
+  };
+
   return (
     <div className="v2-video-stage relative border-b border-ink min-h-[100svh] lg:h-[100svh] lg:overflow-hidden flex flex-col">
       {/* Animated gradient sits behind the video as a load-time placeholder. */}
       <div className="v2-vbg" aria-hidden />
       <video
+        ref={videoRef}
         aria-hidden
         autoPlay
         muted
         loop
         playsInline
         preload="auto"
+        poster="/video/home-hero-poster.jpg"
         className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
       >
-        <source src="/video/dr-hero.mp4" type="video/mp4" />
+        <source src="/video/home-hero.mp4" type="video/mp4" />
       </video>
       <div className="v2-vshade" aria-hidden />
       <span className="v2-vplate hidden lg:inline-flex" aria-hidden>Reel · Looping</span>
+
+      <button
+        type="button"
+        onClick={toggleSound}
+        aria-label={muted ? "Turn hero video sound on" : "Mute hero video"}
+        className="absolute z-20 bottom-5 right-5 lg:bottom-7 lg:right-7 inline-flex items-center gap-2 bg-ink/70 hover:bg-ink text-white backdrop-blur px-3.5 py-2.5 font-mono uppercase tracking-[0.18em] text-[10.5px] transition-colors"
+      >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden className="shrink-0">
+          <path d="M3 9v6h4l5 4V5L7 9H3z" fill="currentColor" />
+          {muted ? (
+            <path d="M16 9l5 6M21 9l-5 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+          ) : (
+            <path d="M16 8.5a4.5 4.5 0 010 7M18.5 6a8 8 0 010 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" />
+          )}
+        </svg>
+        <span>{muted ? "Sound off" : "Sound on"}</span>
+      </button>
 
       <NavV2Overlay />
 
