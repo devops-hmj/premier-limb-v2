@@ -7,7 +7,7 @@ import { NavV2 } from "@/components/v2/NavV2";
 import { Reveal } from "@/components/v2/Reveal";
 import { Prose } from "@/components/content/Prose";
 import { JsonLd } from "@/components/content/JsonLd";
-import { getArticles, getHeadings, getPageByRoute, getRelatedArticles } from "@/lib/content";
+import { formatDate, getArticles, getHeadings, getPageByRoute, getRelatedArticles } from "@/lib/content";
 import { articleSchema, breadcrumb } from "@/lib/jsonld";
 
 import "../v2.css";
@@ -120,6 +120,12 @@ export default async function Page({ params }: { params: Promise<RouteParams> })
                 <span>
                   <span className="text-ink font-medium">By</span> · Dr. Hrayr Basmajian
                 </span>
+                {page.date && (
+                  <span>
+                    <span className="text-ink font-medium">Published</span> ·{" "}
+                    <time dateTime={page.date}>{formatDate(page.date)}</time>
+                  </span>
+                )}
               </div>
             </Reveal>
           </div>

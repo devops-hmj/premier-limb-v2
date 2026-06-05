@@ -8,6 +8,7 @@ export type PostDTO = {
   category: string;
   categoryLabel: string;
   image?: { src: string; alt: string };
+  date?: string;
 };
 
 /**
@@ -37,7 +38,8 @@ export function PostCard({ post }: { post: PostDTO }) {
       </div>
 
       <div className="mt-4 font-mono uppercase tracking-[0.18em] text-[10.5px] text-muted">
-        {post.categoryLabel} · {post.readingTime} min
+        {post.categoryLabel}
+        {post.date ? ` · ${post.date}` : ""} · {post.readingTime} min
       </div>
       <h3 className="mt-2 font-serif font-medium text-[22px] lg:text-[24px] leading-[1.15] tracking-[-0.01em] text-ink group-hover:text-spine transition-colors max-w-[40ch]">
         {post.title}

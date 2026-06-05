@@ -68,6 +68,8 @@ export function articleSchema(p: Page) {
     headline: p.title,
     description: p.description,
     image: p.featuredImage?.src,
+    datePublished: p.date,
+    dateModified: p.date,
     mainEntityOfPage: { "@type": "WebPage", "@id": `${ORIGIN}${p.route}` },
     author: {
       "@type": "Person",

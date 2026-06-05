@@ -52,6 +52,8 @@ export type Page = {
   body: string;
   /** Featured/hero image for articles (from blog_featured_images.json). */
   featuredImage?: { src: string; alt: string };
+  /** ISO 8601 publish date (articles), from the legacy WordPress post list. */
+  date?: string;
 };
 
 type SitemapEntry = { title: string; url: string; file: string };
@@ -67,6 +69,35 @@ const featuredImagesRaw: { posts: { slug: string; heroUrl: string; alt: string }
 const featuredImageBySlug = new Map(
   featuredImagesRaw.posts.map((p) => [p.slug, { src: p.heroUrl, alt: p.alt }] as const),
 );
+
+/** Real publish dates from the legacy WordPress post list (ISO 8601, Pacific). */
+const PUBLISH_DATES: Record<string, string> = {
+  "are-you-a-good-candidate-for-limb-lengthening": "2025-12-25T21:14:00-08:00",
+  "what-happens-to-muscle-during-and-after-limb-lengthening": "2025-12-11T20:36:00-08:00",
+  "the-science-behind-bone-regeneration-and-limb-lengthening": "2025-11-27T15:34:00-08:00",
+  "bone-health-and-nutrition-before-and-after-limb-lengthening": "2025-11-13T15:17:00-08:00",
+  "tips-for-traveling-for-the-holidays-after-limb-lengthening-surgery": "2025-10-23T00:36:00-07:00",
+  "the-importance-of-physical-therapy-in-limb-lengthening": "2025-10-09T00:20:00-07:00",
+  "is-limb-lengthening-covered-by-insurance": "2025-09-25T19:25:00-07:00",
+  "limb-lengthening-pain-the-truth": "2025-09-11T19:12:00-07:00",
+  "will-leg-lengthening-be-obvious": "2025-08-28T17:25:00-07:00",
+  "fixation-methods-in-limb-lengthening-internal-vs-external": "2025-08-14T22:29:00-07:00",
+  "is-leg-lengthening-off-limits-for-athletes": "2025-07-24T02:18:00-07:00",
+  "am-i-too-old-for-limb-lengthening": "2025-07-10T00:43:00-07:00",
+  "leg-up-or-let-down-can-you-gain-height-without-surgery": "2025-06-26T17:28:00-07:00",
+  "can-i-get-a-leg-lengthening-procedure-for-cosmetic-reasons": "2025-06-12T17:22:00-07:00",
+  "limb-lengthening-what-you-gain-what-you-risk": "2025-05-22T16:57:00-07:00",
+  "rewriting-the-body-norm-stigmas-around-limb-lengthening": "2025-05-08T17:00:00-07:00",
+};
+
+/** Format an ISO date as "Dec 25, 2025" (date part only, timezone-agnostic). */
+export function formatDate(iso?: string): string | undefined {
+  if (!iso) return undefined;
+  const m = iso.match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (!m) return undefined;
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  return `${months[Number(m[2]) - 1]} ${Number(m[3])}, ${m[1]}`;
+}
 
 /** Map a legacy WordPress URL to a local Next.js route. */
 function urlToRoute(url: string): string {
@@ -217,6 +248,7 @@ export function getAllPages(): Page[] {
       slug: slugFromFile(entry.file, kind),
       body,
       featuredImage: featuredImageBySlug.get(slugFromFile(entry.file, kind)),
+      date: PUBLISH_DATES[slugFromFile(entry.file, kind)],
     };
   });
   _allCache = pages;
@@ -234,7 +266,10 @@ export function getPagesByKind(kind: PageKind): Page[] {
 export function getArticles(): Page[] {
   // Top-level articles only (kind === "article"). Service sub-pages and videos
   // intentionally excluded — those have their own listing surfaces.
-  return getAllPages().filter((p) => p.kind === "article");
+  // Sorted newest-first by real publish date.
+  return getAllPages()
+    .filter((p) => p.kind === "article")
+    .sort((a, b) => (b.date ?? "").localeCompare(a.date ?? ""));
 }
 
 export function getRelatedArticles(currentSlug: string, category?: string, limit = 3): Page[] {

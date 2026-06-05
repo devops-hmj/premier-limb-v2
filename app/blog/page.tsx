@@ -6,7 +6,7 @@ import { Reveal } from "@/components/v2/Reveal";
 import { JsonLd } from "@/components/content/JsonLd";
 import { BlogIndex } from "@/components/v2/blog/BlogIndex";
 import type { PostDTO } from "@/components/v2/blog/PostCard";
-import { getArticles } from "@/lib/content";
+import { formatDate, getArticles } from "@/lib/content";
 import { breadcrumb, collectionPageSchema } from "@/lib/jsonld";
 
 import "../v2.css";
@@ -55,6 +55,7 @@ export default function V2BlogPage() {
       category,
       categoryLabel: CATEGORY_LABELS[category] ?? category.replace(/-/g, " "),
       image: a.featuredImage,
+      date: formatDate(a.date),
     };
   });
 
