@@ -24,7 +24,7 @@ export function siteGraph() {
         url: ORIGIN,
         telephone: "+1-909-461-4984",
         faxNumber: "+1-909-596-4344",
-        priceRange: "$77,500–$85,000",
+        priceRange: "$95,500–$293,000",
         medicalSpecialty: ["Orthopedic", "Trauma"],
         address: {
           "@type": "PostalAddress",

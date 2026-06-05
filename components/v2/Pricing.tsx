@@ -2,55 +2,12 @@
 
 import { motion } from "framer-motion";
 import { Reveal } from "./Reveal";
+import { plans } from "@/lib/pricing-plans";
 
-const plans = [
-  {
-    bar: "Plan 01 · Precice 2.2",
-    title: "Femur Lengthening",
-    gen: "Internal Nail (Precice 2.2)",
-    price: "$77,500",
-    from: "Starting from",
-    features: [
-      "Surgery + anesthesia",
-      "Precice 2.2 nail implant",
-      "Hospital stay (1 to 2 nights)",
-      "Post-op follow-up visits",
-      "Height gain: up to 3″",
-    ],
-    featured: false,
-  },
-  {
-    bar: "Plan 02 · 4th Gen",
-    badge: "Most Selected",
-    title: "Femur Lengthening",
-    gen: "Precice 4th-Gen (MAX) Nail",
-    price: "$80,000",
-    from: "Latest technology",
-    features: [
-      "Surgery + anesthesia",
-      "Precice MAX nail (4th gen)",
-      "Hospital stay (1 to 2 nights)",
-      "Post-op follow-up visits",
-      "Height gain: up to 3″",
-    ],
-    featured: true,
-  },
-  {
-    bar: "Plan 03 · Tibia",
-    title: "Tibia Lengthening",
-    gen: "Internal Nail (Precice)",
-    price: "$83k to $85k",
-    from: "Depending on nail generation",
-    features: [
-      "Surgery + anesthesia",
-      "Precice nail implant",
-      "Hospital stay (1 to 2 nights)",
-      "Post-op follow-up visits",
-      "Height gain: up to 3″",
-    ],
-    featured: false,
-  },
-] as const;
+// Homepage teaser: the first three tiers from the canonical pricing data
+// (single source of truth shared with /limb-lengthening-pricing-options) so the
+// homepage cards can never drift out of sync with the full pricing page again.
+const homePlans = plans.slice(0, 3);
 
 export function Pricing() {
   return (
@@ -76,7 +33,7 @@ export function Pricing() {
         </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-3 border-t border-b border-ink">
-          {plans.map((p, i) => (
+          {homePlans.map((p, i) => (
             <motion.article
               key={p.bar}
               initial={{ opacity: 0, y: 18 }}
@@ -87,13 +44,13 @@ export function Pricing() {
               className={`
                 relative py-10 px-7 md:px-0 md:pr-7
                 ${i > 0 ? "md:pl-7" : ""}
-                ${i < plans.length - 1 ? "md:border-r border-rule" : ""}
+                ${i < homePlans.length - 1 ? "md:border-r border-rule" : ""}
                 ${i > 0 ? "border-t md:border-t-0 border-rule" : ""}
-                ${p.featured ? "bg-paper md:px-7" : "bg-paper-off"}
+                ${"featured" in p && p.featured ? "bg-paper md:px-7" : "bg-paper-off"}
               `}
             >
               <div className="mb-5 flex items-center gap-2.5 font-mono uppercase tracking-[0.22em] text-[10.5px] text-muted">
-                {p.featured && p.badge && (
+                {"featured" in p && p.featured && "badge" in p && p.badge && (
                   <span className="bg-spine text-paper font-medium px-2.5 py-1 tracking-[0.22em]">
                     {p.badge}
                   </span>

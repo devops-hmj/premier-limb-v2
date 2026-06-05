@@ -17,7 +17,7 @@ const sections = {
     { label: "FAQ", href: "/#faq" },
   ],
   resources: [
-    { label: "Resources", href: "/blog" },
+    { label: "Blog", href: "/blog" },
     { label: "Schedule Consultation", href: "/consult" },
     { label: "Financing Options", href: "/limb-lengthening-pricing-options#financing" },
   ],

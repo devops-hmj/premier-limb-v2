@@ -21,14 +21,30 @@ export function HeroStage() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [muted, setMuted] = useState(true);
 
-  // Browsers only permit autoplay while muted. Start muted (so it autoplays),
-  // then enable sound at the visitor's first interaction — click, tap, key, or
-  // scroll. This is the closest behaviour to "autoplay with sound" that the
-  // browser autoplay policy allows. A manual toggle is also provided.
+  // React's `muted` JSX attribute is NOT reliably reflected to the DOM
+  // property, and browsers block muted-autoplay if the property isn't set when
+  // they evaluate it — so set it imperatively the moment the node mounts.
+  const attachVideo = (el: HTMLVideoElement | null) => {
+    videoRef.current = el;
+    if (el) el.muted = true;
+  };
+
+  // Kick playback explicitly (don't trust the autoPlay attribute alone) and
+  // retry once the browser has buffered enough. Then enable sound at the
+  // visitor's first interaction — click, tap, key, or scroll. A manual toggle
+  // is also provided. This is the closest to "autoplay with sound" allowed.
   useEffect(() => {
     const v = videoRef.current;
     if (!v) return;
     v.muted = true;
+
+    const tryPlay = () => {
+      void v.play?.().catch(() => {});
+    };
+    tryPlay();
+    v.addEventListener("canplay", tryPlay);
+    v.addEventListener("loadeddata", tryPlay);
+
     let armed = true;
     const enableSound = () => {
       if (!armed) return;
@@ -36,9 +52,9 @@ export function HeroStage() {
       v.muted = false;
       setMuted(false);
       void v.play?.().catch(() => {});
-      teardown();
+      detachInteraction();
     };
-    const teardown = () => {
+    const detachInteraction = () => {
       window.removeEventListener("pointerdown", enableSound);
       window.removeEventListener("keydown", enableSound);
       window.removeEventListener("touchstart", enableSound);
@@ -48,7 +64,12 @@ export function HeroStage() {
     window.addEventListener("keydown", enableSound);
     window.addEventListener("touchstart", enableSound);
     window.addEventListener("scroll", enableSound, { passive: true });
-    return teardown;
+
+    return () => {
+      v.removeEventListener("canplay", tryPlay);
+      v.removeEventListener("loadeddata", tryPlay);
+      detachInteraction();
+    };
   }, []);
 
   const toggleSound = () => {
@@ -64,7 +85,7 @@ export function HeroStage() {
       {/* Animated gradient sits behind the video as a load-time placeholder. */}
       <div className="v2-vbg" aria-hidden />
       <video
-        ref={videoRef}
+        ref={attachVideo}
         aria-hidden
         autoPlay
         muted
