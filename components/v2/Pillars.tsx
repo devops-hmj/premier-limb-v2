@@ -25,7 +25,7 @@ const pillars = [
   {
     tag: "04 · Institution",
     title: "Institutional Depth",
-    body: "Backed by Premier Orthopaedic & Trauma Specialists: 17+ surgeons, in-house physical therapy, on-site imaging.",
+    body: "Founded by Dr. Basmajian, who also founded Premier Orthopaedic & Trauma Specialists, a 17+ surgeon group with in-house physical therapy and on-site imaging. Our patients access that infrastructure through his network.",
     link: { label: "About Our Practice", href: "#practice" },
   },
 ] as const;

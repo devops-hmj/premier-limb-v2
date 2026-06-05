@@ -98,7 +98,7 @@ export function HeroStage() {
         <source src="/video/home-hero.mp4" type="video/mp4" />
       </video>
       <div className="v2-vshade" aria-hidden />
-      <span className="v2-vplate hidden lg:inline-flex" aria-hidden>Reel · Looping</span>
+      <span className="v2-vplate hidden lg:inline-flex" aria-hidden>From the Practice</span>
 
       <button
         type="button"
@@ -129,7 +129,7 @@ export function HeroStage() {
         </div>
         <div className="col-span-12 sm:col-span-4 pt-3 lg:pt-4 sm:text-right font-mono uppercase tracking-[0.2em] text-[10.5px] text-white/85">
           <strong className="text-white font-medium">Southern California</strong>
-          <span className="text-white/70"> · Est. Pomona</span>
+          <span className="text-white/70"> · Est. Upland</span>
         </div>
       </div>
 
@@ -181,8 +181,8 @@ export function HeroStage() {
           </p>
           <div className="col-span-12 lg:col-span-5 font-mono uppercase text-[10.5px] tracking-[0.18em] text-white/85 leading-[1.7]">
             <div><strong className="text-white font-medium">Surgeon</strong> &nbsp; Dr. Hrayr Basmajian, MD</div>
-            <div><strong className="text-white font-medium">Practice</strong> &nbsp; Premier Orthopaedic &amp; Trauma Specialists</div>
-            <div><strong className="text-white font-medium">Location</strong> &nbsp; Pomona, Southern California</div>
+            <div><strong className="text-white font-medium">Practice</strong> &nbsp; Premier Limb Lengthening</div>
+            <div><strong className="text-white font-medium">Location</strong> &nbsp; Upland, Southern California</div>
           </div>
         </motion.div>
       </section>

@@ -12,12 +12,12 @@ import "../v2.css";
 export const metadata: Metadata = {
   title: "Schedule a Limb Lengthening Consultation",
   description:
-    "Schedule a consultation with Premier Limb Lengthening in Pomona, Southern California. Confidential intake, virtual visits, and white-glove travel coordination.",
+    "Schedule a consultation with Premier Limb Lengthening in Upland, Southern California. Confidential intake, virtual visits, and white-glove travel coordination.",
   alternates: { canonical: "/consult" },
   openGraph: {
     title: "Schedule a Limb Lengthening Consultation · Premier",
     description:
-      "Confidential intake, virtual visits, and white-glove travel coordination from Pomona, Southern California.",
+      "Confidential intake, virtual visits, and white-glove travel coordination from Upland, Southern California.",
     url: "/consult",
     type: "website",
   },
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 };
 
 const directions =
-  "http://www.google.com/maps/dir/160+E+Artesia+St,+Pomona,+CA+91767/@34.0764064,-117.7535405,15z/";
+  "https://www.google.com/maps/dir/400+N.+Mountain+Ave.+Suite+305,+Upland,+CA+91786/";
 
 /**
  * /consult — editorial contact page.
@@ -149,7 +149,7 @@ export default function V2ContactPage() {
                   Premier Offices
                 </div>
                 <h2 className="mt-3 font-serif font-medium text-[28px] lg:text-[32px] leading-[1.1] tracking-[-0.01em] text-paper">
-                  Pomona, <em className="italic" style={{ color: "#F4D88A" }}>Southern California.</em>
+                  Upland, <em className="italic" style={{ color: "#F4D88A" }}>Southern California.</em>
                 </h2>
               </div>
 

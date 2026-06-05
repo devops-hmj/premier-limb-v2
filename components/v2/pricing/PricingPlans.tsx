@@ -16,7 +16,7 @@ export function PricingPlans() {
                 className="mt-4 font-serif font-normal tracking-[-0.02em] text-ink leading-[0.98]"
                 style={{ fontSize: "clamp(36px, 5.4vw, 76px)" }}
               >
-                Four procedures. <em className="italic text-spine">One transparent rate card.</em>
+                Three procedures. <em className="italic text-spine">One transparent price.</em>
               </h2>
             </div>
             <p className="hidden lg:block col-span-4 text-[14.5px] leading-[1.65] text-ink-soft">
@@ -27,10 +27,8 @@ export function PricingPlans() {
           </header>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 border-t border-b border-ink">
+        <div className="grid grid-cols-1 md:grid-cols-3 border-t border-b border-ink">
           {plans.map((p, i) => {
-            const isRightCol = i % 2 === 1;
-            const isLastRow = i >= plans.length - 2;
             const isFeatured = "featured" in p && p.featured;
             return (
               <motion.article
@@ -39,13 +37,12 @@ export function PricingPlans() {
                 whileInView={{ opacity: 1, y: 0 }}
                 whileHover={{ y: -6 }}
                 viewport={{ once: true, margin: "-10% 0px" }}
-                transition={{ duration: 0.6, delay: (i % 2) * 0.08, ease: [0.2, 0.65, 0.3, 1] }}
+                transition={{ duration: 0.6, delay: (i % 3) * 0.08, ease: [0.2, 0.65, 0.3, 1] }}
                 className={`
-                  relative py-10 px-7
-                  md:px-0 ${isRightCol ? "md:pl-7" : "md:pr-7"}
-                  ${!isRightCol ? "md:border-r" : ""}
-                  ${!isLastRow ? "border-b" : ""}
-                  border-rule
+                  relative py-10 px-7 md:px-0 md:pr-7
+                  ${i > 0 ? "md:pl-7" : ""}
+                  ${i < plans.length - 1 ? "md:border-r border-rule" : ""}
+                  ${i > 0 ? "border-t md:border-t-0 border-rule" : ""}
                   ${isFeatured ? "bg-paper md:px-7" : "bg-paper-off"}
                 `}
               >

@@ -4,7 +4,6 @@ const included = [
   "PRECICE internal nail implants (count varies by procedure)",
   "Operating room time + surgical fees",
   "Anesthesiologist fees",
-  "Office follow-up + x-rays through the recovery window",
   "Defined block of on-site sessions (60–70)",
   "Coordination with our patient concierge from first call",
 ] as const;
@@ -12,7 +11,7 @@ const included = [
 const excluded = [
   "Extended-stay accommodations near our facility",
   "Home health care, if required after discharge",
-  "Travel to and from Pomona",
+  "Travel to and from Upland",
   "Out-of-network insurance reimbursement claims",
   "Optional corrections (rotation, bowleg) — see add-ons",
   "Hardware removal — see the schedule above",

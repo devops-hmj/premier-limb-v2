@@ -34,7 +34,7 @@ export function FooterV2() {
               <Logo tone="dark" width={220} />
             </div>
             <p className="font-serif italic text-[18px] text-paper/90 max-w-[34ch] mb-6">
-              A Premier Orthopaedic &amp; Trauma Specialists Clinic
+              Cosmetic limb lengthening, founded by Dr. Hrayr Basmajian
             </p>
             <address className="not-italic text-[13px] leading-[1.8] text-paper/85">
               {site.address.street}

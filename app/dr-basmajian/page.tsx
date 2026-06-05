@@ -85,6 +85,18 @@ export default function V2DrBasmajianPage() {
                 </li>
               ))}
             </ul>
+            <div className="mt-6 inline-flex items-center gap-3">
+              <Image
+                src="/FAAOS-Badge-150x150.png"
+                alt="Fellow of the American Academy of Orthopaedic Surgeons"
+                width={54}
+                height={54}
+                className="border border-rule bg-paper"
+              />
+              <span className="font-mono uppercase tracking-[0.16em] text-[10px] leading-[1.4] text-muted max-w-[22ch]">
+                Fellow, American Academy of Orthopaedic Surgeons
+              </span>
+            </div>
           </Reveal>
 
           <Reveal delay={0.1} className="col-span-12 lg:col-span-5">
@@ -98,7 +110,7 @@ export default function V2DrBasmajianPage() {
                 priority
               />
               <span className="absolute z-10 top-3 left-3 px-2 py-1 font-mono uppercase tracking-[0.2em] text-[10.5px] text-muted bg-paper">
-                Plate · Profile
+                The Surgeon
               </span>
             </figure>
           </Reveal>
@@ -108,12 +120,12 @@ export default function V2DrBasmajianPage() {
       <section className="bg-paper-off py-20 lg:py-28">
         <div className="mx-auto max-w-wrap px-6 lg:px-12 grid grid-cols-12 gap-6 lg:gap-8">
           <Reveal className="col-span-12 lg:col-span-7">
-            <p className="v2-dropcap text-[18px] leading-[1.6] text-ink mb-7 max-w-[58ch]">
-              Dr. Basmajian is a board-certified orthopaedic surgeon
+            <p className="text-[18px] leading-[1.6] text-ink mb-7 max-w-[58ch]">
+              <span className="v2-dropcap-word">Dr.</span> Basmajian is a board-certified orthopaedic surgeon
               specializing in trauma and non-trauma musculoskeletal concerns.
               He is the Orthopaedic Trauma Medical Director at Pomona Valley
-              Hospital Medical Center — one of the busiest trauma centers in
-              Los Angeles — and an assistant professor of orthopaedic surgery.
+              Hospital Medical Center, one of the busiest trauma centers in
+              Los Angeles, and an assistant professor of orthopaedic surgery.
               Previously, he was Chair of Orthopaedic Trauma at Loma Linda
               University Medical Center.
             </p>
@@ -142,7 +154,7 @@ export default function V2DrBasmajianPage() {
           </Reveal>
 
           <Reveal delay={0.1} as="aside" className="col-span-12 lg:col-span-5 lg:pl-2">
-            <blockquote className="relative bg-paper border-l-2 border-spine p-7 lg:p-9">
+            <blockquote className="relative bg-paper p-7 lg:p-9">
               <span aria-hidden className="font-serif italic text-spine text-[88px] leading-[0.4] block mb-3">&ldquo;</span>
               <p className="font-serif italic text-[20px] lg:text-[22px] leading-[1.4] text-ink">
                 The need for quality care in orthopaedic surgery, limb

@@ -11,7 +11,7 @@
 export const faqs = [
   {
     q: "How much does limb lengthening surgery cost?",
-    a: "Bilateral femur lengthening is $95,500 and bilateral tibia lengthening is $105,500. A combined tibia and femur procedure is $195,000, and staged maximum-height options reach up to $293,000. Every quote includes surgery, implants, anesthesia, hospitalization, and follow-up care. Financing is available through CareCredit.",
+    a: "Bilateral femur lengthening is $95,500 and bilateral tibia lengthening is $105,500. A combined tibia and femur procedure is $195,000, with maximum-height options up to 6 inches discussed during consultation. Every quote includes surgery, implants, anesthesia, hospitalization, and follow-up care. Financing is available through SoFi and CareCredit.",
   },
   {
     q: "How much height can I gain?",

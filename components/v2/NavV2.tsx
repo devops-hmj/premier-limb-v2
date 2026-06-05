@@ -127,7 +127,7 @@ export function NavV2({ forceVisible = false }: { forceVisible?: boolean } = {})
                               <div className="px-6 pt-5 pb-2 border-b border-rule">
                                 <div className="font-mono uppercase tracking-[0.22em] text-[10.5px] text-spine inline-flex items-center gap-2.5">
                                   <span aria-hidden className="inline-block w-[22px] h-px bg-spine" />
-                                  Your Surgery · Dossier
+                                  Your Surgery · Overview
                                 </div>
                               </div>
                               <ul className="list-none py-2">
@@ -345,7 +345,7 @@ export function NavV2Overlay() {
                         <div className="px-6 pt-5 pb-2 border-b border-rule">
                           <div className="font-mono uppercase tracking-[0.22em] text-[10.5px] text-spine inline-flex items-center gap-2.5">
                             <span aria-hidden className="inline-block w-[22px] h-px bg-spine" />
-                            Your Surgery · Dossier
+                            Your Surgery · Overview
                           </div>
                         </div>
                         <ul className="list-none py-2">

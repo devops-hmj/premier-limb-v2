@@ -1,15 +1,15 @@
 /**
- * The four procedure tiers shown on /limb-lengthening-pricing-options.
+ * The three procedure tiers shown on /limb-lengthening-pricing-options.
  *
- * Femur, Tibia, and Combined prices are Premier's confirmed 2026 numbers
- * (client review, batch 1). Maximum Height retains the prior reference figure
- * and is still pending client confirmation before external publishing.
+ * Femur, Tibia, and Combined prices are Premier's confirmed 2026 numbers.
+ * Maximum-height options are noted within the Combined tier rather than sold
+ * as a separate package.
  *
- * Single source of truth for both the rendered pricing grid
- * (components/v2/pricing/PricingPlans.tsx, a client component) and the
- * JSON-LD ItemList schema emitted from app/limb-lengthening-pricing-options/page.tsx
- * (a server component). Kept out of the client component so the server
- * page can import without crossing the "use client" boundary.
+ * Single source of truth for the rendered pricing grid
+ * (components/v2/pricing/PricingPlans.tsx), the homepage teaser
+ * (components/v2/Pricing.tsx), and the JSON-LD ItemList emitted from
+ * app/limb-lengthening-pricing-options/page.tsx. Kept out of the client
+ * components so the server page can import without crossing "use client".
  */
 export const plans = [
   {
@@ -22,7 +22,6 @@ export const plans = [
       "2 PRECICE internal nail implants",
       "Hospitalization",
       "Surgical & anesthesiologist fees",
-      "Office follow-up + x-rays through 12 weeks",
       "60 on-site sessions",
     ],
   },
@@ -54,20 +53,7 @@ export const plans = [
       "All surgical & anesthesia fees",
       "14 weeks follow-up care",
       "70 on-site sessions",
-    ],
-  },
-  {
-    bar: "Plan 04 · Maximum Height",
-    title: "Maximum Height Increase",
-    gen: "Up to 16 cm / 6.3 in. (three surgeries)",
-    price: "$293,000",
-    from: "Three staged surgeries over time",
-    features: [
-      "Three procedures, staged lengthening",
-      "All implants, hospitalization, surgical fees, anesthesia",
-      "Full follow-up + extended PT block",
-      "For candidates seeking the largest possible result",
-      "Height gain: up to 16 cm / 6.3 in. total",
+      "Maximum height increase up to 6 inches, possible consultation required to discuss",
     ],
   },
 ] as const;

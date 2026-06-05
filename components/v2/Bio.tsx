@@ -35,7 +35,7 @@ export function Bio() {
                 className="object-cover"
               />
               <span className="absolute z-10 top-3 left-3 px-2 py-1 font-mono uppercase tracking-[0.2em] text-[10.5px] text-muted bg-paper">
-                Plate 02
+                With a Patient
               </span>
               <figcaption className="absolute z-10 bottom-3 left-3 right-3 px-3.5 py-2.5 bg-paper/95 backdrop-blur-sm border-l-2 border-spine font-serif italic text-[15px] lg:text-[16px] text-ink">
                 &ldquo;A rare combination of trauma precision and cosmetic judgment.&rdquo;
@@ -59,9 +59,9 @@ export function Bio() {
             </p>
             <p className="text-[15.5px] leading-[1.7] text-ink-soft mb-7 max-w-[62ch]">
               As Director of Orthopaedic Trauma at Pomona Valley Hospital
-              Medical Center and a leading surgeon at Premier Orthopaedic &amp;
-              Trauma Specialists, he operates with the institutional support of
-              a 17+ surgeon orthopaedic group.
+              Medical Center and founder of Premier Orthopaedic &amp; Trauma
+              Specialists, a 17+ surgeon orthopaedic group, he built Premier
+              Limb Lengthening on that institutional depth.
             </p>
 
             <a

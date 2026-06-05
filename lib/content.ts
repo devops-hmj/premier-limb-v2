@@ -125,8 +125,14 @@ function parseMarkdown(raw: string): {
     body = body.slice(inThisPostMatch.index + inThisPostMatch[0].length).trim();
   }
 
+  // Remove orphan Setext-underline rows ("====") left over from scraped image
+  // headings. They are not real headings here, and would otherwise leak into
+  // the auto-description (and render as a stray full-width rule in the body).
+  body = body.replace(/^={3,}\s*$/gm, "").replace(/\n{3,}/g, "\n\n").trim();
+
   // First meaningful paragraph — strip markdown syntax for the meta description.
-  const firstParaMatch = body.match(/^(?!#|!\[|>|\*|-|_)(.{40,}?)(?=\n\n|\n#|$)/m);
+  // Exclude lines starting with markup chars (and "=" Setext underlines).
+  const firstParaMatch = body.match(/^(?!#|!\[|>|\*|-|_|=)(.{40,}?)(?=\n\n|\n#|$)/m);
   const firstPara = firstParaMatch?.[1] ?? body.slice(0, 220);
   const stripped = firstPara
     .replace(/!\[[^\]]*\]\([^)]*\)/g, "")

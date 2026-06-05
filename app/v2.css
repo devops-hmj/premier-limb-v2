@@ -114,6 +114,18 @@
   font-weight: 500;
 }
 
+/* Manual drop-cap for a short word (e.g. "Dr.") where ::first-letter would
+   only style the first glyph and strand the rest. */
+.v2-dropcap-word {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 72px;
+  line-height: 0.82;
+  float: left;
+  padding: 8px 16px 0 0;
+  color: var(--spine);
+  font-weight: 500;
+}
+
 /* ---- Two-column body for hero article ---- */
 .v2-cols {
   columns: 2;

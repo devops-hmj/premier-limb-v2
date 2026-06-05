@@ -148,7 +148,7 @@ export default async function Page({ params }: { params: Promise<RouteParams> })
                     <h3 className="font-serif font-medium text-[22px] lg:text-[24px] leading-[1.15] tracking-[-0.01em] text-ink mb-3 group-hover:text-spine transition-colors">
                       {r.title}
                     </h3>
-                    <p className="text-[14px] leading-[1.6] text-ink-soft mb-4">
+                    <p className="text-[14px] leading-[1.6] text-ink-soft mb-4 break-words line-clamp-3">
                       {r.description}
                     </p>
                     <span className="font-mono uppercase tracking-[0.18em] text-[10.5px] text-spine inline-flex items-center gap-2 border-b border-spine pb-0.5">

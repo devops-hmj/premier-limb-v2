@@ -44,7 +44,7 @@ export default function V2JournalPage() {
       <section className="bg-paper-off border-b border-ink pt-28 lg:pt-36 pb-16 lg:pb-20">
         <div className="mx-auto max-w-wrap px-6 lg:px-12 grid grid-cols-12 gap-6 lg:gap-8">
           <Reveal className="col-span-12 lg:col-span-8">
-            <span className="eyebrow mb-5">Resources · Patient Library</span>
+            <span className="eyebrow mb-5">Resources · Patient Guides</span>
             <h1
               className="mt-5 font-serif font-normal tracking-[-0.025em] text-ink leading-[0.95] max-w-[16ch]"
               style={{ fontSize: "clamp(44px, 7.4vw, 120px)" }}
@@ -65,7 +65,7 @@ export default function V2JournalPage() {
       <section className="bg-paper-off py-20 lg:py-28">
         <div className="mx-auto max-w-wrap px-6 lg:px-12">
           <div className="font-mono uppercase tracking-[0.22em] text-[10.5px] text-muted mb-4">
-            {articles.length} articles · most recent on top
+            {articles.length} articles · newest first
           </div>
           <div className="border-t border-ink">
             {articles.map((a, i) => (

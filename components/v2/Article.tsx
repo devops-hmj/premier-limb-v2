@@ -18,16 +18,16 @@ export function Article() {
             >
               <Image
                 src="/dr-picture.jpg"
-                alt="Dr. Hrayr Basmajian examining a femur model in his Pomona clinic"
+                alt="Dr. Hrayr Basmajian examining a femur model in his Upland clinic"
                 fill
                 sizes="(min-width: 1024px) 34vw, 85vw"
                 className="object-cover"
               />
               <span className="absolute z-10 top-3 left-3 px-2 py-1 font-mono uppercase tracking-[0.2em] text-[10.5px] text-muted bg-paper-off">
-                Plate 01
+                In Clinic
               </span>
               <figcaption className="absolute z-10 bottom-3 left-3 right-3 px-3 py-2 bg-paper-off/95 backdrop-blur-sm border-t-2 border-spine font-serif italic text-[14px] lg:text-[15px] text-ink-soft">
-                Dr. Basmajian, examining a femur in clinic. Pomona, California.
+                Dr. Basmajian, examining a femur in clinic. Upland, California.
               </figcaption>
             </figure>
           </Reveal>

@@ -9,14 +9,14 @@ import { breadcrumb } from "@/lib/jsonld";
 import "../v2.css";
 
 export const metadata: Metadata = {
-  title: "About the Practice — Premier Orthopaedic & Trauma Specialists",
+  title: "About Premier Limb Lengthening, Founded by Dr. Hrayr Basmajian",
   description:
-    "Premier Limb Lengthening is the cosmetic and reconstructive practice within Premier Orthopaedic & Trauma Specialists — 17+ surgeons, in-house PT, on-site imaging in Pomona, California.",
+    "Premier Limb Lengthening is a cosmetic and reconstructive surgery practice created by Dr. Hrayr Basmajian, founder of Premier Orthopaedic & Trauma Specialists, based in Upland, Southern California.",
   alternates: { canonical: "/about" },
   openGraph: {
-    title: "About the Practice — Premier Orthopaedic & Trauma Specialists",
+    title: "About Premier Limb Lengthening, Founded by Dr. Hrayr Basmajian",
     description:
-      "The cosmetic and reconstructive practice within a 17+ surgeon orthopaedic trauma group, based in Pomona, Southern California.",
+      "A cosmetic and reconstructive surgery practice created by Dr. Hrayr Basmajian, founder of Premier Orthopaedic & Trauma Specialists, based in Upland, Southern California.",
     url: "/about",
     type: "website",
   },
@@ -27,12 +27,12 @@ const pillars = [
   {
     n: "01",
     title: "Trauma-Trained",
-    body: "Our founder is a fellowship-trained orthopaedic trauma surgeon and Director of Orthopaedic Trauma at Pomona Valley Hospital Medical Center — one of the busiest Level II trauma centers in Los Angeles County.",
+    body: "Our founder is a fellowship-trained orthopaedic trauma and limb lengthening surgeon, and Director of Orthopaedic Trauma at Pomona Valley Hospital Medical Center, one of the busiest Level II trauma centers in Los Angeles County.",
   },
   {
     n: "02",
     title: "Institutional Depth",
-    body: "We sit inside Premier Orthopaedic & Trauma Specialists, a 17+ surgeon orthopaedic group with in-house physical therapy and on-site imaging. Patients receive integrated care without ever leaving our network.",
+    body: "Dr. Basmajian is the founder of Premier Orthopaedic & Trauma Specialists, a 17+ surgeon orthopaedic group with in-house physical therapy and on-site imaging. Premier Limb Lengthening patients have direct access to that infrastructure through Dr. Basmajian's network.",
   },
   {
     n: "03",
@@ -42,7 +42,7 @@ const pillars = [
   {
     n: "04",
     title: "Concierge by Default",
-    body: "From your first virtual consult through your final follow-up, a dedicated coordinator owns the logistics — flights, housing, physical therapy schedule, and family communication.",
+    body: "From your first virtual consult through your final follow-up, a dedicated coordinator owns the logistics: flights, housing, physical therapy schedule, and family communication.",
   },
 ] as const;
 
@@ -72,14 +72,15 @@ export default function V2AboutPage() {
               className="mt-5 font-serif font-normal tracking-[-0.025em] text-ink leading-[0.95] max-w-[18ch]"
               style={{ fontSize: "clamp(44px, 7.4vw, 120px)" }}
             >
-              A trauma clinic, <em className="italic text-spine">redirected toward transformation.</em>
+              Trauma-trained precision, <em className="italic text-spine">applied to limb lengthening.</em>
             </h1>
           </Reveal>
           <Reveal delay={0.1} className="col-span-12 lg:col-span-4 lg:pl-6 lg:border-l border-rule lg:self-end">
             <p className="font-serif italic text-[20px] lg:text-[22px] leading-[1.35] text-ink-soft">
-              Premier Limb Lengthening is the cosmetic and reconstructive
-              practice within Premier Orthopaedic &amp; Trauma Specialists —
-              based in Pomona, Southern California.
+              Premier Limb Lengthening is a cosmetic and reconstructive
+              surgery practice created by Dr. Hrayr Basmajian, founder of
+              Premier Orthopaedic &amp; Trauma Specialists, based in Upland,
+              Southern California.
             </p>
           </Reveal>
         </div>
@@ -91,24 +92,24 @@ export default function V2AboutPage() {
             <p className="v2-dropcap text-[18px] leading-[1.6] text-ink mb-7 max-w-[58ch]">
               Premier Limb Lengthening exists because cosmetic limb lengthening
               deserves to be performed in a setting designed around the
-              patient — not as an afterthought to a high-volume surgical
-              schedule. Our practice combines the precision of a Level II
-              trauma surgery program with the discretion and continuity of
-              private concierge care.
+              patient, not as an afterthought to a high-volume surgical
+              schedule. Our practice combines the precision of Dr. Basmajian&rsquo;s
+              Level II trauma surgery training with the discretion and continuity
+              of private concierge care.
             </p>
             <p className="text-[15.5px] leading-[1.7] text-ink-soft max-w-[58ch] mb-5">
-              We operate inside Premier Orthopaedic &amp; Trauma Specialists,
+              Dr. Basmajian founded Premier Orthopaedic &amp; Trauma Specialists,
               a 17+ surgeon orthopaedic group with in-house physical therapy
-              and on-site imaging. That institutional depth lets us accept
-              cases other practices decline — revision surgery, limb-length
-              discrepancy correction, and complex reconstructions — without
-              outsourcing any element of your recovery.
+              and on-site imaging. That institutional depth is what Premier Limb
+              Lengthening was built on, and it is why we accept cases other
+              practices decline: revision surgery, limb-length discrepancy
+              correction, and complex reconstructions.
             </p>
             <p className="text-[15.5px] leading-[1.7] text-ink-soft max-w-[58ch]">
               And because most patients travel for limb lengthening, we built
               the concierge program from the first call: flights, lodging,
               physical therapy schedule, post-op check-ins, and one dedicated
-              coordinator owning the entire journey.
+              coordinator owning the entire process.
             </p>
           </Reveal>
 
@@ -123,7 +124,7 @@ export default function V2AboutPage() {
                   By the numbers
                 </div>
                 <h2 className="mt-3 font-serif font-medium text-[26px] lg:text-[30px] leading-[1.1] tracking-[-0.01em]">
-                  An editorial-grade <em className="italic" style={{ color: "#F4D88A" }}>practice profile.</em>
+                  Experience that <em className="italic" style={{ color: "#F4D88A" }}>holds up.</em>
                 </h2>
               </div>
               <dl className="grid grid-cols-2">

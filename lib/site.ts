@@ -6,14 +6,14 @@
 
 export const site = {
   name: "Premier Limb Lengthening",
-  tagline: "A Premier Orthopaedic & Trauma Specialists Clinic",
-  phone: "(909) 461-4984",
-  phoneHref: "tel:+19094614984",
+  tagline: "Cosmetic limb lengthening, founded by Dr. Hrayr Basmajian",
+  phone: "(909) 563-8653",
+  phoneHref: "tel:+19095638653",
   address: {
-    street: "160 E Artesia Street, Suite 255",
-    city: "Pomona",
+    street: "400 N. Mountain Ave. Suite 305",
+    city: "Upland",
     state: "CA",
-    zip: "91767",
+    zip: "91786",
   },
   domain: "premierlimblengthening.com",
 } as const;

@@ -38,7 +38,7 @@ export const metadata: Metadata = {
  *   NavV2 (forceVisible) → no hero on this page, so the sticky bar shows
  *                          from scroll position 0.
  *   PricingHero          → eyebrow + h1 + intro paragraph
- *   PricingPlans         → 4 procedure tiers in a 2-column editorial grid
+ *   PricingPlans         → 3 procedure tiers in a 3-column grid
  *   AddOns               → optional corrections + hardware removal tables
  *   IncludedExcluded     → two-column dossier of bundled vs. separate costs
  *   Financing            → spine-blue CTA callout with monthly + CareCredit

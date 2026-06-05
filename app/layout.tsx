@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   description:
     "Premier Limb Lengthening, led by Dr. Hrayr Basmajian, is a cosmetic and medical limb lengthening practice in Southern California specializing in Precice internal nail technology.",
   applicationName: site.name,
-  authors: [{ name: "Premier Orthopaedic & Trauma Specialists" }],
+  authors: [{ name: "Premier Limb Lengthening" }],
   openGraph: {
     title: "Premier Limb Lengthening — Cosmetic Limb Lengthening Surgery",
     description:

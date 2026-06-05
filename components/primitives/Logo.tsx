@@ -90,7 +90,7 @@ export function LogoLockup({
   layout = "row",
   size = "md",
   variant = "default",
-  tagline = "A Premier Orthopaedic & Trauma Clinic",
+  tagline = "Cosmetic limb lengthening, founded by Dr. Hrayr Basmajian",
   emphasizeName = false,
   className,
 }: LogoLockupProps) {

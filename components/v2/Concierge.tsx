@@ -6,7 +6,7 @@ import { Reveal } from "./Reveal";
 
 const rows = [
   { n: "01", h: "Travel Coordination",          p: "Flight booking assistance, airport transfers, and ground transportation throughout your stay in Southern California.", mk: "Global" },
-  { n: "02", h: "Recovery Accommodations",      p: "Pre-vetted, surgeon-approved extended-stay housing near our Pomona facility. Wheelchair-accessible, fully furnished, discounted rates.", mk: "Vetted" },
+  { n: "02", h: "Recovery Accommodations",      p: "Pre-vetted, surgeon-approved extended-stay housing near our Upland facility. Wheelchair-accessible, fully furnished, discounted rates.", mk: "Vetted" },
   { n: "03", h: "PT & Follow-Up Scheduling",    p: "Your physical therapy schedule is set before you arrive. All post-op visits coordinated. Nothing falls through the cracks.", mk: "Pre-Set" },
   { n: "04", h: "Dedicated Patient Coordinator", p: "One person. One phone number. From your first call through your final follow-up. Available 7 days a week during your recovery.", mk: "1-to-1" },
   { n: "05", h: "Virtual Pre-Op & Remote Follow-Up", p: "Initial consultation via secure video. Post-op check-ins from home once you return. Minimizes trips to California.", mk: "Remote" },
@@ -95,7 +95,7 @@ export function Concierge() {
                 className="object-cover"
               />
               <span className="absolute z-10 top-3 left-3 px-2 py-1 font-mono uppercase tracking-[0.2em] text-[10.5px] text-muted bg-paper-off">
-                Plate 03
+                Reviewing Imaging
               </span>
             </figure>
             <div className="grid grid-cols-2 border border-ink bg-paper">
