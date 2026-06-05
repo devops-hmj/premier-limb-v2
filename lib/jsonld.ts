@@ -68,6 +68,11 @@ export function articleSchema(p: Page) {
     headline: p.title,
     description: p.description,
     mainEntityOfPage: { "@type": "WebPage", "@id": `${ORIGIN}${p.route}` },
+    author: {
+      "@type": "Person",
+      name: "Dr. Hrayr Basmajian",
+      "@id": `${ORIGIN}/dr-basmajian#physician`,
+    },
     publisher: { "@id": ORG_ID },
     inLanguage: "en-US",
   };

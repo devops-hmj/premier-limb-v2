@@ -22,8 +22,8 @@ export function PricingHero() {
         <Reveal delay={0.1} className="col-span-12 lg:col-span-4 lg:pl-6 lg:border-l border-rule lg:self-end">
           <p className="font-serif italic text-[20px] lg:text-[22px] leading-[1.35] text-ink-soft">
             Every quote below includes implants, hospitalization, surgical
-            fees, anesthesia, follow-up care, and a defined block of physical
-            therapy. No surprises.
+            fees, anesthesia, follow-up care, and a defined block of on-site
+            sessions. No surprises.
           </p>
         </Reveal>
       </div>

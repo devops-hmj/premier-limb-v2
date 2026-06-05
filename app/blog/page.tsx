@@ -13,7 +13,7 @@ import "../v2.css";
 export const metadata: Metadata = {
   title: "Limb Lengthening Resources, Articles & Patient Guides",
   description:
-    "Editorial coverage of cosmetic limb lengthening: candidacy, recovery, pricing, and the science behind bone regeneration. Written for patients, not for SEO bots.",
+    "Honest, plain-language coverage of cosmetic limb lengthening: candidacy, recovery, pricing, and the science of bone regeneration, written to help patients decide with confidence.",
   alternates: { canonical: "/blog" },
   openGraph: {
     title: "Limb Lengthening Resources, Articles & Patient Guides",
@@ -55,8 +55,8 @@ export default function V2JournalPage() {
           <Reveal delay={0.1} className="col-span-12 lg:col-span-4 lg:pl-6 lg:border-l border-rule lg:self-end">
             <p className="font-serif italic text-[20px] lg:text-[22px] leading-[1.35] text-ink-soft">
               Honest, plain-language coverage of candidacy, recovery, pricing,
-              and the science behind bone regeneration. Written for patients,
-              not for SEO bots.
+              and the science behind bone regeneration. Written to help you
+              decide with clear eyes.
             </p>
           </Reveal>
         </div>

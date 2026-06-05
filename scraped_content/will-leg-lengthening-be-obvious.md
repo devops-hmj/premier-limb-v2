@@ -64,7 +64,7 @@ If you’re still concerned about whether it’ll be obvious, the best step is t
 Thinking About Leg Lengthening?
 -------------------------------
 
-If you’d like personalized guidance, [Premier’s Limb Lengthening Institute](https://premierlimblengthening.com/) is here to help. Our [compassionate team](https://premierlimblengthening.com/dr-basmajian/) will walk you through each step of the process—explaining how your body will adjust, what to expect during recovery, and why most people say it’s far less noticeable than they initially feared.
+If you’d like personalized guidance, [Premier Limb Lengthening Institute](https://premierlimblengthening.com/) is here to help. Our [compassionate team](https://premierlimblengthening.com/dr-basmajian/) will walk you through each step of the process—explaining how your body will adjust, what to expect during recovery, and why most people say it’s far less noticeable than they initially feared.
 
 [Contact us](https://premierlimblengthening.com/consult/) today to learn more about living in a body that truly feels like yours.
 

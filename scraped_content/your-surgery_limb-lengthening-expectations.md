@@ -2,7 +2,7 @@
 
 **URL:** https://premierlimblengthening.com/your-surgery/limb-lengthening-expectations/
 
-![](https://premierlimblengthening.com/wp-content/uploads/2023/12/Limb-Lengthening-Expectations.jpg)
+![Limb Lengthening Expectations Recovery Space](/images/your-surgery/expectations-recovery-space.png)
 
 Limb Lengthening Expectations (Before and After)
 ================================================
@@ -25,7 +25,7 @@ Post-Op Care
 
 _Please call Dr. Basmajian or one of our nurses if you notice drainage from the incision sites. They will direct you further based on the look and amount of fluid. Similarly, a foul smell from the incision sites, worsening pain, a persistent fever, and worsening redness should be seen by a doctor immediately._
 
-![\>Post-Op Care](https://premierlimblengthening.com/wp-content/uploads/2023/12/Untitled-design-copy.jpg)
+![Post-Op Care and Timeline](/images/your-surgery/expectations-timeline.png)
 
 Pain
 ----

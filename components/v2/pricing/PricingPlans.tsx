@@ -16,21 +16,22 @@ export function PricingPlans() {
                 className="mt-4 font-serif font-normal tracking-[-0.02em] text-ink leading-[0.98]"
                 style={{ fontSize: "clamp(36px, 5.4vw, 76px)" }}
               >
-                Six procedures. <em className="italic text-spine">One transparent rate card.</em>
+                Four procedures. <em className="italic text-spine">One transparent rate card.</em>
               </h2>
             </div>
             <p className="hidden lg:block col-span-4 text-[14.5px] leading-[1.65] text-ink-soft">
-              Each price is the complete surgical bundle — implant, OR time,
-              anesthesia, recovery oversight, and physical therapy block.
+              Each price is the complete surgical bundle: implant, OR time,
+              anesthesia, recovery oversight, and on-site sessions.
               Accommodation and home health care are billed separately.
             </p>
           </header>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-b border-ink">
+        <div className="grid grid-cols-1 md:grid-cols-2 border-t border-b border-ink">
           {plans.map((p, i) => {
-            const isLastCol = i % 3 === 2;
-            const isLastRow = i >= plans.length - 3;
+            const isRightCol = i % 2 === 1;
+            const isLastRow = i >= plans.length - 2;
+            const isFeatured = "featured" in p && p.featured;
             return (
               <motion.article
                 key={p.title}
@@ -38,15 +39,14 @@ export function PricingPlans() {
                 whileInView={{ opacity: 1, y: 0 }}
                 whileHover={{ y: -6 }}
                 viewport={{ once: true, margin: "-10% 0px" }}
-                transition={{ duration: 0.6, delay: (i % 3) * 0.08, ease: [0.2, 0.65, 0.3, 1] }}
+                transition={{ duration: 0.6, delay: (i % 2) * 0.08, ease: [0.2, 0.65, 0.3, 1] }}
                 className={`
-                  relative py-10 px-7 md:px-0 md:pr-7 ${i % 3 !== 0 ? "lg:pl-6" : ""}
-                  ${!isLastCol ? "lg:border-r" : ""}
-                  ${i % 2 === 0 ? "md:border-r lg:border-r-0" : ""}
-                  ${(i % 3 === 0 || i % 3 === 1) && !isLastCol ? "lg:border-r" : ""}
-                  ${!isLastRow ? "border-b lg:border-b" : ""}
+                  relative py-10 px-7
+                  md:px-0 ${isRightCol ? "md:pl-7" : "md:pr-7"}
+                  ${!isRightCol ? "md:border-r" : ""}
+                  ${!isLastRow ? "border-b" : ""}
                   border-rule
-                  ${"featured" in p && p.featured ? "bg-paper md:px-7 lg:px-6" : "bg-paper-off"}
+                  ${isFeatured ? "bg-paper md:px-7" : "bg-paper-off"}
                 `}
               >
                 {/* Each row below is given a min-height that fits the worst case

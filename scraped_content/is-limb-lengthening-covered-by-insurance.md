@@ -86,7 +86,7 @@ Medical staff are generally used to insurance complexities and can offer guidanc
 Still Have Questions About Limb Lengthening and Insurance?
 ----------------------------------------------------------
 
-At [Premier’s Limb Lengthening Institute](https://premierlimblengthening.com/), we understand that finances are a big concern, and we’re here to guide you every step of the way. If you’d like more personalized advice on whether limb lengthening could be covered by insurance—or want to explore payment and financing options—don’t hesitate to [contact us](https://premierlimblengthening.com/consult/).
+At [Premier Limb Lengthening Institute](https://premierlimblengthening.com/), we understand that finances are a big concern, and we’re here to guide you every step of the way. If you’d like more personalized advice on whether limb lengthening could be covered by insurance—or want to explore payment and financing options—don’t hesitate to [contact us](https://premierlimblengthening.com/consult/).
 
 Our dedicated team is committed to helping you find the best path forward for both your health and your wallet. [Schedule a consultation today](https://premierlimblengthening.com/consult/)!
 

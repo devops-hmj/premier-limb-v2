@@ -105,7 +105,7 @@ export default async function Page({ params }: { params: Promise<RouteParams> })
                   </span>
                 )}
                 <span>
-                  <span className="text-ink font-medium">By</span> · Premier Limb Lengthening Editorial
+                  <span className="text-ink font-medium">By</span> · Dr. Hrayr Basmajian
                 </span>
               </div>
             </Reveal>

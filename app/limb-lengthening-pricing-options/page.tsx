@@ -15,12 +15,12 @@ import "../v2.css";
 export const metadata: Metadata = {
   title: "Limb Lengthening Cost — Pricing & Financing",
   description:
-    "Transparent 2026 pricing for cosmetic limb lengthening. Every quote bundles implants, OR time, hospitalization, anesthesia, follow-up care, and physical therapy.",
+    "Transparent 2026 pricing for cosmetic limb lengthening. Every quote bundles implants, OR time, hospitalization, anesthesia, follow-up care, and on-site sessions.",
   alternates: { canonical: "/limb-lengthening-pricing-options" },
   openGraph: {
     title: "Limb Lengthening Cost — Pricing & Financing",
     description:
-      "Transparent 2026 pricing for cosmetic limb lengthening. Bundled implants, OR time, hospitalization, anesthesia, follow-up care, and physical therapy.",
+      "Transparent 2026 pricing for cosmetic limb lengthening. Bundled implants, OR time, hospitalization, anesthesia, follow-up care, and on-site sessions.",
     url: "/limb-lengthening-pricing-options",
     type: "website",
   },
@@ -30,16 +30,15 @@ export const metadata: Metadata = {
 /**
  * /limb-lengthening-pricing-options — full editorial pricing page.
  *
- * Content + dollar amounts mirrored from limblengthening.org/leg-lengthening-surgery
- * (Paley Stature Center 2026 schedule). These are PLACEHOLDER numbers for
- * the design review; Premier's actual pricing must be substituted before
- * publishing externally.
+ * Dollar amounts live in lib/pricing-plans.ts. Femur, Tibia, and Combined are
+ * Premier's confirmed 2026 prices (client review, batch 1); Maximum Height is
+ * still a reference figure pending confirmation before external publishing.
  *
  * Composition:
  *   NavV2 (forceVisible) → no hero on this page, so the sticky bar shows
  *                          from scroll position 0.
  *   PricingHero          → eyebrow + h1 + intro paragraph
- *   PricingPlans         → 6 procedure tiers in a 3-column editorial grid
+ *   PricingPlans         → 4 procedure tiers in a 2-column editorial grid
  *   AddOns               → optional corrections + hardware removal tables
  *   IncludedExcluded     → two-column dossier of bundled vs. separate costs
  *   Financing            → spine-blue CTA callout with monthly + CareCredit

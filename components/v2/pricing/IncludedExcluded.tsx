@@ -4,9 +4,8 @@ const included = [
   "PRECICE internal nail implants (count varies by procedure)",
   "Operating room time + surgical fees",
   "Anesthesiologist fees",
-  "Hospitalization for the initial procedure",
   "Office follow-up + x-rays through the recovery window",
-  "Defined block of physical therapy sessions (60–70)",
+  "Defined block of on-site sessions (60–70)",
   "Coordination with our patient concierge from first call",
 ] as const;
 

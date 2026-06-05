@@ -26,6 +26,12 @@ export async function generateMetadata(
   const { slug } = await params;
   const p = getPageByRoute(`/your-surgery/${slug}`);
   if (!p) return { title: slug };
+
+  // Extract the first local image path and alt text from markdown body for the OG image
+  const imgMatch = p.body.match(/!\[(.*?)\]\((.*?)\)/);
+  const ogImage = imgMatch ? imgMatch[2] : undefined;
+  const ogImageAlt = imgMatch ? imgMatch[1] : undefined;
+
   return {
     title: `${p.title} · Your Surgery`,
     description: p.description,
@@ -35,6 +41,14 @@ export async function generateMetadata(
       description: p.description,
       url: `/your-surgery/${slug}`,
       type: "article",
+      ...(ogImage ? {
+        images: [
+          {
+            url: ogImage,
+            alt: ogImageAlt || p.title,
+          },
+        ],
+      } : {}),
     },
     robots: { index: true, follow: true },
   };
@@ -100,7 +114,7 @@ export default async function V2YourSurgerySubPage({
                   <span className="text-ink font-medium">Topic</span> · Your Surgery
                 </span>
                 <span>
-                  <span className="text-ink font-medium">By</span> · Premier Limb Lengthening Editorial
+                  <span className="text-ink font-medium">By</span> · Dr. Hrayr Basmajian
                 </span>
               </div>
             </Reveal>

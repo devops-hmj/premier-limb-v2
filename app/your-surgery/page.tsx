@@ -23,6 +23,12 @@ export const metadata: Metadata = {
       "Distraction osteogenesis, internal Precice technology, and a recovery timeline you can plan your life around.",
     url: "/your-surgery",
     type: "article",
+    images: [
+      {
+        url: "/images/your-surgery/overview-magnetic-lengthening.png",
+        alt: "Magnetic Limb Lengthening Diagram",
+      },
+    ],
   },
   robots: { index: true, follow: true },
 };

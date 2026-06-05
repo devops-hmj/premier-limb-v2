@@ -2,7 +2,7 @@
 
 **URL:** https://premierlimblengthening.com/your-surgery/
 
-![](https://premierlimblengthening.com/wp-content/uploads/2022/10/Limb-Length-Magnet.jpg)
+![Magnetic Limb Lengthening](/images/your-surgery/overview-magnetic-lengthening.png)
 
 What Is Limb Lengthening Surgery?
 =================================
@@ -18,7 +18,7 @@ You may wonder how the procedure works and should be happy to know it is very st
 
 Regardless of the technology employed, the bone needs to be cut in a surgery known as osteotomy. At this point, an external or internal guidance system is used to distract or pull the ends of the bone away from each other.
 
-![\>](https://premierlimblengthening.com/wp-content/uploads/2022/10/Limb-Lengthening-Progression.jpg)
+![Remote Control Device](/images/your-surgery/overview-controller-device.png)
 
 ### **External Fixation**
 
@@ -40,5 +40,3 @@ Once the patient has gone home, the lengthening process begins. It is important 
 The rule of thumb is that you need one month to lengthen 1 inch and two additional months to allow the bone to set and return to its normal strength. If you want to add two inches, it will take approximately six months, while 5 inches will take about 15. While this may seem tedious, the slow and gradual distraction allows for a better outcome. Keep in mind that with the internal device, once lengthening is completed, patients are living a fairly normal life while the bone is regaining its strength.
 
 Once the appropriate lengthening has been achieved, the external fixator is removed (if external fixator is used), which is a short recovery period for the wounds to close. While the intramedullary nail can be removed, doing so is primarily up to the patient. The rod is designed for the option of permanent implantation and, as such, can be left in the bone in perpetuity without adverse effects. Leaving the nail in the bone also avoids a second surgery and anesthesia event for the patient. This is a conversation each patient will have a Dr. Basmajian when the time comes.
-
-![\>](https://premierlimblengthening.com/wp-content/uploads/2022/10/Magnetic-Lengthening.jpg)

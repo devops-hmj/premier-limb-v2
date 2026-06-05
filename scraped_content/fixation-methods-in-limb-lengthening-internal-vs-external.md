@@ -78,7 +78,7 @@ Ultimately, whether you choose external or internal fixation, you’re investing
 Ready to Explore Your Limb Lengthening Options?
 -----------------------------------------------
 
-At [Premier’s Limb Lengthening Institute](https://premierlimblengthening.com/), we understand that picking the right fixation method is a huge decision. 
+At [Premier Limb Lengthening Institute](https://premierlimblengthening.com/), we understand that picking the right fixation method is a huge decision. 
 
 Our compassionate team is here to help you weigh the pros and cons, keeping your lifestyle and personal preferences at the forefront. If you’d like to learn more about external vs. internal fixation—or anything else related to limb lengthening—[contact us today](https://premierlimblengthening.com/) and take the first step toward a more confident, comfortable future.
 

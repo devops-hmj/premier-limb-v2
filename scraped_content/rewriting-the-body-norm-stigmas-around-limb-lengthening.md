@@ -23,7 +23,7 @@ What happens when a medical decision sparks more opinions than support? The proc
 
 Many patients considering limb lengthening feel a mix of excitement and nervousness. On one hand, they look forward to experiencing the benefits of increased height or corrected limb imbalances; on the other, they worry about what other people might think. Will they be judged or misunderstood for the decision to undergo limb lengthening surgery?
 
-At [Premier’s Limb Lengthening Institute](https://premierlimblengthening.com/), we’ve seen firsthand how life-changing limb lengthening procedures can be. But we also know that for many, outside opinions can make an already complex decision even harder.
+At [Premier Limb Lengthening Institute](https://premierlimblengthening.com/), we’ve seen firsthand how life-changing limb lengthening procedures can be. But we also know that for many, outside opinions can make an already complex decision even harder.
 
 Understanding the Stigma of Limb Lengthening
 --------------------------------------------
@@ -48,7 +48,7 @@ Some people think that limb lengthening is always noticeable. Many patients make
 
 **It’s Only Performed Abroad**
 
-Some people believe limb lengthening is only available in other countries because it is so risky it isn’t allowed in the U.S. This couldn’t be further from the truth. High-quality limb lengthening procedures are performed at leading medical centers across the United States by experienced orthopedic specialists. Facilities like Premier’s Limb Lengthening Institute use the latest technologies and follow strict safety protocols with full access to follow-up support and recovery resources.
+Some people believe limb lengthening is only available in other countries because it is so risky it isn’t allowed in the U.S. This couldn’t be further from the truth. High-quality limb lengthening procedures are performed at leading medical centers across the United States by experienced orthopedic specialists. Facilities like Premier Limb Lengthening Institute use the latest technologies and follow strict safety protocols with full access to follow-up support and recovery resources.
 
 Feeling Comfortable with Your Decision
 --------------------------------------
@@ -90,7 +90,7 @@ Where to Find Guidance
 
 When you lead with clarity and self-awareness, outside noise starts to matter less. By educating yourself, surrounding yourself with supportive people, and maintaining focus on your personal reasons, you can feel confident about your decision. Confidence doesn’t mean never having doubts, it means trusting yourself even when they show up.
 
-At Premier’s Limb Lengthening Institute, we focus on treating the whole patient, not just the bones. [Our team will walk you through the entire process](https://premierlimblengthening.com/consult/) to ensure you have the emotional, informational, and physical support you need to overcome any concerns.
+At Premier Limb Lengthening Institute, we focus on treating the whole patient, not just the bones. [Our team will walk you through the entire process](https://premierlimblengthening.com/consult/) to ensure you have the emotional, informational, and physical support you need to overcome any concerns.
 
 ### Related Articles
 

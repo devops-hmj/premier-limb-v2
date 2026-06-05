@@ -105,7 +105,7 @@ Ultimately, the question, “Am I too old for limb lengthening?” doesn’t hav
 Ready to Explore Your Limb Lengthening Options?
 -----------------------------------------------
 
-If you’re curious about limb lengthening but worried about your age, [Premier’s Limb Lengthening Institute](https://premierlimblengthening.com/) is here to help. Our team offers personalized evaluations, honest advice, and a caring approach tailored to your unique situation – no matter what your age. 
+If you’re curious about limb lengthening but worried about your age, [Premier Limb Lengthening Institute](https://premierlimblengthening.com/) is here to help. Our team offers personalized evaluations, honest advice, and a caring approach tailored to your unique situation – no matter what your age. 
 
 Get in touch today to [schedule a consultation](https://premierlimblengthening.com/consult/) to see how we can help you live life on your terms—no matter what your birth certificate says!
 

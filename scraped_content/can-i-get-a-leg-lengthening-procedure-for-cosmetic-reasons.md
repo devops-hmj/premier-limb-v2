@@ -94,7 +94,7 @@ Remember: Your Body, Your Choice
 
 At the end of the day, you own the decision to undergo leg lengthening, whether it’s for cosmetic reasons or not. Be honest with yourself. If you are on the fence about whether leg lengthening is right for you, or not, remember that it’s your body and your life. If you’ve done your research, weighed the pros and cons, and feel that this procedure could genuinely enhance your quality of life, then that’s a decision only you can make.
 
-Want to learn more about your options and get personalized advice? Reach out to [Premier’s Limb Lengthening Institute](https://premierlimblengthening.com/) today. Our compassionate team understands the complexities—both physical and emotional—of leg lengthening, and we’re here to answer your questions, clarify any concerns, and help you make an informed decision.
+Want to learn more about your options and get personalized advice? Reach out to [Premier Limb Lengthening Institute](https://premierlimblengthening.com/) today. Our compassionate team understands the complexities—both physical and emotional—of leg lengthening, and we’re here to answer your questions, clarify any concerns, and help you make an informed decision.
 
 ### Related Articles
 

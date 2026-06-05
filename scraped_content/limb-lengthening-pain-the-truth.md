@@ -95,7 +95,7 @@ Yes, the pain can linger through various stages of healing, but it’s not your 
 
 It’s completely okay to be nervous about pain. That’s a sign you’re taking this decision seriously. But know that there are doctors, nurses, therapists, and a whole support network who understand exactly what you’re facing. And with the right pain management, empathy, and consistent follow-ups, most patients discover they can handle it better than they initially feared.
 
-If you’re curious about limb lengthening but worried about the pain, [Premier’s Limb Lengthening Institute](https://premierlimblengthening.com/) is here to help. Our dedicated team will walk you through the entire process, discussing realistic pain expectations and strategies to keep you as comfortable as possible.
+If you’re curious about limb lengthening but worried about the pain, [Premier Limb Lengthening Institute](https://premierlimblengthening.com/) is here to help. Our dedicated team will walk you through the entire process, discussing realistic pain expectations and strategies to keep you as comfortable as possible.
 
 [Contact us](https://premierlimblengthening.com/consult/) today and let’s talk about turning your concerns into a plan for a brighter, more confident future.
 

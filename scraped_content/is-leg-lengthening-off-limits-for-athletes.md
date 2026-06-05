@@ -92,7 +92,7 @@ Here are just a few things to consider when thinking about limb lengthening: 
 Ready to Explore Your Limb Lengthening Options?
 -----------------------------------------------
 
-If you’re an athlete curious about limb lengthening—whether to correct a discrepancy or gain height—[**Premier’s Limb Lengthening Institute**](https://premierlimblengthening.com/) is here to guide you. Our team understands that your love for sports and an active lifestyle isn’t just a hobby; it’s part of who you are. 
+If you’re an athlete curious about limb lengthening—whether to correct a discrepancy or gain height—[**Premier Limb Lengthening Institute**](https://premierlimblengthening.com/) is here to guide you. Our team understands that your love for sports and an active lifestyle isn’t just a hobby; it’s part of who you are. 
 
 We’ll help you weigh the pros and cons, outline a realistic timeline for recovery, and design a plan that sets you up for success both on and off the field. 
 

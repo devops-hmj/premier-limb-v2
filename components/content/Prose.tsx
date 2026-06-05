@@ -118,7 +118,27 @@ export function Prose({ children, className, skipFirstParagraph = false }: Prose
           // Embedded markdown images point at legacy wp-content/uploads/
           // URLs that aren't reachable from this deployment. Suppressing
           // them entirely until real assets get wired in.
-          img: () => null,
+          img: ({ src, alt }) => {
+            if (!src) return null;
+            if (typeof src !== "string" || src.startsWith("http")) return null;
+
+            const caption = alt ? alt.replace(/^[\\>]+/, "").trim() : "";
+
+            return (
+              <span className="block my-8 max-w-full overflow-hidden">
+                <img
+                  src={src}
+                  alt={caption || "Limb Lengthening Surgery"}
+                  className="w-full object-cover border border-ink"
+                />
+                {caption && (
+                  <span className="block font-mono uppercase tracking-[0.18em] text-[10.5px] text-muted mt-2 text-center">
+                    {caption}
+                  </span>
+                )}
+              </span>
+            );
+          },
           table: ({ children }) => (
             <div className="my-8 overflow-x-auto border border-ink">
               <table className="w-full border-collapse text-t-m">{children}</table>

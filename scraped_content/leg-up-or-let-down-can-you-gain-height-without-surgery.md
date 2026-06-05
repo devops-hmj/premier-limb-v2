@@ -91,7 +91,7 @@ If you do find yourself contemplating something more permanent, it’s best to h
 Ready to Explore Your Limb Lengthening Options?
 -----------------------------------------------
 
-Whether you’re curious about non-surgical ways to look taller, want to fix a minor leg-length difference, or are considering a more permanent solution, [Premier’s Limb Lengthening Institute](https://premierlimblengthening.com/) is here to help. 
+Whether you’re curious about non-surgical ways to look taller, want to fix a minor leg-length difference, or are considering a more permanent solution, [Premier Limb Lengthening Institute](https://premierlimblengthening.com/) is here to help. 
 
 Our compassionate team offers consultations tailored to your unique needs, guiding you through everything from exercises and orthotics to the potential benefits of surgical limb lengthening.
 

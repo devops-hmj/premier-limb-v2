@@ -114,6 +114,17 @@ function parseMarkdown(raw: string): {
     body = body.slice(0, relatedIdx).trim();
   }
 
+  // Drop the scraped article preamble. The WordPress export prefixes every
+  // article body with a duplicate Setext title, a "### <Category>" line, an
+  // "![icon] Share" line, and a row of social-share links, ending in a stray
+  // "In This Post" marker just before the real content. When that marker is
+  // present, slice it (and everything above it) away. Guarded on the marker so
+  // non-article pages — which have no such preamble — are left untouched.
+  const inThisPostMatch = body.match(/^In Th?is Post\s*$/im);
+  if (inThisPostMatch?.index !== undefined) {
+    body = body.slice(inThisPostMatch.index + inThisPostMatch[0].length).trim();
+  }
+
   // First meaningful paragraph — strip markdown syntax for the meta description.
   const firstParaMatch = body.match(/^(?!#|!\[|>|\*|-|_)(.{40,}?)(?=\n\n|\n#|$)/m);
   const firstPara = firstParaMatch?.[1] ?? body.slice(0, 220);

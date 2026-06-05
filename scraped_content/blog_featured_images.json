@@ -1,0 +1,151 @@
+{
+  "_comment": "Featured/hero image manifest for the 16 live blog posts, produced by the 2026-06-04 live-crawl audit (see BLOG_CONTENT_AUDIT.md). Each post has exactly ONE true in-body image: the hero. 'heroUrl' is normalized to the canonical premierlimblengthening.com host (live currently serves these from the hgbmdpmc-wordpress.hipaavault.co WordPress origin - same path/filename). 'alt' is taken from the in-body image line (line ~20) of each local scraped_content/*.md. 'liveH1' is the visible on-page title; 'seoTitleFromMd' is the string on the md '# ' line (the Yoast SEO <title>), which differs from the visible H1 on 6 posts.",
+  "host": "https://premierlimblengthening.com",
+  "originHostSeenLive": "https://hgbmdpmc-wordpress.hipaavault.co",
+  "posts": [
+    {
+      "slug": "limb-lengthening-what-you-gain-what-you-risk",
+      "file": "limb-lengthening-what-you-gain-what-you-risk.md",
+      "heroUrl": "https://premierlimblengthening.com/wp-content/uploads/2025/05/Limb-Lengthening-What-You-Gain-What-You-Risk-1.jpg",
+      "alt": "Man overlooking mountainous landscape while hiking",
+      "liveH1": "Limb Lengthening: What You Gain, What You Risk",
+      "seoTitleFromMd": "Explore the pros and cons of limb lengthening",
+      "h1Drift": true
+    },
+    {
+      "slug": "rewriting-the-body-norm-stigmas-around-limb-lengthening",
+      "file": "rewriting-the-body-norm-stigmas-around-limb-lengthening.md",
+      "heroUrl": "https://premierlimblengthening.com/wp-content/uploads/2025/05/Managing-the-Stigma-Around-Limb-Lengthening-2.jpg",
+      "alt": "Dr. Basmajian holding leg bone and explaining anatomy to patient",
+      "liveH1": "Rewriting the Body Norm: Stigmas Around Limb Lengthening",
+      "seoTitleFromMd": "Dealing With Limb Lengthening-Related Stigma",
+      "h1Drift": true
+    },
+    {
+      "slug": "can-i-get-a-leg-lengthening-procedure-for-cosmetic-reasons",
+      "file": "can-i-get-a-leg-lengthening-procedure-for-cosmetic-reasons.md",
+      "heroUrl": "https://premierlimblengthening.com/wp-content/uploads/2025/07/Can-I-Get-a-Leg-Lengthening-Procedure-for-Cosmetic-Reasons.jpg",
+      "alt": "Man stretching leg by reaching for toes on elevated leg",
+      "liveH1": "Can I Get a Leg Lengthening Procedure for Cosmetic Reasons?",
+      "seoTitleFromMd": "Can I Get a Leg Lengthening Procedure for Cosmetic Reasons?",
+      "h1Drift": false
+    },
+    {
+      "slug": "leg-up-or-let-down-can-you-gain-height-without-surgery",
+      "file": "leg-up-or-let-down-can-you-gain-height-without-surgery.md",
+      "heroUrl": "https://premierlimblengthening.com/wp-content/uploads/2025/07/Leg-Up-or-Let-Down_-Can-You-Gain-Height-Without-Surgery.jpg",
+      "alt": "Athletic young male stretching, holding foot while sitting on sports court",
+      "liveH1": "Leg Up or Let Down: Can You Gain Height Without Surgery?",
+      "seoTitleFromMd": "Leg Up or Let Down: Can You Gain Height Without Surgery?",
+      "h1Drift": false
+    },
+    {
+      "slug": "am-i-too-old-for-limb-lengthening",
+      "file": "am-i-too-old-for-limb-lengthening.md",
+      "heroUrl": "https://premierlimblengthening.com/wp-content/uploads/2025/07/Am-I-Too-Old-for-Limb-Lengthening.jpeg",
+      "alt": "Older man laughing outdoors while walking with woman",
+      "liveH1": "Am I Too Old for Limb Lengthening?",
+      "seoTitleFromMd": "Am I Too Old for Limb Lengthening?",
+      "h1Drift": false
+    },
+    {
+      "slug": "is-leg-lengthening-off-limits-for-athletes",
+      "file": "is-leg-lengthening-off-limits-for-athletes.md",
+      "heroUrl": "https://premierlimblengthening.com/wp-content/uploads/2025/08/Is-Leg-Lengthening-Off-Limits-for-Athletes.jpeg",
+      "alt": "Man in position to start sprinting with feet in position and hands touching ground",
+      "liveH1": "Is Leg Lengthening Off-Limits for Athletes?",
+      "seoTitleFromMd": "Is Leg Lengthening Off-Limits for Athletes?",
+      "h1Drift": false
+    },
+    {
+      "slug": "fixation-methods-in-limb-lengthening-internal-vs-external",
+      "file": "fixation-methods-in-limb-lengthening-internal-vs-external.md",
+      "heroUrl": "https://premierlimblengthening.com/wp-content/uploads/2025/08/Fixation-Methods-in-Limb-Lengthening_-Internal-vs.-External.jpeg",
+      "alt": "Xray of leg bones pre-limb lengthening",
+      "liveH1": "Fixation Methods in Limb Lengthening: Internal vs. External",
+      "seoTitleFromMd": "Fixation Methods in Limb Lengthening: Internal vs. External",
+      "h1Drift": false
+    },
+    {
+      "slug": "will-leg-lengthening-be-obvious",
+      "file": "will-leg-lengthening-be-obvious.md",
+      "heroUrl": "https://premierlimblengthening.com/wp-content/uploads/2025/10/Will-Leg-Lengthening-Be-Obvious.jpeg",
+      "alt": "Man with right foot elevated on rocky surface, hands on elevated knee",
+      "liveH1": "Will Leg Lengthening Be Obvious?",
+      "seoTitleFromMd": "Will Leg Lengthening Be Obvious?",
+      "h1Drift": false
+    },
+    {
+      "slug": "limb-lengthening-pain-the-truth",
+      "file": "limb-lengthening-pain-the-truth.md",
+      "heroUrl": "https://premierlimblengthening.com/wp-content/uploads/2025/10/Limb-Lengthening-Pain_-The-Truth.jpeg",
+      "alt": "Man on doctor's table with right knee bent being examined by doctor",
+      "liveH1": "Limb Lengthening Pain: The Truth",
+      "seoTitleFromMd": "Limb Lengthening Pain: What to Expect & How It's Managed | Premier Limb Lengthening Institute",
+      "h1Drift": true
+    },
+    {
+      "slug": "is-limb-lengthening-covered-by-insurance",
+      "file": "is-limb-lengthening-covered-by-insurance.md",
+      "heroUrl": "https://premierlimblengthening.com/wp-content/uploads/2025/10/Is-Limb-Lengthening-Covered-by-Insurance.jpg",
+      "alt": "Man looking at insurance page on clipboard",
+      "liveH1": "Is Limb Lengthening Covered by Insurance?",
+      "seoTitleFromMd": "Is Limb Lengthening Covered by Insurance?",
+      "h1Drift": false
+    },
+    {
+      "slug": "the-importance-of-physical-therapy-in-limb-lengthening",
+      "file": "the-importance-of-physical-therapy-in-limb-lengthening.md",
+      "heroUrl": "https://premierlimblengthening.com/wp-content/uploads/2025/12/Physical-Therapy-is-Part-of-the-Healing-Process-2.jpg",
+      "alt": "Man bending leg with the help of physical therapist",
+      "liveH1": "The Importance of Physical Therapy in Limb Lengthening",
+      "seoTitleFromMd": "The Importance of Physical Therapy in Limb Lengthening",
+      "h1Drift": false
+    },
+    {
+      "slug": "tips-for-traveling-for-the-holidays-after-limb-lengthening-surgery",
+      "file": "tips-for-traveling-for-the-holidays-after-limb-lengthening-surgery.md",
+      "heroUrl": "https://premierlimblengthening.com/wp-content/uploads/2025/12/Holiday-Traveling-During-Recovery-Know-Before-You-Go.jpg",
+      "alt": "Man pulling suitcase through parking lot",
+      "liveH1": "Tips for Traveling for the Holidays After Limb Lengthening Surgery",
+      "seoTitleFromMd": "Tips for Traveling for the Holidays After Limb Lengthening Surgery",
+      "h1Drift": false
+    },
+    {
+      "slug": "bone-health-and-nutrition-before-and-after-limb-lengthening",
+      "file": "bone-health-and-nutrition-before-and-after-limb-lengthening.md",
+      "heroUrl": "https://premierlimblengthening.com/wp-content/uploads/2026/03/Bone-Health-and-Nutrition-Before-and-After-Limb-Lengthening.jpg",
+      "alt": "Nutritious, protein packed meal, fork and knife pulling piece of chicken",
+      "liveH1": "Bone Health and Nutrition Before and After Limb Lengthening",
+      "seoTitleFromMd": "Nutrition to Support Limb Lengthening & Recovery",
+      "h1Drift": true
+    },
+    {
+      "slug": "the-science-behind-bone-regeneration-and-limb-lengthening",
+      "file": "the-science-behind-bone-regeneration-and-limb-lengthening.md",
+      "heroUrl": "https://premierlimblengthening.com/wp-content/uploads/2026/03/The-Science-Behind-Bone-Regeneration-and-Limb-Lengthening.jpg",
+      "alt": "Man on grassy field stretching leg, diagram of bones outlining anatomy",
+      "liveH1": "The Science Behind Bone Regeneration and Limb Lengthening",
+      "seoTitleFromMd": "Bone Regeneration and Limb Lengthening Explained",
+      "h1Drift": true
+    },
+    {
+      "slug": "what-happens-to-muscle-during-and-after-limb-lengthening",
+      "file": "what-happens-to-muscle-during-and-after-limb-lengthening.md",
+      "heroUrl": "https://premierlimblengthening.com/wp-content/uploads/2026/03/What-Happens-to-Muscle-During-and-After-Limb-Lengthening.jpg",
+      "alt": "Man running, focus on leg muscles",
+      "liveH1": "What Happens to Muscle During and After Limb Lengthening?",
+      "seoTitleFromMd": "What Happens to Muscle During and After Limb Lengthening?",
+      "h1Drift": false
+    },
+    {
+      "slug": "are-you-a-good-candidate-for-limb-lengthening",
+      "file": "are-you-a-good-candidate-for-limb-lengthening.md",
+      "heroUrl": "https://premierlimblengthening.com/wp-content/uploads/2026/03/Are-You-a-Good-Candidate-for-Limb-Lengthening.jpg",
+      "alt": "Man at orthopedic clinic consultation for limb lengthening surgery, provider holding and bending leg",
+      "liveH1": "Are You a Good Candidate for Limb Lengthening?",
+      "seoTitleFromMd": "Is Limb Lengthening Right for You?",
+      "h1Drift": true
+    }
+  ]
+}

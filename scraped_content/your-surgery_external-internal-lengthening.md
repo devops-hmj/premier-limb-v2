@@ -2,7 +2,7 @@
 
 **URL:** https://premierlimblengthening.com/your-surgery/external-internal-lengthening/
 
-![](https://premierlimblengthening.com/wp-content/uploads/2022/10/Limb-Lengthening-Surgery.jpg)
+![External vs Internal Lengthening Comparison](/images/your-surgery/ext-int-comparison.png)
 
 Comparing External Fixation to Internal Lengthening
 ===================================================
@@ -24,7 +24,7 @@ Similarly, the external fixator necessarily requires obvious scars. The external
 
 While cosmetically, the intramedullary rod is preferable, it requires that the patient not put any weight on the leg until the lengthening is complete and the bone has hardened. While this was addressed with a newer generation nail (Precice Stryde) that allowed for weight-bearing during the process, this nail was recalled and remains off the market until the manufacturer can address the biocompatibility concerns of the recall. We expect that this will occur sometime in early 2023.
 
-![\>Cosmetic Considerations](https://premierlimblengthening.com/wp-content/uploads/2022/10/221012_enzie_hrair-98.jpg)
+![Cosmetic Considerations and Scarring](/images/your-surgery/ext-int-cosmetic.png)
 
 Under and Overcorrection
 ------------------------
@@ -42,8 +42,6 @@ Pain Levels
 -----------
 
 Data and anecdotal evidence have shown that the postoperative pain associated with the internal lengthening systems is lower than that of external fixation. However, it is essential to remember that pain is somewhat subjective, with different patients having varying pain thresholds. In all cases, between the long-lasting local anesthetic we use after the procedure as well as proper pain management in the early postoperative period, most patients report acceptable pain levels regardless of the procedure.
-
-![\>Pain Levels](https://premierlimblengthening.com/wp-content/uploads/2022/10/Basmajian-Ex-fix.jpg)
 
 Length Discrepancy
 ------------------

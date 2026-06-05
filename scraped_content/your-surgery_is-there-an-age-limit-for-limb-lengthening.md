@@ -14,7 +14,7 @@ Growth plates are small areas of tissue between bones that determine the size an
 
 When we work with adolescent patients, growth plates are a significant concern. We do not want to alter growth patterns. However, checking to see if the growth place is closed is straightforward and only requires an x-ray. Of course, adolescent patients also haven’t fully matured psychologically, and the reasoning behind their decision to potentially have lengthening surgery should be discussed with Dr. Basmajian and the family.
 
-![\>What Is a Growth Plate, and When Does It Close?](https://premierlimblengthening.com/wp-content/uploads/2022/10/Growth-Plates.jpeg)
+![What Is a Growth Plate, and When Does It Close?](/images/your-surgery/age-limit-growth-plates.png)
 
 Biological Aging
 ----------------
@@ -25,4 +25,4 @@ As a result of the above, we suggest that patients over 55 strongly consider whe
 
 Older patients looking to have a limb lengthening surgery should undergo a simple bone density scan known as DEXA to understand if there is a risk of complications due to bone mineral loss.
 
-![\>Biological Aging](https://premierlimblengthening.com/wp-content/uploads/2022/10/Basmajian-Femur.jpg)
+![Biological Aging](/images/your-surgery/age-limit-biological-aging.png)
