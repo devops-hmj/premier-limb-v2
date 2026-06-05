@@ -7,7 +7,7 @@ import { NavV2 } from "@/components/v2/NavV2";
 import { Reveal } from "@/components/v2/Reveal";
 import { Prose } from "@/components/content/Prose";
 import { JsonLd } from "@/components/content/JsonLd";
-import { getArticles, getPageByRoute, getRelatedArticles } from "@/lib/content";
+import { getArticles, getHeadings, getPageByRoute, getRelatedArticles } from "@/lib/content";
 import { articleSchema, breadcrumb } from "@/lib/jsonld";
 
 import "../v2.css";
@@ -34,6 +34,9 @@ export async function generateMetadata(
   const { slug } = await params;
   const p = getPageByRoute(`/${slug}`);
   if (!p) return { title: slug };
+  const ogImages = p.featuredImage
+    ? [{ url: p.featuredImage.src, alt: p.featuredImage.alt }]
+    : undefined;
   return {
     title: p.title,
     description: p.description,
@@ -43,7 +46,16 @@ export async function generateMetadata(
       description: p.description,
       url: `/${slug}`,
       type: "article",
+      images: ogImages,
     },
+    twitter: p.featuredImage
+      ? {
+          card: "summary_large_image",
+          title: p.title,
+          description: p.description,
+          images: [p.featuredImage.src],
+        }
+      : undefined,
     robots: { index: true, follow: true },
   };
 }
@@ -54,6 +66,7 @@ export default async function Page({ params }: { params: Promise<RouteParams> })
   if (!page || page.kind !== "article") notFound();
 
   const related = getRelatedArticles(page.slug, page.category, 3);
+  const headings = getHeadings(page.body);
 
   return (
     <>
@@ -63,7 +76,7 @@ export default async function Page({ params }: { params: Promise<RouteParams> })
           articleSchema(page),
           breadcrumb([
             { name: "Home", url: "/" },
-            { name: "Resources", url: "/blog" },
+            { name: "Blog", url: "/blog" },
             { name: page.title, url: page.route },
           ]),
         ]}
@@ -79,7 +92,7 @@ export default async function Page({ params }: { params: Promise<RouteParams> })
               >
                 <Link href="/" className="hover:text-spine transition-colors">Home</Link>
                 <span aria-hidden className="mx-2">·</span>
-                <Link href="/blog" className="hover:text-spine transition-colors">Resources</Link>
+                <Link href="/blog" className="hover:text-spine transition-colors">Blog</Link>
                 {page.category && (
                   <>
                     <span aria-hidden className="mx-2">·</span>
@@ -112,8 +125,51 @@ export default async function Page({ params }: { params: Promise<RouteParams> })
           </div>
         </header>
 
-        <div className="mx-auto max-w-wrap px-6 lg:px-12 py-16 lg:py-24 grid grid-cols-12 gap-6 lg:gap-8">
-          <Reveal className="col-span-12 lg:col-span-8">
+        <div className="mx-auto max-w-wrap px-6 lg:px-12 py-12 lg:py-20 grid grid-cols-12 gap-8 lg:gap-10">
+          {headings.length > 0 && (
+            <aside className="hidden lg:block lg:col-span-3">
+              <div className="sticky top-28 border-t border-ink pt-5">
+                <div className="font-mono uppercase tracking-[0.22em] text-[10.5px] text-spine mb-4">
+                  In This Post
+                </div>
+                <nav aria-label="On this page">
+                  <ul className="flex flex-col gap-3">
+                    {headings.map((h) => (
+                      <li key={h.id}>
+                        <a
+                          href={`#${h.id}`}
+                          className="block text-[14px] leading-[1.4] text-ink-soft hover:text-spine transition-colors"
+                        >
+                          {h.text}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+              </div>
+            </aside>
+          )}
+          <Reveal
+            className={`col-span-12 ${headings.length > 0 ? "lg:col-span-8 lg:col-start-5" : "lg:col-span-8"}`}
+          >
+            {page.featuredImage && (
+              <figure className="mb-10 lg:mb-12">
+                <div className="relative aspect-[16/9] border border-ink overflow-hidden bg-paper-warm">
+                  {/* Hero served from the live WordPress media library. */}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={page.featuredImage.src}
+                    alt={page.featuredImage.alt}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                </div>
+                {page.featuredImage.alt && (
+                  <figcaption className="mt-3 font-mono uppercase tracking-[0.16em] text-[10px] text-muted">
+                    {page.featuredImage.alt}
+                  </figcaption>
+                )}
+              </figure>
+            )}
             <Prose>{page.body}</Prose>
           </Reveal>
         </div>

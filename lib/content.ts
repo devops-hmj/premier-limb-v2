@@ -250,3 +250,37 @@ export const ORIGIN = "https://premierlimblengthening.com";
 export function getAllRoutes(): string[] {
   return getAllPages().map((p) => p.route);
 }
+
+/**
+ * Extract H2 headings (text + anchor id) from a markdown body, for the article
+ * table of contents. The ids match the slugs Prose assigns to each <h2>.
+ */
+export function getHeadings(body: string): { text: string; id: string }[] {
+  const lines = body.split(/\r?\n/);
+  const out: { text: string; id: string }[] = [];
+  const seen = new Set<string>();
+  for (let i = 0; i < lines.length; i++) {
+    const trimmed = (lines[i] ?? "").trim();
+    let raw = "";
+    if (/^##\s+/.test(trimmed)) {
+      raw = trimmed.replace(/^#+\s+/, ""); // ATX H2
+    } else if (
+      trimmed &&
+      !/^[#>\-*=!|]/.test(trimmed) &&
+      /^-{3,}\s*$/.test((lines[i + 1] ?? "").trim())
+    ) {
+      raw = trimmed; // Setext H2 (text underlined by ---)
+    }
+    if (!raw) continue;
+    const text = raw
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+      .replace(/[*_`]/g, "")
+      .trim();
+    const id = text.toLowerCase().replace(/[^a-z0-9\s-]/g, "").trim().replace(/\s+/g, "-");
+    if (text && id && !seen.has(id)) {
+      seen.add(id);
+      out.push({ text, id });
+    }
+  }
+  return out;
+}
