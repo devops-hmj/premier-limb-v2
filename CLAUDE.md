@@ -13,6 +13,7 @@ This repository contains the Next.js 15 App Router codebase, design system token
   - ✅ Pre-launch SEO baseline: noindex flags lifted, hand-written metadata, expanded sitemap (see [SEO_AUDIT.md](SEO_AUDIT.md))
   - ✅ **Option A + literal path preservation (2026-05-28)**: dropped the `/v2/` prefix AND kept every URL slug exactly as it appears on the legacy WordPress site (`scraped_content/sitemap_data.json`). **Zero redirect hops** for every legacy URL that has a built destination, including the long legacy slugs `/consult`, `/blog`, and `/limb-lengthening-pricing-options`. URL slugs and UI labels are decoupled: `/consult` ⇒ label "Contact", `/blog` ⇒ label "Resources", `/limb-lengthening-pricing-options` ⇒ label "Pricing". A defensive `/v2/:path*` catch-all and interim 302s for the 9 not-yet-built category/author/video pages stay in [next.config.mjs](next.config.mjs).
   - ✅ Brand copy compliance: procedure-count claim → "thousands"; "Up to" qualifier on height claims; project-wide no-dash rule applied to homepage flow
+  - ✅ **Legal pages built (2026-06-08)**: `/privacy` (Privacy Policy), `/terms` (Terms of Service), and `/accessibility` (Accessibility Statement) now exist, resolving all three of the footer's previously-broken legal links and a HIPAA-audit release-blocker. All three render through the shared [components/v2/legal/LegalDocument.tsx](components/v2/legal/LegalDocument.tsx) shell (article-style chrome + sticky auto-TOC built from `##` headings + `Prose` markdown body). Content is **GHL A2P 10DLC compliant**: the Privacy Policy carries the carrier-mandated mobile-data clause ("No mobile information will be shared with third parties or affiliates for marketing or promotional purposes" + originator opt-in/consent never shared) and the ToS carries the SMS program terms (STOP/HELP, msg & data rates, frequency varies, consent-not-a-condition, carriers-not-liable). Also covers HIPAA (PHI governed by NPP), CCPA/CPRA, a medical disclaimer, and WCAG 2.1 AA. Brand copy rules honored (no em dashes, no semicolons). All three added to [app/sitemap.ts](app/sitemap.ts) and verified via `next build` (static prerender, TOC anchors resolve). Placeholders resolved: website-form data retention = **90 days**; telehealth platform left generic (name TBD); liability cap and binding arbitration **intentionally omitted** for launch (see code comment in [app/terms/page.tsx](app/terms/page.tsx)). **⚠️ Still open before/at launch: (a) counsel review of all three; (b) confirm the SMS/HELP contact number — code uses `(909) 563-8653` per [lib/site.ts](lib/site.ts), consistent with the rest of the site, but the June-2026 marketing handoff cited `(909) 461-4984`; (c) provision the `privacy@premierlimblengthening.com` inbox (owner confirmed they will).** A Notice of Privacy Practices (`/notice-of-privacy-practices`) is still unbuilt.
   - ⬜ JSON-LD builders not yet wired per-page (see [SEO_AUDIT.md §5.3](SEO_AUDIT.md))
   - ⬜ Em-dash sweep still pending across pricing detail components ([AddOns.tsx](components/v2/pricing/AddOns.tsx), [Financing.tsx](components/v2/pricing/Financing.tsx), [IncludedExcluded.tsx](components/v2/pricing/IncludedExcluded.tsx), [PricingPlans.tsx](components/v2/pricing/PricingPlans.tsx)) and subpage body copy
   - ⬜ Open-graph imagery not set per page
@@ -54,6 +55,8 @@ PLL-design/
 │   ├── dr-basmajian/                           # /dr-basmajian
 │   ├── limb-lengthening-pricing-options/       # legacy slug — UI label "Pricing"
 │   ├── your-surgery/                           # /your-surgery + [slug]/ (7 sub-pages)
+│   ├── privacy/                                # /privacy — Privacy Policy (HIPAA + CCPA + A2P)
+│   ├── terms/                                  # /terms — Terms of Service (+ SMS A2P program terms)
 │   ├── [slug]/                                 # /<article-slug> (16 articles, direct WP slugs)
 │   ├── sitemap.ts
 │   ├── robots.ts
@@ -66,8 +69,9 @@ PLL-design/
 │   │   ├── HeroStage.tsx, Article.tsx, Pillars.tsx, Bio.tsx,
 │   │   │   Process.tsx, Concierge.tsx, Candidate.tsx, Pricing.tsx,
 │   │   │   Results.tsx, Testimonials.tsx, FaqV2.tsx, FinalCta.tsx
-│   │   └── pricing/         # AddOns, Financing, IncludedExcluded,
-│   │                        # PricingPlans, PricingHero
+│   │   ├── pricing/         # AddOns, Financing, IncludedExcluded,
+│   │   │                    # PricingPlans, PricingHero
+│   │   └── legal/           # LegalDocument.tsx — shared shell for /privacy + /terms
 │   ├── primitives/          # Design-system primitives
 │   ├── content/Prose.tsx    # Markdown renderer for scraped articles
 │   ├── home/                # Legacy V1 homepage components (unused)
