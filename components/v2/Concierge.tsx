@@ -8,8 +8,8 @@ const rows = [
   { n: "01", h: "Travel Coordination",          p: "Flight booking assistance, airport transfers, and ground transportation throughout your stay in Southern California.", mk: "Global" },
   { n: "02", h: "Recovery Accommodations",      p: "Pre-vetted, surgeon-approved extended-stay housing near our Upland facility. Wheelchair-accessible, fully furnished, discounted rates.", mk: "Vetted" },
   { n: "03", h: "PT & Follow-Up Scheduling",    p: "Your physical therapy schedule is set before you arrive. All post-op visits coordinated. Nothing falls through the cracks.", mk: "Pre-Set" },
-  { n: "04", h: "Dedicated Patient Coordinator", p: "One person. One phone number. From your first call through your final follow-up. Available 7 days a week during your recovery.", mk: "1-to-1" },
-  { n: "05", h: "Virtual Pre-Op & Remote Follow-Up", p: "Initial consultation via secure video. Post-op check-ins from home once you return. Minimizes trips to California.", mk: "Remote" },
+  { n: "04", h: "Dedicated Patient Coordinator", p: "One agent. One phone number. From your first call through your final follow-up. Available 7 days a week during your recovery.", mk: "1-to-1" },
+  { n: "05", h: "Virtual Pre-Op & Remote Follow-Up", p: "Initial consultation via secure video or in-person. Post-op check-ins from home once you return. Minimizes trips to California.", mk: "Remote" },
 ] as const;
 
 export function Concierge() {
@@ -36,9 +36,8 @@ export function Concierge() {
             <p className="text-[15.5px] leading-[1.7] text-ink-soft max-w-[54ch] mb-10">
               Most limb lengthening patients travel for their procedure, and
               most clinics leave you to figure out the logistics alone. Not
-              here. Premier Limb Lengthening is the only practice offering a
-              full white-glove concierge program that coordinates every detail
-              of your surgical journey.
+              here. Premier Limb Lengthening offers a full white-glove
+              concierge program that coordinates every detail of your surgery.
             </p>
 
             <div className="border-t border-ink">

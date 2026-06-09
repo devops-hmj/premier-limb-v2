@@ -7,7 +7,7 @@ const pillars = [
   {
     tag: "01 · Expertise",
     title: "Surgical Expertise",
-    body: "Thousands of limb lengthening procedures performed in trauma, cosmetic, and revisional settings by Dr. Hrayr Basmajian.",
+    body: "Thousands of procedures performed in trauma, cosmetic, and revisional settings by Dr. Hrayr Basmajian.",
     link: { label: "Meet Dr. Basmajian", href: "#dr" },
   },
   {
@@ -35,7 +35,7 @@ export function Pillars() {
     <section id="why" className="bg-paper-off py-20 lg:py-28 border-b border-rule">
       <div className="mx-auto max-w-wrap px-6 lg:px-12">
         <Reveal>
-          <header className="pb-8 mb-12 border-b border-ink">
+          <header className="mb-12">
             <span className="eyebrow mb-4">Why Premier Limb Lengthening</span>
             <h2 className="mt-4 font-serif font-normal tracking-[-0.02em] text-ink leading-[0.98] max-w-[24ch] [text-wrap:balance]" style={{ fontSize: "clamp(40px, 6vw, 84px)" }}>
               Four reasons patients <em className="italic text-spine">choose us.</em>

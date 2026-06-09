@@ -11,12 +11,12 @@ import "../v2.css";
 export const metadata: Metadata = {
   title: "About Premier Limb Lengthening, Founded by Dr. Hrayr Basmajian",
   description:
-    "Premier Limb Lengthening is a cosmetic and reconstructive surgery practice created by Dr. Hrayr Basmajian, founder of Premier Orthopaedic & Trauma Specialists, based in Upland, Southern California.",
+    "Premier Limb Lengthening is a cosmetic and reconstructive surgery practice created by Dr. Hrayr Basmajian, founder of Premier Orthopaedic & Trauma Specialists, based in Upland, California.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "About Premier Limb Lengthening, Founded by Dr. Hrayr Basmajian",
     description:
-      "A cosmetic and reconstructive surgery practice created by Dr. Hrayr Basmajian, founder of Premier Orthopaedic & Trauma Specialists, based in Upland, Southern California.",
+      "A cosmetic and reconstructive surgery practice created by Dr. Hrayr Basmajian, founder of Premier Orthopaedic & Trauma Specialists, based in Upland, California.",
     url: "/about",
     type: "website",
   },
@@ -48,7 +48,7 @@ const pillars = [
 
 const stats = [
   { value: "1,000s", italic: true, label: "Procedures Performed" },
-  { value: "17+",  italic: false, label: "Surgeon Group" },
+  { value: "2", italic: false, label: "Fellowship Programs Completed" },
   { value: "1",    italic: true,  label: "Dedicated Coordinator" },
   { value: "50+",  italic: true,  label: "States & Countries Served" },
 ] as const;
@@ -80,7 +80,7 @@ export default function V2AboutPage() {
               Premier Limb Lengthening is a cosmetic and reconstructive
               surgery practice created by Dr. Hrayr Basmajian, founder of
               Premier Orthopaedic &amp; Trauma Specialists, based in Upland,
-              Southern California.
+              California.
             </p>
           </Reveal>
         </div>

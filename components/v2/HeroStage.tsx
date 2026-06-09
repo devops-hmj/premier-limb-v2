@@ -119,7 +119,7 @@ export function HeroStage() {
 
       <NavV2Overlay />
 
-      <div className="relative z-10 mx-auto max-w-wrap w-full px-6 lg:px-12 pt-3 lg:pt-4 grid grid-cols-12 gap-4 lg:gap-8 border-t border-white/20">
+      <div className="relative z-10 mx-auto max-w-wrap w-full px-6 lg:px-12 pt-3 lg:pt-4 grid grid-cols-12 gap-4 lg:gap-8">
         <div className="col-span-12 sm:col-span-4 pt-3 lg:pt-4 font-mono uppercase tracking-[0.2em] text-[10.5px] text-white/85">
           <strong className="text-white font-medium">The Practice</strong>
           <span className="text-white/70"> · Cosmetic Limb Lengthening</span>
@@ -143,7 +143,7 @@ export function HeroStage() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.05, ease: [0.2, 0.65, 0.3, 1] }}
-          className="font-serif italic text-[16px] lg:text-[20px] max-w-[58ch] pb-4 lg:pb-5 border-b border-white/25"
+          className="font-serif italic text-[16px] lg:text-[20px] max-w-[58ch] pb-4 lg:pb-5"
           style={{ color: "#F4D88A" }}
         >
           A West-Coast authority on a procedure most surgeons won&rsquo;t perform.
@@ -182,7 +182,7 @@ export function HeroStage() {
           <div className="col-span-12 lg:col-span-5 font-mono uppercase text-[10.5px] tracking-[0.18em] text-white/85 leading-[1.7]">
             <div><strong className="text-white font-medium">Surgeon</strong> &nbsp; Dr. Hrayr Basmajian, MD</div>
             <div><strong className="text-white font-medium">Practice</strong> &nbsp; Premier Limb Lengthening</div>
-            <div><strong className="text-white font-medium">Location</strong> &nbsp; Upland, Southern California</div>
+            <div><strong className="text-white font-medium">Location</strong> &nbsp; Upland, California</div>
           </div>
         </motion.div>
       </section>

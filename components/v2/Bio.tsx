@@ -91,7 +91,7 @@ export function Bio() {
               </div>
               <div className="pt-6 pb-2 pr-4">
                 <div className="font-serif text-[36px] lg:text-[48px] leading-none tracking-[-0.02em] text-ink">
-                  Up to <em className="italic text-spine">6</em>″
+                  Up to <em className="italic text-spine">3-6</em>″
                 </div>
                 <div className="mt-2.5 font-mono uppercase tracking-[0.2em] text-[10.5px] text-muted">
                   Height Gain

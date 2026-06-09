@@ -14,6 +14,13 @@ import "../../v2.css";
 
 type RouteParams = { slug: string };
 
+/** Sub-pages that render their first body image as a full-bleed hero background
+ *  (and drop that image from the body). Intentionally limited to these slugs. */
+const HERO_BG_SLUGS = new Set([
+  "limb-lengthening-expectations",
+  "exercise-after-limb-lengthening",
+]);
+
 export function generateStaticParams(): RouteParams[] {
   return getPagesByKind("service-sub").map((p) => ({ slug: p.slug }));
 }
@@ -72,6 +79,12 @@ export default async function V2YourSurgerySubPage({
 
   const siblings = getPagesByKind("service-sub").filter((p) => p.slug !== slug);
 
+  // Page-specific: use the first body image as a full-bleed hero background, and
+  // drop it from the body so it is not shown twice. Only for HERO_BG_SLUGS.
+  const firstImg = page.body.match(/!\[(.*?)\]\((.*?)\)/);
+  const heroImage = HERO_BG_SLUGS.has(slug) && firstImg ? firstImg[2] : undefined;
+  const bodyForProse = heroImage && firstImg ? page.body.replace(firstImg[0], "") : page.body;
+
   return (
     <>
       <NavV2 forceVisible />
@@ -87,43 +100,74 @@ export default async function V2YourSurgerySubPage({
       />
 
       <article className="bg-paper-off">
-        <header className="border-b border-ink pt-28 lg:pt-36 pb-12 lg:pb-16">
-          <div className="mx-auto max-w-wrap px-6 lg:px-12 grid grid-cols-12 gap-6 lg:gap-8">
-            <Reveal className="col-span-12 lg:col-span-9">
-              <nav
-                aria-label="Breadcrumb"
-                className="font-mono uppercase tracking-[0.2em] text-[10.5px] text-muted mb-5"
-              >
-                <Link href="/" className="hover:text-spine transition-colors">Home</Link>
-                <span aria-hidden className="mx-2">·</span>
-                <Link href="/your-surgery" className="hover:text-spine transition-colors">Your Surgery</Link>
-                <span aria-hidden className="mx-2">·</span>
-                <span className="text-ink">{page.title}</span>
-              </nav>
-              <h1
-                className="font-serif font-normal tracking-[-0.025em] text-ink leading-[0.98] max-w-[22ch]"
-                style={{ fontSize: "clamp(36px, 5.8vw, 96px)" }}
-              >
-                {page.title}
-              </h1>
-              <div className="mt-7 pt-5 border-t border-rule flex flex-wrap items-baseline gap-x-8 gap-y-2 font-mono uppercase tracking-[0.18em] text-[11px] text-muted">
-                <span>
-                  <span className="text-ink font-medium">Reading</span> · {page.readingTime} min
-                </span>
-                <span>
-                  <span className="text-ink font-medium">Topic</span> · Your Surgery
-                </span>
-                <span>
-                  <span className="text-ink font-medium">By</span> · Dr. Hrayr Basmajian
-                </span>
-              </div>
-            </Reveal>
-          </div>
-        </header>
+        {heroImage ? (
+          <header className="relative border-b border-ink pt-28 lg:pt-40 pb-14 lg:pb-20 overflow-hidden">
+            {/* Page-specific full-bleed hero background (first body image). */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={heroImage} alt="" aria-hidden className="absolute inset-0 w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/60 to-ink/40" aria-hidden />
+            <div className="relative z-10 mx-auto max-w-wrap px-6 lg:px-12 grid grid-cols-12 gap-6 lg:gap-8">
+              <Reveal className="col-span-12 lg:col-span-9">
+                <nav aria-label="Breadcrumb" className="font-mono uppercase tracking-[0.2em] text-[10.5px] text-white/70 mb-5">
+                  <Link href="/" className="hover:text-white transition-colors">Home</Link>
+                  <span aria-hidden className="mx-2">·</span>
+                  <Link href="/your-surgery" className="hover:text-white transition-colors">Your Surgery</Link>
+                  <span aria-hidden className="mx-2">·</span>
+                  <span className="text-white">{page.title}</span>
+                </nav>
+                <h1
+                  className="font-serif font-normal tracking-[-0.025em] text-white leading-[0.98] max-w-[22ch]"
+                  style={{ fontSize: "clamp(36px, 5.8vw, 96px)", textShadow: "0 2px 30px rgba(0,0,0,0.45)" }}
+                >
+                  {page.title}
+                </h1>
+                <div className="mt-7 pt-5 border-t border-white/25 flex flex-wrap items-baseline gap-x-8 gap-y-2 font-mono uppercase tracking-[0.18em] text-[11px] text-white/80">
+                  <span><span className="text-white font-medium">Reading</span> · {page.readingTime} min</span>
+                  <span><span className="text-white font-medium">Topic</span> · Your Surgery</span>
+                  <span><span className="text-white font-medium">By</span> · Dr. Hrayr Basmajian</span>
+                </div>
+              </Reveal>
+            </div>
+          </header>
+        ) : (
+          <header className="border-b border-ink pt-28 lg:pt-36 pb-12 lg:pb-16">
+            <div className="mx-auto max-w-wrap px-6 lg:px-12 grid grid-cols-12 gap-6 lg:gap-8">
+              <Reveal className="col-span-12 lg:col-span-9">
+                <nav
+                  aria-label="Breadcrumb"
+                  className="font-mono uppercase tracking-[0.2em] text-[10.5px] text-muted mb-5"
+                >
+                  <Link href="/" className="hover:text-spine transition-colors">Home</Link>
+                  <span aria-hidden className="mx-2">·</span>
+                  <Link href="/your-surgery" className="hover:text-spine transition-colors">Your Surgery</Link>
+                  <span aria-hidden className="mx-2">·</span>
+                  <span className="text-ink">{page.title}</span>
+                </nav>
+                <h1
+                  className="font-serif font-normal tracking-[-0.025em] text-ink leading-[0.98] max-w-[22ch]"
+                  style={{ fontSize: "clamp(36px, 5.8vw, 96px)" }}
+                >
+                  {page.title}
+                </h1>
+                <div className="mt-7 pt-5 border-t border-rule flex flex-wrap items-baseline gap-x-8 gap-y-2 font-mono uppercase tracking-[0.18em] text-[11px] text-muted">
+                  <span>
+                    <span className="text-ink font-medium">Reading</span> · {page.readingTime} min
+                  </span>
+                  <span>
+                    <span className="text-ink font-medium">Topic</span> · Your Surgery
+                  </span>
+                  <span>
+                    <span className="text-ink font-medium">By</span> · Dr. Hrayr Basmajian
+                  </span>
+                </div>
+              </Reveal>
+            </div>
+          </header>
+        )}
 
         <div className="mx-auto max-w-wrap px-6 lg:px-12 py-16 lg:py-24 grid grid-cols-12 gap-6 lg:gap-8">
           <Reveal className="col-span-12 lg:col-span-8">
-            <Prose>{page.body}</Prose>
+            <Prose>{bodyForProse}</Prose>
           </Reveal>
         </div>
       </article>

@@ -3,6 +3,7 @@ import Script from "next/script";
 import { FooterV2 } from "@/components/v2/FooterV2";
 import { NavV2 } from "@/components/v2/NavV2";
 import { Reveal } from "@/components/v2/Reveal";
+import { ConsultForm } from "@/components/v2/ConsultForm";
 import { JsonLd } from "@/components/content/JsonLd";
 import { site } from "@/lib/site";
 import { breadcrumb } from "@/lib/jsonld";
@@ -12,12 +13,12 @@ import "../v2.css";
 export const metadata: Metadata = {
   title: "Schedule a Limb Lengthening Consultation",
   description:
-    "Schedule a consultation with Premier Limb Lengthening in Upland, Southern California. Confidential intake, virtual visits, and white-glove travel coordination.",
+    "Schedule a consultation with Premier Limb Lengthening in Upland, California. Confidential intake, virtual visits, and white-glove travel coordination.",
   alternates: { canonical: "/consult" },
   openGraph: {
     title: "Schedule a Limb Lengthening Consultation · Premier",
     description:
-      "Confidential intake, virtual visits, and white-glove travel coordination from Upland, Southern California.",
+      "Confidential intake, virtual visits, and white-glove travel coordination from Upland, California.",
     url: "/consult",
     type: "website",
   },
@@ -81,61 +82,7 @@ export default function V2ContactPage() {
       <section className="bg-paper-off py-20 lg:py-28">
         <div className="mx-auto max-w-wrap px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-[7fr_5fr] gap-12 lg:gap-16 items-start">
           <Reveal>
-            <form
-              method="post"
-              action="#"
-              className="border border-ink bg-paper p-8 lg:p-10"
-              aria-label="Consultation request"
-            >
-              <div className="font-mono uppercase tracking-[0.22em] text-[10.5px] text-spine mb-5 inline-flex items-center gap-2.5">
-                <span className="inline-block w-[22px] h-px bg-spine" aria-hidden />
-                Consultation Request
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-5">
-                <Field name="first" label="First name" required />
-                <Field name="last" label="Last name" required />
-                <Field name="email" label="Email" type="email" required />
-                <Field name="phone" label="Phone" type="tel" required />
-                <Field name="city" label="City of residence" />
-                <Field name="age" label="Age" type="number" />
-              </div>
-
-              <div className="mt-6">
-                <label className="block font-mono uppercase tracking-[0.18em] text-[11px] text-muted mb-2">
-                  How can we help?
-                </label>
-                <textarea
-                  name="message"
-                  rows={5}
-                  required
-                  className="w-full bg-paper-off border border-rule px-4 py-3 font-sans text-[14px] text-ink leading-[1.55] focus:outline-none focus:border-spine focus:ring-2 focus:ring-spine/20 transition-colors"
-                  placeholder="Tell us briefly about your goals, timeline, and any prior consultations."
-                />
-              </div>
-
-              <div className="mt-6 flex items-start gap-3">
-                <input
-                  id="consent"
-                  name="consent"
-                  type="checkbox"
-                  required
-                  className="mt-1.5 w-4 h-4 accent-spine"
-                />
-                <label htmlFor="consent" className="text-[13px] leading-[1.55] text-ink-soft">
-                  I consent to be contacted by Premier Limb Lengthening regarding
-                  my inquiry. My information is private and never sold.
-                </label>
-              </div>
-
-              <button
-                type="submit"
-                className="group mt-8 inline-flex items-center gap-3 px-6 py-3.5 bg-spine text-paper uppercase tracking-wide text-[12px] font-medium hover:bg-spine-deep transition-colors"
-              >
-                Send Inquiry
-                <span className="font-serif italic text-[17px] transition-transform group-hover:translate-x-1" aria-hidden>→</span>
-              </button>
-            </form>
+            <ConsultForm />
           </Reveal>
 
           <Reveal delay={0.1} as="aside" className="lg:sticky lg:top-24">
@@ -149,7 +96,7 @@ export default function V2ContactPage() {
                   Premier Offices
                 </div>
                 <h2 className="mt-3 font-serif font-medium text-[28px] lg:text-[32px] leading-[1.1] tracking-[-0.01em] text-paper">
-                  Upland, <em className="italic" style={{ color: "#F4D88A" }}>Southern California.</em>
+                  Upland, <em className="italic" style={{ color: "#F4D88A" }}>California.</em>
                 </h2>
               </div>
 
@@ -200,37 +147,6 @@ export default function V2ContactPage() {
 
       <FooterV2 />
     </>
-  );
-}
-
-function Field({
-  name,
-  label,
-  type = "text",
-  required,
-}: {
-  name: string;
-  label: string;
-  type?: string;
-  required?: boolean;
-}) {
-  return (
-    <div>
-      <label
-        htmlFor={name}
-        className="block font-mono uppercase tracking-[0.18em] text-[11px] text-muted mb-2"
-      >
-        {label}
-        {required && <span aria-hidden className="text-spine"> *</span>}
-      </label>
-      <input
-        id={name}
-        name={name}
-        type={type}
-        required={required}
-        className="w-full bg-paper-off border border-rule px-4 py-3 font-sans text-[14px] text-ink focus:outline-none focus:border-spine focus:ring-2 focus:ring-spine/20 transition-colors"
-      />
-    </div>
   );
 }
 

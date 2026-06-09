@@ -80,13 +80,6 @@ export default function V2BlogPage() {
               Everything worth <em className="italic text-spine">knowing.</em>
             </h1>
           </Reveal>
-          <Reveal delay={0.1} className="col-span-12 lg:col-span-4 lg:pl-6 lg:border-l border-rule lg:self-end">
-            <p className="font-serif italic text-[20px] lg:text-[22px] leading-[1.35] text-ink-soft">
-              Honest, plain-language coverage of candidacy, recovery, pricing,
-              and the science behind bone regeneration. Written to help you
-              decide with clear eyes.
-            </p>
-          </Reveal>
         </div>
       </section>
 

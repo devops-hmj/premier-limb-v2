@@ -50,7 +50,10 @@ export function FooterV2() {
           <FooterColumn title="On the Homepage" items={sections.homepage} />
           <FooterColumn title="Resources" items={sections.resources} />
         </div>
-        <div className="pt-6 flex flex-col md:flex-row md:justify-between md:items-center gap-4 font-mono uppercase text-[10.5px] tracking-[0.14em] text-paper/80">
+        <p className="pt-6 font-mono uppercase tracking-[0.14em] text-[10px] text-paper/55">
+          Results may vary.
+        </p>
+        <div className="pt-4 flex flex-col md:flex-row md:justify-between md:items-center gap-4 font-mono uppercase text-[10.5px] tracking-[0.14em] text-paper/80">
           <div>© {year} Premier Limb Lengthening. All rights reserved.</div>
           <div className="flex flex-wrap items-center gap-3">
             <Link href="/privacy" className="hover:text-cream transition-colors">Privacy Policy</Link>

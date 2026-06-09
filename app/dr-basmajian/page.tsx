@@ -110,7 +110,7 @@ export default function V2DrBasmajianPage() {
                 priority
               />
               <span className="absolute z-10 top-3 left-3 px-2 py-1 font-mono uppercase tracking-[0.2em] text-[10.5px] text-muted bg-paper">
-                The Surgeon
+                Dr. Basmajian
               </span>
             </figure>
           </Reveal>
