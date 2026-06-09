@@ -320,7 +320,14 @@ export default function V2DrBasmajianPage() {
                   </div>
                   <div className="max-w-[78ch]">
                     <p className="font-serif text-[17px] lg:text-[19px] leading-[1.4] text-ink">
-                      {p.title}
+                      <a
+                        href={p.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline decoration-rule underline-offset-4 hover:text-spine hover:decoration-spine transition-colors"
+                      >
+                        {p.title}
+                      </a>
                     </p>
                     <p className="mt-1.5 text-[13.5px] leading-[1.5] text-ink-soft">
                       {p.authors}

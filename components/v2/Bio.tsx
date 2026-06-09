@@ -83,10 +83,10 @@ export function Bio() {
               </div>
               <div className="pt-6 pb-2 pr-4 border-r border-rule">
                 <div className="font-serif text-[36px] lg:text-[48px] leading-none tracking-[-0.02em] text-ink">
-                  17+
+                  2
                 </div>
                 <div className="mt-2.5 font-mono uppercase tracking-[0.2em] text-[10.5px] text-muted">
-                  Surgeon Group
+                  Fellowship Programs Completed
                 </div>
               </div>
               <div className="pt-6 pb-2 pr-4">

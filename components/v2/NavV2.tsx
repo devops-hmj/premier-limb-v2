@@ -292,7 +292,7 @@ export function NavV2Overlay() {
   const [openSubKey, setOpenSubKey] = useState<string | null>(null);
 
   return (
-    <header className="relative z-30 border-b border-white/15">
+    <header className="relative z-30">
       <div className="mx-auto max-w-wrap px-6 lg:px-12 py-4 lg:py-5 grid grid-cols-[auto_1fr_auto] items-center gap-6 lg:gap-10">
         <Link href="/" aria-label="Premier Limb Lengthening — home" className="flex items-center shrink-0">
           <Logo
