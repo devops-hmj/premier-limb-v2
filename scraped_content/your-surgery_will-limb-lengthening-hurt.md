@@ -2,7 +2,7 @@
 
 **URL:** https://premierlimblengthening.com/your-surgery/will-limb-lengthening-hurt/
 
-![Clinical Consultation](/images/your-surgery/will-hurt-consultation.webp)
+![Dr. Basmajian reviewing a case with a clinical colleague](/dr-woman-talking.jpg)
 
 Will Limb Lengthening Hurt?
 ===========================
