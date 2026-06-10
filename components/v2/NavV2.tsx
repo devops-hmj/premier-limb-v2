@@ -84,7 +84,7 @@ export function NavV2({ forceVisible = false }: { forceVisible?: boolean } = {})
             className="fixed inset-x-0 top-0 z-50 bg-paper-off/95 backdrop-blur border-b border-ink"
           >
             <div className="mx-auto max-w-wrap px-6 lg:px-12 py-3 flex items-center justify-between gap-6">
-              <Link href="/" aria-label="Premier Limb Lengthening — home" className="flex items-center shrink-0">
+              <Link href="/" aria-label="Premier Limb Lengthening, home" className="flex items-center shrink-0">
                 <Logo tone="light" width={170} priority />
               </Link>
 
@@ -294,7 +294,7 @@ export function NavV2Overlay() {
   return (
     <header className="relative z-30">
       <div className="mx-auto max-w-wrap px-6 lg:px-12 py-4 lg:py-5 grid grid-cols-[auto_1fr_auto] items-center gap-6 lg:gap-10">
-        <Link href="/" aria-label="Premier Limb Lengthening — home" className="flex items-center shrink-0">
+        <Link href="/" aria-label="Premier Limb Lengthening, home" className="flex items-center shrink-0">
           <Logo
             tone="dark"
             width={210}

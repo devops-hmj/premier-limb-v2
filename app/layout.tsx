@@ -8,7 +8,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(`https://${site.domain}`),
   title: {
-    default: "Premier Limb Lengthening — Cosmetic Limb Lengthening Surgery in Southern California",
+    default: "Premier Limb Lengthening · Cosmetic Limb Lengthening Surgery in Southern California",
     template: "%s · Premier Limb Lengthening",
   },
   description:
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   applicationName: site.name,
   authors: [{ name: "Premier Limb Lengthening" }],
   openGraph: {
-    title: "Premier Limb Lengthening — Cosmetic Limb Lengthening Surgery",
+    title: "Premier Limb Lengthening · Cosmetic Limb Lengthening Surgery",
     description:
       "Thousands of procedures performed. Transparent pricing. Concierge travel program for patients nationwide.",
     url: `https://${site.domain}`,

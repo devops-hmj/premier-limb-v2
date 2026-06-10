@@ -13,8 +13,8 @@ const excluded = [
   "Home health care, if required after discharge",
   "Travel to and from Upland",
   "Out-of-network insurance reimbursement claims",
-  "Optional corrections (rotation, bowleg) — see add-ons",
-  "Hardware removal — see the schedule above",
+  "Optional corrections (rotation, bowleg). See add-ons",
+  "Hardware removal. See the schedule above",
 ] as const;
 
 /**

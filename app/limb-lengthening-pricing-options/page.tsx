@@ -13,12 +13,12 @@ import { breadcrumb, pricingSchema } from "@/lib/jsonld";
 import "../v2.css";
 
 export const metadata: Metadata = {
-  title: "Limb Lengthening Cost — Pricing & Financing",
+  title: "Limb Lengthening Cost · Pricing & Financing",
   description:
     "Transparent 2026 pricing for cosmetic limb lengthening. Every quote bundles implants, OR time, hospitalization, anesthesia, follow-up care, and on-site sessions.",
   alternates: { canonical: "/limb-lengthening-pricing-options" },
   openGraph: {
-    title: "Limb Lengthening Cost — Pricing & Financing",
+    title: "Limb Lengthening Cost · Pricing & Financing",
     description:
       "Transparent 2026 pricing for cosmetic limb lengthening. Bundled implants, OR time, hospitalization, anesthesia, follow-up care, and on-site sessions.",
     url: "/limb-lengthening-pricing-options",

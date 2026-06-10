@@ -60,7 +60,7 @@ export default function V2ContactPage() {
           </Reveal>
           <Reveal delay={0.1} className="col-span-12 lg:col-span-4 lg:pl-6 lg:border-l border-rule lg:self-end">
             <p className="font-serif italic text-[20px] lg:text-[22px] leading-[1.35] text-ink-soft">
-              Tell us about your goals — we&rsquo;ll respond within one business
+              Tell us about your goals. We&rsquo;ll respond within one business
               day. Or call {site.phone} for an immediate response.
             </p>
           </Reveal>

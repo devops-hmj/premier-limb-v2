@@ -30,7 +30,7 @@ Limb Lengthening Considerations
 
 Limb lengthening is an orthopedic procedure. It’s designed to increase the length of bones in the arms or legs, but most often, legs. The surgical procedure is usually performed to correct limb length discrepancies and congenital conditions. We also offer it for cosmetic concerns.
 
-The limb lengthening procedure typically involves surgically cutting the bone, then using a specialized device—such as an external fixator or internal nail—to stretch the bone and surrounding tissues over time to provide greater length.
+The limb lengthening procedure typically involves surgically cutting the bone, then using a specialized device (such as an external fixator or internal nail) to stretch the bone and surrounding tissues over time to provide greater length.
 
 Because it’s a significant surgical procedure, the recovery process is quite extensive. Following the procedure, you’ll be faced with undergoing physical therapy and possible modifications in day-to-day routines. In addition, you’ll also need plenty of patience as your body heals and adapts to the changes.
 
