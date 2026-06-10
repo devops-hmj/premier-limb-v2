@@ -1,0 +1,15 @@
+includes:
+    - vendor/szepeviktor/phpstan-wordpress/extension.neon
+
+parameters:
+    level: 5
+    paths:
+        - wp-content/themes/pll-editorial/functions.php
+        - wp-content/themes/pll-editorial/inc
+        - wp-content/plugins/pll-seo
+        - wp-content/plugins/pll-forms
+    excludePaths:
+        - */build/*
+        - */vendor/*
+    bootstrapFiles:
+        - vendor/php-stubs/wordpress-stubs/wordpress-stubs.php

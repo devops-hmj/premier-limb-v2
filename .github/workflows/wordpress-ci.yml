@@ -1,0 +1,59 @@
+# This workflow exists ONLY on the `wordpress` branch. It never runs on `main`
+# (main has no .github/ directory), so Netlify deploys are unaffected.
+name: WordPress CI
+
+on:
+  push:
+    branches: [wordpress]
+    paths: ['wordpress/**', '.github/workflows/wordpress-ci.yml']
+  pull_request:
+    branches: [wordpress]
+    paths: ['wordpress/**']
+
+jobs:
+  php-lint:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: wordpress
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          tools: 'composer:v2'
+          coverage: none
+      - name: Install Composer deps
+        run: |
+          if [ -f composer.lock ]; then composer install --no-interaction --prefer-dist;
+          else composer update --no-interaction --prefer-dist; fi
+      - name: Upload composer.lock (bootstrap — commit this once, then remove this step)
+        uses: actions/upload-artifact@v4
+        with:
+          name: composer-lock
+          path: wordpress/composer.lock
+      - run: composer lint:syntax
+      - run: composer lint
+      - name: PHPStan (advisory while the codebase stabilizes)
+        run: composer stan
+        continue-on-error: true
+
+  assets-fresh:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: wordpress
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: wordpress/package-lock.json
+      - run: npm ci
+      - run: npm run build:css
+      - run: npm run build:blocks
+      - run: npm run build:form-block
+      - run: npm run generate:content
+      - name: Fail if committed artifacts are stale
+        run: git diff --exit-code -- wp-content content
