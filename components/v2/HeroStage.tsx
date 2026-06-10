@@ -31,8 +31,11 @@ export function HeroStage() {
 
   // Kick playback explicitly (don't trust the autoPlay attribute alone) and
   // retry once the browser has buffered enough. Then enable sound at the
-  // visitor's first interaction — click, tap, key, or scroll. A manual toggle
-  // is also provided. This is the closest to "autoplay with sound" allowed.
+  // visitor's first interaction — click, tap, or key. A manual toggle is
+  // also provided. This is the closest to "autoplay with sound" allowed.
+  // Scroll is deliberately NOT an unmute trigger: it does not count as a
+  // user activation, so unmuting on scroll makes the autoplay policy pause
+  // the video (it froze the hero for anyone who scrolled first).
   useEffect(() => {
     const v = videoRef.current;
     if (!v) return;
@@ -51,19 +54,26 @@ export function HeroStage() {
       armed = false;
       v.muted = false;
       setMuted(false);
-      void v.play?.().catch(() => {});
+      const resumed = v.play?.();
+      if (resumed?.catch) {
+        // If the browser still refuses unmuted playback, fall back to muted
+        // playback instead of leaving the video paused/frozen.
+        resumed.catch(() => {
+          v.muted = true;
+          setMuted(true);
+          void v.play?.().catch(() => {});
+        });
+      }
       detachInteraction();
     };
     const detachInteraction = () => {
       window.removeEventListener("pointerdown", enableSound);
       window.removeEventListener("keydown", enableSound);
       window.removeEventListener("touchstart", enableSound);
-      window.removeEventListener("scroll", enableSound);
     };
     window.addEventListener("pointerdown", enableSound);
     window.addEventListener("keydown", enableSound);
     window.addEventListener("touchstart", enableSound);
-    window.addEventListener("scroll", enableSound, { passive: true });
 
     return () => {
       v.removeEventListener("canplay", tryPlay);

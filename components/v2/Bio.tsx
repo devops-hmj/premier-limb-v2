@@ -24,7 +24,9 @@ export function Bio() {
         </Reveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-[5fr_7fr] gap-10 lg:gap-14 items-start">
-          <Reveal className="self-start">
+          {/* Sticky like the Concierge aside: the portrait pins below the nav
+              while the (now much taller) text column scrolls past it. */}
+          <Reveal className="self-start lg:sticky lg:top-24">
             <figure
               className="v2-portrait aspect-[4/5] bg-paper-warm border border-rule relative overflow-hidden max-w-[85%]"
               aria-label="Editorial portrait of Dr. Basmajian"
