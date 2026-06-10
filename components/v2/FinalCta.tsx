@@ -14,12 +14,11 @@ export function FinalCta() {
             Begin
           </span>
           <h2
-            className="mt-5 font-serif font-medium tracking-[-0.03em] text-paper leading-[0.96]"
-            style={{ fontSize: "clamp(44px, 7vw, 110px)" }}
+            className="mt-5 font-serif font-medium tracking-[-0.03em] text-paper leading-[1.04] [text-wrap:balance]"
+            style={{ fontSize: "clamp(34px, 4.6vw, 72px)" }}
           >
-            The most important call
-            <br />
-            you&rsquo;ll make this <em className="italic" style={{ color: "#F4D88A" }}>year.</em>
+            Dr. Basmajian takes a limited number of cosmetic limb lengthening
+            cases. <em className="italic" style={{ color: "#F4D88A" }}>This is where you start.</em>
           </h2>
         </Reveal>
 
@@ -28,12 +27,13 @@ export function FinalCta() {
           className="col-span-12 lg:col-span-5 lg:pl-6 lg:border-l border-white/25"
         >
           <p className="font-serif italic text-[20px] lg:text-[22px] text-paper/95 mb-7 leading-[1.3]">
-            Confidential · no obligation. Consultations are private, discreet,
-            and can be held virtually.
+            Consultations are confidential, held virtually or in-person, and
+            carry no obligation. Dr. Basmajian evaluates every patient
+            personally. No associates. No rotating surgeons.
           </p>
           <div className="flex flex-col gap-3 items-start">
             <a
-              href="#book"
+              href="/consult"
               className="group inline-flex items-center gap-3 px-5 py-3.5 text-ink uppercase tracking-wide text-[12px] font-medium hover:bg-paper transition-colors"
               style={{ background: "#F4D88A" }}
             >

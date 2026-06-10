@@ -11,9 +11,9 @@ const pillars = [
     link: { label: "Meet Dr. Basmajian", href: "#dr" },
   },
   {
-    tag: "02 · Technology",
-    title: "Internal Nail Technology",
-    body: "Precice 4th-generation magnetic lengthening nails. No external hardware. Less pain, faster recovery, virtually invisible.",
+    tag: "02 · Judgment",
+    title: "Surgical Judgment, Not Just Technology",
+    body: "The Precice nail is only as precise as the surgeon placing it. Dr. Basmajian's trauma fellowship training gives him the bone mechanics expertise to manage complications, revisions, and edge cases that a lengthening-only practice cannot handle.",
     link: { label: "How It Works", href: "#surgery" },
   },
   {

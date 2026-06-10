@@ -31,7 +31,7 @@ export function Concierge() {
         <div className="grid grid-cols-1 lg:grid-cols-[7fr_5fr] gap-12 lg:gap-16 items-start">
           <Reveal>
             <p className="font-serif italic text-[24px] lg:text-[26px] leading-[1.25] text-ink py-5 border-t border-ink border-b border-rule max-w-[32ch] mb-7">
-              You focus on your transformation. We handle everything else.
+              You focus on recovery. We handle everything else.
             </p>
             <p className="text-[15.5px] leading-[1.7] text-ink-soft max-w-[54ch] mb-10">
               Most limb lengthening patients travel for their procedure, and

@@ -1,6 +1,23 @@
 import { Reveal } from "./Reveal";
 
+/**
+ * Order per homepage handoff v2 §06: the revision patient leads — it is the
+ * competitive argument in a patient's own words. "Medical retreat" phrase
+ * removed from David R. (wellness language, banned).
+ */
 const quotes = [
+  {
+    body: (
+      <>
+        I had a failed surgery in Turkey and was terrified to try again. Dr.
+        Basmajian&rsquo;s trauma background gave me confidence. He was honest
+        about what he could fix and what he couldn&rsquo;t.{" "}
+        <em className="italic text-spine">I&rsquo;m walking normally again.</em>
+      </>
+    ),
+    name: "James K.",
+    role: "Revision Patient · Texas",
+  },
   {
     body: (
       <>
@@ -18,26 +35,12 @@ const quotes = [
     body: (
       <>
         I traveled from New York for the concierge program. They handled my
-        flights, hotel, and even had a PT schedule ready before I landed. The
-        whole experience{" "}
-        <em className="italic text-spine">felt like a medical retreat</em>, not
-        a surgery trip.
+        flights, hotel, and even had a PT schedule{" "}
+        <em className="italic text-spine">ready before I landed.</em>
       </>
     ),
     name: "David R.",
     role: "Finance · New York",
-  },
-  {
-    body: (
-      <>
-        I had a failed surgery in Turkey and was terrified to try again. Dr.
-        Basmajian&rsquo;s trauma background gave me confidence. He was honest
-        about what he could fix and what he couldn&rsquo;t.{" "}
-        <em className="italic text-spine">I&rsquo;m walking normally again.</em>
-      </>
-    ),
-    name: "James K.",
-    role: "Revision Patient · Texas",
   },
 ] as const;
 

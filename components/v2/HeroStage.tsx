@@ -153,20 +153,17 @@ export function HeroStage() {
           initial={{ opacity: 0, y: 22 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.85, delay: 0.15, ease: [0.2, 0.65, 0.3, 1] }}
-          className="font-serif font-normal text-white tracking-[-0.025em] leading-[0.92] max-w-[14ch] mt-5 lg:mt-6"
+          className="font-serif font-normal text-white tracking-[-0.025em] leading-[0.98] max-w-[19ch] mt-5 lg:mt-6 [text-wrap:balance]"
           style={{
-            /* Scaled by min(width, height) so 4 lines + deck always fit.
-               Generous cap (180) so the headline dominates on tall windows
-               like the reference dossier. */
-            fontSize: "clamp(46px, min(7.4vw, 13vh), 180px)",
+            /* Scaled by min(width, height) so the ~4 wrapped lines + deck
+               always fit inside the locked 100svh stage. Cap lowered for the
+               longer credential-led headline (homepage handoff v2). */
+            fontSize: "clamp(36px, min(5.6vw, 9.5vh), 118px)",
             textShadow: "0 2px 30px rgba(0,0,0,0.4)",
           }}
         >
-          Cosmetic
-          <br />
-          limb
-          <br />
-          lengthening, <em className="italic" style={{ color: "#F4D88A" }}>done<br />with care.</em>
+          Cosmetic limb lengthening, performed by a{" "}
+          <em className="italic" style={{ color: "#F4D88A" }}>fellowship-trained trauma surgeon.</em>
         </motion.h1>
 
         <motion.div
@@ -175,9 +172,11 @@ export function HeroStage() {
           transition={{ duration: 0.7, delay: 0.35, ease: [0.2, 0.65, 0.3, 1] }}
           className="mt-auto pt-5 pb-5 border-t border-white/35 border-b grid grid-cols-12 gap-4 items-baseline"
         >
-          <p className="col-span-12 lg:col-span-7 font-serif italic text-white leading-[1.2]" style={{ fontSize: "clamp(18px, 2.1vw, 26px)" }}>
-            Gain up to 6 inches with one of the most experienced limb
-            lengthening surgeons on the West Coast.
+          <p className="col-span-12 lg:col-span-7 font-serif italic text-white leading-[1.3]" style={{ fontSize: "clamp(16px, 1.7vw, 21px)" }}>
+            Dr. Hrayr Basmajian has performed thousands of procedures across
+            trauma, cosmetic, and revision settings. He accepts cases other
+            surgeons decline. Gain up to 6 inches, with the surgical depth to
+            back it.
           </p>
           <div className="col-span-12 lg:col-span-5 font-mono uppercase text-[10.5px] tracking-[0.18em] text-white/85 leading-[1.7]">
             <div><strong className="text-white font-medium">Surgeon</strong> &nbsp; Dr. Hrayr Basmajian, MD</div>

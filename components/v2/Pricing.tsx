@@ -93,7 +93,7 @@ export function Pricing() {
             href="/limb-lengthening-pricing-options"
             className="group self-start lg:self-auto inline-flex items-center gap-3 px-5 py-3.5 bg-spine text-paper uppercase tracking-wide text-[12px] font-medium hover:bg-spine-deep transition-colors"
           >
-            View Full Pricing Details
+            View Limb Lengthening Surgery Costs
             <span className="font-serif italic text-[17px] transition-transform group-hover:translate-x-1" aria-hidden>→</span>
           </a>
         </Reveal>
