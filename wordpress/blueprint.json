@@ -1,0 +1,32 @@
+{
+	"$schema": "https://playground.wordpress.net/blueprint-schema.json",
+	"meta": {
+		"title": "PLL WordPress Dev",
+		"description": "Local Playground environment for the Premier Limb Lengthening WordPress recreation. Deliberately ephemeral: every boot rebuilds from this blueprint + the WXR seed, mirroring the HIPAA Vault import path.",
+		"author": "PLL devops"
+	},
+	"preferredVersions": { "php": "8.2", "wp": "latest" },
+	"landingPage": "/",
+	"features": { "networking": true },
+	"constants": {
+		"WP_DEBUG": true,
+		"PLL_GHL_WEBHOOK_URL": "https://example.invalid/pll-dev-dummy-webhook"
+	},
+	"steps": [
+		{ "step": "login", "username": "admin" },
+		{
+			"step": "setSiteOptions",
+			"options": {
+				"blogname": "Premier Limb Lengthening",
+				"blogdescription": "Cosmetic limb lengthening, founded by Dr. Hrayr Basmajian",
+				"timezone_string": "America/Los_Angeles",
+				"permalink_structure": "/%postname%/",
+				"default_comment_status": "closed",
+				"default_ping_status": "closed"
+			}
+		},
+		{ "step": "activateTheme", "themeFolderName": "pll-editorial" },
+		{ "step": "activatePlugin", "pluginPath": "pll-seo/pll-seo.php" },
+		{ "step": "activatePlugin", "pluginPath": "pll-forms/pll-forms.php" }
+	]
+}

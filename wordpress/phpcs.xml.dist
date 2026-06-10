@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<ruleset name="PLL WordPress">
+	<description>WPCS ruleset for the PLL block theme and plugins.</description>
+
+	<file>wp-content/themes/pll-editorial</file>
+	<file>wp-content/plugins/pll-seo</file>
+	<file>wp-content/plugins/pll-forms</file>
+	<file>content/setup.php</file>
+
+	<exclude-pattern>*/vendor/*</exclude-pattern>
+	<exclude-pattern>*/node_modules/*</exclude-pattern>
+	<exclude-pattern>*/build/*</exclude-pattern>
+	<exclude-pattern>*.asset.php</exclude-pattern>
+
+	<arg name="extensions" value="php"/>
+	<arg value="sp"/>
+	<arg name="parallel" value="8"/>
+
+	<rule ref="WordPress">
+		<!-- Block-theme realities: pattern files are hyphenated content files, not class files;
+		     template/pattern markup mixes HTML + PHP heavily. -->
+		<exclude name="WordPress.Files.FileName.NotHyphenatedLowercase"/>
+		<exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
+		<exclude name="Squiz.Commenting.FileComment.Missing"/>
+		<!-- Long verbatim medical copy inside patterns: -->
+		<exclude name="Generic.Files.LineLength"/>
+	</rule>
+	<rule ref="WordPress-Extra"/>
+
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="pll-editorial"/>
+				<element value="pll-seo"/>
+				<element value="pll-forms"/>
+			</property>
+		</properties>
+	</rule>
+
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array">
+				<element value="pll"/>
+				<element value="PLL"/>
+			</property>
+		</properties>
+	</rule>
+
+	<!-- PHP floor matches the HIPAA Vault target: 8.1+. Confirm exact version with
+	     HIPAA Vault before launch (tracked in docs/MIGRATION.md). -->
+	<config name="testVersion" value="8.1-"/>
+	<rule ref="PHPCompatibilityWP"/>
+	<config name="minimum_wp_version" value="6.7"/>
+</ruleset>

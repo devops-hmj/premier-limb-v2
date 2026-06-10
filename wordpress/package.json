@@ -1,0 +1,40 @@
+{
+  "name": "pll-wordpress",
+  "version": "1.0.0",
+  "private": true,
+  "description": "WordPress recreation of premierlimblengthening.com — FSE block theme + plugins + content seed. Lives only on the wordpress branch; never deployed to Netlify.",
+  "type": "module",
+  "scripts": {
+    "dev": "wp-playground-cli server --blueprint=./blueprint.json --blueprint-may-read-adjacent-files --mount=./wp-content/themes/pll-editorial:/wordpress/wp-content/themes/pll-editorial --mount=./wp-content/plugins/pll-seo:/wordpress/wp-content/plugins/pll-seo --mount=./wp-content/plugins/pll-forms:/wordpress/wp-content/plugins/pll-forms --port=9400",
+    "build:css": "tailwindcss -c ./wp-content/themes/pll-editorial/tailwind.config.js -i ./wp-content/themes/pll-editorial/src/css/tailwind.css -o ./wp-content/themes/pll-editorial/assets/css/pll.css --minify",
+    "watch:css": "npm run build:css -- --watch",
+    "build:blocks": "wp-scripts build --experimental-modules --webpack-src-dir=wp-content/themes/pll-editorial/src/blocks --output-path=wp-content/themes/pll-editorial/build",
+    "build:form-block": "wp-scripts build --experimental-modules --webpack-src-dir=wp-content/plugins/pll-forms/src --output-path=wp-content/plugins/pll-forms/build",
+    "generate:content": "node scripts/build-wxr.mjs",
+    "fetch:fonts": "node scripts/fetch-fonts.mjs",
+    "fetch:media": "node scripts/download-media.mjs",
+    "parity:head": "node scripts/parity-head.mjs",
+    "parity:capture": "node scripts/parity-capture.mjs",
+    "parity:report": "node scripts/parity-report.mjs",
+    "parity:check": "npm run parity:capture && npm run parity:head && npm run parity:report",
+    "build": "npm run build:css && npm run build:blocks && npm run build:form-block && npm run generate:content",
+    "package": "npm run build && node scripts/package-handoff.mjs"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^30.7.0",
+    "@wp-playground/cli": "^3.1.38",
+    "archiver": "^7.0.1",
+    "autoprefixer": "^10.4.20",
+    "fast-glob": "^3.3.2",
+    "node-html-parser": "^7.0.1",
+    "pixelmatch": "^7.1.0",
+    "playwright": "^1.50.0",
+    "pngjs": "^7.0.0",
+    "postcss": "^8.4.49",
+    "remark-gfm": "^4.0.1",
+    "remark-parse": "^11.0.0",
+    "tailwindcss": "3.4.14",
+    "unified": "^11.0.5",
+    "unist-util-visit": "^5.0.0"
+  }
+}
