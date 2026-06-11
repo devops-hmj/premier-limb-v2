@@ -84,7 +84,7 @@ export function Bio() {
             </a>
 
             <div className="mt-10 grid grid-cols-3 border-t border-ink">
-              <div className="pt-6 pb-2 pr-4 border-r border-rule">
+              <div className="pt-6 pb-2 px-4 text-center border-r border-rule">
                 <div className="font-serif text-[36px] lg:text-[48px] leading-none tracking-[-0.02em] text-ink">
                   <em className="italic text-spine">1,000s</em>
                 </div>
@@ -92,7 +92,7 @@ export function Bio() {
                   Procedures
                 </div>
               </div>
-              <div className="pt-6 pb-2 pr-4 border-r border-rule">
+              <div className="pt-6 pb-2 px-4 text-center border-r border-rule">
                 <div className="font-serif text-[36px] lg:text-[48px] leading-none tracking-[-0.02em] text-ink">
                   2
                 </div>
@@ -100,7 +100,7 @@ export function Bio() {
                   Fellowship Programs Completed
                 </div>
               </div>
-              <div className="pt-6 pb-2 pr-4">
+              <div className="pt-6 pb-2 px-4 text-center">
                 <div className="font-serif text-[36px] lg:text-[48px] leading-none tracking-[-0.02em] text-ink">
                   Up to <em className="italic text-spine">3-6</em>″
                 </div>
