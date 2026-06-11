@@ -31,8 +31,11 @@ export function HeroStage() {
 
   // Kick playback explicitly (don't trust the autoPlay attribute alone) and
   // retry once the browser has buffered enough. Then enable sound at the
-  // visitor's first interaction — click, tap, key, or scroll. A manual toggle
-  // is also provided. This is the closest to "autoplay with sound" allowed.
+  // visitor's first interaction — click, tap, or key. A manual toggle is
+  // also provided. This is the closest to "autoplay with sound" allowed.
+  // Scroll is deliberately NOT an unmute trigger: it does not count as a
+  // user activation, so unmuting on scroll makes the autoplay policy pause
+  // the video (it froze the hero for anyone who scrolled first).
   useEffect(() => {
     const v = videoRef.current;
     if (!v) return;
@@ -51,19 +54,26 @@ export function HeroStage() {
       armed = false;
       v.muted = false;
       setMuted(false);
-      void v.play?.().catch(() => {});
+      const resumed = v.play?.();
+      if (resumed?.catch) {
+        // If the browser still refuses unmuted playback, fall back to muted
+        // playback instead of leaving the video paused/frozen.
+        resumed.catch(() => {
+          v.muted = true;
+          setMuted(true);
+          void v.play?.().catch(() => {});
+        });
+      }
       detachInteraction();
     };
     const detachInteraction = () => {
       window.removeEventListener("pointerdown", enableSound);
       window.removeEventListener("keydown", enableSound);
       window.removeEventListener("touchstart", enableSound);
-      window.removeEventListener("scroll", enableSound);
     };
     window.addEventListener("pointerdown", enableSound);
     window.addEventListener("keydown", enableSound);
     window.addEventListener("touchstart", enableSound);
-    window.addEventListener("scroll", enableSound, { passive: true });
 
     return () => {
       v.removeEventListener("canplay", tryPlay);
@@ -119,7 +129,9 @@ export function HeroStage() {
 
       <NavV2Overlay />
 
-      <div className="relative z-10 mx-auto max-w-wrap w-full px-6 lg:px-12 pt-3 lg:pt-4 grid grid-cols-12 gap-4 lg:gap-8">
+      {/* Editorial metadata bar — hidden on phones so the whole hero fits
+          above the fold (client request); returns at sm. */}
+      <div className="relative z-10 mx-auto max-w-wrap w-full px-6 lg:px-12 pt-3 lg:pt-4 max-sm:hidden grid grid-cols-12 gap-4 lg:gap-8">
         <div className="col-span-12 sm:col-span-4 pt-3 lg:pt-4 font-mono uppercase tracking-[0.2em] text-[10.5px] text-white/85">
           <strong className="text-white font-medium">The Practice</strong>
           <span className="text-white/70"> · Cosmetic Limb Lengthening</span>
@@ -138,7 +150,7 @@ export function HeroStage() {
           H1 docks immediately below; deck closes the column. flex-1 makes
           the section claim the remaining viewport so vh-scaled H1 has the
           full available space to fill. */}
-      <section className="relative z-10 flex-1 flex flex-col mx-auto max-w-wrap w-full px-6 lg:px-12 pt-5 lg:pt-6 pb-6 lg:pb-8">
+      <section className="relative z-10 flex-1 flex flex-col mx-auto max-w-wrap w-full px-6 lg:px-12 pt-4 sm:pt-5 lg:pt-6 pb-5 sm:pb-6 lg:pb-8">
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -153,20 +165,18 @@ export function HeroStage() {
           initial={{ opacity: 0, y: 22 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.85, delay: 0.15, ease: [0.2, 0.65, 0.3, 1] }}
-          className="font-serif font-normal text-white tracking-[-0.025em] leading-[0.92] max-w-[14ch] mt-5 lg:mt-6"
+          className="font-serif font-normal text-white tracking-[-0.025em] leading-[0.98] max-w-[19ch] mt-4 sm:mt-5 lg:mt-6 [text-wrap:balance]"
           style={{
-            /* Scaled by min(width, height) so 4 lines + deck always fit.
-               Generous cap (180) so the headline dominates on tall windows
-               like the reference dossier. */
-            fontSize: "clamp(46px, min(7.4vw, 13vh), 180px)",
+            /* Scaled by min(width, height) so the ~4 wrapped lines + deck
+               always fit inside the locked 100svh stage. Cap lowered for the
+               longer credential-led headline (homepage handoff v2); the floor
+               is sized so phones keep the full hero above the fold. */
+            fontSize: "clamp(31px, min(5.6vw, 9.5vh), 118px)",
             textShadow: "0 2px 30px rgba(0,0,0,0.4)",
           }}
         >
-          Cosmetic
-          <br />
-          limb
-          <br />
-          lengthening, <em className="italic" style={{ color: "#F4D88A" }}>done<br />with care.</em>
+          Cosmetic limb lengthening, performed by a{" "}
+          <em className="italic" style={{ color: "#F4D88A" }}>fellowship-trained trauma surgeon.</em>
         </motion.h1>
 
         <motion.div
@@ -175,11 +185,15 @@ export function HeroStage() {
           transition={{ duration: 0.7, delay: 0.35, ease: [0.2, 0.65, 0.3, 1] }}
           className="mt-auto pt-5 pb-5 border-t border-white/35 border-b grid grid-cols-12 gap-4 items-baseline"
         >
-          <p className="col-span-12 lg:col-span-7 font-serif italic text-white leading-[1.2]" style={{ fontSize: "clamp(18px, 2.1vw, 26px)" }}>
-            Gain up to 6 inches with one of the most experienced limb
-            lengthening surgeons on the West Coast.
+          {/* max-sm:pr-24 keeps the last line clear of the sound toggle. */}
+          <p className="col-span-12 lg:col-span-7 max-sm:pr-24 font-serif italic text-white leading-[1.3]" style={{ fontSize: "clamp(16px, 1.7vw, 21px)" }}>
+            Dr. Hrayr Basmajian has performed thousands of procedures across
+            trauma, cosmetic, and revision settings. He accepts cases other
+            surgeons decline. Gain up to 6 inches, with the surgical depth to
+            back it.
           </p>
-          <div className="col-span-12 lg:col-span-5 font-mono uppercase text-[10.5px] tracking-[0.18em] text-white/85 leading-[1.7]">
+          {/* Hidden on phones so the deck closes the above-the-fold hero. */}
+          <div className="max-sm:hidden col-span-12 lg:col-span-5 font-mono uppercase text-[10.5px] tracking-[0.18em] text-white/85 leading-[1.7]">
             <div><strong className="text-white font-medium">Surgeon</strong> &nbsp; Dr. Hrayr Basmajian, MD</div>
             <div><strong className="text-white font-medium">Practice</strong> &nbsp; Premier Limb Lengthening</div>
             <div><strong className="text-white font-medium">Location</strong> &nbsp; Upland, California</div>

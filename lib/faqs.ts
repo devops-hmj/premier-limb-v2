@@ -15,7 +15,7 @@ export const faqs = [
   },
   {
     q: "How much height can I gain?",
-    a: "Femur lengthening typically adds 2 to 3 inches. Tibia lengthening adds another 2 to 3 inches. Combined staged procedures can achieve up to 6 inches total. Results are permanent.",
+    a: "Femur lengthening typically adds 2 to 3 inches. Tibia lengthening adds another 2 to 3 inches. Combined staged height lengthening procedures can achieve up to 6 inches total. Results are permanent.",
   },
   {
     q: "How long is the recovery?",

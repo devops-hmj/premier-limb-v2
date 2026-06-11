@@ -1,16 +1,16 @@
 import { Reveal } from "../Reveal";
 
 const addOns = [
-  { code: "A.01", label: "Rotation Correction — Femur",  price: "$10,000", note: "Performed simultaneously with femur lengthening." },
-  { code: "A.02", label: "Rotation Correction — Tibial", price: "$10,000", note: "Performed simultaneously with tibia lengthening." },
-  { code: "A.03", label: "Bowlegged Correction — Tibial", price: "$15,000", note: "Standalone or paired with tibia lengthening." },
-  { code: "A.04", label: "Bowlegged Correction — Tibia during Femur", price: "$50,000", note: "Combined tibia bow correction during a femur procedure." },
+  { code: "A.01", label: "Rotation Correction · Femur",  price: "$10,000", note: "Performed simultaneously with femur lengthening." },
+  { code: "A.02", label: "Rotation Correction · Tibial", price: "$10,000", note: "Performed simultaneously with tibia lengthening." },
+  { code: "A.03", label: "Bowlegged Correction · Tibial", price: "$15,000", note: "Standalone or paired with tibia lengthening." },
+  { code: "A.04", label: "Bowlegged Correction · Tibia during Femur", price: "$50,000", note: "Combined tibia bow correction during a femur procedure." },
 ] as const;
 
 const hardware = [
-  { code: "H.01", label: "Hardware Removal — Bilateral Femur",            price: "$18,000", note: "Performed 1–2 years post-surgery." },
-  { code: "H.02", label: "Hardware Removal — Bilateral Tibia",            price: "$22,500", note: "Performed 1–2 years post-surgery." },
-  { code: "H.03", label: "Hardware Removal — Bilateral Femur + Tibia",    price: "$28,000", note: "Combined removal for staged or combined cases." },
+  { code: "H.01", label: "Hardware Removal · Bilateral Femur",            price: "$18,000", note: "Performed 1–2 years post-surgery." },
+  { code: "H.02", label: "Hardware Removal · Bilateral Tibia",            price: "$22,500", note: "Performed 1–2 years post-surgery." },
+  { code: "H.03", label: "Hardware Removal · Bilateral Femur + Tibia",    price: "$28,000", note: "Combined removal for staged or combined cases." },
 ] as const;
 
 /**

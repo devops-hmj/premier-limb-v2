@@ -18,14 +18,15 @@ import { Testimonials } from "./Testimonials";
  *
  * Rendered by /page.tsx (the canonical homepage at /).
  *
- * Composition (top → bottom):
+ * Composition (top → bottom), per the J Cubed homepage handoff v2
+ * (the surgeon is the product — Bio sits directly after the hero):
  *   1. HeroStage      → video-backed masthead + headline (NavV2Overlay inside)
- *   2. Article        → paper-off lede + 4-up trust strip
- *   3. Pillars        → 4 reasons patients choose us
- *   4. Bio            → Dr. Basmajian feature
+ *   2. Article        → paper-off lede + 5-up trust strip (hero continuation)
+ *   3. Bio            → Dr. Basmajian feature (moved up from position 4)
+ *   4. Pillars        → 4 reasons patients choose us
  *   5. Process        → 3-phase timeline on spine blue
- *   6. Concierge      → 5-row program list + sticky aside
- *   7. Candidate      → 8-item list + blue aside CTA
+ *   6. Candidate      → 8-item list + blue aside CTA
+ *   7. Concierge      → 5-row program list + sticky aside
  *   8. Results        → 3 metrics on ink black
  *   9. Pricing        → 3-plan editorial table
  *  10. Testimonials   → 3 patient stories
@@ -42,11 +43,11 @@ export function V2HomePage() {
       <NavV2 />
       <HeroStage />
       <Article />
-      <Pillars />
       <Bio />
+      <Pillars />
       <Process />
-      <Concierge />
       <Candidate />
+      <Concierge />
       <Results />
       <Pricing />
       <Testimonials />

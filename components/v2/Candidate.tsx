@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Reveal } from "./Reveal";
 
 const items = [
@@ -15,17 +16,39 @@ export function Candidate() {
   return (
     <section className="bg-paper py-20 lg:py-28">
       <div className="mx-auto max-w-wrap px-6 lg:px-12">
-        <Reveal>
-          <header className="pb-8 mb-12 border-b border-ink">
-            <span className="eyebrow mb-4">Am I a Candidate?</span>
-            <h2
-              className="mt-4 font-serif font-normal tracking-[-0.02em] text-ink leading-[0.98] max-w-[24ch] [text-wrap:balance]"
-              style={{ fontSize: "clamp(40px, 6vw, 84px)" }}
+        {/* Two-column intro: portrait left, title right (title first on
+            mobile via order classes). The figure is a vertical 4/5 crop with
+            a capped width so it can't overwhelm the section. */}
+        <div className="grid grid-cols-1 lg:grid-cols-[5fr_7fr] gap-10 lg:gap-14 items-center pb-10 lg:pb-12 mb-12 border-b border-ink">
+          <Reveal className="order-2 lg:order-1">
+            <figure
+              className="v2-portrait aspect-[4/5] bg-paper-warm border border-rule relative overflow-hidden max-w-[420px] lg:max-w-[85%]"
+              aria-label="Portrait of a prospective limb lengthening candidate"
             >
-              Who is a good candidate for <em className="italic text-spine">limb lengthening?</em>
-            </h2>
-          </header>
-        </Reveal>
+              <Image
+                src="/candidate-portrait.webp"
+                alt="A professional considering cosmetic limb lengthening"
+                fill
+                sizes="(min-width: 1024px) 34vw, 85vw"
+                className="object-cover"
+              />
+              <span className="absolute z-10 top-3 left-3 px-2 py-1 font-mono uppercase tracking-[0.2em] text-[10.5px] text-muted bg-paper">
+                The Candidate
+              </span>
+            </figure>
+          </Reveal>
+          <Reveal className="order-1 lg:order-2" delay={0.05}>
+            <header>
+              <span className="eyebrow mb-4">Am I a Candidate?</span>
+              <h2
+                className="mt-4 font-serif font-normal tracking-[-0.02em] text-ink leading-[0.98] max-w-[18ch] [text-wrap:balance]"
+                style={{ fontSize: "clamp(40px, 6vw, 84px)" }}
+              >
+                Who is a good candidate for <em className="italic text-spine">limb lengthening?</em>
+              </h2>
+            </header>
+          </Reveal>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-[7fr_5fr] gap-12 lg:gap-14 items-start">
           <Reveal>

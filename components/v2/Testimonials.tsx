@@ -1,6 +1,23 @@
 import { Reveal } from "./Reveal";
 
+/**
+ * Order per homepage handoff v2 §06: the revision patient leads — it is the
+ * competitive argument in a patient's own words. "Medical retreat" phrase
+ * removed from David R. (wellness language, banned).
+ */
 const quotes = [
+  {
+    body: (
+      <>
+        I had a failed surgery in Turkey and was terrified to try again. Dr.
+        Basmajian&rsquo;s trauma background gave me confidence. He was honest
+        about what he could fix and what he couldn&rsquo;t.{" "}
+        <em className="italic text-spine">I&rsquo;m walking normally again.</em>
+      </>
+    ),
+    name: "James K.",
+    role: "Revision Patient · Texas",
+  },
   {
     body: (
       <>
@@ -18,26 +35,12 @@ const quotes = [
     body: (
       <>
         I traveled from New York for the concierge program. They handled my
-        flights, hotel, and even had a PT schedule ready before I landed. The
-        whole experience{" "}
-        <em className="italic text-spine">felt like a medical retreat</em>, not
-        a surgery trip.
+        flights, hotel, and even had a PT schedule{" "}
+        <em className="italic text-spine">ready before I landed.</em>
       </>
     ),
     name: "David R.",
     role: "Finance · New York",
-  },
-  {
-    body: (
-      <>
-        I had a failed surgery in Turkey and was terrified to try again. Dr.
-        Basmajian&rsquo;s trauma background gave me confidence. He was honest
-        about what he could fix and what he couldn&rsquo;t.{" "}
-        <em className="italic text-spine">I&rsquo;m walking normally again.</em>
-      </>
-    ),
-    name: "James K.",
-    role: "Revision Patient · Texas",
   },
 ] as const;
 
@@ -57,9 +60,15 @@ export function Testimonials() {
           </header>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12 border-t border-ink pt-12">
+        {/* Mobile: edge-bled swipe row (client request); md+ keeps the grid. */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12 border-t border-ink pt-12 max-md:flex max-md:overflow-x-auto max-md:snap-x max-md:snap-mandatory max-md:-mx-6 max-md:px-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {quotes.map((q, i) => (
-            <Reveal key={q.name} delay={i * 0.1} as="article">
+            <Reveal
+              key={q.name}
+              delay={i * 0.1}
+              as="article"
+              className="max-md:w-[84%] max-md:shrink-0 max-md:snap-start"
+            >
               <div className="font-serif italic text-spine text-[88px] leading-[0.6] mb-3">&ldquo;</div>
               <blockquote className="font-serif text-[20px] lg:text-[23px] leading-[1.35] tracking-[-0.005em] text-ink mb-6">
                 {q.body}

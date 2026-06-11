@@ -67,7 +67,7 @@ The more you understand the medical, psychological, and practical aspects of lim
 
 **Choose Your Confidants Wisely**
 
-Let’s face it, you don’t have to tell everyone about your decision to undergo limb lengthening. Consider telling only those who will offer genuine support and compassion—like close friends or family. Over time, you might feel comfortable sharing your experience more broadly, but that choice remains yours.
+Let’s face it, you don’t have to tell everyone about your decision to undergo limb lengthening. Consider telling only those who will offer genuine support and compassion, like close friends or family. Over time, you might feel comfortable sharing your experience more broadly, but that choice remains yours.
 
 **Have a Go-To Explanation**
 

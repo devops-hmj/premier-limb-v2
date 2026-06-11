@@ -7,7 +7,7 @@ import { Reveal } from "./Reveal";
 const rows = [
   { n: "01", h: "Travel Coordination",          p: "Flight booking assistance, airport transfers, and ground transportation throughout your stay in Southern California.", mk: "Global" },
   { n: "02", h: "Recovery Accommodations",      p: "Pre-vetted, surgeon-approved extended-stay housing near our Upland facility. Wheelchair-accessible, fully furnished, discounted rates.", mk: "Vetted" },
-  { n: "03", h: "PT & Follow-Up Scheduling",    p: "Your physical therapy schedule is set before you arrive. All post-op visits coordinated. Nothing falls through the cracks.", mk: "Pre-Set" },
+  { n: "03", h: "PT & Follow-Up Scheduling",    p: "Your on-site therapy schedule is set before you arrive. All post-op visits coordinated. Nothing falls through the cracks.", mk: "Pre-Set" },
   { n: "04", h: "Dedicated Patient Coordinator", p: "One agent. One phone number. From your first call through your final follow-up. Available 7 days a week during your recovery.", mk: "1-to-1" },
   { n: "05", h: "Virtual Pre-Op & Remote Follow-Up", p: "Initial consultation via secure video or in-person. Post-op check-ins from home once you return. Minimizes trips to California.", mk: "Remote" },
 ] as const;
@@ -31,7 +31,7 @@ export function Concierge() {
         <div className="grid grid-cols-1 lg:grid-cols-[7fr_5fr] gap-12 lg:gap-16 items-start">
           <Reveal>
             <p className="font-serif italic text-[24px] lg:text-[26px] leading-[1.25] text-ink py-5 border-t border-ink border-b border-rule max-w-[32ch] mb-7">
-              You focus on your transformation. We handle everything else.
+              You focus on recovery. We handle everything else.
             </p>
             <p className="text-[15.5px] leading-[1.7] text-ink-soft max-w-[54ch] mb-10">
               Most limb lengthening patients travel for their procedure, and

@@ -47,7 +47,7 @@ Yes, even in your 40s, 50s, or 60s, you might decide you want those extra inches
 Age Is a Number, But Health Is Key
 ----------------------------------
 
-One of the biggest considerations for undergoing limb lengthening later in life isn’t the actual age—it’s your overall health.
+One of the biggest considerations for undergoing limb lengthening later in life isn’t the actual age. It’s your overall health.
 
 Surgery of any kind can be harder on the body when you’re dealing with underlying conditions like osteoporosis, diabetes, or cardiovascular issues. Recovery can also be a bit slower.
 
@@ -75,7 +75,7 @@ Physical therapy is an essential part of limb lengthening at any age, but older 
 
 ### Existing Conditions
 
-If you already have arthritis, high blood pressure, or any chronic condition, the surgery and rehabilitation plan may need tailoring to fit your specific needs. That doesn’t necessarily mean you can’t do limb lengthening—it just means your care team will have to be extra vigilant and you might need a bit more care.
+If you already have arthritis, high blood pressure, or any chronic condition, the surgery and rehabilitation plan may need tailoring to fit your specific needs. That doesn’t necessarily mean you can’t do limb lengthening. It just means your care team will have to be extra vigilant and you might need a bit more care.
 
 The Upside: Improved Mobility and Quality of Life
 -------------------------------------------------
@@ -107,7 +107,7 @@ Ready to Explore Your Limb Lengthening Options?
 
 If you’re curious about limb lengthening but worried about your age, [Premier Limb Lengthening Institute](https://premierlimblengthening.com/) is here to help. Our team offers personalized evaluations, honest advice, and a caring approach tailored to your unique situation – no matter what your age. 
 
-Get in touch today to [schedule a consultation](https://premierlimblengthening.com/consult/) to see how we can help you live life on your terms—no matter what your birth certificate says!
+Get in touch today to [schedule a consultation](https://premierlimblengthening.com/consult/) to see how we can help you live life on your terms, no matter what your birth certificate says!
 
 ### Related Articles
 

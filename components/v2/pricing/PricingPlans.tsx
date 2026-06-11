@@ -27,7 +27,8 @@ export function PricingPlans() {
           </header>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 border-t border-b border-ink">
+        {/* Mobile: edge-bled swipe row (client request); md+ keeps the grid. */}
+        <div className="grid grid-cols-1 md:grid-cols-3 border-t border-b border-ink max-md:flex max-md:overflow-x-auto max-md:snap-x max-md:snap-mandatory max-md:-mx-6 max-md:px-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {plans.map((p, i) => {
             const isFeatured = "featured" in p && p.featured;
             return (
@@ -40,9 +41,10 @@ export function PricingPlans() {
                 transition={{ duration: 0.6, delay: (i % 3) * 0.08, ease: [0.2, 0.65, 0.3, 1] }}
                 className={`
                   relative py-10 px-7 md:px-0 md:pr-7
+                  max-md:w-[88%] max-md:shrink-0 max-md:snap-start
                   ${i > 0 ? "md:pl-7" : ""}
                   ${i < plans.length - 1 ? "md:border-r border-rule" : ""}
-                  ${i > 0 ? "border-t md:border-t-0 border-rule" : ""}
+                  ${i > 0 ? "max-md:border-l border-rule" : ""}
                   ${isFeatured ? "bg-paper md:px-7" : "bg-paper-off"}
                 `}
               >

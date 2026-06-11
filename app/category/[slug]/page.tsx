@@ -39,7 +39,7 @@ export async function generateMetadata(
   if (!label) return { title: slug };
   const description =
     CATEGORY_DESCRIPTIONS[slug] ?? `Articles on ${label} from Premier Limb Lengthening.`;
-  const title = `${label} — Limb Lengthening Articles`;
+  const title = `${label} · Limb Lengthening Articles`;
   return {
     title,
     description,
@@ -72,7 +72,7 @@ export default async function CategoryPage({ params }: { params: Promise<RoutePa
       <NavV2 forceVisible />
       <JsonLd
         data={[
-          collectionPageSchema(`${label} — Limb Lengthening Articles`, articles),
+          collectionPageSchema(`${label} · Limb Lengthening Articles`, articles),
           breadcrumb([
             { name: "Home", url: "/" },
             { name: "Blog", url: "/blog" },

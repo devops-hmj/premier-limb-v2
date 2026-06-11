@@ -4,7 +4,7 @@ import { Reveal } from "./Reveal";
 /**
  * Article — the paper-off lede that docks under the video stage.
  * Editorial portrait + drop-cap lead + 2-column running body + CTA row.
- * Concludes with the 4-up trust strip flush bordered on top + bottom.
+ * Concludes with the 5-up trust strip flush bordered on top + bottom.
  */
 export function Article() {
   return (
@@ -36,15 +36,16 @@ export function Article() {
             <p className="v2-dropcap text-[18px] leading-[1.6] text-ink mb-7 max-w-[54ch]">
               Concierge care from your first consultation through full recovery.
               We combine a trauma surgeon&rsquo;s precision with a private-clinic&rsquo;s
-              level of discretion. The result is a practice that accepts cases
-              others decline, in a setting designed around the patient.
+              level of discretion. Dr. Basmajian personally performs every
+              procedure. He accepts cases other surgeons decline, in a setting
+              designed around the patient.
             </p>
 
             <div className="v2-cols text-[14.5px] leading-[1.7] text-ink-soft pt-4 border-t border-rule">
               <p>
                 Our program is the only US limb lengthening practice offering a
                 full white-glove travel and recovery coordination service:
-                flights, housing, physical therapy, and a single dedicated
+                flights, housing, physical therapy, and a dedicated
                 coordinator from first call to final follow-up.
               </p>
               <p>
@@ -75,11 +76,11 @@ export function Article() {
       </div>
 
       <Reveal className="mx-auto max-w-wrap px-6 lg:px-12 mt-12">
-        <div className="grid grid-cols-2 lg:grid-cols-4 border-t border-b border-ink py-7">
+        <div className="grid grid-cols-2 lg:grid-cols-5 border-t border-b border-ink py-7">
           {trust.map((t, i) => (
             <div
               key={t.n}
-              className={`px-4 lg:pr-6 flex flex-col gap-1.5 ${i < trust.length - 1 ? "lg:border-r border-rule" : ""} ${i % 2 === 0 ? "border-r border-rule lg:border-r" : ""} ${i < 2 ? "border-b border-rule pb-5 lg:border-b-0 lg:pb-0" : "pt-5 lg:pt-0"}`}
+              className={`px-4 lg:pr-6 flex flex-col gap-1.5 ${i === trust.length - 1 ? "col-span-2 lg:col-span-1" : ""} ${i < trust.length - 1 ? "lg:border-r border-rule" : ""} ${i % 2 === 0 && i < 4 ? "border-r border-rule lg:border-r" : ""} ${i < 4 ? "border-b border-rule pb-5 lg:border-b-0 lg:pb-0" : ""} ${i >= 2 ? "pt-5 lg:pt-0" : ""}`}
             >
               <div className="font-mono uppercase text-[10px] tracking-[0.22em] text-muted">{t.n}</div>
               <div className="font-serif text-[20px] lg:text-[22px] leading-[1.15] tracking-[-0.01em] text-ink">
@@ -99,4 +100,5 @@ const trust = [
   { n: "02", emph: "Precice®", rest: "nail technology", desc: "Internal magnetic lengthening (no external frame)." },
   { n: "03", emph: "Concierge", rest: "travel program", desc: "White-glove logistics, domestic & international." },
   { n: "04", emph: "Transparent", rest: "pricing", desc: "Fully itemised quote before you commit." },
+  { n: "05", emph: "Fellowship-Trained,", rest: "two programs", desc: "Orthopaedic trauma & joint reconstruction. Scottsdale & Hannover." },
 ] as const;

@@ -7,14 +7,18 @@ import { faqPageSchema } from "@/lib/jsonld";
 import "./v2.css";
 
 export const metadata: Metadata = {
-  title: "Limb Lengthening Surgery in Southern California · Dr. Hrayr Basmajian",
+  // Absolute: the root layout's title template would append the site name and
+  // push this past 100 chars. Keyword-first per homepage handoff v2 §08.
+  title: {
+    absolute: "Cosmetic Limb Lengthening Surgeon in Southern California · Dr. Hrayr Basmajian",
+  },
   description:
-    "Cosmetic limb lengthening surgery with one of the West Coast's most experienced surgeons. Gain up to 6 inches with concierge care from first consult through full recovery.",
+    "Cosmetic limb lengthening surgery performed by Dr. Hrayr Basmajian, a fellowship-trained orthopaedic trauma surgeon in Southern California. Precice internal nail. Revision cases accepted. Concierge care included.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Limb Lengthening Surgery in Southern California · Premier",
+    title: "Cosmetic Limb Lengthening Surgeon in Southern California · Dr. Hrayr Basmajian",
     description:
-      "Gain up to 6 inches with one of the most experienced limb lengthening surgeons on the West Coast. Concierge care, transparent pricing.",
+      "Cosmetic limb lengthening performed by a fellowship-trained orthopaedic trauma surgeon. Precice internal nail. Revision cases accepted. Concierge care included.",
     url: "/",
     type: "website",
   },

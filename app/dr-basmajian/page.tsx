@@ -18,12 +18,12 @@ import {
 import "../v2.css";
 
 export const metadata: Metadata = {
-  title: "Dr. Hrayr Basmajian — Limb Lengthening Surgeon",
+  title: "Dr. Hrayr Basmajian · Limb Lengthening Surgeon",
   description:
     "Board-certified orthopaedic trauma surgeon and Medical Director of Orthopaedic Trauma at Pomona Valley Hospital. Thousands of limb lengthening procedures performed.",
   alternates: { canonical: "/dr-basmajian" },
   openGraph: {
-    title: "Dr. Hrayr Basmajian — Limb Lengthening Surgeon",
+    title: "Dr. Hrayr Basmajian · Limb Lengthening Surgeon",
     description:
       "Board-certified orthopaedic trauma surgeon. Director, Orthopaedic Trauma at Pomona Valley Hospital. Thousands of limb lengthening procedures performed.",
     url: "/dr-basmajian",

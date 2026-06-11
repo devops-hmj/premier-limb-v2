@@ -13,12 +13,12 @@ import { breadcrumb, medicalProcedureSchema } from "@/lib/jsonld";
 import "../v2.css";
 
 export const metadata: Metadata = {
-  title: "Limb Lengthening Surgery — How It Works",
+  title: "Limb Lengthening Surgery · How It Works",
   description:
-    "How limb lengthening works — distraction osteogenesis, Precice internal nail placement, gradual distraction, and a recovery timeline you can plan your life around.",
+    "How limb lengthening works: distraction osteogenesis, Precice internal nail placement, gradual distraction, and a recovery timeline you can plan your life around.",
   alternates: { canonical: "/your-surgery" },
   openGraph: {
-    title: "Limb Lengthening Surgery — How It Works",
+    title: "Limb Lengthening Surgery · How It Works",
     description:
       "Distraction osteogenesis, internal Precice technology, and a recovery timeline you can plan your life around.",
     url: "/your-surgery",
