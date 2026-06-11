@@ -22,12 +22,12 @@ while ( $pll_processor->next_tag( array( 'class_name' => 'pll-faq-item' ) ) ) {
 	}
 	++$pll_index;
 }
-$content = $pll_processor->get_updated_html();
+$pll_faq_html = $pll_processor->get_updated_html();
 ?>
 <div
 	class="pll-faq max-w-[1020px] mx-auto border-t border-ink"
 	data-wp-interactive="pll/faq"
 	data-wp-context='{"openIndex":0}'
 >
-	<?php echo $content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- inner blocks markup. ?>
+	<?php echo $pll_faq_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- inner blocks markup. ?>
 </div>
