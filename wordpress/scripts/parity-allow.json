@@ -18,5 +18,11 @@
 		"ogSiteName: WordPress emits og:site_name on every page; Next's page-level openGraph objects drop the layout's siteName on most routes. Emitting it everywhere is deliberate (better OG completeness).",
 		"ogImage on /dr-basmajian/ and the your-surgery tree: Next derives it from public/ asset paths (e.g. /dr-picture.jpg, /images/your-surgery/*.webp); in WordPress those assets live at theme/uploads URLs. Post featured-image OG URLs are identical (original upload paths preserved).",
 		"Canonical/og:url trailing slashes are normalized before comparison: Next canonicals are slashless, WordPress canonical form has trailing slashes. Both resolve identically (the WP rewrite layer 301s slashless to slashed; Next did the inverse)."
-	]
+	],
+	"pixelNotes": {
+		"_comment": "Screenshot-diff context printed by parity-report.mjs next to over-budget routes. Keyed by .parity directory name. These routes carry a DOCUMENTED text divergence, so their pixel percentage overstates the visual difference — judge them in report.html.",
+		"_blog_": "liveH1: six post cards show restored legacy headlines where Next showed SEO titles (PARITY.md, head allowlist item 3)",
+		"_category_limb-lengthening_": "liveH1: post cards show restored legacy headlines (see _blog_)",
+		"_am-i-too-old-for-limb-lengthening_": "liveH1: related-post cards show restored legacy headlines (see _blog_)"
+	}
 }

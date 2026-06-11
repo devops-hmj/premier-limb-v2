@@ -15,6 +15,19 @@ import path from "node:path";
 const PARITY_DIR = path.resolve(".parity");
 const LOOSE = new Set(["_root", "_limb-lengthening-pricing-options_", "_consult_"]);
 
+// Documented text divergences (liveH1 etc.) — the percentage overstates the
+// visual diff on these routes; the note is printed beside the result.
+const PIXEL_NOTES = (() => {
+	try {
+		const allow = JSON.parse(readFileSync(path.resolve("scripts/parity-allow.json"), "utf8"));
+		const notes = { ...(allow.pixelNotes || {}) };
+		delete notes._comment;
+		return notes;
+	} catch {
+		return {};
+	}
+})();
+
 function loadPng(file) {
 	return PNG.sync.read(readFileSync(file));
 }
@@ -55,9 +68,10 @@ for (const dir of readdirSync(PARITY_DIR, { withFileTypes: true })) {
 
 		const diffFile = path.join(PARITY_DIR, dir.name, `${tag}-diff.png`);
 		writeFileSync(diffFile, PNG.sync.write(diff));
-		rows.push({ route: dir.name, tag, ratio, heightDelta, budget, pass });
+		const note = PIXEL_NOTES[dir.name];
+		rows.push({ route: dir.name, tag, ratio, heightDelta, budget, pass, note });
 		console.log(
-			`${pass ? "✓" : "✗"} ${dir.name} @${tag}: ${(ratio * 100).toFixed(2)}% diff (budget ${(budget * 100).toFixed(1)}%), height Δ ${(heightDelta * 100).toFixed(1)}%`
+			`${pass ? "✓" : "✗"} ${dir.name} @${tag}: ${(ratio * 100).toFixed(2)}% diff (budget ${(budget * 100).toFixed(1)}%), height Δ ${(heightDelta * 100).toFixed(1)}%${!pass && note ? `\n    ↳ documented: ${note}` : ""}`
 		);
 	}
 }
@@ -70,6 +84,7 @@ img{width:100%;border:1px solid #444}h2{font-size:14px}
 ${rows
 	.map(
 		(r) => `<div class="row"><h2 class="${r.pass ? "pass" : "fail"}">${r.pass ? "PASS" : "FAIL"} ${r.route} @${r.tag} — ${(r.ratio * 100).toFixed(2)}%</h2>
+${r.note ? `<p style="color:#fc6">documented divergence: ${r.note}</p>` : ""}
 <div class="imgs"><div><p>next</p><img loading="lazy" src="${r.route}/${r.tag}-next.png"></div>
 <div><p>wp</p><img loading="lazy" src="${r.route}/${r.tag}-wp.png"></div>
 <div><p>diff</p><img loading="lazy" src="${r.route}/${r.tag}-diff.png"></div></div></div>`

@@ -6,6 +6,24 @@
  * first paint). CSS in src/css/tailwind.css owns the transition; an optional
  * data-reveal-delay="0.08" attribute staggers siblings.
  */
+
+/*
+ * ch-unit rebind after webfont arrival. Chromium caches computed styles per
+ * matched-rule-set (MatchedPropertiesCache); entries created while the
+ * fallback font was active keep fallback-resolved ch/ex lengths even after
+ * the swap, so max-w-[Nch] clamps measured Consolas/Georgia zeros instead of
+ * the brand fonts and text wrapped differently than the Next build. Adding a
+ * one-way class changes every element's matched-rule set exactly once,
+ * post-load (a paired rule lives in src/css/tailwind.css), forcing fresh
+ * computed styles against the loaded fonts. Toggles don't work: reverting
+ * rejoins the stale cache entry.
+ */
+if (document.fonts && document.fonts.ready) {
+	document.fonts.ready.then(() => {
+		document.documentElement.classList.add('pll-fonts-loaded');
+	});
+}
+
 const items = document.querySelectorAll('.js-reveal');
 
 if (items.length) {
