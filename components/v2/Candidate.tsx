@@ -42,7 +42,7 @@ export function Candidate() {
               <span className="eyebrow mb-4">Am I a Candidate?</span>
               <h2
                 className="mt-4 font-serif font-normal tracking-[-0.02em] text-ink leading-[0.98] max-w-[18ch] [text-wrap:balance]"
-                style={{ fontSize: "clamp(36px, 4.8vw, 72px)" }}
+                style={{ fontSize: "clamp(40px, 6vw, 84px)" }}
               >
                 Who is a good candidate for <em className="italic text-spine">limb lengthening?</em>
               </h2>
