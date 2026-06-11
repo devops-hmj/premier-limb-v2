@@ -40,10 +40,14 @@
 	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
 		<properties>
 			<property name="prefixes" type="array">
-				<element value="pll"/>
-				<element value="PLL"/>
+				<element value="pll_"/>
+				<element value="PLL_"/>
 			</property>
 		</properties>
+		<!-- WPCS 3.x wants prefixes of 4+ chars; "pll_"/"PLL_" is the project's
+		     established brand prefix (theme pll-editorial, plugins pll-seo/pll-forms).
+		     Every global is pll_-prefixed; the length meta-error alone is waived. -->
+		<exclude name="WordPress.NamingConventions.PrefixAllGlobals.ShortPrefixPassed"/>
 	</rule>
 
 	<!-- PHP floor matches the HIPAA Vault target: 8.1+. Confirm exact version with

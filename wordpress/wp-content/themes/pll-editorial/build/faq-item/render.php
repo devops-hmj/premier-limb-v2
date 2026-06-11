@@ -1,6 +1,6 @@
 <?php
 /**
- * pll/faq-item front-end render.
+ * Render pll/faq-item front-end render.
  *
  * One accordion row from components/v2/FaqV2.tsx: numbered serif index
  * (CSS counter on .pll-faq-num), question, rotating +, and the animated

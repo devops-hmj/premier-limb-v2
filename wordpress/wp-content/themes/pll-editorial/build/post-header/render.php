@@ -1,6 +1,6 @@
 <?php
 /**
- * pll/post-header — port of the article header in app/[slug]/page.tsx.
+ * Render pll/post-header — port of the article header in app/[slug]/page.tsx.
  *
  * @package pll-editorial
  */

@@ -107,7 +107,7 @@ pll_seed_media();
 /**
  * 2b) Verbatim-path uploads + featured images.
  *
- * content/media-uploads/ holds assets whose URL paths must survive the
+ * The content/media-uploads/ folder holds assets whose URL paths must survive the
  * migration byte-for-byte: blog hero images at their original
  * /wp-content/uploads/YYYY/MM/<file> paths (zero-redirect for anything
  * indexed in Google Images) and the your-surgery diagrams under a stable
@@ -184,6 +184,7 @@ function pll_seed_featured_images() {
 	if ( ! file_exists( $manifest_path ) ) {
 		return;
 	}
+	// phpcs:ignore WordPressVIPMinimum.Performance.FetchingRemoteData.FileGetContentsUnknown, WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents -- bundled local seed file, not a remote resource.
 	$manifest = json_decode( (string) file_get_contents( $manifest_path ), true );
 	if ( empty( $manifest['featured'] ) ) {
 		return;
@@ -441,8 +442,8 @@ pll_seed_authors();
  * replacement (str_replace of "domain/" would strip slashes from real links).
  */
 function pll_restore_legal_domain_text() {
-	$host = wp_parse_url( home_url(), PHP_URL_HOST );
-	$port = wp_parse_url( home_url(), PHP_URL_PORT );
+	$host  = wp_parse_url( home_url(), PHP_URL_HOST );
+	$port  = wp_parse_url( home_url(), PHP_URL_PORT );
 	$local = $port ? $host . ':' . $port : $host;
 	if ( 'premierlimblengthening.com' === $local ) {
 		return;

@@ -1,6 +1,6 @@
 <?php
 /**
- * pll/service-sub-header — port of the header variants in
+ * Render pll/service-sub-header — port of the header variants in
  * app/your-surgery/[slug]/page.tsx. The hero-background variant fires when
  * the page carries _pll_hero_image (set by the content pipeline for
  * limb-lengthening-expectations and exercise-after-limb-lengthening, whose

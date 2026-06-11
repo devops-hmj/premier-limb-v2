@@ -44,7 +44,7 @@ function pll_seo_page_defaults() {
 	return array(
 		// Absolute (no site-name suffix): the template would push it past
 		// 100 chars. Keyword-first per homepage handoff v2 §08.
-		'/'                                 => array(
+		'/'                                  => array(
 			'title'          => 'Cosmetic Limb Lengthening Surgeon in Southern California · Dr. Hrayr Basmajian',
 			'title_absolute' => true,
 			'description'    => 'Cosmetic limb lengthening surgery performed by Dr. Hrayr Basmajian, a fellowship-trained orthopaedic trauma surgeon in Southern California. Precice internal nail. Revision cases accepted. Concierge care included.',
@@ -52,21 +52,21 @@ function pll_seo_page_defaults() {
 			'og_description' => 'Cosmetic limb lengthening performed by a fellowship-trained orthopaedic trauma surgeon. Precice internal nail. Revision cases accepted. Concierge care included.',
 			'og_type'        => 'website',
 		),
-		'/about/'                           => array(
+		'/about/'                            => array(
 			'title'          => 'About Premier Limb Lengthening, Founded by Dr. Hrayr Basmajian',
 			'description'    => 'Premier Limb Lengthening is a cosmetic and reconstructive surgery practice created by Dr. Hrayr Basmajian, founder of Premier Orthopaedic & Trauma Specialists, based in Upland, California.',
 			'og_title'       => 'About Premier Limb Lengthening, Founded by Dr. Hrayr Basmajian',
 			'og_description' => 'A cosmetic and reconstructive surgery practice created by Dr. Hrayr Basmajian, founder of Premier Orthopaedic & Trauma Specialists, based in Upland, California.',
 			'og_type'        => 'website',
 		),
-		'/consult/'                         => array(
+		'/consult/'                          => array(
 			'title'          => 'Schedule a Limb Lengthening Consultation',
 			'description'    => 'Schedule a consultation with Premier Limb Lengthening in Upland, California. Confidential intake, virtual visits, and white-glove travel coordination.',
 			'og_title'       => 'Schedule a Limb Lengthening Consultation · Premier',
 			'og_description' => 'Confidential intake, virtual visits, and white-glove travel coordination from Upland, California.',
 			'og_type'        => 'website',
 		),
-		'/dr-basmajian/'                    => array(
+		'/dr-basmajian/'                     => array(
 			'title'          => 'Dr. Hrayr Basmajian · Limb Lengthening Surgeon',
 			'description'    => 'Board-certified orthopaedic trauma surgeon and Medical Director of Orthopaedic Trauma at Pomona Valley Hospital. Thousands of limb lengthening procedures performed.',
 			'og_title'       => 'Dr. Hrayr Basmajian · Limb Lengthening Surgeon',
@@ -80,35 +80,35 @@ function pll_seo_page_defaults() {
 			'og_description' => 'Transparent 2026 pricing for cosmetic limb lengthening. Bundled implants, OR time, hospitalization, anesthesia, follow-up care, and on-site sessions.',
 			'og_type'        => 'website',
 		),
-		'/your-surgery/'                    => array(
+		'/your-surgery/'                     => array(
 			'title'          => 'Limb Lengthening Surgery · How It Works',
 			'description'    => 'How limb lengthening works: distraction osteogenesis, Precice internal nail placement, gradual distraction, and a recovery timeline you can plan your life around.',
 			'og_title'       => 'Limb Lengthening Surgery · How It Works',
 			'og_description' => 'Distraction osteogenesis, internal Precice technology, and a recovery timeline you can plan your life around.',
 			'og_type'        => 'article',
 		),
-		'/blog/'                            => array(
+		'/blog/'                             => array(
 			'title'          => 'Limb Lengthening Blog, Articles & Patient Guides',
 			'description'    => 'Honest, plain-language coverage of cosmetic limb lengthening: candidacy, recovery, pricing, and the science of bone regeneration, written to help patients decide with confidence.',
 			'og_title'       => 'Limb Lengthening Blog, Articles & Patient Guides',
 			'og_description' => 'Patient-grade articles on candidacy, recovery, pricing, and the science of bone regeneration.',
 			'og_type'        => 'website',
 		),
-		'/privacy/'                         => array(
+		'/privacy/'                          => array(
 			'title'          => 'Privacy Policy',
 			'description'    => 'How Premier Limb Lengthening collects, uses, and protects website data, our HIPAA commitments, and our SMS and mobile messaging practices.',
 			'og_title'       => 'Privacy Policy · Premier Limb Lengthening',
 			'og_description' => 'Our privacy practices for website data, HIPAA-protected health information, and SMS and mobile messaging.',
 			'og_type'        => 'website',
 		),
-		'/terms/'                           => array(
+		'/terms/'                            => array(
 			'title'          => 'Terms of Service',
 			'description'    => 'The terms of use for the Premier Limb Lengthening website, including our medical disclaimer, individual-results notice, and SMS text messaging program terms.',
 			'og_title'       => 'Terms of Service · Premier Limb Lengthening',
 			'og_description' => 'Website terms of use, medical disclaimer, and SMS text messaging terms for Premier Limb Lengthening.',
 			'og_type'        => 'website',
 		),
-		'/accessibility/'                   => array(
+		'/accessibility/'                    => array(
 			'title'          => 'Accessibility Statement',
 			'description'    => "Premier Limb Lengthening's commitment to website accessibility, our work toward WCAG 2.1 Level AA, and how to request an accommodation.",
 			'og_title'       => 'Accessibility Statement · Premier Limb Lengthening',

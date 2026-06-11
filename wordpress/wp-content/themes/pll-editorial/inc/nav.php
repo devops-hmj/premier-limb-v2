@@ -87,12 +87,12 @@ function pll_nav_items() {
  * The official wordmark <img>. Mirrors components/primitives/Logo.tsx
  * (3:1-ish intrinsic ratio, explicit width/height to avoid CLS).
  *
- * @param string $tone  'light' (black wordmark) or 'dark' (white wordmark).
- * @param int    $width Rendered width in px.
- * @param string $class Extra classes.
+ * @param string $tone    'light' (black wordmark) or 'dark' (white wordmark).
+ * @param int    $width   Rendered width in px.
+ * @param string $classes Extra classes.
  * @return string HTML.
  */
-function pll_logo_img( $tone = 'light', $width = 200, $class = '' ) {
+function pll_logo_img( $tone = 'light', $width = 200, $classes = '' ) {
 	$assets = array(
 		'light' => array(
 			'file' => 'assets/images/PLL-black-logo.png',
@@ -114,7 +114,7 @@ function pll_logo_img( $tone = 'light', $width = 200, $class = '' ) {
 		esc_attr__( 'Premier Limb Lengthening Institute', 'pll-editorial' ),
 		$width,
 		$height,
-		$class ? ' ' . esc_attr( $class ) : '',
+		$classes ? ' ' . esc_attr( $classes ) : '',
 		$width,
 		$height
 	);

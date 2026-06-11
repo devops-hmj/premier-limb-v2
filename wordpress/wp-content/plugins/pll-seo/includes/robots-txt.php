@@ -1,7 +1,7 @@
 <?php
 /**
- * robots.txt — translation of the Next.js app/robots.ts for a WordPress
- * origin (/api → /wp-json, /_next → wp internals).
+ * The robots.txt output — translation of the Next.js app/robots.ts for a
+ * WordPress origin (/api → /wp-json, /_next → wp internals).
  *
  * @package pll-seo
  */

@@ -1,6 +1,6 @@
 <?php
 /**
- * pll/archive-header — port of the category archive header in
+ * Render pll/archive-header — port of the category archive header in
  * app/category/[slug]/page.tsx, with author/search variants.
  *
  * @package pll-editorial

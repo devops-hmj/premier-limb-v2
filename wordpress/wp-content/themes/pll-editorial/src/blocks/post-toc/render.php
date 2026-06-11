@@ -1,6 +1,6 @@
 <?php
 /**
- * pll/post-toc — port of the sticky "In This Post" aside in app/[slug]/page.tsx.
+ * Render pll/post-toc — port of the sticky "In This Post" aside in app/[slug]/page.tsx.
  * Headings come from the post's <h2 id="…"> anchors (md-to-blocks bakes the
  * same toSlug() ids that lib/content.ts getHeadings() derived).
  *

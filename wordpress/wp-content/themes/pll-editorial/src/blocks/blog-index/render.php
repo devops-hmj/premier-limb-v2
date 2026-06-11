@@ -1,6 +1,6 @@
 <?php
 /**
- * pll/blog-index — port of components/v2/blog/BlogIndex.tsx.
+ * Render pll/blog-index — port of components/v2/blog/BlogIndex.tsx.
  *
  * Server renders the toolbar, category tabs (with counts), every post card
  * (filterable data attributes), the load-more control, and the empty state.
@@ -21,12 +21,12 @@ $pll_posts = get_posts(
 
 $pll_counts = array();
 foreach ( $pll_posts as $pll_p ) {
-	$pll_c                          = pll_primary_category( $pll_p );
-	$pll_counts[ $pll_c['slug'] ]   = $pll_counts[ $pll_c['slug'] ] ?? array(
+	$pll_c                        = pll_primary_category( $pll_p );
+	$pll_counts[ $pll_c['slug'] ] = $pll_counts[ $pll_c['slug'] ] ?? array(
 		'label' => $pll_c['label'],
 		'count' => 0,
 	);
-	$pll_counts[ $pll_c['slug'] ]['count']++;
+	++$pll_counts[ $pll_c['slug'] ]['count'];
 }
 
 // Mirror lib/content.ts CATEGORY_ORDER for tab ordering.

@@ -1,6 +1,6 @@
 <?php
 /**
- * pll/post-grid — archive card grid from app/category/[slug]/page.tsx.
+ * Render pll/post-grid — archive card grid from app/category/[slug]/page.tsx.
  * Renders the main query (category/author/search archives).
  *
  * @package pll-editorial
@@ -24,7 +24,7 @@ $pll_found         = (int) ( $wp_query->found_posts ?? count( $pll_archive_posts
 			}
 			?>
 		</div>
-		<?php
+			<?php
 		else :
 			?>
 		<p class="font-serif text-[22px] text-ink border-t border-rule pt-10"><?php esc_html_e( 'No articles found.', 'pll-editorial' ); ?></p>

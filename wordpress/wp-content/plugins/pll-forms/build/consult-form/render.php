@@ -1,6 +1,6 @@
 <?php
 /**
- * pll/consult-form front-end render — markup port of components/v2/ConsultForm.tsx.
+ * Render pll/consult-form front-end render — markup port of components/v2/ConsultForm.tsx.
  * The success panel is pre-rendered (hidden); view.js swaps states.
  *
  * @package pll-forms

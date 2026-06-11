@@ -41,6 +41,7 @@ add_action(
 			return;
 		}
 		printf(
+			// phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedStylesheet -- deliberate: wp_enqueue_style() prints before core's per-block <style> tags and loses the cascade (docs/PARITY.md root cause 1).
 			'<link rel="stylesheet" id="pll-editorial-css" href="%s" media="all" />' . "\n",
 			esc_url( get_theme_file_uri( 'assets/css/pll.css' ) . '?ver=' . filemtime( $css ) )
 		);
