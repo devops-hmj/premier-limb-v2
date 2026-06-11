@@ -118,6 +118,31 @@ re-introduces them:
    the shell's size made every callout wrap tighter on WP. Core's
    `.wp-block-quote { overflow-wrap: break-word }` also split email
    addresses mid-word (countered with overflow-wrap: normal).
+9. **Prose bullet inset is 18.3125px, not 16px.** The measured Next
+   text-column start (mono "·" at 10.5px advances 6.3125px + the 12px grid
+   gap). Rounding to 16px gave WP list text 2.3px more width and flipped
+   wraps on boundary-length lines.
+10. **Playground's WXR importer rewrites bare-domain TEXT** (not just
+    URLs) from the source site to the local instance — the Terms body
+    became "…use of the website at 127.0.0.1:9400/…", shifting every
+    line below it. content/setup.php restores the literal domain in the
+    three legal documents post-import (guarded no-op in production).
+11. **The footer logo must carry explicit w/h utilities** (w-[220px]
+    h-[68px]): with h-auto/w-auto it rendered at the file's natural
+    202x62 while the Next build honors the 220x68 width/height attrs.
+
+### Residual diff classes (accepted, judged in report.html)
+
+- **Image resampling**: Next serves sharp-resized `_next/image` variants;
+  WordPress serves the original file browser-downscaled. Same art, same
+  layout box, different scaler — large soft-diff areas on image-heavy
+  routes (the your-surgery tree, homepage portraits) that no CSS can
+  equalize.
+- **Distributed micro-spacing**: a few routes carry a 10-20px page-height
+  delta spread across many elements (sub-pixel line-height and margin
+  rounding). Visible only as hairline-rule offsets in the diff overlay.
+- **liveH1** (documented above): different real text on blog/category
+  cards and six post H1s.
 
 ## Manual checklist (run before handoff)
 

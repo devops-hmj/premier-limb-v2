@@ -527,11 +527,13 @@ button.is-open .pll-burger-b { transform: rotate(-45deg); }
 /* Prose.tsx renders <li> as grid [bullet | wrapped-content], but WP list
    items hold RAW inline content (<strong>, text nodes) — a grid here turns
    each inline run into its own grid item and explodes the layout. Padding +
-   absolute marker reproduces the same geometry (bullet column ~4px + 12px
-   gap, text wraps under itself) without caring about content structure. */
+   absolute marker reproduces the same geometry without caring about content
+   structure. 18.3125px = the measured Next text-column start (mono "·" at
+   10.5px advances 6.3125px + the 12px grid gap); rounding to 16px gave the
+   text 2.3px more width and flipped wraps on boundary-length lines. */
 .pll-prose ul > li {
   position: relative;
-  padding-left: 16px;
+  padding-left: 18.3125px;
   font-size: 16px;
   line-height: 1.65;
   color: var(--ink-soft);
