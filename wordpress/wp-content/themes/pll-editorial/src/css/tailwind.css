@@ -329,16 +329,26 @@ html.js .js-reveal.is-visible {
 
 /* ---- Gutenberg layout-engine neutralization ----
    theme.json sets spacing.blockGap: null (no gap emission) and patterns avoid
-   core/columns entirely; these resets cover the residue. */
-.wp-block-group,
-.wp-block-image {
-  margin-block-start: 0;
-  margin-block-end: 0;
+   core/columns entirely; these resets cover the residue. Components layer:
+   they must lose to per-instance spacing utilities (mt-10, mb-12, ...) on the
+   same element — un-layered they out-cascaded every margin utility on every
+   group/image (observed: section headers losing their mb-12 site-wide). */
+@layer components {
+  .wp-block-group,
+  .wp-block-image {
+    margin-block-start: 0;
+    margin-block-end: 0;
+  }
+  figure.wp-block-image,
+  .wp-block-image img {
+    max-width: 100%;
+    height: auto;
+  }
 }
-figure.wp-block-image,
-.wp-block-image img {
-  max-width: 100%;
-  height: auto;
+/* Core forces `.wp-block-image img { height:auto }` at (0,1,1), which beats
+   the h-full utility (0,1,0) on portrait fills. Counter at (0,2,1). */
+.wp-block-image img.h-full {
+  height: 100%;
 }
 
 /* Mobile menu scroll lock (toggled by the site-header view module) */
@@ -505,21 +515,26 @@ button.is-open .pll-burger-b { transform: rotate(-45deg); }
   list-style: none;
   padding-left: 0;
 }
+/* Prose.tsx renders <li> as grid [bullet | wrapped-content], but WP list
+   items hold RAW inline content (<strong>, text nodes) — a grid here turns
+   each inline run into its own grid item and explodes the layout. Padding +
+   absolute marker reproduces the same geometry (bullet column ~4px + 12px
+   gap, text wraps under itself) without caring about content structure. */
 .pll-prose ul > li {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 12px;
-  align-items: baseline;
+  position: relative;
+  padding-left: 16px;
   font-size: 16px;
   line-height: 1.65;
   color: var(--ink-soft);
 }
 .pll-prose ul > li::before {
   content: "·";
+  position: absolute;
+  left: 0;
+  top: 6px;
   color: var(--spine);
   font-family: var(--font-mono);
   font-size: 10.5px;
-  margin-top: 6px;
 }
 .pll-prose ol {
   margin: 24px 0;
@@ -669,18 +684,32 @@ button.is-open .pll-burger-b { transform: rotate(-45deg); }
 
 /* ---- Core button chrome neutralization ----
    CTA links are core/button blocks carrying our utility classes; core's
-   default button skin must not contribute anything. */
-.wp-block-button,
-.wp-block-buttons {
-  margin: 0;
+   default button skin must not contribute anything. Lives in the components
+   layer so it is emitted BEFORE the utilities layer: the reset must lose to
+   the per-instance utilities (px-5, py-3.5, bg-spine, text-[12px], ...) on
+   the same element, while still beating core's same-specificity
+   `:root :where(.wp-element-button, .wp-block-button__link)` global-styles
+   rule because this stylesheet prints last in <head> (inc/enqueue.php). */
+@layer components {
+  .wp-block-button,
+  .wp-block-buttons {
+    margin: 0;
+  }
+  .wp-block-button__link {
+    background: none;
+    color: inherit;
+    padding: 0;
+    border-radius: 0;
+    text-decoration: none;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+  }
 }
-.wp-block-button__link {
-  background: none;
-  color: inherit;
-  padding: 0;
-  border-radius: 0;
-  text-decoration: none;
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
+/* Core emits `.wp-block-buttons .wp-block-button__link { width:100% }` at
+   (0,2,0) — no single-class utility can beat that, so counter it here at
+   equal specificity (this sheet prints after core's). inline-flex CTAs
+   shrink-wrap their label exactly like the Next build. */
+.wp-block-buttons .wp-block-button__link {
+  width: auto;
 }
