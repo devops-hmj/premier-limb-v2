@@ -95,6 +95,29 @@ re-introduces them:
    turns each inline run into its own item and explodes the layout (118px
    items vs 53px). Bullet geometry is reproduced with padding + absolute
    `::before` instead.
+6. **WordPress's `size-full` media class collides with Tailwind 3.4's
+   `size-full` utility** (width:100% + height:100%). Every full-size
+   wp:image figure was filling its flex/grid track and squeezing siblings
+   (the FAAOS badge row squeezed its label from 132px to 121px, changing
+   its wrap). The size-* utilities are blocklisted in tailwind.config.js.
+7. **ch units need quoted families AND a post-load rebind.** Two stacked
+   issues: (a) cssnano strips quotes from font names; Chromium renders
+   unquoted multi-word families ("JetBrains Mono") fine but resolves
+   ch/ex units against the fallback font — fixed by referencing fonts as
+   var(--font-*) custom properties, whose values survive minification.
+   (b) Chromium's MatchedPropertiesCache keeps computed styles created
+   before the webfonts arrive, freezing fallback-resolved ch lengths even
+   across style recalcs (toggling properties rejoins the stale entry).
+   reveal.js adds a one-way `pll-fonts-loaded` class on
+   document.fonts.ready with a `:where(*)` partner rule so every
+   element's matched-rule set changes exactly once post-load. Homepage h1
+   max-w-[19ch]: 919px → 868px, byte-matching Next.
+8. **Callout paragraphs keep body sizing.** Prose.tsx's `p` renderer
+   (text-t-l, 16px/1.7, ink-soft, mb-5) applies inside blockquotes; only
+   the serif italic family/style inherit from the 20px shell. Inheriting
+   the shell's size made every callout wrap tighter on WP. Core's
+   `.wp-block-quote { overflow-wrap: break-word }` also split email
+   addresses mid-word (countered with overflow-wrap: normal).
 
 ## Manual checklist (run before handoff)
 

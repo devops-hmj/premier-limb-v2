@@ -24,7 +24,8 @@ $pll_logo = get_theme_file_uri( 'assets/images/PLL-white-logo.png' );
 			<!-- wp:group {"layout":{"type":"default"},"className":"md:col-span-2 lg:col-span-1"} -->
 			<div class="wp-block-group md:col-span-2 lg:col-span-1">
 				<!-- wp:image {"sizeSlug":"full","className":"mb-6"} -->
-				<figure class="wp-block-image size-full mb-6"><img src="<?php echo esc_url( $pll_logo ); ?>" alt="<?php esc_attr_e( 'Premier Limb Lengthening Institute', 'pll-editorial' ); ?>" width="220" height="68" class="block h-auto w-auto max-w-full"/></figure>
+				<?php // w/h utilities (not h-auto w-auto): the Next build honors the 220x68 attrs, upscaling the 202x62 source. ?>
+				<figure class="wp-block-image size-full mb-6"><img src="<?php echo esc_url( $pll_logo ); ?>" alt="<?php esc_attr_e( 'Premier Limb Lengthening Institute', 'pll-editorial' ); ?>" width="220" height="68" class="block w-[220px] h-[68px] max-w-full"/></figure>
 				<!-- /wp:image -->
 
 				<!-- wp:paragraph {"className":"font-serif italic text-[18px] text-paper/90 max-w-[34ch] mb-6"} -->
