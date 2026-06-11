@@ -20,9 +20,14 @@
 		"Canonical/og:url trailing slashes are normalized before comparison: Next canonicals are slashless, WordPress canonical form has trailing slashes. Both resolve identically (the WP rewrite layer 301s slashless to slashed; Next did the inverse)."
 	],
 	"pixelNotes": {
-		"_comment": "Screenshot-diff context printed by parity-report.mjs next to over-budget routes. Keyed by .parity directory name. These routes carry a DOCUMENTED text divergence, so their pixel percentage overstates the visual difference — judge them in report.html.",
+		"_comment": "Screenshot-diff context printed by parity-report.mjs next to over-budget routes. Keyed by .parity directory name. These routes carry a DOCUMENTED divergence, so their pixel percentage overstates the visual difference — judge them in report.html.",
 		"_blog_": "liveH1: six post cards show restored legacy headlines where Next showed SEO titles (PARITY.md, head allowlist item 3)",
 		"_category_limb-lengthening_": "liveH1: post cards show restored legacy headlines (see _blog_)",
-		"_am-i-too-old-for-limb-lengthening_": "liveH1: related-post cards show restored legacy headlines (see _blog_)"
+		"_am-i-too-old-for-limb-lengthening_": "liveH1: related-post cards show restored legacy headlines (see _blog_)",
+		"_": "image resampling (sharp-resized next/image vs browser-scaled originals) over the hero poster, portraits, and results imagery",
+		"_your-surgery_": "image resampling over the page's large procedure illustrations (PARITY.md residual classes)",
+		"_your-surgery_will-limb-lengthening-hurt_": "image resampling (pain-management infographic, consult photo) + ~17px distributed spacing",
+		"_your-surgery_limb-lengthening-expectations_": "image resampling over the expectations timeline imagery",
+		"_dr-basmajian_": "image resampling over the portrait set"
 	}
 }

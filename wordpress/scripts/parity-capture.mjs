@@ -39,6 +39,11 @@ const MASK_CSS = `
 	   misaligning every pixel below it. */
 	#wpadminbar { display: none !important; }
 	html { margin-top: 0 !important; }
+	/* The position:fixed nav bars repaint at nondeterministic offsets during
+	   full-page capture stitching (observed mid-hero at different y on each
+	   stack at 390). Their geometry parity is verified separately
+	   (docs/PARITY.md); mask them on BOTH stacks for deterministic diffs. */
+	header.fixed, .pll-sticky-bar { display: none !important; }
 	.v2-video-stage video, .v2-vbg { visibility: hidden !important; }
 	.v2-video-stage { background: #0a1218 !important; }
 `;

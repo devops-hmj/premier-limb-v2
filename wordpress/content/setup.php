@@ -430,6 +430,46 @@ function pll_seed_authors() {
 pll_seed_authors();
 
 /**
+ * 3b) Undo importer URL rewriting inside the verbatim legal copy.
+ *
+ * WordPress Playground's WXR importer rewrites the source site URL to the
+ * local instance URL during import — including bare-domain TEXT such as
+ * "…use of the website at premierlimblengthening.com…" in the Terms of
+ * Service, which became "127.0.0.1:9400/". The legal documents are verbatim
+ * counsel-bound copy; restore the literal domain. Guarded so a production
+ * host whose domain already IS premierlimblengthening.com never runs the
+ * replacement (str_replace of "domain/" would strip slashes from real links).
+ */
+function pll_restore_legal_domain_text() {
+	$host = wp_parse_url( home_url(), PHP_URL_HOST );
+	$port = wp_parse_url( home_url(), PHP_URL_PORT );
+	$local = $port ? $host . ':' . $port : $host;
+	if ( 'premierlimblengthening.com' === $local ) {
+		return;
+	}
+	foreach ( array( 'privacy', 'terms', 'accessibility' ) as $slug ) {
+		$page = get_page_by_path( $slug );
+		if ( ! $page instanceof WP_Post ) {
+			continue;
+		}
+		$content = str_replace(
+			array( $local . '/', $local ),
+			'premierlimblengthening.com',
+			$page->post_content
+		);
+		if ( $content !== $page->post_content ) {
+			wp_update_post(
+				array(
+					'ID'           => $page->ID,
+					'post_content' => $content,
+				)
+			);
+		}
+	}
+}
+pll_restore_legal_domain_text();
+
+/**
  * 4) Reading settings.
  */
 if ( $pll_home_id ) {
