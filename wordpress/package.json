@@ -18,7 +18,8 @@
     "parity:report": "node scripts/parity-report.mjs",
     "parity:check": "npm run parity:capture && npm run parity:head && npm run parity:report",
     "build": "npm run build:css && npm run build:blocks && npm run build:form-block && npm run generate:content",
-    "package": "npm run build && node scripts/package-handoff.mjs"
+    "package": "npm run build && node scripts/package-handoff.mjs",
+    "smoke-test": "node scripts/smoke-test.mjs"
   },
   "devDependencies": {
     "@wordpress/scripts": "^30.7.0",
