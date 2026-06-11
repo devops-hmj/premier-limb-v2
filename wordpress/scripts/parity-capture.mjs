@@ -34,6 +34,11 @@ const MASK_CSS = `
 		transition-delay: 0s !important;
 	}
 	html.js .js-reveal { opacity: 1 !important; transform: none !important; }
+	/* Playground auto-logs every session in as admin; the admin bar's
+	   html{margin-top:32px} would shift the whole WP page 32px vs Next,
+	   misaligning every pixel below it. */
+	#wpadminbar { display: none !important; }
+	html { margin-top: 0 !important; }
 	.v2-video-stage video, .v2-vbg { visibility: hidden !important; }
 	.v2-video-stage { background: #0a1218 !important; }
 `;
@@ -52,10 +57,40 @@ for (const [source, base] of [["next", NEXT_BASE], ["wp", WP_BASE]]) {
 			const dir = path.resolve(".parity", route.replaceAll("/", "_") || "_root");
 			await mkdir(dir, { recursive: true });
 			try {
-				await page.goto(base + route, { waitUntil: "networkidle", timeout: 45000 });
+				// "load" not "networkidle": the hero video stream keeps the
+				// network busy indefinitely on the homepage.
+				await page.goto(base + route, { waitUntil: "load", timeout: 45000 });
 				await page.addStyleTag({ content: MASK_CSS });
 				await page.evaluate(() => document.fonts.ready);
-				await page.waitForTimeout(400);
+				// Scroll-prime: whileInView/IntersectionObserver sections only
+				// become visible once they enter the viewport — walk the page
+				// so below-the-fold content renders on BOTH stacks, then
+				// return to the top before the full-page shot.
+				await page.evaluate(async () => {
+					const step = window.innerHeight;
+					for (let y = 0; y < document.body.scrollHeight; y += step) {
+						window.scrollTo(0, y);
+						await new Promise((r) => setTimeout(r, 120));
+					}
+					window.scrollTo(0, document.body.scrollHeight);
+					await new Promise((r) => setTimeout(r, 250));
+					window.scrollTo(0, 0);
+				});
+				await page.waitForTimeout(600);
+				// framer-motion leaves below-fold whileInView content at inline
+				// opacity:0 in headless full-page shots. Force in-flow content
+				// visible, but leave fixed/sticky chrome (scroll-state navs,
+				// overlays) in its natural scrollY=0 hidden state — a CSS
+				// [style*=…] hammer here painted hidden navs mid-page.
+				await page.evaluate(() => {
+					for (const el of document.querySelectorAll("[style*='opacity'], [style*='transform']")) {
+						const pos = getComputedStyle(el).position;
+						if (pos === "fixed" || pos === "sticky") continue;
+						if (el.style.opacity !== "" && Number(el.style.opacity) < 1) el.style.opacity = "1";
+						if (el.style.transform && el.style.transform !== "none") el.style.transform = "none";
+					}
+				});
+				await page.waitForTimeout(150);
 				await page.screenshot({
 					path: path.join(dir, `${viewport.tag}-${source}.png`),
 					fullPage: true,

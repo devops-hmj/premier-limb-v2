@@ -1,4 +1,7 @@
 The fonts in this directory are redistributed under the SIL Open Font License 1.1.
+They are byte-identical mirrors of the woff2 files served by the project's
+Next.js build (next/font/google output, latin subset, variable axes intact)
+so both stacks rasterize text identically.
 
 - Newsreader — Copyright 2020 The Newsreader Project Authors (https://github.com/productiontype/Newsreader)
 - Inter Tight — Copyright 2016 The Inter Project Authors (https://github.com/rsms/inter)
