@@ -24,7 +24,7 @@ if ( ! defined( 'PLL_SEO_ORIGIN' ) ) {
 	define( 'PLL_SEO_ORIGIN', 'https://premierlimblengthening.com' );
 }
 
-foreach ( array( 'meta', 'titles', 'head', 'schema', 'sitemap', 'robots-txt', 'redirects' ) as $pll_seo_include ) {
+foreach ( array( 'data/faqs', 'data/pricing', 'meta', 'titles', 'head', 'schema', 'sitemap', 'robots-txt', 'redirects' ) as $pll_seo_include ) {
 	$pll_seo_file = PLL_SEO_DIR . 'includes/' . $pll_seo_include . '.php';
 	if ( file_exists( $pll_seo_file ) ) {
 		require_once $pll_seo_file;
