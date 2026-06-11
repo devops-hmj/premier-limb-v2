@@ -27,6 +27,14 @@
 		},
 		{ "step": "activateTheme", "themeFolderName": "pll-editorial" },
 		{ "step": "activatePlugin", "pluginPath": "pll-seo/pll-seo.php" },
-		{ "step": "activatePlugin", "pluginPath": "pll-forms/pll-forms.php" }
+		{ "step": "activatePlugin", "pluginPath": "pll-forms/pll-forms.php" },
+		{
+			"step": "importWxr",
+			"file": { "resource": "bundled", "path": "./content/pll-content.wxr" }
+		},
+		{
+			"step": "runPHP",
+			"code": "<?php require '/wordpress/wp-load.php'; require '/wordpress/pll-seed/setup.php';"
+		}
 	]
 }

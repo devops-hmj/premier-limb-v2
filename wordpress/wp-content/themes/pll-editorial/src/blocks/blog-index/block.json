@@ -1,0 +1,15 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "pll/blog-index",
+	"version": "1.0.0",
+	"title": "PLL Blog Index",
+	"category": "theme",
+	"icon": "screenoptions",
+	"description": "Blog index: search toolbar, category tabs, image-led card grid, and load-more pagination. All posts render server-side; filtering is progressive enhancement. Template-only block.",
+	"textdomain": "pll-editorial",
+	"supports": { "html": false, "customClassName": false, "inserter": false },
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php",
+	"viewScriptModule": "file:./view.js"
+}

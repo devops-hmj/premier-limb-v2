@@ -8,6 +8,9 @@
  */
 
 require_once get_theme_file_path( 'inc/setup.php' );
+require_once get_theme_file_path( 'inc/nav.php' );
+require_once get_theme_file_path( 'inc/media.php' );
+require_once get_theme_file_path( 'inc/cards.php' );
 require_once get_theme_file_path( 'inc/enqueue.php' );
 require_once get_theme_file_path( 'inc/blocks.php' );
 require_once get_theme_file_path( 'inc/editor.php' );

@@ -201,5 +201,10 @@
 		{ "name": "header", "title": "Header", "area": "header" },
 		{ "name": "header-overlay", "title": "Header (Hero Overlay)", "area": "header" },
 		{ "name": "footer", "title": "Footer", "area": "footer" }
+	],
+	"customTemplates": [
+		{ "name": "page-your-surgery", "title": "Your Surgery (Overview)", "postTypes": [ "page" ] },
+		{ "name": "page-service-sub", "title": "Your Surgery (Sub-page)", "postTypes": [ "page" ] },
+		{ "name": "page-legal", "title": "Legal Document", "postTypes": [ "page" ] }
 	]
 }

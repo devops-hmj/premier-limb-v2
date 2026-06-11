@@ -1,0 +1,31 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "pll/hero-video",
+	"version": "1.0.0",
+	"title": "PLL Hero Video Stage",
+	"category": "theme",
+	"icon": "video-alt3",
+	"description": "Full-viewport video masthead: autoplaying muted background video with gradient fallback, dark scrim, rotated live plate, sound toggle, and the hero overlay navigation. Headline, kicker, deck, and metadata are editable inner blocks.",
+	"keywords": [ "hero", "video", "masthead" ],
+	"textdomain": "pll-editorial",
+	"attributes": {
+		"videoUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"posterUrl": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false,
+		"customClassName": false,
+		"reusable": false,
+		"interactivity": true
+	},
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php",
+	"viewScriptModule": "file:./view.js"
+}

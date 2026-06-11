@@ -346,3 +346,341 @@ html.pll-menu-open,
 html.pll-menu-open body {
   overflow: hidden;
 }
+
+/* ---- Site header dynamics (pll/site-header block) ----
+   The Next.js original mounts/unmounts these with framer-motion; here the
+   markup stays mounted and CSS state classes drive identical transitions. */
+.pll-sticky-bar {
+  transform: translateY(-64px);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    transform 0.4s cubic-bezier(0.2, 0.65, 0.3, 1),
+    opacity 0.4s cubic-bezier(0.2, 0.65, 0.3, 1);
+}
+.pll-sticky-bar.is-visible {
+  transform: none;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Desktop "Your Surgery" dropdown (hover via JS for parity, focus-within for keyboard) */
+.pll-dropdown {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  padding-top: 16px;
+  z-index: 50;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -6px);
+  transition:
+    opacity 0.2s cubic-bezier(0.2, 0.65, 0.3, 1),
+    transform 0.2s cubic-bezier(0.2, 0.65, 0.3, 1);
+}
+.pll-subnav.is-open .pll-dropdown,
+.pll-subnav:focus-within .pll-dropdown {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
+}
+.pll-chevron {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+.pll-subnav.is-open .pll-chevron {
+  transform: rotate(180deg);
+}
+
+/* Mobile sheet */
+.pll-mobile-sheet {
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.2s ease,
+    visibility 0s linear 0.2s;
+}
+.pll-mobile-sheet.is-open {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.2s ease;
+}
+
+/* Mobile inline submenu (height animation without JS measuring) */
+.pll-collapse {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 0.3s cubic-bezier(0.2, 0.65, 0.3, 1),
+    opacity 0.3s cubic-bezier(0.2, 0.65, 0.3, 1);
+}
+.pll-collapse > * {
+  min-height: 0;
+  overflow: hidden;
+}
+.pll-mobile-group.is-expanded .pll-collapse {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+.pll-plus {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+.pll-mobile-group.is-expanded .pll-plus {
+  transform: rotate(45deg);
+}
+
+/* Hamburger icon (closed: two offset lines · open: an X) */
+.pll-burger-a,
+.pll-burger-b {
+  transition: transform 0.2s ease;
+}
+.pll-burger-a { transform: translateY(-6px); }
+.pll-burger-b { transform: translateY(6px); }
+button.is-open .pll-burger-a { transform: rotate(45deg); }
+button.is-open .pll-burger-b { transform: rotate(-45deg); }
+
+/* ---- Article prose (.pll-prose) ----
+   Port of components/content/Prose.tsx element styling. Post bodies carry
+   clean block markup (no utility classes), so anything written later in
+   Gutenberg inherits the same editorial look. */
+.pll-prose h2 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin: 48px 0 20px;
+  scroll-margin-top: 96px;
+}
+.pll-prose h3 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+  margin: 32px 0 12px;
+  scroll-margin-top: 96px;
+}
+.pll-prose h2 em,
+.pll-prose h3 em {
+  font-style: italic;
+  color: var(--spine);
+}
+.pll-prose h4 {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.25;
+  margin: 24px 0 8px;
+  color: var(--spine);
+}
+.pll-prose p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin: 0 0 20px;
+}
+.pll-prose a {
+  color: var(--signal);
+  text-decoration: underline;
+  text-decoration-color: rgba(30, 111, 229, 0.4);
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.15s ease;
+}
+.pll-prose a:hover {
+  text-decoration-color: var(--signal);
+}
+.pll-prose strong {
+  font-weight: 500;
+  color: var(--ink);
+}
+.pll-prose ul {
+  margin: 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  list-style: none;
+  padding-left: 0;
+}
+.pll-prose ul > li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  align-items: baseline;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink-soft);
+}
+.pll-prose ul > li::before {
+  content: "·";
+  color: var(--spine);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  margin-top: 6px;
+}
+.pll-prose ol {
+  margin: 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  list-style: decimal;
+  padding-left: 24px;
+}
+.pll-prose ol > li {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink-soft);
+}
+.pll-prose ol > li::marker {
+  color: var(--spine);
+  font-family: var(--font-mono);
+}
+.pll-prose blockquote,
+.pll-prose .is-style-pll-callout {
+  margin: 32px 0;
+  background: var(--spine-wash);
+  border-left: 4px solid var(--spine);
+  padding: 24px 28px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.pll-prose blockquote p {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  margin: 0;
+}
+.pll-prose blockquote em {
+  font-style: normal;
+  color: var(--spine);
+}
+.pll-prose hr,
+.pll-prose .is-style-pll-hair {
+  margin: 40px 0;
+  border: 0;
+  background: var(--rule);
+  height: 1px;
+}
+.pll-prose figure.wp-block-image {
+  margin: 32px 0;
+  max-width: 100%;
+  overflow: hidden;
+}
+.pll-prose figure.wp-block-image img {
+  width: 100%;
+  object-fit: cover;
+  border: 1px solid var(--ink);
+}
+.pll-prose figure.wp-block-image figcaption {
+  display: block;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 10.5px;
+  color: var(--muted);
+  margin-top: 8px;
+  text-align: center;
+}
+.pll-prose .wp-block-table {
+  margin: 32px 0;
+  overflow-x: auto;
+  border: 1px solid var(--ink);
+}
+.pll-prose .wp-block-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.pll-prose .wp-block-table thead {
+  background: var(--paper-warm);
+  border-bottom: 1px solid var(--ink);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.pll-prose .wp-block-table th {
+  text-align: left;
+  padding: 12px;
+}
+.pll-prose .wp-block-table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink-soft);
+}
+.pll-prose code {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  background: var(--paper-warm);
+  padding: 2px 6px;
+}
+
+/* ---- FAQ accordion (pll/faq + pll/faq-item blocks) ----
+   Numbering via CSS counter (reordering renumbers automatically); height
+   animation via grid-template-rows so no JS measuring is needed. */
+.pll-faq {
+  counter-reset: pll-faq;
+}
+.pll-faq-num::before {
+  counter-increment: pll-faq;
+  content: counter(pll-faq, decimal-leading-zero);
+}
+.pll-faq-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 0.35s cubic-bezier(0.2, 0.65, 0.3, 1),
+    opacity 0.35s cubic-bezier(0.2, 0.65, 0.3, 1);
+}
+.pll-faq-panel > * {
+  min-height: 0;
+  overflow: hidden;
+}
+.pll-faq-item.is-open .pll-faq-panel {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+.pll-faq-plus {
+  transition: transform 0.25s cubic-bezier(0.2, 0.65, 0.3, 1);
+}
+.pll-faq-item.is-open .pll-faq-plus {
+  transform: rotate(45deg);
+}
+
+/* ---- Hero sound toggle (pll/hero-video block) ----
+   muted → struck-speaker icon + "Sound off" · unmuted → wave icon + "Sound on" */
+.pll-sound-btn:not(.is-muted) .pll-icon-muted { display: none; }
+.pll-sound-btn.is-muted .pll-icon-on { display: none; }
+
+/* ---- Reveal stagger helpers (class-based; blocks cannot carry data attrs) ---- */
+.pll-delay-100 { --reveal-delay: 0.1s; }
+.pll-delay-200 { --reveal-delay: 0.2s; }
+.pll-delay-300 { --reveal-delay: 0.3s; }
+.pll-delay-400 { --reveal-delay: 0.4s; }
+
+/* ---- Core button chrome neutralization ----
+   CTA links are core/button blocks carrying our utility classes; core's
+   default button skin must not contribute anything. */
+.wp-block-button,
+.wp-block-buttons {
+  margin: 0;
+}
+.wp-block-button__link {
+  background: none;
+  color: inherit;
+  padding: 0;
+  border-radius: 0;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}

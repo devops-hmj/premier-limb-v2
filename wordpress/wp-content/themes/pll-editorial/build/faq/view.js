@@ -1,0 +1,1 @@
+import{getContext as e,store as n}from"@wordpress/interactivity";n("pll/faq",{state:{get isOpen(){const n=e();return n.openIndex===n.index}},actions:{toggle(){const n=e();n.openIndex=n.openIndex===n.index?null:n.index}}});

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "pll/post-grid",
+  "version": "1.0.0",
+  "title": "PLL Post Grid",
+  "category": "theme",
+  "icon": "grid-view",
+  "description": "Card grid for archive pages, rendering the main query with the article count and an \"All articles\" back link. Template-only block.",
+  "textdomain": "pll-editorial",
+  "supports": {
+    "html": false,
+    "customClassName": false,
+    "inserter": false
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
+}

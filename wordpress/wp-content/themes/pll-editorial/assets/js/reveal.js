@@ -27,6 +27,9 @@ if (items.length) {
 		);
 
 		items.forEach((el) => {
+			// Stagger via data-reveal-delay="0.15" (seconds) on hand-written
+			// markup, or .pll-delay-<ms> classes on block markup (blocks
+			// cannot carry data attributes).
 			const delay = el.getAttribute('data-reveal-delay');
 			if (delay) {
 				el.style.setProperty('--reveal-delay', `${delay}s`);

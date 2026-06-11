@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "pll/consult-form",
+  "version": "1.0.0",
+  "title": "PLL Consultation Form",
+  "category": "theme",
+  "icon": "email",
+  "description": "Consultation request form. Submits to the pll/v1/consult endpoint, which forwards server-side to the GoHighLevel webhook (PLL_GHL_WEBHOOK_URL in wp-config.php). No PHI is stored in WordPress.",
+  "keywords": [
+    "form",
+    "consultation",
+    "contact"
+  ],
+  "textdomain": "pll-forms",
+  "attributes": {
+    "showEmergencyDisclaimer": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "supports": {
+    "html": false,
+    "customClassName": false,
+    "reusable": false
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "viewScriptModule": "file:./view.js"
+}

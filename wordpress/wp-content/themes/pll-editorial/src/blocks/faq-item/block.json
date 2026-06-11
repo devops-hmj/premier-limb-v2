@@ -1,0 +1,26 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "pll/faq-item",
+	"version": "1.0.0",
+	"title": "PLL FAQ Item",
+	"category": "theme",
+	"icon": "plus-alt2",
+	"description": "One question/answer row inside the PLL FAQ Accordion.",
+	"textdomain": "pll-editorial",
+	"parent": [ "pll/faq" ],
+	"attributes": {
+		"question": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false,
+		"customClassName": false,
+		"reusable": false,
+		"interactivity": true
+	},
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}

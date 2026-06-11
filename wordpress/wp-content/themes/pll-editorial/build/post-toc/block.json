@@ -1,0 +1,21 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "pll/post-toc",
+  "version": "1.0.0",
+  "title": "PLL Post Table of Contents",
+  "category": "theme",
+  "icon": "list-view",
+  "description": "Sticky \"In This Post\" sidebar built from the article's H2 anchors. Renders nothing when the post has no H2 headings. Template-only block.",
+  "textdomain": "pll-editorial",
+  "supports": {
+    "html": false,
+    "customClassName": false,
+    "inserter": false
+  },
+  "usesContext": [
+    "postId"
+  ],
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
+}

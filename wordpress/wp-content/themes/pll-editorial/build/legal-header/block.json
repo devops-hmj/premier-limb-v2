@@ -1,0 +1,21 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "pll/legal-header",
+  "version": "1.0.0",
+  "title": "PLL Legal Page Header",
+  "category": "theme",
+  "icon": "shield",
+  "description": "Legal/policy page masthead: breadcrumb, eyebrow, accented headline, lede, and effective/updated dates from page meta. Template-only block.",
+  "textdomain": "pll-editorial",
+  "supports": {
+    "html": false,
+    "customClassName": false,
+    "inserter": false
+  },
+  "usesContext": [
+    "postId"
+  ],
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
+}
