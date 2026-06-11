@@ -357,6 +357,15 @@ html.pll-menu-open body {
   overflow: hidden;
 }
 
+/* ch-unit rebind partner rule — see assets/js/reveal.js. Matching every
+   element under the one-way .pll-fonts-loaded class changes each element's
+   matched-rule set once after the webfonts arrive, evicting computed styles
+   whose ch/ex lengths were resolved against the fallback fonts. :where()
+   keeps specificity at zero so nothing else is affected. */
+html.pll-fonts-loaded :where(*) {
+  --pll-fonts-loaded: 1;
+}
+
 /* ---- Site header dynamics (pll/site-header block) ----
    The Next.js original mounts/unmounts these with framer-motion; here the
    markup stays mounted and CSS state classes drive identical transitions. */
@@ -564,13 +573,21 @@ button.is-open .pll-burger-b { transform: rotate(-45deg); }
   font-size: 20px;
   line-height: 1.5;
   color: var(--ink);
+  /* core's .wp-block-quote sets break-word, which breaks long inline
+     runs (email addresses) mid-word where the Next build lets them sit
+     on their own line. */
+  overflow-wrap: normal;
 }
+/* Prose.tsx keeps its standard <p> styling inside callouts (text-t-l
+   ink-soft mb-5) — only the serif italic family/style inherit from the
+   blockquote shell. Inheriting the 20px shell size here made every callout
+   wrap tighter than the Next build and pushed all content below it. */
 .pll-prose blockquote p {
   font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
-  color: inherit;
-  margin: 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin: 0 0 20px;
 }
 .pll-prose blockquote em {
   font-style: normal;

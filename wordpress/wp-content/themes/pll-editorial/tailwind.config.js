@@ -11,6 +11,12 @@
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  // WordPress stamps its media-size class `size-full` on every full-size
+  // wp:image figure, which collides with Tailwind 3.4's size-full utility
+  // (width:100% + height:100%) — image figures were filling their flex rows
+  // and squeezing siblings. The design never uses the size-* utilities;
+  // suppress the colliding one.
+  blocklist: ["size-full", "size-large", "size-medium", "size-thumbnail"],
   content: [
     "./wp-content/themes/pll-editorial/templates/**/*.html",
     "./wp-content/themes/pll-editorial/parts/**/*.html",
@@ -81,17 +87,17 @@ module.exports = {
 
       // ===== Typography families =====
       // Literal stacks; @font-face is emitted by theme.json (self-hosted woff2).
+      // Indirect through the :root custom properties (defined in
+      // src/css/tailwind.css) instead of literal stacks: cssnano strips the
+      // quotes from font names during --minify, and Chromium fails ch-unit
+      // resolution for UNQUOTED multi-word families delivered via stylesheet
+      // rules ("JetBrains Mono" renders fine but every max-w-[Nch] clamp
+      // measures the fallback font). var() values pass through minification
+      // untouched, and this matches how the Next build references its fonts.
       fontFamily: {
-        serif: ['"Newsreader"', "Georgia", "ui-serif", "serif"],
-        sans: [
-          '"Inter Tight"',
-          "-apple-system",
-          "BlinkMacSystemFont",
-          "ui-sans-serif",
-          "system-ui",
-          "sans-serif",
-        ],
-        mono: ['"JetBrains Mono"', "ui-monospace", "SFMono-Regular", "monospace"],
+        serif: ["var(--font-serif)"],
+        sans: ["var(--font-sans)"],
+        mono: ["var(--font-mono)"],
       },
 
       // Type scale — D-* = serif display, T-* = sans text, EB = mono eyebrow.

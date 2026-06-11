@@ -59,3 +59,30 @@ add_action(
 	},
 	0
 );
+
+/**
+ * Preload the above-the-fold font files (the Next build does the same via
+ * next/font). Besides first-paint performance, this is load-bearing for
+ * layout parity: with lazy font loading Chromium resolves ch units against
+ * the FALLBACK font at first style resolution and keeps that width after
+ * the swap — every max-w-[Nch] clamp measured Consolas zeros instead of
+ * JetBrains Mono and wrapped differently than the Next build.
+ */
+add_action(
+	'wp_head',
+	function () {
+		$fonts = array(
+			'newsreader-latin-wght-normal.woff2',
+			'newsreader-latin-wght-italic.woff2',
+			'inter-tight-latin-wght-normal.woff2',
+			'jetbrains-mono-latin-wght-normal.woff2',
+		);
+		foreach ( $fonts as $font ) {
+			printf(
+				'<link rel="preload" href="%s" as="font" type="font/woff2" crossorigin />' . "\n",
+				esc_url( get_theme_file_uri( 'assets/fonts/' . $font ) )
+			);
+		}
+	},
+	1
+);
