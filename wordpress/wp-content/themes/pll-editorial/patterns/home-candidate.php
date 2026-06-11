@@ -13,18 +13,38 @@
 <section class="wp-block-group bg-paper py-20 lg:py-28">
 	<!-- wp:group {"layout":{"type":"default"},"className":"mx-auto max-w-wrap px-6 lg:px-12"} -->
 	<div class="wp-block-group mx-auto max-w-wrap px-6 lg:px-12">
-		<!-- wp:group {"layout":{"type":"default"},"className":"js-reveal"} -->
-		<div class="wp-block-group js-reveal">
-			<!-- wp:group {"tagName":"header","layout":{"type":"default"},"className":"pb-8 mb-12 border-b border-ink"} -->
-			<header class="wp-block-group pb-8 mb-12 border-b border-ink">
-				<!-- wp:paragraph {"className":"eyebrow mb-4"} -->
-				<p class="eyebrow mb-4">Am I a Candidate?</p>
-				<!-- /wp:paragraph -->
+		<!-- wp:group {"layout":{"type":"default"},"className":"grid grid-cols-1 lg:grid-cols-[5fr_7fr] gap-10 lg:gap-14 items-center pb-10 lg:pb-12 mb-12 border-b border-ink"} -->
+		<div class="wp-block-group grid grid-cols-1 lg:grid-cols-[5fr_7fr] gap-10 lg:gap-14 items-center pb-10 lg:pb-12 mb-12 border-b border-ink">
+			<!-- wp:group {"layout":{"type":"default"},"className":"js-reveal order-2 lg:order-1"} -->
+			<div class="wp-block-group js-reveal order-2 lg:order-1">
+				<!-- wp:group {"layout":{"type":"default"},"className":"v2-portrait aspect-[4/5] bg-paper-warm border border-rule relative overflow-hidden max-w-[420px] lg:max-w-[85%]"} -->
+				<div class="wp-block-group v2-portrait aspect-[4/5] bg-paper-warm border border-rule relative overflow-hidden max-w-[420px] lg:max-w-[85%]">
+					<!-- wp:image {"sizeSlug":"full","className":"absolute inset-0"} -->
+					<figure class="wp-block-image size-full absolute inset-0"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/candidate-portrait.webp' ) ); ?>" alt="A professional considering cosmetic limb lengthening" class="w-full h-full object-cover"/></figure>
+					<!-- /wp:image -->
 
-				<!-- wp:heading {"level":2,"className":"mt-4 font-serif font-normal tracking-[-0.02em] text-ink leading-[0.98] max-w-[24ch] [text-wrap:balance] text-[clamp(40px,6vw,84px)]"} -->
-				<h2 class="wp-block-heading mt-4 font-serif font-normal tracking-[-0.02em] text-ink leading-[0.98] max-w-[24ch] [text-wrap:balance] text-[clamp(40px,6vw,84px)]">Who is a good candidate for <em class="italic text-spine">limb lengthening?</em></h2>
-				<!-- /wp:heading -->
-			</header>
+					<!-- wp:paragraph {"className":"absolute z-10 top-3 left-3 px-2 py-1 font-mono uppercase tracking-[0.2em] text-[10.5px] text-muted bg-paper"} -->
+					<p class="absolute z-10 top-3 left-3 px-2 py-1 font-mono uppercase tracking-[0.2em] text-[10.5px] text-muted bg-paper">The Candidate</p>
+					<!-- /wp:paragraph -->
+				</div>
+				<!-- /wp:group -->
+			</div>
+			<!-- /wp:group -->
+
+			<!-- wp:group {"layout":{"type":"default"},"className":"js-reveal pll-delay-100 order-1 lg:order-2"} -->
+			<div class="wp-block-group js-reveal pll-delay-100 order-1 lg:order-2">
+				<!-- wp:group {"tagName":"header","layout":{"type":"default"}} -->
+				<header class="wp-block-group">
+					<!-- wp:paragraph {"className":"eyebrow mb-4"} -->
+					<p class="eyebrow mb-4">Am I a Candidate?</p>
+					<!-- /wp:paragraph -->
+
+					<!-- wp:heading {"level":2,"className":"mt-4 font-serif font-normal tracking-[-0.02em] text-ink leading-[0.98] max-w-[18ch] [text-wrap:balance] text-[clamp(40px,6vw,84px)]"} -->
+					<h2 class="wp-block-heading mt-4 font-serif font-normal tracking-[-0.02em] text-ink leading-[0.98] max-w-[18ch] [text-wrap:balance] text-[clamp(40px,6vw,84px)]">Who is a good candidate for <em class="italic text-spine">limb lengthening?</em></h2>
+					<!-- /wp:heading -->
+				</header>
+				<!-- /wp:group -->
+			</div>
 			<!-- /wp:group -->
 		</div>
 		<!-- /wp:group -->

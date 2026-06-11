@@ -28,7 +28,7 @@ $pll_logo = get_theme_file_uri( 'assets/images/PLL-white-logo.png' );
 				<!-- /wp:image -->
 
 				<!-- wp:paragraph {"className":"font-serif italic text-[18px] text-paper/90 max-w-[34ch] mb-6"} -->
-				<p class="font-serif italic text-[18px] text-paper/90 max-w-[34ch] mb-6">Cosmetic limb lengthening, founded by Dr. Hrayr Basmajian</p>
+				<p class="font-serif italic text-[18px] text-paper/90 max-w-[34ch] mb-6">Cosmetic limb lengthening in Upland, California, founded by Dr. Hrayr Basmajian</p>
 				<!-- /wp:paragraph -->
 
 				<!-- wp:paragraph {"className":"not-italic text-[13px] leading-[1.8] text-paper/85"} -->

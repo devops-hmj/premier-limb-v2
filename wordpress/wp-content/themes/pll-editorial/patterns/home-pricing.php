@@ -30,10 +30,10 @@
 		<p class="js-reveal max-w-[60ch] text-[15px] leading-[1.7] text-ink-soft mb-10">No hidden fees. Every quote includes surgery, implant, anesthesia, hospitalization, and follow-up care.</p>
 		<!-- /wp:paragraph -->
 
-		<!-- wp:group {"layout":{"type":"default"},"className":"grid grid-cols-1 md:grid-cols-3 border-t border-b border-ink"} -->
-		<div class="wp-block-group grid grid-cols-1 md:grid-cols-3 border-t border-b border-ink">
-			<!-- wp:group {"tagName":"article","layout":{"type":"default"},"className":"js-reveal relative py-10 px-7 md:px-0 md:pr-7 md:border-r border-rule bg-paper-off transition-transform duration-300 hover:-translate-y-1.5"} -->
-			<article class="wp-block-group js-reveal relative py-10 px-7 md:px-0 md:pr-7 md:border-r border-rule bg-paper-off transition-transform duration-300 hover:-translate-y-1.5">
+		<!-- wp:group {"layout":{"type":"default"},"className":"grid grid-cols-1 md:grid-cols-3 border-t border-b border-ink max-md:flex max-md:overflow-x-auto max-md:snap-x max-md:snap-mandatory max-md:-mx-6 max-md:px-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"} -->
+		<div class="wp-block-group grid grid-cols-1 md:grid-cols-3 border-t border-b border-ink max-md:flex max-md:overflow-x-auto max-md:snap-x max-md:snap-mandatory max-md:-mx-6 max-md:px-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+			<!-- wp:group {"tagName":"article","layout":{"type":"default"},"className":"js-reveal relative py-10 px-7 md:px-0 md:pr-7 max-md:w-[88%] max-md:shrink-0 max-md:snap-start md:border-r border-rule bg-paper-off transition-transform duration-300 hover:-translate-y-1.5"} -->
+			<article class="wp-block-group js-reveal relative py-10 px-7 md:px-0 md:pr-7 max-md:w-[88%] max-md:shrink-0 max-md:snap-start md:border-r border-rule bg-paper-off transition-transform duration-300 hover:-translate-y-1.5">
 				<!-- wp:paragraph {"className":"mb-5 flex items-center gap-2.5 font-mono uppercase tracking-[0.22em] text-[10.5px] text-muted"} -->
 				<p class="mb-5 flex items-center gap-2.5 font-mono uppercase tracking-[0.22em] text-[10.5px] text-muted"><span>Plan 01 · Bilateral Femur</span></p>
 				<!-- /wp:paragraph -->
@@ -72,8 +72,8 @@
 			</article>
 			<!-- /wp:group -->
 
-			<!-- wp:group {"tagName":"article","layout":{"type":"default"},"className":"js-reveal pll-delay-100 relative py-10 px-7 md:px-0 md:pr-7 md:pl-7 md:border-r border-rule border-t md:border-t-0 bg-paper-off transition-transform duration-300 hover:-translate-y-1.5"} -->
-			<article class="wp-block-group js-reveal pll-delay-100 relative py-10 px-7 md:px-0 md:pr-7 md:pl-7 md:border-r border-rule border-t md:border-t-0 bg-paper-off transition-transform duration-300 hover:-translate-y-1.5">
+			<!-- wp:group {"tagName":"article","layout":{"type":"default"},"className":"js-reveal pll-delay-100 relative py-10 px-7 md:px-0 md:pr-7 max-md:w-[88%] max-md:shrink-0 max-md:snap-start md:pl-7 md:border-r border-rule max-md:border-l border-rule bg-paper-off transition-transform duration-300 hover:-translate-y-1.5"} -->
+			<article class="wp-block-group js-reveal pll-delay-100 relative py-10 px-7 md:px-0 md:pr-7 max-md:w-[88%] max-md:shrink-0 max-md:snap-start md:pl-7 md:border-r border-rule max-md:border-l border-rule bg-paper-off transition-transform duration-300 hover:-translate-y-1.5">
 				<!-- wp:paragraph {"className":"mb-5 flex items-center gap-2.5 font-mono uppercase tracking-[0.22em] text-[10.5px] text-muted"} -->
 				<p class="mb-5 flex items-center gap-2.5 font-mono uppercase tracking-[0.22em] text-[10.5px] text-muted"><span>Plan 02 · Bilateral Tibia</span></p>
 				<!-- /wp:paragraph -->
@@ -114,8 +114,8 @@
 			</article>
 			<!-- /wp:group -->
 
-			<!-- wp:group {"tagName":"article","layout":{"type":"default"},"className":"js-reveal pll-delay-200 relative py-10 px-7 md:px-0 md:pr-7 md:pl-7 border-t md:border-t-0 border-rule bg-paper md:px-7 transition-transform duration-300 hover:-translate-y-1.5"} -->
-			<article class="wp-block-group js-reveal pll-delay-200 relative py-10 px-7 md:px-0 md:pr-7 md:pl-7 border-t md:border-t-0 border-rule bg-paper md:px-7 transition-transform duration-300 hover:-translate-y-1.5">
+			<!-- wp:group {"tagName":"article","layout":{"type":"default"},"className":"js-reveal pll-delay-200 relative py-10 px-7 md:px-0 md:pr-7 max-md:w-[88%] max-md:shrink-0 max-md:snap-start md:pl-7 max-md:border-l border-rule bg-paper md:px-7 transition-transform duration-300 hover:-translate-y-1.5"} -->
+			<article class="wp-block-group js-reveal pll-delay-200 relative py-10 px-7 md:px-0 md:pr-7 max-md:w-[88%] max-md:shrink-0 max-md:snap-start md:pl-7 max-md:border-l border-rule bg-paper md:px-7 transition-transform duration-300 hover:-translate-y-1.5">
 				<!-- wp:paragraph {"className":"mb-5 flex items-center gap-2.5 font-mono uppercase tracking-[0.22em] text-[10.5px] text-muted"} -->
 				<p class="mb-5 flex items-center gap-2.5 font-mono uppercase tracking-[0.22em] text-[10.5px] text-muted"><span class="bg-spine text-paper font-medium px-2.5 py-1 tracking-[0.22em]">Most Selected</span><span>Plan 03 · Combined · Most Selected</span></p>
 				<!-- /wp:paragraph -->
@@ -168,7 +168,7 @@
 
 			<!-- wp:buttons -->
 			<div class="wp-block-buttons"><!-- wp:button -->
-			<div class="wp-block-button"><a class="wp-block-button__link wp-element-button group self-start lg:self-auto inline-flex items-center gap-3 px-5 py-3.5 bg-spine text-paper uppercase tracking-wide text-[12px] font-medium hover:bg-spine-deep transition-colors" href="/limb-lengthening-pricing-options/">View Full Pricing Details<span class="font-serif italic text-[17px] transition-transform group-hover:translate-x-1" aria-hidden="true">→</span></a></div>
+			<div class="wp-block-button"><a class="wp-block-button__link wp-element-button group self-start lg:self-auto inline-flex items-center gap-3 px-5 py-3.5 bg-spine text-paper uppercase tracking-wide text-[12px] font-medium hover:bg-spine-deep transition-colors" href="/limb-lengthening-pricing-options/">View Limb Lengthening Surgery Costs<span class="font-serif italic text-[17px] transition-transform group-hover:translate-x-1" aria-hidden="true">→</span></a></div>
 			<!-- /wp:button --></div>
 			<!-- /wp:buttons -->
 		</div>

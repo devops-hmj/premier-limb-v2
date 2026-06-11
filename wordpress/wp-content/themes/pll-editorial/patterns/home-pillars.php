@@ -28,10 +28,10 @@
 		</header>
 		<!-- /wp:group -->
 
-		<!-- wp:group {"layout":{"type":"default"},"className":"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-ink"} -->
-		<div class="wp-block-group grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-ink">
-			<!-- wp:group {"tagName":"article","layout":{"type":"default"},"className":"js-reveal group py-9 pr-7 flex flex-col gap-4 min-h-[300px] lg:min-h-[340px] lg:pl-0 lg:border-r md:border-r md:border-b lg:border-b-0 border-rule lg:border-b-0 transition-transform duration-300 hover:-translate-y-1"} -->
-			<article class="wp-block-group js-reveal group py-9 pr-7 flex flex-col gap-4 min-h-[300px] lg:min-h-[340px] lg:pl-0 lg:border-r md:border-r md:border-b lg:border-b-0 border-rule lg:border-b-0 transition-transform duration-300 hover:-translate-y-1">
+		<!-- wp:group {"layout":{"type":"default"},"className":"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-ink max-md:flex max-md:overflow-x-auto max-md:snap-x max-md:snap-mandatory max-md:-mx-6 max-md:px-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"} -->
+		<div class="wp-block-group grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-ink max-md:flex max-md:overflow-x-auto max-md:snap-x max-md:snap-mandatory max-md:-mx-6 max-md:px-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+			<!-- wp:group {"tagName":"article","layout":{"type":"default"},"className":"js-reveal group py-9 pr-7 flex flex-col gap-4 min-h-[300px] lg:min-h-[340px] max-md:w-[84%] max-md:shrink-0 max-md:snap-start lg:pl-0 lg:border-r md:border-r md:border-b lg:border-b-0 border-rule lg:border-b-0 transition-transform duration-300 hover:-translate-y-1"} -->
+			<article class="wp-block-group js-reveal group py-9 pr-7 flex flex-col gap-4 min-h-[300px] lg:min-h-[340px] max-md:w-[84%] max-md:shrink-0 max-md:snap-start lg:pl-0 lg:border-r md:border-r md:border-b lg:border-b-0 border-rule lg:border-b-0 transition-transform duration-300 hover:-translate-y-1">
 				<!-- wp:paragraph {"className":"inline-flex items-center gap-2.5 font-mono uppercase tracking-[0.2em] text-[10.5px] text-muted"} -->
 				<p class="inline-flex items-center gap-2.5 font-mono uppercase tracking-[0.2em] text-[10.5px] text-muted"><span class="inline-block w-2 h-2 bg-spine group-hover:bg-spine-deep transition-colors" aria-hidden="true"></span>01 · Expertise</p>
 				<!-- /wp:paragraph -->
@@ -52,18 +52,18 @@
 			</article>
 			<!-- /wp:group -->
 
-			<!-- wp:group {"tagName":"article","layout":{"type":"default"},"className":"js-reveal pll-delay-100 group py-9 pr-7 flex flex-col gap-4 min-h-[300px] lg:min-h-[340px] md:pl-5 lg:pl-5 lg:border-r md:border-b lg:border-b-0 border-rule lg:border-b-0 transition-transform duration-300 hover:-translate-y-1"} -->
-			<article class="wp-block-group js-reveal pll-delay-100 group py-9 pr-7 flex flex-col gap-4 min-h-[300px] lg:min-h-[340px] md:pl-5 lg:pl-5 lg:border-r md:border-b lg:border-b-0 border-rule lg:border-b-0 transition-transform duration-300 hover:-translate-y-1">
+			<!-- wp:group {"tagName":"article","layout":{"type":"default"},"className":"js-reveal pll-delay-100 group py-9 pr-7 flex flex-col gap-4 min-h-[300px] lg:min-h-[340px] max-md:w-[84%] max-md:shrink-0 max-md:snap-start max-md:border-l max-md:pl-6 md:pl-5 lg:pl-5 lg:border-r md:border-b lg:border-b-0 border-rule lg:border-b-0 transition-transform duration-300 hover:-translate-y-1"} -->
+			<article class="wp-block-group js-reveal pll-delay-100 group py-9 pr-7 flex flex-col gap-4 min-h-[300px] lg:min-h-[340px] max-md:w-[84%] max-md:shrink-0 max-md:snap-start max-md:border-l max-md:pl-6 md:pl-5 lg:pl-5 lg:border-r md:border-b lg:border-b-0 border-rule lg:border-b-0 transition-transform duration-300 hover:-translate-y-1">
 				<!-- wp:paragraph {"className":"inline-flex items-center gap-2.5 font-mono uppercase tracking-[0.2em] text-[10.5px] text-muted"} -->
-				<p class="inline-flex items-center gap-2.5 font-mono uppercase tracking-[0.2em] text-[10.5px] text-muted"><span class="inline-block w-2 h-2 bg-spine group-hover:bg-spine-deep transition-colors" aria-hidden="true"></span>02 · Technology</p>
+				<p class="inline-flex items-center gap-2.5 font-mono uppercase tracking-[0.2em] text-[10.5px] text-muted"><span class="inline-block w-2 h-2 bg-spine group-hover:bg-spine-deep transition-colors" aria-hidden="true"></span>02 · Judgment</p>
 				<!-- /wp:paragraph -->
 
 				<!-- wp:heading {"level":3,"className":"font-serif font-medium text-[26px] lg:text-[28px] leading-[1.1] tracking-[-0.01em] text-ink"} -->
-				<h3 class="wp-block-heading font-serif font-medium text-[26px] lg:text-[28px] leading-[1.1] tracking-[-0.01em] text-ink">Internal Nail Technology</h3>
+				<h3 class="wp-block-heading font-serif font-medium text-[26px] lg:text-[28px] leading-[1.1] tracking-[-0.01em] text-ink">Surgical Judgment, Not Just Technology</h3>
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph {"className":"flex-1 text-[14.5px] text-ink-soft leading-[1.65]"} -->
-				<p class="flex-1 text-[14.5px] text-ink-soft leading-[1.65]">Precice 4th-generation magnetic lengthening nails. No external hardware. Less pain, faster recovery, virtually invisible.</p>
+				<p class="flex-1 text-[14.5px] text-ink-soft leading-[1.65]">The Precice nail is only as precise as the surgeon placing it. Dr. Basmajian’s trauma fellowship training gives him the bone mechanics expertise to manage complications, revisions, and edge cases that a lengthening-only practice cannot handle.</p>
 				<!-- /wp:paragraph -->
 
 				<!-- wp:buttons -->
@@ -74,8 +74,8 @@
 			</article>
 			<!-- /wp:group -->
 
-			<!-- wp:group {"tagName":"article","layout":{"type":"default"},"className":"js-reveal pll-delay-200 group py-9 pr-7 flex flex-col gap-4 min-h-[300px] lg:min-h-[340px] lg:pl-5 lg:border-r md:border-r border-rule lg:border-b-0 transition-transform duration-300 hover:-translate-y-1"} -->
-			<article class="wp-block-group js-reveal pll-delay-200 group py-9 pr-7 flex flex-col gap-4 min-h-[300px] lg:min-h-[340px] lg:pl-5 lg:border-r md:border-r border-rule lg:border-b-0 transition-transform duration-300 hover:-translate-y-1">
+			<!-- wp:group {"tagName":"article","layout":{"type":"default"},"className":"js-reveal pll-delay-200 group py-9 pr-7 flex flex-col gap-4 min-h-[300px] lg:min-h-[340px] max-md:w-[84%] max-md:shrink-0 max-md:snap-start max-md:border-l max-md:pl-6 lg:pl-5 lg:border-r md:border-r border-rule lg:border-b-0 transition-transform duration-300 hover:-translate-y-1"} -->
+			<article class="wp-block-group js-reveal pll-delay-200 group py-9 pr-7 flex flex-col gap-4 min-h-[300px] lg:min-h-[340px] max-md:w-[84%] max-md:shrink-0 max-md:snap-start max-md:border-l max-md:pl-6 lg:pl-5 lg:border-r md:border-r border-rule lg:border-b-0 transition-transform duration-300 hover:-translate-y-1">
 				<!-- wp:paragraph {"className":"inline-flex items-center gap-2.5 font-mono uppercase tracking-[0.2em] text-[10.5px] text-muted"} -->
 				<p class="inline-flex items-center gap-2.5 font-mono uppercase tracking-[0.2em] text-[10.5px] text-muted"><span class="inline-block w-2 h-2 bg-spine group-hover:bg-spine-deep transition-colors" aria-hidden="true"></span>03 · Service</p>
 				<!-- /wp:paragraph -->
@@ -96,8 +96,8 @@
 			</article>
 			<!-- /wp:group -->
 
-			<!-- wp:group {"tagName":"article","layout":{"type":"default"},"className":"js-reveal pll-delay-300 group py-9 pr-7 flex flex-col gap-4 min-h-[300px] lg:min-h-[340px] md:pl-5 lg:pl-5 border-rule lg:border-b-0 transition-transform duration-300 hover:-translate-y-1"} -->
-			<article class="wp-block-group js-reveal pll-delay-300 group py-9 pr-7 flex flex-col gap-4 min-h-[300px] lg:min-h-[340px] md:pl-5 lg:pl-5 border-rule lg:border-b-0 transition-transform duration-300 hover:-translate-y-1">
+			<!-- wp:group {"tagName":"article","layout":{"type":"default"},"className":"js-reveal pll-delay-300 group py-9 pr-7 flex flex-col gap-4 min-h-[300px] lg:min-h-[340px] max-md:w-[84%] max-md:shrink-0 max-md:snap-start max-md:border-l max-md:pl-6 md:pl-5 lg:pl-5 border-rule lg:border-b-0 transition-transform duration-300 hover:-translate-y-1"} -->
+			<article class="wp-block-group js-reveal pll-delay-300 group py-9 pr-7 flex flex-col gap-4 min-h-[300px] lg:min-h-[340px] max-md:w-[84%] max-md:shrink-0 max-md:snap-start max-md:border-l max-md:pl-6 md:pl-5 lg:pl-5 border-rule lg:border-b-0 transition-transform duration-300 hover:-translate-y-1">
 				<!-- wp:paragraph {"className":"inline-flex items-center gap-2.5 font-mono uppercase tracking-[0.2em] text-[10.5px] text-muted"} -->
 				<p class="inline-flex items-center gap-2.5 font-mono uppercase tracking-[0.2em] text-[10.5px] text-muted"><span class="inline-block w-2 h-2 bg-spine group-hover:bg-spine-deep transition-colors" aria-hidden="true"></span>04 · Institution</p>
 				<!-- /wp:paragraph -->

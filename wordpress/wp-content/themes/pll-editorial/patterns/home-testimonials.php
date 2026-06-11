@@ -25,10 +25,34 @@
 		</header>
 		<!-- /wp:group -->
 
-		<!-- wp:group {"layout":{"type":"default"},"className":"grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12 border-t border-ink pt-12"} -->
-		<div class="wp-block-group grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12 border-t border-ink pt-12">
-			<!-- wp:group {"tagName":"article","layout":{"type":"default"},"className":"js-reveal"} -->
-			<article class="wp-block-group js-reveal">
+		<!-- wp:group {"layout":{"type":"default"},"className":"grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12 border-t border-ink pt-12 max-md:flex max-md:overflow-x-auto max-md:snap-x max-md:snap-mandatory max-md:-mx-6 max-md:px-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"} -->
+		<div class="wp-block-group grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12 border-t border-ink pt-12 max-md:flex max-md:overflow-x-auto max-md:snap-x max-md:snap-mandatory max-md:-mx-6 max-md:px-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+			<!-- wp:group {"tagName":"article","layout":{"type":"default"},"className":"js-reveal max-md:w-[84%] max-md:shrink-0 max-md:snap-start"} -->
+			<article class="wp-block-group js-reveal max-md:w-[84%] max-md:shrink-0 max-md:snap-start">
+				<!-- wp:paragraph {"className":"font-serif italic text-spine text-[88px] leading-[0.6] mb-3"} -->
+				<p class="font-serif italic text-spine text-[88px] leading-[0.6] mb-3">“</p>
+				<!-- /wp:paragraph -->
+
+				<!-- wp:paragraph {"className":"font-serif text-[20px] lg:text-[23px] leading-[1.35] tracking-[-0.005em] text-ink mb-6"} -->
+				<p class="font-serif text-[20px] lg:text-[23px] leading-[1.35] tracking-[-0.005em] text-ink mb-6">I had a failed surgery in Turkey and was terrified to try again. Dr. Basmajian’s trauma background gave me confidence. He was honest about what he could fix and what he couldn’t. <em class="italic text-spine">I’m walking normally again.</em></p>
+				<!-- /wp:paragraph -->
+
+				<!-- wp:group {"layout":{"type":"default"},"className":"pt-4 border-t border-rule font-mono uppercase text-[11px] tracking-[0.14em] text-muted leading-[1.7]"} -->
+				<div class="wp-block-group pt-4 border-t border-rule font-mono uppercase text-[11px] tracking-[0.14em] text-muted leading-[1.7]">
+					<!-- wp:paragraph {"className":"text-spine font-medium"} -->
+					<p class="text-spine font-medium">James K.</p>
+					<!-- /wp:paragraph -->
+
+					<!-- wp:paragraph -->
+					<p>Revision Patient · Texas</p>
+					<!-- /wp:paragraph -->
+				</div>
+				<!-- /wp:group -->
+			</article>
+			<!-- /wp:group -->
+
+			<!-- wp:group {"tagName":"article","layout":{"type":"default"},"className":"js-reveal pll-delay-100 max-md:w-[84%] max-md:shrink-0 max-md:snap-start"} -->
+			<article class="wp-block-group js-reveal pll-delay-100 max-md:w-[84%] max-md:shrink-0 max-md:snap-start">
 				<!-- wp:paragraph {"className":"font-serif italic text-spine text-[88px] leading-[0.6] mb-3"} -->
 				<p class="font-serif italic text-spine text-[88px] leading-[0.6] mb-3">“</p>
 				<!-- /wp:paragraph -->
@@ -51,14 +75,14 @@
 			</article>
 			<!-- /wp:group -->
 
-			<!-- wp:group {"tagName":"article","layout":{"type":"default"},"className":"js-reveal pll-delay-100"} -->
-			<article class="wp-block-group js-reveal pll-delay-100">
+			<!-- wp:group {"tagName":"article","layout":{"type":"default"},"className":"js-reveal pll-delay-200 max-md:w-[84%] max-md:shrink-0 max-md:snap-start"} -->
+			<article class="wp-block-group js-reveal pll-delay-200 max-md:w-[84%] max-md:shrink-0 max-md:snap-start">
 				<!-- wp:paragraph {"className":"font-serif italic text-spine text-[88px] leading-[0.6] mb-3"} -->
 				<p class="font-serif italic text-spine text-[88px] leading-[0.6] mb-3">“</p>
 				<!-- /wp:paragraph -->
 
 				<!-- wp:paragraph {"className":"font-serif text-[20px] lg:text-[23px] leading-[1.35] tracking-[-0.005em] text-ink mb-6"} -->
-				<p class="font-serif text-[20px] lg:text-[23px] leading-[1.35] tracking-[-0.005em] text-ink mb-6">I traveled from New York for the concierge program. They handled my flights, hotel, and even had a PT schedule ready before I landed. The whole experience <em class="italic text-spine">felt like a medical retreat</em>, not a surgery trip.</p>
+				<p class="font-serif text-[20px] lg:text-[23px] leading-[1.35] tracking-[-0.005em] text-ink mb-6">I traveled from New York for the concierge program. They handled my flights, hotel, and even had a PT schedule <em class="italic text-spine">ready before I landed.</em></p>
 				<!-- /wp:paragraph -->
 
 				<!-- wp:group {"layout":{"type":"default"},"className":"pt-4 border-t border-rule font-mono uppercase text-[11px] tracking-[0.14em] text-muted leading-[1.7]"} -->
@@ -69,30 +93,6 @@
 
 					<!-- wp:paragraph -->
 					<p>Finance · New York</p>
-					<!-- /wp:paragraph -->
-				</div>
-				<!-- /wp:group -->
-			</article>
-			<!-- /wp:group -->
-
-			<!-- wp:group {"tagName":"article","layout":{"type":"default"},"className":"js-reveal pll-delay-200"} -->
-			<article class="wp-block-group js-reveal pll-delay-200">
-				<!-- wp:paragraph {"className":"font-serif italic text-spine text-[88px] leading-[0.6] mb-3"} -->
-				<p class="font-serif italic text-spine text-[88px] leading-[0.6] mb-3">“</p>
-				<!-- /wp:paragraph -->
-
-				<!-- wp:paragraph {"className":"font-serif text-[20px] lg:text-[23px] leading-[1.35] tracking-[-0.005em] text-ink mb-6"} -->
-				<p class="font-serif text-[20px] lg:text-[23px] leading-[1.35] tracking-[-0.005em] text-ink mb-6">I had a failed surgery in Turkey and was terrified to try again. Dr. Basmajian’s trauma background gave me confidence. He was honest about what he could fix and what he couldn’t. <em class="italic text-spine">I’m walking normally again.</em></p>
-				<!-- /wp:paragraph -->
-
-				<!-- wp:group {"layout":{"type":"default"},"className":"pt-4 border-t border-rule font-mono uppercase text-[11px] tracking-[0.14em] text-muted leading-[1.7]"} -->
-				<div class="wp-block-group pt-4 border-t border-rule font-mono uppercase text-[11px] tracking-[0.14em] text-muted leading-[1.7]">
-					<!-- wp:paragraph {"className":"text-spine font-medium"} -->
-					<p class="text-spine font-medium">James K.</p>
-					<!-- /wp:paragraph -->
-
-					<!-- wp:paragraph -->
-					<p>Revision Patient · Texas</p>
 					<!-- /wp:paragraph -->
 				</div>
 				<!-- /wp:group -->

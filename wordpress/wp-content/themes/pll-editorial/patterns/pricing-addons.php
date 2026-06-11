@@ -42,7 +42,7 @@
 					<!-- /wp:paragraph -->
 
 					<!-- wp:heading {"level":3,"className":"font-serif font-medium text-[18px] lg:text-[20px] leading-[1.25] tracking-[-0.01em] text-ink"} -->
-					<h3 class="wp-block-heading font-serif font-medium text-[18px] lg:text-[20px] leading-[1.25] tracking-[-0.01em] text-ink">Rotation Correction — Femur</h3>
+					<h3 class="wp-block-heading font-serif font-medium text-[18px] lg:text-[20px] leading-[1.25] tracking-[-0.01em] text-ink">Rotation Correction · Femur</h3>
 					<!-- /wp:heading -->
 
 					<!-- wp:paragraph {"className":"hidden sm:block text-[13.5px] leading-[1.6] text-ink-soft"} -->
@@ -62,7 +62,7 @@
 					<!-- /wp:paragraph -->
 
 					<!-- wp:heading {"level":3,"className":"font-serif font-medium text-[18px] lg:text-[20px] leading-[1.25] tracking-[-0.01em] text-ink"} -->
-					<h3 class="wp-block-heading font-serif font-medium text-[18px] lg:text-[20px] leading-[1.25] tracking-[-0.01em] text-ink">Rotation Correction — Tibial</h3>
+					<h3 class="wp-block-heading font-serif font-medium text-[18px] lg:text-[20px] leading-[1.25] tracking-[-0.01em] text-ink">Rotation Correction · Tibial</h3>
 					<!-- /wp:heading -->
 
 					<!-- wp:paragraph {"className":"hidden sm:block text-[13.5px] leading-[1.6] text-ink-soft"} -->
@@ -82,7 +82,7 @@
 					<!-- /wp:paragraph -->
 
 					<!-- wp:heading {"level":3,"className":"font-serif font-medium text-[18px] lg:text-[20px] leading-[1.25] tracking-[-0.01em] text-ink"} -->
-					<h3 class="wp-block-heading font-serif font-medium text-[18px] lg:text-[20px] leading-[1.25] tracking-[-0.01em] text-ink">Bowlegged Correction — Tibial</h3>
+					<h3 class="wp-block-heading font-serif font-medium text-[18px] lg:text-[20px] leading-[1.25] tracking-[-0.01em] text-ink">Bowlegged Correction · Tibial</h3>
 					<!-- /wp:heading -->
 
 					<!-- wp:paragraph {"className":"hidden sm:block text-[13.5px] leading-[1.6] text-ink-soft"} -->
@@ -102,7 +102,7 @@
 					<!-- /wp:paragraph -->
 
 					<!-- wp:heading {"level":3,"className":"font-serif font-medium text-[18px] lg:text-[20px] leading-[1.25] tracking-[-0.01em] text-ink"} -->
-					<h3 class="wp-block-heading font-serif font-medium text-[18px] lg:text-[20px] leading-[1.25] tracking-[-0.01em] text-ink">Bowlegged Correction — Tibia during Femur</h3>
+					<h3 class="wp-block-heading font-serif font-medium text-[18px] lg:text-[20px] leading-[1.25] tracking-[-0.01em] text-ink">Bowlegged Correction · Tibia during Femur</h3>
 					<!-- /wp:heading -->
 
 					<!-- wp:paragraph {"className":"hidden sm:block text-[13.5px] leading-[1.6] text-ink-soft"} -->
@@ -134,7 +134,7 @@
 					<!-- /wp:paragraph -->
 
 					<!-- wp:heading {"level":3,"className":"font-serif font-medium text-[18px] lg:text-[20px] leading-[1.25] tracking-[-0.01em] text-ink"} -->
-					<h3 class="wp-block-heading font-serif font-medium text-[18px] lg:text-[20px] leading-[1.25] tracking-[-0.01em] text-ink">Hardware Removal — Bilateral Femur</h3>
+					<h3 class="wp-block-heading font-serif font-medium text-[18px] lg:text-[20px] leading-[1.25] tracking-[-0.01em] text-ink">Hardware Removal · Bilateral Femur</h3>
 					<!-- /wp:heading -->
 
 					<!-- wp:paragraph {"className":"hidden sm:block text-[13.5px] leading-[1.6] text-ink-soft"} -->
@@ -154,7 +154,7 @@
 					<!-- /wp:paragraph -->
 
 					<!-- wp:heading {"level":3,"className":"font-serif font-medium text-[18px] lg:text-[20px] leading-[1.25] tracking-[-0.01em] text-ink"} -->
-					<h3 class="wp-block-heading font-serif font-medium text-[18px] lg:text-[20px] leading-[1.25] tracking-[-0.01em] text-ink">Hardware Removal — Bilateral Tibia</h3>
+					<h3 class="wp-block-heading font-serif font-medium text-[18px] lg:text-[20px] leading-[1.25] tracking-[-0.01em] text-ink">Hardware Removal · Bilateral Tibia</h3>
 					<!-- /wp:heading -->
 
 					<!-- wp:paragraph {"className":"hidden sm:block text-[13.5px] leading-[1.6] text-ink-soft"} -->
@@ -174,7 +174,7 @@
 					<!-- /wp:paragraph -->
 
 					<!-- wp:heading {"level":3,"className":"font-serif font-medium text-[18px] lg:text-[20px] leading-[1.25] tracking-[-0.01em] text-ink"} -->
-					<h3 class="wp-block-heading font-serif font-medium text-[18px] lg:text-[20px] leading-[1.25] tracking-[-0.01em] text-ink">Hardware Removal — Bilateral Femur + Tibia</h3>
+					<h3 class="wp-block-heading font-serif font-medium text-[18px] lg:text-[20px] leading-[1.25] tracking-[-0.01em] text-ink">Hardware Removal · Bilateral Femur + Tibia</h3>
 					<!-- /wp:heading -->
 
 					<!-- wp:paragraph {"className":"hidden sm:block text-[13.5px] leading-[1.6] text-ink-soft"} -->

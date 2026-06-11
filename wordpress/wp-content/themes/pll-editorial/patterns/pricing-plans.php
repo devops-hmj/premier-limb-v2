@@ -34,10 +34,10 @@
 		</header>
 		<!-- /wp:group -->
 
-		<!-- wp:group {"layout":{"type":"default"},"className":"grid grid-cols-1 md:grid-cols-3 border-t border-b border-ink"} -->
-		<div class="wp-block-group grid grid-cols-1 md:grid-cols-3 border-t border-b border-ink">
-			<!-- wp:group {"tagName":"article","layout":{"type":"default"},"className":"js-reveal relative py-10 px-7 md:px-0 md:pr-7 md:border-r border-rule bg-paper-off transition-transform duration-300 hover:-translate-y-1.5"} -->
-			<article class="wp-block-group js-reveal relative py-10 px-7 md:px-0 md:pr-7 md:border-r border-rule bg-paper-off transition-transform duration-300 hover:-translate-y-1.5">
+		<!-- wp:group {"layout":{"type":"default"},"className":"grid grid-cols-1 md:grid-cols-3 border-t border-b border-ink max-md:flex max-md:overflow-x-auto max-md:snap-x max-md:snap-mandatory max-md:-mx-6 max-md:px-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"} -->
+		<div class="wp-block-group grid grid-cols-1 md:grid-cols-3 border-t border-b border-ink max-md:flex max-md:overflow-x-auto max-md:snap-x max-md:snap-mandatory max-md:-mx-6 max-md:px-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+			<!-- wp:group {"tagName":"article","layout":{"type":"default"},"className":"js-reveal relative py-10 px-7 md:px-0 md:pr-7 max-md:w-[88%] max-md:shrink-0 max-md:snap-start md:border-r border-rule bg-paper-off transition-transform duration-300 hover:-translate-y-1.5"} -->
+			<article class="wp-block-group js-reveal relative py-10 px-7 md:px-0 md:pr-7 max-md:w-[88%] max-md:shrink-0 max-md:snap-start md:border-r border-rule bg-paper-off transition-transform duration-300 hover:-translate-y-1.5">
 				<!-- wp:paragraph {"className":"mb-5 min-h-[32px] flex items-center gap-2.5 font-mono uppercase tracking-[0.22em] text-[10.5px] text-muted"} -->
 				<p class="mb-5 min-h-[32px] flex items-center gap-2.5 font-mono uppercase tracking-[0.22em] text-[10.5px] text-muted"><span>Plan 01 · Bilateral Femur</span></p>
 				<!-- /wp:paragraph -->
@@ -76,8 +76,8 @@
 			</article>
 			<!-- /wp:group -->
 
-			<!-- wp:group {"tagName":"article","layout":{"type":"default"},"className":"js-reveal pll-delay-100 relative py-10 px-7 md:px-0 md:pr-7 md:pl-7 md:border-r border-rule border-t md:border-t-0 bg-paper-off transition-transform duration-300 hover:-translate-y-1.5"} -->
-			<article class="wp-block-group js-reveal pll-delay-100 relative py-10 px-7 md:px-0 md:pr-7 md:pl-7 md:border-r border-rule border-t md:border-t-0 bg-paper-off transition-transform duration-300 hover:-translate-y-1.5">
+			<!-- wp:group {"tagName":"article","layout":{"type":"default"},"className":"js-reveal pll-delay-100 relative py-10 px-7 md:px-0 md:pr-7 max-md:w-[88%] max-md:shrink-0 max-md:snap-start md:pl-7 md:border-r border-rule max-md:border-l border-rule bg-paper-off transition-transform duration-300 hover:-translate-y-1.5"} -->
+			<article class="wp-block-group js-reveal pll-delay-100 relative py-10 px-7 md:px-0 md:pr-7 max-md:w-[88%] max-md:shrink-0 max-md:snap-start md:pl-7 md:border-r border-rule max-md:border-l border-rule bg-paper-off transition-transform duration-300 hover:-translate-y-1.5">
 				<!-- wp:paragraph {"className":"mb-5 min-h-[32px] flex items-center gap-2.5 font-mono uppercase tracking-[0.22em] text-[10.5px] text-muted"} -->
 				<p class="mb-5 min-h-[32px] flex items-center gap-2.5 font-mono uppercase tracking-[0.22em] text-[10.5px] text-muted"><span>Plan 02 · Bilateral Tibia</span></p>
 				<!-- /wp:paragraph -->
@@ -118,8 +118,8 @@
 			</article>
 			<!-- /wp:group -->
 
-			<!-- wp:group {"tagName":"article","layout":{"type":"default"},"className":"js-reveal pll-delay-200 relative py-10 px-7 md:px-0 md:pr-7 md:pl-7 border-t md:border-t-0 border-rule bg-paper md:px-7 transition-transform duration-300 hover:-translate-y-1.5"} -->
-			<article class="wp-block-group js-reveal pll-delay-200 relative py-10 px-7 md:px-0 md:pr-7 md:pl-7 border-t md:border-t-0 border-rule bg-paper md:px-7 transition-transform duration-300 hover:-translate-y-1.5">
+			<!-- wp:group {"tagName":"article","layout":{"type":"default"},"className":"js-reveal pll-delay-200 relative py-10 px-7 md:px-0 md:pr-7 max-md:w-[88%] max-md:shrink-0 max-md:snap-start md:pl-7 max-md:border-l border-rule bg-paper md:px-7 transition-transform duration-300 hover:-translate-y-1.5"} -->
+			<article class="wp-block-group js-reveal pll-delay-200 relative py-10 px-7 md:px-0 md:pr-7 max-md:w-[88%] max-md:shrink-0 max-md:snap-start md:pl-7 max-md:border-l border-rule bg-paper md:px-7 transition-transform duration-300 hover:-translate-y-1.5">
 				<!-- wp:paragraph {"className":"mb-5 min-h-[32px] flex items-center gap-2.5 font-mono uppercase tracking-[0.22em] text-[10.5px] text-muted"} -->
 				<p class="mb-5 min-h-[32px] flex items-center gap-2.5 font-mono uppercase tracking-[0.22em] text-[10.5px] text-muted"><span class="bg-spine text-paper font-medium px-2.5 py-1 tracking-[0.22em]">Most Selected</span><span>Plan 03 · Combined · Most Selected</span></p>
 				<!-- /wp:paragraph -->

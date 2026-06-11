@@ -208,7 +208,7 @@ function pll_render_overlay_nav() {
 		'<span class="font-serif italic text-[15px]" aria-hidden="true">→</span></a>' .
 		'</div></div></header>',
 		esc_url( home_url( '/' ) ),
-		esc_attr__( 'Premier Limb Lengthening — home', 'pll-editorial' ),
+		esc_attr__( 'Premier Limb Lengthening, home', 'pll-editorial' ),
 		pll_logo_img( 'dark', 210, 'drop-shadow-[0_4px_20px_rgba(0,0,0,0.4)]' ),
 		$links,
 		esc_url( $info['phone_href'] ),

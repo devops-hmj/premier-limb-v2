@@ -4,8 +4,11 @@
  * Port of the imperative video logic in components/v2/HeroStage.tsx:
  *  - force muted + kick playback explicitly (don't trust the attribute),
  *    retrying on canplay/loadeddata
- *  - enable sound at the visitor's first interaction (pointer, key, touch,
- *    scroll) — the closest to "autoplay with sound" browsers allow
+ *  - enable sound at the visitor's first interaction (pointer, key, touch) —
+ *    the closest to "autoplay with sound" browsers allow. Scroll is
+ *    deliberately NOT an unmute trigger: it doesn't count as a user
+ *    activation, so unmuting on scroll makes the autoplay policy pause the
+ *    video (it froze the hero for anyone who scrolled first).
  *  - manual sound toggle button
  */
 import { store, getContext, getElement } from '@wordpress/interactivity';
@@ -61,7 +64,6 @@ const { state, actions } = store( 'pll/hero', {
 				window.removeEventListener( 'pointerdown', enableSound );
 				window.removeEventListener( 'keydown', enableSound );
 				window.removeEventListener( 'touchstart', enableSound );
-				window.removeEventListener( 'scroll', enableSound );
 			};
 			const enableSound = () => {
 				if ( ! armed ) {
@@ -70,13 +72,21 @@ const { state, actions } = store( 'pll/hero', {
 				armed = false;
 				video.muted = false;
 				ctx.muted = false;
-				video.play?.().catch( () => {} );
+				const resumed = video.play?.();
+				if ( resumed?.catch ) {
+					// If the browser still refuses unmuted playback, fall back
+					// to muted playback instead of a paused/frozen hero.
+					resumed.catch( () => {
+						video.muted = true;
+						ctx.muted = true;
+						video.play?.().catch( () => {} );
+					} );
+				}
 				detach();
 			};
 			window.addEventListener( 'pointerdown', enableSound );
 			window.addEventListener( 'keydown', enableSound );
 			window.addEventListener( 'touchstart', enableSound );
-			window.addEventListener( 'scroll', enableSound, { passive: true } );
 		},
 	},
 } );

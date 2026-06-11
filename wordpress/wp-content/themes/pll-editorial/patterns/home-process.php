@@ -25,10 +25,10 @@
 		</header>
 		<!-- /wp:group -->
 
-		<!-- wp:group {"layout":{"type":"default"},"className":"grid grid-cols-1 lg:grid-cols-3 border-t border-white/30"} -->
-		<div class="wp-block-group grid grid-cols-1 lg:grid-cols-3 border-t border-white/30">
-			<!-- wp:group {"tagName":"article","layout":{"type":"default"},"className":"js-reveal relative py-12 pr-8 lg:border-r border-white/15"} -->
-			<article class="wp-block-group js-reveal relative py-12 pr-8 lg:border-r border-white/15">
+		<!-- wp:group {"layout":{"type":"default"},"className":"grid grid-cols-1 lg:grid-cols-3 border-t border-white/30 max-md:flex max-md:overflow-x-auto max-md:snap-x max-md:snap-mandatory max-md:-mx-6 max-md:px-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"} -->
+		<div class="wp-block-group grid grid-cols-1 lg:grid-cols-3 border-t border-white/30 max-md:flex max-md:overflow-x-auto max-md:snap-x max-md:snap-mandatory max-md:-mx-6 max-md:px-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+			<!-- wp:group {"tagName":"article","layout":{"type":"default"},"className":"js-reveal relative py-12 pr-8 max-md:w-[86%] max-md:shrink-0 max-md:snap-start lg:border-r border-white/15"} -->
+			<article class="wp-block-group js-reveal relative py-12 pr-8 max-md:w-[86%] max-md:shrink-0 max-md:snap-start lg:border-r border-white/15">
 				<!-- wp:paragraph {"className":"mb-7 flex items-center gap-3.5 font-mono uppercase text-[11px] tracking-[0.22em] text-paper/90"} -->
 				<p class="mb-7 flex items-center gap-3.5 font-mono uppercase text-[11px] tracking-[0.22em] text-paper/90">Phase 01<span aria-hidden="true" class="flex-1 h-px bg-white/15"></span></p>
 				<!-- /wp:paragraph -->
@@ -47,8 +47,8 @@
 			</article>
 			<!-- /wp:group -->
 
-			<!-- wp:group {"tagName":"article","layout":{"type":"default"},"className":"js-reveal pll-delay-100 relative py-12 pr-8 lg:border-r border-white/15"} -->
-			<article class="wp-block-group js-reveal pll-delay-100 relative py-12 pr-8 lg:border-r border-white/15">
+			<!-- wp:group {"tagName":"article","layout":{"type":"default"},"className":"js-reveal pll-delay-100 relative py-12 pr-8 max-md:w-[86%] max-md:shrink-0 max-md:snap-start max-md:border-l max-md:border-white/15 max-md:pl-6 lg:border-r border-white/15"} -->
+			<article class="wp-block-group js-reveal pll-delay-100 relative py-12 pr-8 max-md:w-[86%] max-md:shrink-0 max-md:snap-start max-md:border-l max-md:border-white/15 max-md:pl-6 lg:border-r border-white/15">
 				<!-- wp:paragraph {"className":"mb-7 flex items-center gap-3.5 font-mono uppercase text-[11px] tracking-[0.22em] text-paper/90"} -->
 				<p class="mb-7 flex items-center gap-3.5 font-mono uppercase text-[11px] tracking-[0.22em] text-paper/90">Phase 02<span aria-hidden="true" class="flex-1 h-px bg-white/15"></span></p>
 				<!-- /wp:paragraph -->
@@ -67,8 +67,8 @@
 			</article>
 			<!-- /wp:group -->
 
-			<!-- wp:group {"tagName":"article","layout":{"type":"default"},"className":"js-reveal pll-delay-200 relative py-12 pr-8"} -->
-			<article class="wp-block-group js-reveal pll-delay-200 relative py-12 pr-8">
+			<!-- wp:group {"tagName":"article","layout":{"type":"default"},"className":"js-reveal pll-delay-200 relative py-12 pr-8 max-md:w-[86%] max-md:shrink-0 max-md:snap-start max-md:border-l max-md:border-white/15 max-md:pl-6"} -->
+			<article class="wp-block-group js-reveal pll-delay-200 relative py-12 pr-8 max-md:w-[86%] max-md:shrink-0 max-md:snap-start max-md:border-l max-md:border-white/15 max-md:pl-6">
 				<!-- wp:paragraph {"className":"mb-7 flex items-center gap-3.5 font-mono uppercase text-[11px] tracking-[0.22em] text-paper/90"} -->
 				<p class="mb-7 flex items-center gap-3.5 font-mono uppercase text-[11px] tracking-[0.22em] text-paper/90">Phase 03<span aria-hidden="true" class="flex-1 h-px bg-white/15"></span></p>
 				<!-- /wp:paragraph -->

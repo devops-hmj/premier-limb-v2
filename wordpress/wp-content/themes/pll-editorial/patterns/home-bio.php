@@ -12,8 +12,8 @@
 
 $pll_portrait = get_theme_file_uri( 'assets/images/Dr-ig-pic.jpg' );
 ?>
-<!-- wp:group {"tagName":"section","layout":{"type":"default"},"templateLock":"contentOnly","lock":{"move":true,"remove":true},"anchor":"dr","className":"bg-paper py-20 lg:py-28 border-t border-b border-rule"} -->
-<section class="wp-block-group bg-paper py-20 lg:py-28 border-t border-b border-rule" id="dr">
+<!-- wp:group {"tagName":"section","layout":{"type":"default"},"templateLock":"contentOnly","lock":{"move":true,"remove":true},"anchor":"dr","className":"bg-paper py-20 lg:py-28 border-b border-rule"} -->
+<section class="wp-block-group bg-paper py-20 lg:py-28 border-b border-rule" id="dr">
 	<!-- wp:group {"layout":{"type":"default"},"className":"mx-auto max-w-wrap px-6 lg:px-12"} -->
 	<div class="wp-block-group mx-auto max-w-wrap px-6 lg:px-12">
 		<!-- wp:group {"tagName":"header","layout":{"type":"default"},"className":"js-reveal pb-8 mb-12 border-b border-ink"} -->
@@ -30,8 +30,8 @@ $pll_portrait = get_theme_file_uri( 'assets/images/Dr-ig-pic.jpg' );
 
 		<!-- wp:group {"layout":{"type":"default"},"className":"grid grid-cols-1 lg:grid-cols-[5fr_7fr] gap-10 lg:gap-14 items-start"} -->
 		<div class="wp-block-group grid grid-cols-1 lg:grid-cols-[5fr_7fr] gap-10 lg:gap-14 items-start">
-			<!-- wp:group {"layout":{"type":"default"},"className":"js-reveal self-start"} -->
-			<div class="wp-block-group js-reveal self-start">
+			<!-- wp:group {"layout":{"type":"default"},"className":"js-reveal self-start lg:sticky lg:top-24"} -->
+			<div class="wp-block-group js-reveal self-start lg:sticky lg:top-24">
 				<!-- wp:group {"layout":{"type":"default"},"className":"v2-portrait aspect-[4/5] bg-paper-warm border border-rule relative overflow-hidden max-w-[85%]"} -->
 				<div class="wp-block-group v2-portrait aspect-[4/5] bg-paper-warm border border-rule relative overflow-hidden max-w-[85%]">
 					<!-- wp:image {"sizeSlug":"full","className":"absolute inset-0"} -->
@@ -53,7 +53,7 @@ $pll_portrait = get_theme_file_uri( 'assets/images/Dr-ig-pic.jpg' );
 			<!-- wp:group {"layout":{"type":"default"},"className":"js-reveal pll-delay-100"} -->
 			<div class="wp-block-group js-reveal pll-delay-100">
 				<!-- wp:paragraph {"className":"py-3.5 mb-7 border-t border-b border-rule font-mono uppercase tracking-[0.14em] text-[12px] text-ink"} -->
-				<p class="py-3.5 mb-7 border-t border-b border-rule font-mono uppercase tracking-[0.14em] text-[12px] text-ink">Orthopaedic Trauma Surgeon · Fellowship-Trained · Director, PVHMC</p>
+				<p class="py-3.5 mb-7 border-t border-b border-rule font-mono uppercase tracking-[0.14em] text-[12px] text-ink">Fellowship-Trained Orthopaedic Trauma Surgeon · Medical Director, PVHMC · USC Chief Resident</p>
 				<!-- /wp:paragraph -->
 
 				<!-- wp:paragraph {"className":"font-serif text-[18px] leading-[1.5] text-ink mb-4 max-w-[62ch]"} -->
@@ -61,25 +61,25 @@ $pll_portrait = get_theme_file_uri( 'assets/images/Dr-ig-pic.jpg' );
 				<!-- /wp:paragraph -->
 
 				<!-- wp:paragraph {"className":"text-[15.5px] leading-[1.7] text-ink-soft mb-4 max-w-[62ch]"} -->
-				<p class="text-[15.5px] leading-[1.7] text-ink-soft mb-4 max-w-[62ch]">His fellowship training in complex fracture reconstruction gives him an unmatched ability to manage the nuances of bone lengthening, including revision cases other surgeons won’t take on.</p>
+				<p class="text-[15.5px] leading-[1.7] text-ink-soft mb-4 max-w-[62ch]">His fellowship training in orthopaedic trauma and joint reconstruction, completed at Sonoran Orthopaedic Trauma Surgeons in Scottsdale and under Professor Christian Krettek at Hannover Medical School in Germany, gives him a surgical depth that most lengthening practices cannot replicate. That training is what allows him to take revision cases other surgeons decline.</p>
 				<!-- /wp:paragraph -->
 
 				<!-- wp:paragraph {"className":"text-[15.5px] leading-[1.7] text-ink-soft mb-7 max-w-[62ch]"} -->
-				<p class="text-[15.5px] leading-[1.7] text-ink-soft mb-7 max-w-[62ch]">As Director of Orthopaedic Trauma at Pomona Valley Hospital Medical Center and founder of Premier Orthopaedic &amp; Trauma Specialists, a 17+ surgeon orthopaedic group, he built Premier Limb Lengthening on that institutional depth.</p>
+				<p class="text-[15.5px] leading-[1.7] text-ink-soft mb-7 max-w-[62ch]">As Medical Director of Orthopaedic Trauma at Pomona Valley Hospital Medical Center, one of the busiest Level II trauma centers in Los Angeles County, and founder of Premier Orthopaedic &amp; Trauma Specialists, a 17+ surgeon orthopaedic group with in-house physical therapy and on-site imaging, Dr. Basmajian built Premier Limb Lengthening on that institutional depth. Premier Limb Lengthening patients have direct access to that infrastructure through Dr. Basmajian’s network.</p>
 				<!-- /wp:paragraph -->
 
 				<!-- wp:buttons -->
 				<div class="wp-block-buttons">
 					<!-- wp:button -->
-					<div class="wp-block-button"><a class="wp-block-button__link wp-element-button group inline-flex items-center gap-3 px-5 py-3.5 bg-ink text-paper uppercase tracking-wide text-[12px] font-medium border border-ink hover:bg-spine hover:border-spine transition-colors" href="/#dr-full">Learn more about Dr. Basmajian<span class="font-serif italic text-[17px] transition-transform group-hover:translate-x-1" aria-hidden="true">→</span></a></div>
+					<div class="wp-block-button"><a class="wp-block-button__link wp-element-button group inline-flex items-center gap-3 px-5 py-3.5 bg-ink text-paper uppercase tracking-wide text-[12px] font-medium border border-ink hover:bg-spine hover:border-spine transition-colors" href="/dr-basmajian/">Learn more about Dr. Basmajian<span class="font-serif italic text-[17px] transition-transform group-hover:translate-x-1" aria-hidden="true">→</span></a></div>
 					<!-- /wp:button -->
 				</div>
 				<!-- /wp:buttons -->
 
 				<!-- wp:group {"layout":{"type":"default"},"className":"mt-10 grid grid-cols-3 border-t border-ink"} -->
 				<div class="wp-block-group mt-10 grid grid-cols-3 border-t border-ink">
-					<!-- wp:group {"layout":{"type":"default"},"className":"pt-6 pb-2 pr-4 border-r border-rule"} -->
-					<div class="wp-block-group pt-6 pb-2 pr-4 border-r border-rule">
+					<!-- wp:group {"layout":{"type":"default"},"className":"pt-6 pb-2 px-4 text-center border-r border-rule"} -->
+					<div class="wp-block-group pt-6 pb-2 px-4 text-center border-r border-rule">
 						<!-- wp:paragraph {"className":"font-serif text-[36px] lg:text-[48px] leading-none tracking-[-0.02em] text-ink"} -->
 						<p class="font-serif text-[36px] lg:text-[48px] leading-none tracking-[-0.02em] text-ink"><em class="italic text-spine">1,000s</em></p>
 						<!-- /wp:paragraph -->
@@ -90,8 +90,8 @@ $pll_portrait = get_theme_file_uri( 'assets/images/Dr-ig-pic.jpg' );
 					</div>
 					<!-- /wp:group -->
 
-					<!-- wp:group {"layout":{"type":"default"},"className":"pt-6 pb-2 pr-4 border-r border-rule"} -->
-					<div class="wp-block-group pt-6 pb-2 pr-4 border-r border-rule">
+					<!-- wp:group {"layout":{"type":"default"},"className":"pt-6 pb-2 px-4 text-center border-r border-rule"} -->
+					<div class="wp-block-group pt-6 pb-2 px-4 text-center border-r border-rule">
 						<!-- wp:paragraph {"className":"font-serif text-[36px] lg:text-[48px] leading-none tracking-[-0.02em] text-ink"} -->
 						<p class="font-serif text-[36px] lg:text-[48px] leading-none tracking-[-0.02em] text-ink">2</p>
 						<!-- /wp:paragraph -->
@@ -102,14 +102,90 @@ $pll_portrait = get_theme_file_uri( 'assets/images/Dr-ig-pic.jpg' );
 					</div>
 					<!-- /wp:group -->
 
-					<!-- wp:group {"layout":{"type":"default"},"className":"pt-6 pb-2 pr-4"} -->
-					<div class="wp-block-group pt-6 pb-2 pr-4">
+					<!-- wp:group {"layout":{"type":"default"},"className":"pt-6 pb-2 px-4 text-center"} -->
+					<div class="wp-block-group pt-6 pb-2 px-4 text-center">
 						<!-- wp:paragraph {"className":"font-serif text-[36px] lg:text-[48px] leading-none tracking-[-0.02em] text-ink"} -->
 						<p class="font-serif text-[36px] lg:text-[48px] leading-none tracking-[-0.02em] text-ink">Up to <em class="italic text-spine">3-6</em>″</p>
 						<!-- /wp:paragraph -->
 
 						<!-- wp:paragraph {"className":"mt-2.5 font-mono uppercase tracking-[0.2em] text-[10.5px] text-muted"} -->
 						<p class="mt-2.5 font-mono uppercase tracking-[0.2em] text-[10.5px] text-muted">Height Gain</p>
+						<!-- /wp:paragraph -->
+					</div>
+					<!-- /wp:group -->
+				</div>
+				<!-- /wp:group -->
+
+				<!-- wp:group {"layout":{"type":"default"},"className":"mt-10 border-t border-ink"} -->
+				<div class="wp-block-group mt-10 border-t border-ink">
+					<!-- wp:group {"layout":{"type":"default"},"className":"grid grid-cols-1 sm:grid-cols-[170px_1fr] gap-x-6 gap-y-1 py-3.5 border-b border-rule"} -->
+					<div class="wp-block-group grid grid-cols-1 sm:grid-cols-[170px_1fr] gap-x-6 gap-y-1 py-3.5 border-b border-rule">
+						<!-- wp:paragraph {"className":"font-mono uppercase tracking-[0.2em] text-[10.5px] text-muted pt-1"} -->
+						<p class="font-mono uppercase tracking-[0.2em] text-[10.5px] text-muted pt-1">Board Certified</p>
+						<!-- /wp:paragraph -->
+
+						<!-- wp:paragraph {"className":"text-[14px] leading-[1.6] text-ink"} -->
+						<p class="text-[14px] leading-[1.6] text-ink">Fellow of the American Board of Orthopaedic Surgeons (2014)</p>
+						<!-- /wp:paragraph -->
+					</div>
+					<!-- /wp:group -->
+
+					<!-- wp:group {"layout":{"type":"default"},"className":"grid grid-cols-1 sm:grid-cols-[170px_1fr] gap-x-6 gap-y-1 py-3.5 border-b border-rule"} -->
+					<div class="wp-block-group grid grid-cols-1 sm:grid-cols-[170px_1fr] gap-x-6 gap-y-1 py-3.5 border-b border-rule">
+						<!-- wp:paragraph {"className":"font-mono uppercase tracking-[0.2em] text-[10.5px] text-muted pt-1"} -->
+						<p class="font-mono uppercase tracking-[0.2em] text-[10.5px] text-muted pt-1">Residency</p>
+						<!-- /wp:paragraph -->
+
+						<!-- wp:paragraph {"className":"text-[14px] leading-[1.6] text-ink"} -->
+						<p class="text-[14px] leading-[1.6] text-ink">Chief Resident, Orthopaedic Surgery, USC-LA County, Los Angeles</p>
+						<!-- /wp:paragraph -->
+					</div>
+					<!-- /wp:group -->
+
+					<!-- wp:group {"layout":{"type":"default"},"className":"grid grid-cols-1 sm:grid-cols-[170px_1fr] gap-x-6 gap-y-1 py-3.5 border-b border-rule"} -->
+					<div class="wp-block-group grid grid-cols-1 sm:grid-cols-[170px_1fr] gap-x-6 gap-y-1 py-3.5 border-b border-rule">
+						<!-- wp:paragraph {"className":"font-mono uppercase tracking-[0.2em] text-[10.5px] text-muted pt-1"} -->
+						<p class="font-mono uppercase tracking-[0.2em] text-[10.5px] text-muted pt-1">Previously</p>
+						<!-- /wp:paragraph -->
+
+						<!-- wp:paragraph {"className":"text-[14px] leading-[1.6] text-ink"} -->
+						<p class="text-[14px] leading-[1.6] text-ink">Chair of Orthopaedic Trauma, Loma Linda University Medical Center</p>
+						<!-- /wp:paragraph -->
+					</div>
+					<!-- /wp:group -->
+
+					<!-- wp:group {"layout":{"type":"default"},"className":"grid grid-cols-1 sm:grid-cols-[170px_1fr] gap-x-6 gap-y-1 py-3.5 border-b border-rule"} -->
+					<div class="wp-block-group grid grid-cols-1 sm:grid-cols-[170px_1fr] gap-x-6 gap-y-1 py-3.5 border-b border-rule">
+						<!-- wp:paragraph {"className":"font-mono uppercase tracking-[0.2em] text-[10.5px] text-muted pt-1"} -->
+						<p class="font-mono uppercase tracking-[0.2em] text-[10.5px] text-muted pt-1">Faculty</p>
+						<!-- /wp:paragraph -->
+
+						<!-- wp:paragraph {"className":"text-[14px] leading-[1.6] text-ink"} -->
+						<p class="text-[14px] leading-[1.6] text-ink">Assistant Professor of Orthopaedic Surgery</p>
+						<!-- /wp:paragraph -->
+					</div>
+					<!-- /wp:group -->
+
+					<!-- wp:group {"layout":{"type":"default"},"className":"grid grid-cols-1 sm:grid-cols-[170px_1fr] gap-x-6 gap-y-1 py-3.5 border-b border-rule"} -->
+					<div class="wp-block-group grid grid-cols-1 sm:grid-cols-[170px_1fr] gap-x-6 gap-y-1 py-3.5 border-b border-rule">
+						<!-- wp:paragraph {"className":"font-mono uppercase tracking-[0.2em] text-[10.5px] text-muted pt-1"} -->
+						<p class="font-mono uppercase tracking-[0.2em] text-[10.5px] text-muted pt-1">Societies</p>
+						<!-- /wp:paragraph -->
+
+						<!-- wp:paragraph {"className":"text-[14px] leading-[1.6] text-ink"} -->
+						<p class="text-[14px] leading-[1.6] text-ink">AAOS, Orthopaedic Trauma Association, AO Trauma, California Orthopaedic Association</p>
+						<!-- /wp:paragraph -->
+					</div>
+					<!-- /wp:group -->
+
+					<!-- wp:group {"layout":{"type":"default"},"className":"grid grid-cols-1 sm:grid-cols-[170px_1fr] gap-x-6 gap-y-1 py-3.5 border-b border-rule"} -->
+					<div class="wp-block-group grid grid-cols-1 sm:grid-cols-[170px_1fr] gap-x-6 gap-y-1 py-3.5 border-b border-rule">
+						<!-- wp:paragraph {"className":"font-mono uppercase tracking-[0.2em] text-[10.5px] text-muted pt-1"} -->
+						<p class="font-mono uppercase tracking-[0.2em] text-[10.5px] text-muted pt-1">Licensure</p>
+						<!-- /wp:paragraph -->
+
+						<!-- wp:paragraph {"className":"text-[14px] leading-[1.6] text-ink"} -->
+						<p class="text-[14px] leading-[1.6] text-ink">California &amp; Arizona · DEA · CA Fluoroscopy/Radiology</p>
 						<!-- /wp:paragraph -->
 					</div>
 					<!-- /wp:group -->

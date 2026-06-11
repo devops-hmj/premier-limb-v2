@@ -43,6 +43,22 @@ update_option( 'default_comment_status', 'closed' );
 update_option( 'default_ping_status', 'closed' );
 
 /**
+ * 1b) Remove WordPress default sample content — it would leak into the blog
+ * index, category counts, and the CollectionPage JSON-LD.
+ */
+function pll_remove_default_content() {
+	$hello = get_page_by_path( 'hello-world', OBJECT, 'post' );
+	if ( $hello ) {
+		wp_delete_post( $hello->ID, true );
+	}
+	$sample = get_page_by_path( 'sample-page', OBJECT, 'page' );
+	if ( $sample ) {
+		wp_delete_post( $sample->ID, true );
+	}
+}
+pll_remove_default_content();
+
+/**
  * 2) Media sideloading.
  */
 function pll_seed_media() {
@@ -261,15 +277,17 @@ function pll_seed_page( $slug, $title, $content, $extra = array() ) {
 $pll_home_id = pll_seed_page(
 	'home',
 	'Home',
+	// Order per homepage handoff v2: the surgeon is the product — Bio sits
+	// directly after the hero continuation; Candidate before Concierge.
 	pll_compose_patterns(
 		array(
 			'pll/home-hero',
 			'pll/home-article',
-			'pll/home-pillars',
 			'pll/home-bio',
+			'pll/home-pillars',
 			'pll/home-process',
-			'pll/home-concierge',
 			'pll/home-candidate',
+			'pll/home-concierge',
 			'pll/home-results',
 			'pll/home-pricing',
 			'pll/home-testimonials',
