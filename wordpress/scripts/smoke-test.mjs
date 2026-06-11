@@ -9,13 +9,13 @@
  * Prerequisite: npm run package must have been run first.
  */
 import { spawnSync, spawn } from "node:child_process";
-import { mkdir, rm, readdir, writeFile, readFile } from "node:fs/promises";
-import { createWriteStream, existsSync } from "node:fs";
-import { createHash } from "node:crypto";
+import { mkdir, rm, writeFile } from "node:fs/promises";
+import { createWriteStream } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import archiver from "archiver";
 import fg from "fast-glob";
+import { chromium } from "playwright";
 
 const __dir = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dir, "..");
@@ -32,20 +32,6 @@ async function zipDir(srcDir, destZip) {
 	archive.directory(srcDir, path.basename(srcDir));
 	await archive.finalize();
 	await new Promise((r) => output.on("close", r));
-}
-
-async function retry(fn, times = 5, delayMs = 2000) {
-	for (let i = 0; i < times; i++) {
-		try { return await fn(); } catch (e) {
-			if (i === times - 1) throw e;
-			await new Promise((r) => setTimeout(r, delayMs));
-		}
-	}
-}
-
-async function httpGet(url) {
-	const resp = await fetch(url, { redirect: "follow" });
-	return resp;
 }
 
 // ── 1. find the latest handoff zip ─────────────────────────────────────────
@@ -192,12 +178,10 @@ await new Promise((resolve, reject) => {
 	}, 500);
 });
 
-console.log("\nPlayground up — running route checks…\n");
+console.log("\nPlayground up — running route checks via Playwright…\n");
 
-// Extra settle time for blueprint steps to finish
-await new Promise((r) => setTimeout(r, 5000));
-
-// ── 6. verify routes ─────────────────────────────────────────────────────────
+// ── 6. verify routes via Playwright ──────────────────────────────────────────
+// Use a real browser instead of fetch() to avoid Windows loopback quirks.
 
 const BASE = `http://127.0.0.1:${PLAYGROUND_PORT}`;
 const ROUTES = [
@@ -220,23 +204,31 @@ const ROUTES = [
 let passed = 0;
 let failed = 0;
 
+const browser = await chromium.launch();
+const context = await browser.newContext();
+const page = await context.newPage();
+
 for (const route of ROUTES) {
 	try {
-		const resp = await retry(() => httpGet(BASE + route), 3, 1500);
-		const text = await resp.text();
-		const ok = resp.status === 200 && text.length > 500 && text.includes("<html");
+		const resp = await page.goto(BASE + route, { waitUntil: "domcontentloaded", timeout: 30000 });
+		const status = resp?.status() ?? 0;
+		const html = await page.content();
+		const ok = status === 200 && html.length > 500 && html.includes("<html");
 		if (ok) {
-			console.log(`  ✓ ${route} — HTTP ${resp.status} (${(text.length / 1024).toFixed(0)} KB)`);
+			const title = await page.title().catch(() => "");
+			console.log(`  ✓ ${route} — HTTP ${status} "${title}" (${(html.length / 1024).toFixed(0)} KB)`);
 			passed++;
 		} else {
-			console.error(`  ✗ ${route} — HTTP ${resp.status}, body ${text.length}B`);
+			console.error(`  ✗ ${route} — HTTP ${status}, body ${html.length}B`);
 			failed++;
 		}
 	} catch (e) {
-		console.error(`  ✗ ${route} — ${e.message}`);
+		console.error(`  ✗ ${route} — ${e.message.split("\n")[0]}`);
 		failed++;
 	}
 }
+
+await browser.close();
 
 // ── 7. teardown ───────────────────────────────────────────────────────────────
 
