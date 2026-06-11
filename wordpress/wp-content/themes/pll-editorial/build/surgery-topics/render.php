@@ -1,6 +1,6 @@
 <?php
 /**
- * pll/surgery-topics — the two topic grids from app/your-surgery/page.tsx
+ * Render pll/surgery-topics — the two topic grids from app/your-surgery/page.tsx
  * ("all": every sub-page, numbered, with the editorial border lattice) and
  * app/your-surgery/[slug]/page.tsx ("siblings": three other topics).
  *

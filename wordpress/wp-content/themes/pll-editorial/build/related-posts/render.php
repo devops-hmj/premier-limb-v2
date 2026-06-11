@@ -1,6 +1,6 @@
 <?php
 /**
- * pll/related-posts — port of the "Keep reading." grid in app/[slug]/page.tsx.
+ * Render pll/related-posts — port of the "Keep reading." grid in app/[slug]/page.tsx.
  * Selection mirrors lib/content.ts getRelatedArticles(): same-category first
  * (newest first), then any other articles, excluding the current post, max 3.
  *

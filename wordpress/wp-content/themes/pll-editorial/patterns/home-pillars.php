@@ -11,6 +11,7 @@
  *
  * @package pll-editorial
  */
+
 ?>
 <!-- wp:group {"tagName":"section","layout":{"type":"default"},"templateLock":"contentOnly","lock":{"move":true,"remove":true},"anchor":"why","className":"bg-paper-off py-20 lg:py-28 border-b border-rule"} -->
 <section class="wp-block-group bg-paper-off py-20 lg:py-28 border-b border-rule" id="why">

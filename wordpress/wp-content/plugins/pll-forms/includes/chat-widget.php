@@ -17,11 +17,11 @@ add_action(
 		if ( ! is_page( 'consult' ) ) {
 			return;
 		}
-		wp_enqueue_script( // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion -- third-party loader, unversioned by design.
+		wp_enqueue_script(
 			'pll-ghl-chat',
 			'https://beta.leadconnectorhq.com/loader.js',
 			array(),
-			null,
+			null, // phpcs:ignore WordPress.WP.EnqueuedResourceParameters -- third-party loader, unversioned by design.
 			array( 'in_footer' => true )
 		);
 	}

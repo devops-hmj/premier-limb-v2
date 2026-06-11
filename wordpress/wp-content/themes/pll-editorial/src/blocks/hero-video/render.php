@@ -1,6 +1,6 @@
 <?php
 /**
- * pll/hero-video front-end render.
+ * Render pll/hero-video front-end render.
  *
  * Port of components/v2/HeroStage.tsx. The z-stack (gradient fallback,
  * <video>, scrim, plate, sound toggle, overlay nav) is server-owned; the

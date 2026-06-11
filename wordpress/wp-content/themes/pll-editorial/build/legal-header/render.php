@@ -1,6 +1,6 @@
 <?php
 /**
- * pll/legal-header — port of the masthead in components/v2/legal/LegalDocument.tsx.
+ * Render pll/legal-header — port of the masthead in components/v2/legal/LegalDocument.tsx.
  * Header copy comes from page meta (seeded by the content pipeline):
  *   _pll_legal_eyebrow, _pll_legal_title_lead, _pll_legal_title_accent,
  *   _pll_legal_title_tail, _pll_legal_lede, _pll_legal_effective, _pll_legal_updated.

@@ -9,7 +9,7 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
- * path (no trailing slash) → target path. 301s.
+ * Path (no trailing slash) → target path. 301s.
  *
  * /video/will-i-be-a-better-athlete had no body content on the legacy site
  * (only a related-articles widget), so it redirects to the topically exact

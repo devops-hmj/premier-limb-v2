@@ -273,16 +273,22 @@ function pll_seo_schemas_for_view() {
 		$schemas[] = pll_seo_collection( 'Limb Lengthening Blog', $posts );
 		$schemas[] = pll_seo_breadcrumb(
 			array(
-				array( 'name' => 'Home', 'url' => '/' ),
-				array( 'name' => 'Blog', 'url' => '/blog/' ),
+				array(
+					'name' => 'Home',
+					'url'  => '/',
+				),
+				array(
+					'name' => 'Blog',
+					'url'  => '/blog/',
+				),
 			)
 		);
 		return $schemas;
 	}
 
 	if ( is_category() ) {
-		$term  = get_queried_object();
-		$posts = get_posts(
+		$term      = get_queried_object();
+		$posts     = get_posts(
 			array(
 				'post_type'      => 'post',
 				'posts_per_page' => -1,
@@ -295,26 +301,44 @@ function pll_seo_schemas_for_view() {
 		$schemas[] = pll_seo_collection( $label . ' · Limb Lengthening Articles', $posts );
 		$schemas[] = pll_seo_breadcrumb(
 			array(
-				array( 'name' => 'Home', 'url' => '/' ),
-				array( 'name' => 'Blog', 'url' => '/blog/' ),
-				array( 'name' => $label, 'url' => '/category/' . $term->slug . '/' ),
+				array(
+					'name' => 'Home',
+					'url'  => '/',
+				),
+				array(
+					'name' => 'Blog',
+					'url'  => '/blog/',
+				),
+				array(
+					'name' => $label,
+					'url'  => '/category/' . $term->slug . '/',
+				),
 			)
 		);
 		return $schemas;
 	}
 
 	if ( is_singular( 'post' ) ) {
-		$post      = get_post( get_queried_object_id() );
-		$cat       = pll_seo_primary_category_for( $post );
-		$crumbs    = array(
-			array( 'name' => 'Home', 'url' => '/' ),
-			array( 'name' => 'Blog', 'url' => '/blog/' ),
+		$post   = get_post( get_queried_object_id() );
+		$cat    = pll_seo_primary_category_for( $post );
+		$crumbs = array(
+			array(
+				'name' => 'Home',
+				'url'  => '/',
+			),
+			array(
+				'name' => 'Blog',
+				'url'  => '/blog/',
+			),
 		);
 		if ( $cat ) {
-			$crumbs[] = array( 'name' => $cat->name, 'url' => '/category/' . $cat->slug . '/' );
+			$crumbs[] = array(
+				'name' => $cat->name,
+				'url'  => '/category/' . $cat->slug . '/',
+			);
 		}
-		$title    = (string) get_post_meta( $post->ID, '_pll_seo_title', true );
-		$crumbs[] = array(
+		$title     = (string) get_post_meta( $post->ID, '_pll_seo_title', true );
+		$crumbs[]  = array(
 			'name' => $title ? $title : get_the_title( $post ),
 			'url'  => '/' . $post->post_name . '/',
 		);
@@ -339,9 +363,18 @@ function pll_seo_schemas_for_view() {
 				$schemas[] = pll_seo_article( $post );
 				$schemas[] = pll_seo_breadcrumb(
 					array(
-						array( 'name' => 'Home', 'url' => '/' ),
-						array( 'name' => 'Your Surgery', 'url' => '/your-surgery/' ),
-						array( 'name' => get_the_title( $post ), 'url' => $path ),
+						array(
+							'name' => 'Home',
+							'url'  => '/',
+						),
+						array(
+							'name' => 'Your Surgery',
+							'url'  => '/your-surgery/',
+						),
+						array(
+							'name' => get_the_title( $post ),
+							'url'  => $path,
+						),
 					)
 				);
 				return $schemas;
@@ -360,8 +393,14 @@ function pll_seo_schemas_for_view() {
 
 		$schemas[] = pll_seo_breadcrumb(
 			array(
-				array( 'name' => 'Home', 'url' => '/' ),
-				array( 'name' => get_the_title( $post ), 'url' => $path ),
+				array(
+					'name' => 'Home',
+					'url'  => '/',
+				),
+				array(
+					'name' => get_the_title( $post ),
+					'url'  => $path,
+				),
 			)
 		);
 		return $schemas;

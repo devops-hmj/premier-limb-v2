@@ -8,6 +8,7 @@
  *
  * @package pll-editorial
  */
+
 ?>
 <!-- wp:group {"tagName":"section","layout":{"type":"default"},"templateLock":"contentOnly","lock":{"move":true,"remove":true},"anchor":"results","className":"bg-ink text-paper py-24 lg:py-32"} -->
 <section class="wp-block-group bg-ink text-paper py-24 lg:py-32" id="results">

@@ -1,6 +1,6 @@
 <?php
 /**
- * pll/faq front-end render.
+ * Render pll/faq front-end render.
  *
  * Port of the accordion shell in components/v2/FaqV2.tsx. Children are
  * pll/faq-item blocks; this wrapper assigns each item its index (for the

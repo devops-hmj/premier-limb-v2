@@ -9,6 +9,7 @@
  *
  * @package pll-editorial
  */
+
 ?>
 <!-- wp:group {"tagName":"section","layout":{"type":"default"},"className":"bg-paper-off border-b border-ink pt-28 lg:pt-36 pb-12 lg:pb-14"} -->
 <section class="wp-block-group bg-paper-off border-b border-ink pt-28 lg:pt-36 pb-12 lg:pb-14">

@@ -10,6 +10,8 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
+ * The homepage FAQ entries.
+ *
  * @return array<int, array{q: string, a: string}>
  */
 function pll_seo_faqs() {

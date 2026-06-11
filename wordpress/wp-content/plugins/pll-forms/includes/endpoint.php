@@ -46,6 +46,8 @@ function pll_forms_time_token() {
 }
 
 /**
+ * Validate a time-trap token.
+ *
  * @param string $token Token from the form.
  * @return bool Whether the token is valid and at least 3 seconds old.
  */

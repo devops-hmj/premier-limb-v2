@@ -1,6 +1,6 @@
 <?php
 /**
- * pll/site-header front-end render.
+ * Render pll/site-header front-end render.
  *
  * Port of components/v2/NavV2.tsx: fixed bar that fades in past 120px
  * (or immediately when forceVisible), desktop hover dropdown for

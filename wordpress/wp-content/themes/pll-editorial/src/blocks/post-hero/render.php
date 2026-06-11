@@ -1,6 +1,6 @@
 <?php
 /**
- * pll/post-hero — featured-image figure from app/[slug]/page.tsx.
+ * Render pll/post-hero — featured-image figure from app/[slug]/page.tsx.
  *
  * @package pll-editorial
  */

@@ -24,7 +24,7 @@ remove_action( 'wp_print_styles', 'print_emoji_styles' );
 remove_action( 'wp_head', 'feed_links_extra', 3 );
 
 /**
- * og:type for the current view. Posts and the your-surgery tree are
+ * The og:type for the current view. Posts and the your-surgery tree are
  * "article" (matching the Next OG output); dr-basmajian is "profile".
  *
  * @return string
@@ -185,9 +185,12 @@ add_action(
  */
 add_filter(
 	'wp_robots',
-	function ( $robots ) {
+	function () {
 		if ( is_search() || is_404() ) {
-			return array( 'noindex' => true, 'follow' => true );
+			return array(
+				'noindex' => true,
+				'follow'  => true,
+			);
 		}
 		return array(
 			'index'  => true,

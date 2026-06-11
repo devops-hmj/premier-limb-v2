@@ -10,6 +10,8 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
+ * The pricing tiers.
+ *
  * @return array<int, array{name: string, price: string}>
  */
 function pll_seo_pricing_tiers() {

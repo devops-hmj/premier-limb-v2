@@ -24,14 +24,7 @@ jobs:
           tools: 'composer:v2'
           coverage: none
       - name: Install Composer deps
-        run: |
-          if [ -f composer.lock ]; then composer install --no-interaction --prefer-dist;
-          else composer update --no-interaction --prefer-dist; fi
-      - name: Upload composer.lock (bootstrap — commit this once, then remove this step)
-        uses: actions/upload-artifact@v4
-        with:
-          name: composer-lock
-          path: wordpress/composer.lock
+        run: composer install --no-interaction --prefer-dist
       - run: composer lint:syntax
       - run: composer lint
       - name: PHPStan (advisory while the codebase stabilizes)

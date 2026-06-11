@@ -8,6 +8,7 @@
  *
  * @package pll-editorial
  */
+
 ?>
 <!-- wp:group {"tagName":"section","layout":{"type":"default"},"templateLock":"contentOnly","lock":{"move":true,"remove":true},"className":"bg-paper py-20 lg:py-28"} -->
 <section class="wp-block-group bg-paper py-20 lg:py-28">

@@ -53,12 +53,8 @@ function pll_card_description( $post ) {
 /**
  * One blog card. Markup is the literal PostCard.tsx port.
  *
- * @param WP_Post $post  Post.
- * @param array   $opts  {
- *     @type float  $delay       Reveal stagger in seconds.
- *     @type bool   $filterable  Add data-category/data-search attrs (blog index).
- *     @type string $title_tag   Heading tag (default h3).
- * }
+ * @param WP_Post $post Post.
+ * @param array   $opts Options: delay (float, reveal stagger in seconds), filterable (bool, add data-category/data-search attrs for the blog index), title_tag (string, heading tag, default h3).
  * @return string HTML.
  */
 function pll_post_card_html( $post, $opts = array() ) {
