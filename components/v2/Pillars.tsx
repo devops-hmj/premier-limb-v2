@@ -43,7 +43,8 @@ export function Pillars() {
           </header>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-ink">
+        {/* Mobile: edge-bled swipe row (client request); md+ keeps the grid. */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-ink max-md:flex max-md:overflow-x-auto max-md:snap-x max-md:snap-mandatory max-md:-mx-6 max-md:px-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {pillars.map((p, i) => (
             <motion.article
               key={p.title}
@@ -52,7 +53,7 @@ export function Pillars() {
               whileHover={{ y: -4 }}
               viewport={{ once: true, margin: "-10% 0px" }}
               transition={{ duration: 0.6, delay: i * 0.08, ease: [0.2, 0.65, 0.3, 1] }}
-              className={`group py-9 pr-7 flex flex-col gap-4 min-h-[300px] lg:min-h-[340px] ${i % 2 === 1 ? "md:pl-5" : ""} ${i > 0 ? "lg:pl-5" : "lg:pl-0"} ${i < pillars.length - 1 ? "lg:border-r" : ""} ${i % 2 === 0 ? "md:border-r" : ""} ${i < 2 ? "md:border-b lg:border-b-0" : ""} border-rule lg:border-b-0`}
+              className={`group py-9 pr-7 flex flex-col gap-4 min-h-[300px] lg:min-h-[340px] max-md:w-[84%] max-md:shrink-0 max-md:snap-start ${i > 0 ? "max-md:border-l max-md:pl-6" : ""} ${i % 2 === 1 ? "md:pl-5" : ""} ${i > 0 ? "lg:pl-5" : "lg:pl-0"} ${i < pillars.length - 1 ? "lg:border-r" : ""} ${i % 2 === 0 ? "md:border-r" : ""} ${i < 2 ? "md:border-b lg:border-b-0" : ""} border-rule lg:border-b-0`}
             >
               <div className="inline-flex items-center gap-2.5 font-mono uppercase tracking-[0.2em] text-[10.5px] text-muted">
                 <span className="inline-block w-2 h-2 bg-spine group-hover:bg-spine-deep transition-colors" aria-hidden />

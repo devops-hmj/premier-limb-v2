@@ -43,13 +43,14 @@ export function Process() {
           </header>
         </Reveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 border-t border-white/30">
+        {/* Mobile: edge-bled swipe row (client request); lg keeps the 3-up grid. */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 border-t border-white/30 max-md:flex max-md:overflow-x-auto max-md:snap-x max-md:snap-mandatory max-md:-mx-6 max-md:px-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {steps.map((s, i) => (
             <Reveal
               key={s.n}
               delay={i * 0.08}
               as="article"
-              className={`relative py-12 pr-8 ${i < steps.length - 1 ? "lg:border-r border-white/15" : ""}`}
+              className={`relative py-12 pr-8 max-md:w-[86%] max-md:shrink-0 max-md:snap-start ${i > 0 ? "max-md:border-l max-md:border-white/15 max-md:pl-6" : ""} ${i < steps.length - 1 ? "lg:border-r border-white/15" : ""}`}
             >
               <div className="mb-7 flex items-center gap-3.5 font-mono uppercase text-[11px] tracking-[0.22em] text-paper/90">
                 {s.phase}

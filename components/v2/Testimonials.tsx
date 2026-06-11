@@ -60,9 +60,15 @@ export function Testimonials() {
           </header>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12 border-t border-ink pt-12">
+        {/* Mobile: edge-bled swipe row (client request); md+ keeps the grid. */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12 border-t border-ink pt-12 max-md:flex max-md:overflow-x-auto max-md:snap-x max-md:snap-mandatory max-md:-mx-6 max-md:px-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {quotes.map((q, i) => (
-            <Reveal key={q.name} delay={i * 0.1} as="article">
+            <Reveal
+              key={q.name}
+              delay={i * 0.1}
+              as="article"
+              className="max-md:w-[84%] max-md:shrink-0 max-md:snap-start"
+            >
               <div className="font-serif italic text-spine text-[88px] leading-[0.6] mb-3">&ldquo;</div>
               <blockquote className="font-serif text-[20px] lg:text-[23px] leading-[1.35] tracking-[-0.005em] text-ink mb-6">
                 {q.body}
