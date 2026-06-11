@@ -120,14 +120,48 @@ function extractHead(html) {
 	};
 }
 
+// undici fetch has no cookie jar, and Playground's auto-login flow is
+// set-cookie + redirect-to-self (an infinite loop without cookies). Carry a
+// per-base cookie string and follow redirects manually.
+const jars = new Map();
+
 async function fetchHead(base, route) {
-	const res = await fetch(base + route, { redirect: "manual", headers: { Accept: "text/html" } });
-	if (res.status >= 300 && res.status < 400) {
-		// follow one local redirect (Playground auto-login)
-		const res2 = await fetch(base + route, { headers: { Accept: "text/html" } });
-		return { status: res.status, head: extractHead(await res2.text()) };
+	let cookies = jars.get(base) ?? "";
+	let url = base + route;
+	let status = 0;
+
+	for (let hop = 0; hop < 8; hop++) {
+		const res = await fetch(url, {
+			redirect: "manual",
+			headers: { Accept: "text/html", ...(cookies ? { Cookie: cookies } : {}) },
+		});
+		status = status || res.status;
+
+		const setCookies = res.headers.getSetCookie?.() ?? [];
+		if (setCookies.length) {
+			const existing = new Map(
+				cookies.split("; ").filter(Boolean).map((c) => c.split("=", 1).concat(c.slice(c.indexOf("=") + 1)))
+			);
+			for (const sc of setCookies) {
+				const pair = sc.split(";")[0];
+				existing.set(pair.split("=", 1)[0], pair.slice(pair.indexOf("=") + 1));
+			}
+			cookies = [...existing.entries()].map(([k, v]) => `${k}=${v}`).join("; ");
+			jars.set(base, cookies);
+		}
+
+		if (res.status >= 300 && res.status < 400) {
+			const location = res.headers.get("location") ?? "/";
+			url = location.startsWith("http") ? location : base + location;
+			continue;
+		}
+		const body = await res.text();
+		if (process.env.PARITY_DEBUG) {
+			console.error(`[debug] ${url} → ${res.status}, ${body.length} bytes, title=${/<title>([^<]*)<\/title>/.exec(body)?.[1] ?? "NONE"}`);
+		}
+		return { status, head: extractHead(body) };
 	}
-	return { status: res.status, head: extractHead(await res.text()) };
+	throw new Error(`redirect loop at ${base + route}`);
 }
 
 const FIELDS = [
