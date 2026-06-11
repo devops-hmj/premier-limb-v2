@@ -1,0 +1,22 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "pll/surgery-topics",
+	"version": "1.0.0",
+	"title": "PLL Surgery Topics",
+	"category": "theme",
+	"icon": "grid-view",
+	"description": "Your-surgery topic cards. Variant \"all\": numbered grid of every sub-page (overview page). Variant \"siblings\": three other topics (sub-pages). Template-only block.",
+	"textdomain": "pll-editorial",
+	"attributes": {
+		"variant": {
+			"type": "string",
+			"default": "siblings",
+			"enum": [ "all", "siblings" ]
+		}
+	},
+	"supports": { "html": false, "customClassName": false, "inserter": false },
+	"usesContext": [ "postId" ],
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}

@@ -37,6 +37,24 @@ add_action(
 	}
 );
 
+/**
+ * Keep the footer copyright year current without an annual content edit.
+ * The footer pattern wraps the year in <span class="pll-year">.
+ */
+add_filter(
+	'render_block_core/paragraph',
+	function ( $block_content ) {
+		if ( false !== strpos( $block_content, 'pll-year' ) ) {
+			$block_content = preg_replace(
+				'/(<span class="pll-year">)\d{4}(<\/span>)/',
+				'${1}' . gmdate( 'Y' ) . '${2}',
+				$block_content
+			);
+		}
+		return $block_content;
+	}
+);
+
 add_action(
 	'init',
 	function () {

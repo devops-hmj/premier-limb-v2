@@ -1,0 +1,21 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "pll/related-posts",
+  "version": "1.0.0",
+  "title": "PLL Related Posts",
+  "category": "theme",
+  "icon": "grid-view",
+  "description": "\"Keep reading.\" — three related articles (same category first, newest first, excluding the current post). Template-only block.",
+  "textdomain": "pll-editorial",
+  "supports": {
+    "html": false,
+    "customClassName": false,
+    "inserter": false
+  },
+  "usesContext": [
+    "postId"
+  ],
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
+}

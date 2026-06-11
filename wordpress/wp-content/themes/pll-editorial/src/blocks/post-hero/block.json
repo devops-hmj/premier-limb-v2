@@ -1,0 +1,15 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "pll/post-hero",
+	"version": "1.0.0",
+	"title": "PLL Post Hero Image",
+	"category": "theme",
+	"icon": "format-image",
+	"description": "Featured image as a bordered 16:9 figure with the alt text as caption. Renders nothing without a featured image. Template-only block.",
+	"textdomain": "pll-editorial",
+	"supports": { "html": false, "customClassName": false, "inserter": false },
+	"usesContext": [ "postId" ],
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}

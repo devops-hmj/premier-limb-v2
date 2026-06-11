@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "pll/faq",
+  "version": "1.0.0",
+  "title": "PLL FAQ Accordion",
+  "category": "theme",
+  "icon": "editor-help",
+  "description": "Editorial FAQ accordion (first item open, single item open at a time, animated). Add or remove questions freely — each question is a PLL FAQ Item.",
+  "keywords": [
+    "faq",
+    "accordion",
+    "questions"
+  ],
+  "textdomain": "pll-editorial",
+  "supports": {
+    "html": false,
+    "customClassName": false,
+    "reusable": false,
+    "interactivity": true
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "viewScriptModule": "file:./view.js"
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "pll/archive-header",
+  "version": "1.0.0",
+  "title": "PLL Archive Header",
+  "category": "theme",
+  "icon": "archive",
+  "description": "Archive page header: breadcrumb, big serif title, and term description aside (category), or the equivalent for author and search contexts. Template-only block.",
+  "textdomain": "pll-editorial",
+  "supports": {
+    "html": false,
+    "customClassName": false,
+    "inserter": false
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
+}

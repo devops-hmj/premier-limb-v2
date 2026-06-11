@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "pll/site-header",
+	"version": "1.0.0",
+	"title": "PLL Site Header",
+	"category": "theme",
+	"icon": "menu",
+	"description": "Sticky primary navigation: fades in past 120px of scroll (or shows immediately with Force visible), desktop dropdown for Your Surgery, mobile sheet menu. Menu items are managed in code (inc/nav.php).",
+	"keywords": [ "header", "navigation" ],
+	"textdomain": "pll-editorial",
+	"attributes": {
+		"forceVisible": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"supports": {
+		"html": false,
+		"customClassName": false,
+		"reusable": false,
+		"interactivity": true
+	},
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php",
+	"viewScriptModule": "file:./view.js"
+}

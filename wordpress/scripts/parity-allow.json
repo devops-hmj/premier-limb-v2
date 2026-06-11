@@ -1,0 +1,20 @@
+{
+	"_comment": "Accepted systematic diffs between the Next.js site and the WordPress recreation. Field → 'any' (every route) or an array of routes. Each entry must be explainable in docs/PARITY.md.",
+	"fields": {
+		"ogImage": [
+			"/dr-basmajian/",
+			"/your-surgery/",
+			"/your-surgery/will-limb-lengthening-hurt/",
+			"/your-surgery/is-there-an-age-limit-for-limb-lengthening/",
+			"/your-surgery/can-i-bend-my-lengthening-nail/",
+			"/your-surgery/external-internal-lengthening/",
+			"/your-surgery/exercise-after-limb-lengthening/",
+			"/your-surgery/how-much-taller-can-i-get-with-limb-lengthening/",
+			"/your-surgery/limb-lengthening-expectations/"
+		]
+	},
+	"notes": [
+		"ogImage on /dr-basmajian/ and the your-surgery tree: Next derives it from public/ asset paths (e.g. /dr-picture.jpg, /images/your-surgery/*.webp); in WordPress those assets live at theme/uploads URLs. Post featured-image OG URLs are identical (original upload paths preserved).",
+		"Canonical/og:url trailing slashes are normalized before comparison: Next canonicals are slashless, WordPress canonical form has trailing slashes. Both resolve identically (the WP rewrite layer 301s slashless to slashed; Next did the inverse)."
+	]
+}
