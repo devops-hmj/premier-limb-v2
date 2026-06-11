@@ -42,11 +42,14 @@ add_action(
  */
 function pll_seo_page_defaults() {
 	return array(
+		// Absolute (no site-name suffix): the template would push it past
+		// 100 chars. Keyword-first per homepage handoff v2 §08.
 		'/'                                 => array(
-			'title'          => 'Limb Lengthening Surgery in Southern California · Dr. Hrayr Basmajian',
-			'description'    => "Cosmetic limb lengthening surgery with one of the West Coast's most experienced surgeons. Gain up to 6 inches with concierge care from first consult through full recovery.",
-			'og_title'       => 'Limb Lengthening Surgery in Southern California · Premier',
-			'og_description' => 'Gain up to 6 inches with one of the most experienced limb lengthening surgeons on the West Coast. Concierge care, transparent pricing.',
+			'title'          => 'Cosmetic Limb Lengthening Surgeon in Southern California · Dr. Hrayr Basmajian',
+			'title_absolute' => true,
+			'description'    => 'Cosmetic limb lengthening surgery performed by Dr. Hrayr Basmajian, a fellowship-trained orthopaedic trauma surgeon in Southern California. Precice internal nail. Revision cases accepted. Concierge care included.',
+			'og_title'       => 'Cosmetic Limb Lengthening Surgeon in Southern California · Dr. Hrayr Basmajian',
+			'og_description' => 'Cosmetic limb lengthening performed by a fellowship-trained orthopaedic trauma surgeon. Precice internal nail. Revision cases accepted. Concierge care included.',
 			'og_type'        => 'website',
 		),
 		'/about/'                           => array(
@@ -64,23 +67,23 @@ function pll_seo_page_defaults() {
 			'og_type'        => 'website',
 		),
 		'/dr-basmajian/'                    => array(
-			'title'          => 'Dr. Hrayr Basmajian — Limb Lengthening Surgeon',
+			'title'          => 'Dr. Hrayr Basmajian · Limb Lengthening Surgeon',
 			'description'    => 'Board-certified orthopaedic trauma surgeon and Medical Director of Orthopaedic Trauma at Pomona Valley Hospital. Thousands of limb lengthening procedures performed.',
-			'og_title'       => 'Dr. Hrayr Basmajian — Limb Lengthening Surgeon',
+			'og_title'       => 'Dr. Hrayr Basmajian · Limb Lengthening Surgeon',
 			'og_description' => 'Board-certified orthopaedic trauma surgeon. Director, Orthopaedic Trauma at Pomona Valley Hospital. Thousands of limb lengthening procedures performed.',
 			'og_type'        => 'profile',
 		),
 		'/limb-lengthening-pricing-options/' => array(
-			'title'          => 'Limb Lengthening Cost — Pricing & Financing',
+			'title'          => 'Limb Lengthening Cost · Pricing & Financing',
 			'description'    => 'Transparent 2026 pricing for cosmetic limb lengthening. Every quote bundles implants, OR time, hospitalization, anesthesia, follow-up care, and on-site sessions.',
-			'og_title'       => 'Limb Lengthening Cost — Pricing & Financing',
+			'og_title'       => 'Limb Lengthening Cost · Pricing & Financing',
 			'og_description' => 'Transparent 2026 pricing for cosmetic limb lengthening. Bundled implants, OR time, hospitalization, anesthesia, follow-up care, and on-site sessions.',
 			'og_type'        => 'website',
 		),
 		'/your-surgery/'                    => array(
-			'title'          => 'Limb Lengthening Surgery — How It Works',
-			'description'    => 'How limb lengthening works — distraction osteogenesis, Precice internal nail placement, gradual distraction, and a recovery timeline you can plan your life around.',
-			'og_title'       => 'Limb Lengthening Surgery — How It Works',
+			'title'          => 'Limb Lengthening Surgery · How It Works',
+			'description'    => 'How limb lengthening works: distraction osteogenesis, Precice internal nail placement, gradual distraction, and a recovery timeline you can plan your life around.',
+			'og_title'       => 'Limb Lengthening Surgery · How It Works',
 			'og_description' => 'Distraction osteogenesis, internal Precice technology, and a recovery timeline you can plan your life around.',
 			'og_type'        => 'article',
 		),

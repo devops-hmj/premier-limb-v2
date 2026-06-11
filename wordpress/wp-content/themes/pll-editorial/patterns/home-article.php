@@ -6,7 +6,7 @@
  *
  * Port of components/v2/Article.tsx — the paper-off lede that docks under
  * the video stage: editorial portrait + drop-cap lead + 2-column running
- * body + CTA row, concluded by the 4-up trust strip.
+ * body + CTA row, concluded by the 5-up trust strip.
  *
  * @package pll-editorial
  */
@@ -42,13 +42,13 @@ $pll_portrait = get_theme_file_uri( 'assets/images/dr-picture.jpg' );
 			<!-- wp:group {"layout":{"type":"default"},"className":"js-reveal pll-delay-100 col-span-12 lg:col-span-7"} -->
 			<div class="wp-block-group js-reveal pll-delay-100 col-span-12 lg:col-span-7">
 				<!-- wp:paragraph {"className":"v2-dropcap text-[18px] leading-[1.6] text-ink mb-7 max-w-[54ch]"} -->
-				<p class="v2-dropcap text-[18px] leading-[1.6] text-ink mb-7 max-w-[54ch]">Concierge care from your first consultation through full recovery. We combine a trauma surgeon’s precision with a private-clinic’s level of discretion. The result is a practice that accepts cases others decline, in a setting designed around the patient.</p>
+				<p class="v2-dropcap text-[18px] leading-[1.6] text-ink mb-7 max-w-[54ch]">Concierge care from your first consultation through full recovery. We combine a trauma surgeon’s precision with a private-clinic’s level of discretion. Dr. Basmajian personally performs every procedure. He accepts cases other surgeons decline, in a setting designed around the patient.</p>
 				<!-- /wp:paragraph -->
 
 				<!-- wp:group {"layout":{"type":"default"},"className":"v2-cols text-[14.5px] leading-[1.7] text-ink-soft pt-4 border-t border-rule"} -->
 				<div class="wp-block-group v2-cols text-[14.5px] leading-[1.7] text-ink-soft pt-4 border-t border-rule">
 					<!-- wp:paragraph -->
-					<p>Our program is the only US limb lengthening practice offering a full white-glove travel and recovery coordination service: flights, housing, physical therapy, and a single dedicated coordinator from first call to final follow-up.</p>
+					<p>Our program is the only US limb lengthening practice offering a full white-glove travel and recovery coordination service: flights, housing, physical therapy, and a dedicated coordinator from first call to final follow-up.</p>
 					<!-- /wp:paragraph -->
 
 					<!-- wp:paragraph -->
@@ -77,8 +77,8 @@ $pll_portrait = get_theme_file_uri( 'assets/images/dr-picture.jpg' );
 
 	<!-- wp:group {"layout":{"type":"default"},"className":"js-reveal mx-auto max-w-wrap px-6 lg:px-12 mt-12"} -->
 	<div class="wp-block-group js-reveal mx-auto max-w-wrap px-6 lg:px-12 mt-12">
-		<!-- wp:group {"layout":{"type":"default"},"className":"grid grid-cols-2 lg:grid-cols-4 border-t border-b border-ink py-7"} -->
-		<div class="wp-block-group grid grid-cols-2 lg:grid-cols-4 border-t border-b border-ink py-7">
+		<!-- wp:group {"layout":{"type":"default"},"className":"grid grid-cols-2 lg:grid-cols-5 border-t border-b border-ink py-7"} -->
+		<div class="wp-block-group grid grid-cols-2 lg:grid-cols-5 border-t border-b border-ink py-7">
 			<!-- wp:group {"layout":{"type":"default"},"className":"px-4 lg:pr-6 flex flex-col gap-1.5 lg:border-r border-rule border-r border-rule lg:border-r border-b border-rule pb-5 lg:border-b-0 lg:pb-0"} -->
 			<div class="wp-block-group px-4 lg:pr-6 flex flex-col gap-1.5 lg:border-r border-rule border-r border-rule lg:border-r border-b border-rule pb-5 lg:border-b-0 lg:pb-0">
 				<!-- wp:paragraph {"className":"font-mono uppercase text-[10px] tracking-[0.22em] text-muted"} -->
@@ -111,8 +111,8 @@ $pll_portrait = get_theme_file_uri( 'assets/images/dr-picture.jpg' );
 			</div>
 			<!-- /wp:group -->
 
-			<!-- wp:group {"layout":{"type":"default"},"className":"px-4 lg:pr-6 flex flex-col gap-1.5 lg:border-r border-rule border-r border-rule lg:border-r pt-5 lg:pt-0"} -->
-			<div class="wp-block-group px-4 lg:pr-6 flex flex-col gap-1.5 lg:border-r border-rule border-r border-rule lg:border-r pt-5 lg:pt-0">
+			<!-- wp:group {"layout":{"type":"default"},"className":"px-4 lg:pr-6 flex flex-col gap-1.5 lg:border-r border-rule border-r border-rule lg:border-r border-b border-rule pb-5 lg:border-b-0 lg:pb-0 pt-5 lg:pt-0"} -->
+			<div class="wp-block-group px-4 lg:pr-6 flex flex-col gap-1.5 lg:border-r border-rule border-r border-rule lg:border-r border-b border-rule pb-5 lg:border-b-0 lg:pb-0 pt-5 lg:pt-0">
 				<!-- wp:paragraph {"className":"font-mono uppercase text-[10px] tracking-[0.22em] text-muted"} -->
 				<p class="font-mono uppercase text-[10px] tracking-[0.22em] text-muted">03</p>
 				<!-- /wp:paragraph -->
@@ -127,8 +127,8 @@ $pll_portrait = get_theme_file_uri( 'assets/images/dr-picture.jpg' );
 			</div>
 			<!-- /wp:group -->
 
-			<!-- wp:group {"layout":{"type":"default"},"className":"px-4 lg:pr-6 flex flex-col gap-1.5 pt-5 lg:pt-0"} -->
-			<div class="wp-block-group px-4 lg:pr-6 flex flex-col gap-1.5 pt-5 lg:pt-0">
+			<!-- wp:group {"layout":{"type":"default"},"className":"px-4 lg:pr-6 flex flex-col gap-1.5 lg:border-r border-rule border-b border-rule pb-5 lg:border-b-0 lg:pb-0 pt-5 lg:pt-0"} -->
+			<div class="wp-block-group px-4 lg:pr-6 flex flex-col gap-1.5 lg:border-r border-rule border-b border-rule pb-5 lg:border-b-0 lg:pb-0 pt-5 lg:pt-0">
 				<!-- wp:paragraph {"className":"font-mono uppercase text-[10px] tracking-[0.22em] text-muted"} -->
 				<p class="font-mono uppercase text-[10px] tracking-[0.22em] text-muted">04</p>
 				<!-- /wp:paragraph -->
@@ -139,6 +139,22 @@ $pll_portrait = get_theme_file_uri( 'assets/images/dr-picture.jpg' );
 
 				<!-- wp:paragraph {"className":"text-[12px] text-muted leading-[1.55]"} -->
 				<p class="text-[12px] text-muted leading-[1.55]">Fully itemised quote before you commit.</p>
+				<!-- /wp:paragraph -->
+			</div>
+			<!-- /wp:group -->
+
+			<!-- wp:group {"layout":{"type":"default"},"className":"px-4 lg:pr-6 flex flex-col gap-1.5 col-span-2 lg:col-span-1 pt-5 lg:pt-0"} -->
+			<div class="wp-block-group px-4 lg:pr-6 flex flex-col gap-1.5 col-span-2 lg:col-span-1 pt-5 lg:pt-0">
+				<!-- wp:paragraph {"className":"font-mono uppercase text-[10px] tracking-[0.22em] text-muted"} -->
+				<p class="font-mono uppercase text-[10px] tracking-[0.22em] text-muted">05</p>
+				<!-- /wp:paragraph -->
+
+				<!-- wp:paragraph {"className":"font-serif text-[20px] lg:text-[22px] leading-[1.15] tracking-[-0.01em] text-ink"} -->
+				<p class="font-serif text-[20px] lg:text-[22px] leading-[1.15] tracking-[-0.01em] text-ink"><em class="italic text-spine">Fellowship-Trained,</em> two programs</p>
+				<!-- /wp:paragraph -->
+
+				<!-- wp:paragraph {"className":"text-[12px] text-muted leading-[1.55]"} -->
+				<p class="text-[12px] text-muted leading-[1.55]">Orthopaedic trauma &amp; joint reconstruction. Scottsdale &amp; Hannover.</p>
 				<!-- /wp:paragraph -->
 			</div>
 			<!-- /wp:group -->

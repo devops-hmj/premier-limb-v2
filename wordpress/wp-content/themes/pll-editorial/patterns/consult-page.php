@@ -36,7 +36,7 @@ $pll_info = pll_site_info();
 		<!-- wp:group {"layout":{"type":"default"},"className":"js-reveal pll-delay-100 col-span-12 lg:col-span-4 lg:pl-6 lg:border-l border-rule lg:self-end"} -->
 		<div class="wp-block-group js-reveal pll-delay-100 col-span-12 lg:col-span-4 lg:pl-6 lg:border-l border-rule lg:self-end">
 			<!-- wp:paragraph {"className":"font-serif italic text-[20px] lg:text-[22px] leading-[1.35] text-ink-soft"} -->
-			<p class="font-serif italic text-[20px] lg:text-[22px] leading-[1.35] text-ink-soft">Tell us about your goals — we’ll respond within one business day. Or call <?php echo esc_html( $pll_info['phone'] ); ?> for an immediate response.</p>
+			<p class="font-serif italic text-[20px] lg:text-[22px] leading-[1.35] text-ink-soft">Tell us about your goals. We’ll respond within one business day. Or call <?php echo esc_html( $pll_info['phone'] ); ?> for an immediate response.</p>
 			<!-- /wp:paragraph -->
 		</div>
 		<!-- /wp:group -->

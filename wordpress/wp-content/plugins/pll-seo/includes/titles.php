@@ -18,7 +18,7 @@ function pll_seo_title_part() {
 		return pll_seo_page_defaults()['/blog/']['title'];
 	}
 	if ( is_category() ) {
-		return single_cat_title( '', false ) . ' — Limb Lengthening Articles';
+		return single_cat_title( '', false ) . ' · Limb Lengthening Articles';
 	}
 	if ( is_author() ) {
 		return get_the_author_meta( 'display_name', (int) get_query_var( 'author' ) );
@@ -51,6 +51,13 @@ function pll_seo_title_part() {
 add_filter(
 	'pre_get_document_title',
 	function () {
+		// Pages flagged title_absolute skip the site-name template (the
+		// homepage's keyword-first title would exceed 100 chars with it).
+		$defaults = pll_seo_page_defaults();
+		$path     = pll_seo_current_path();
+		if ( ! empty( $defaults[ $path ]['title_absolute'] ) ) {
+			return pll_seo_title_part();
+		}
 		return pll_seo_title_part() . ' · Premier Limb Lengthening';
 	},
 	20

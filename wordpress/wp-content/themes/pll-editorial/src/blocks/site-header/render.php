@@ -35,7 +35,7 @@ $pll_context = array(
 		data-wp-class--is-visible="state.isVisible"
 	>
 		<div class="mx-auto max-w-wrap px-6 lg:px-12 py-3 flex items-center justify-between gap-6">
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="<?php esc_attr_e( 'Premier Limb Lengthening — home', 'pll-editorial' ); ?>" class="flex items-center shrink-0">
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="<?php esc_attr_e( 'Premier Limb Lengthening, home', 'pll-editorial' ); ?>" class="flex items-center shrink-0">
 				<?php echo pll_logo_img( 'light', 170 ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			</a>
 

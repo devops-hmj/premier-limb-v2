@@ -292,7 +292,7 @@ function pll_seo_schemas_for_view() {
 			)
 		);
 		$label     = $term->name;
-		$schemas[] = pll_seo_collection( $label . ' — Limb Lengthening Articles', $posts );
+		$schemas[] = pll_seo_collection( $label . ' · Limb Lengthening Articles', $posts );
 		$schemas[] = pll_seo_breadcrumb(
 			array(
 				array( 'name' => 'Home', 'url' => '/' ),

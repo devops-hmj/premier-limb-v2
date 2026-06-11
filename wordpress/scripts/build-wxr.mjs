@@ -222,8 +222,11 @@ const SURGERY_CHILDREN = [
 
 const surgeryRaw = readFileSync(path.join(CONTENT_DIR, "your-surgery.md"), "utf8");
 const surgery = convertMarkdown(surgeryRaw, { rewriteImageSrc });
+// Title "Your Surgery" (nav/breadcrumb label); the hand-written SEO title and
+// description live in pll-seo's page-defaults map, so no meta is seeded here —
+// seeded meta would override the better hand-written values.
 const surgeryParentId = pushItem({
-	title: surgery.title || "Your Surgery",
+	title: "Your Surgery",
 	slug: "your-surgery",
 	type: "page",
 	content: surgery.blocksHtml,
@@ -231,8 +234,6 @@ const surgeryParentId = pushItem({
 	link: `${ORIGIN}/your-surgery/`,
 	meta: {
 		_wp_page_template: "page-your-surgery",
-		_pll_seo_title: surgery.title,
-		_pll_seo_description: surgery.description,
 	},
 });
 
@@ -331,6 +332,8 @@ const LEGAL_PAGES = [
 for (const legal of LEGAL_PAGES) {
 	const md = extractLegalMarkdown(legal.tsx, legal.constName);
 	const page = convertMarkdown(`# ${legal.title}\n\n${md}`, { rewriteImageSrc });
+	// No _pll_seo_description seeded: the hand-written description in
+	// pll-seo's defaults map is the parity source; seeded meta would override it.
 	pushItem({
 		title: legal.title,
 		slug: legal.slug,
@@ -340,7 +343,6 @@ for (const legal of LEGAL_PAGES) {
 		link: `${ORIGIN}/${legal.slug}/`,
 		meta: {
 			_wp_page_template: "page-legal",
-			_pll_seo_description: page.description,
 			_pll_legal_eyebrow: legal.eyebrow,
 			_pll_legal_title_lead: legal.titleLead,
 			_pll_legal_title_accent: legal.titleAccent,

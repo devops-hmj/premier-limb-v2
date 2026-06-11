@@ -73,9 +73,11 @@ function normUrl(value) {
 	let v = value
 		.replace(/^https?:\/\/(localhost:3000|127\.0\.0\.1:9400|localhost:9400)/, ORIGIN)
 		.replace(/^https?:\/\/(www\.)?premierlimblengthening\.com/, ORIGIN);
+	if (v === ORIGIN) return ORIGIN + "/";
 	if (v.startsWith(ORIGIN)) {
 		const [base, hash] = v.split("#");
-		if (!base.match(/\.[a-z]{2,4}$/i) && !base.endsWith("/")) v = base + "/" + (hash ? "#" + hash : "");
+		const path = base.slice(ORIGIN.length);
+		if (!path.match(/\.[a-z]{2,4}$/i) && !base.endsWith("/")) v = base + "/" + (hash ? "#" + hash : "");
 	}
 	return v;
 }

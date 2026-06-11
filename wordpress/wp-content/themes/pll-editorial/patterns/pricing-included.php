@@ -66,9 +66,9 @@
 				<!-- /wp:list-item --><!-- wp:list-item {"className":"grid grid-cols-[24px_1fr] gap-2 items-baseline py-4 border-b border-rule text-[15px] leading-[1.55] text-ink-soft"} -->
 				<li class="grid grid-cols-[24px_1fr] gap-2 items-baseline py-4 border-b border-rule text-[15px] leading-[1.55] text-ink-soft"><span aria-hidden="true" class="font-serif font-medium text-warn text-[18px]">·</span><span>Out-of-network insurance reimbursement claims</span></li>
 				<!-- /wp:list-item --><!-- wp:list-item {"className":"grid grid-cols-[24px_1fr] gap-2 items-baseline py-4 border-b border-rule text-[15px] leading-[1.55] text-ink-soft"} -->
-				<li class="grid grid-cols-[24px_1fr] gap-2 items-baseline py-4 border-b border-rule text-[15px] leading-[1.55] text-ink-soft"><span aria-hidden="true" class="font-serif font-medium text-warn text-[18px]">·</span><span>Optional corrections (rotation, bowleg) — see add-ons</span></li>
+				<li class="grid grid-cols-[24px_1fr] gap-2 items-baseline py-4 border-b border-rule text-[15px] leading-[1.55] text-ink-soft"><span aria-hidden="true" class="font-serif font-medium text-warn text-[18px]">·</span><span>Optional corrections (rotation, bowleg). See add-ons</span></li>
 				<!-- /wp:list-item --><!-- wp:list-item {"className":"grid grid-cols-[24px_1fr] gap-2 items-baseline py-4 border-b border-rule text-[15px] leading-[1.55] text-ink-soft"} -->
-				<li class="grid grid-cols-[24px_1fr] gap-2 items-baseline py-4 border-b border-rule text-[15px] leading-[1.55] text-ink-soft"><span aria-hidden="true" class="font-serif font-medium text-warn text-[18px]">·</span><span>Hardware removal — see the schedule above</span></li>
+				<li class="grid grid-cols-[24px_1fr] gap-2 items-baseline py-4 border-b border-rule text-[15px] leading-[1.55] text-ink-soft"><span aria-hidden="true" class="font-serif font-medium text-warn text-[18px]">·</span><span>Hardware removal. See the schedule above</span></li>
 				<!-- /wp:list-item --></ul>
 				<!-- /wp:list -->
 			</div>
