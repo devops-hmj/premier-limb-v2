@@ -32,7 +32,7 @@ const ORIGIN = "https://premierlimblengthening.com";
 /* ---- site constants (mirror lib/site.ts) ---- */
 const SITE = {
 	name: "Premier Limb Lengthening",
-	phone: "(909) 563-8653",
+	phone: "(951) 620-5663",
 	domain: "premierlimblengthening.com",
 	address: { street: "400 N. Mountain Ave. Suite 305", city: "Upland", state: "CA", zip: "91786" },
 };

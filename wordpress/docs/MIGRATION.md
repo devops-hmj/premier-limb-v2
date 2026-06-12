@@ -83,6 +83,29 @@ It is **idempotent** (safe to re-run) and does what WXR cannot:
 - fixes author nicenames so `/author/ccatandella/` and `/author/edusenbury/` resolve
 - sets Reading: front page = Home, posts page = Blog; flushes rewrite rules
 
+### 6b. Updating an ALREADY-SEEDED (live) site after a copy change
+
+Marketing-page copy is composed from theme patterns **at seed time** and the legal
+pages come from the WXR, so updating theme/plugin files alone does not change page
+content already in the database. After uploading the updated theme + plugins:
+
+1. Recompose the marketing pages from the current patterns (**overwrites any manual
+   wp-admin edits to those pages** — diff first if editors have touched them):
+
+   ```
+   wp eval "define( 'PLL_SEED_FORCE', true ); require 'content/setup.php';"
+   ```
+
+2. Fix literal strings inside imported content (legal pages, posts) with
+   search-replace, e.g. the 2026-06-12 phone change:
+
+   ```
+   wp search-replace '(909) 563-8653' '(951) 620-5663' --all-tables --precise
+   wp search-replace 'tel:+19095638653' 'tel:+19516205663' --all-tables --precise
+   ```
+
+   Always run with `--dry-run` first and take a DB snapshot before the real pass.
+
 ## 7. URL parity contract (do not change)
 
 - Permalinks **must** stay `/%postname%/` and the category base must stay `category` —
@@ -130,7 +153,8 @@ It is **idempotent** (safe to re-run) and does what WXR cannot:
 - [ ] Provenance/authorization for `dr-xray.jpg` and the hero video footage
 - [ ] Counsel review of Privacy Policy, Terms, Accessibility (imported as published pages)
 - [ ] Notice of Privacy Practices page (`/notice-of-privacy-practices`) still unbuilt
-- [ ] Confirm the SMS/HELP contact number: site uses (909) 563-8653; the June-2026
-      marketing handoff cited (909) 461-4984
+- [x] SMS/HELP contact number confirmed by the owner (2026-06-12): **(951) 620-5663**,
+      applied site-wide (was (909) 563-8653; the June-2026 handoff's (909) 461-4984
+      is superseded). On an already-seeded site, also run the search-replace in §6b.
 - [ ] Provision privacy@premierlimblengthening.com
 - [ ] BAA inventory: hosting, GHL/LeadConnector, telehealth, CareCredit, email/CRM

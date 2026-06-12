@@ -25,7 +25,7 @@ function pll_seo_site_graph() {
 				'name'               => 'Premier Limb Lengthening Institute',
 				'legalName'          => 'Premier Limb Lengthening',
 				'url'                => PLL_SEO_ORIGIN,
-				'telephone'          => '+1-909-563-8653',
+				'telephone'          => '+1-951-620-5663',
 				'faxNumber'          => '+1-909-596-4344',
 				'priceRange'         => '$95,500–$195,000',
 				'medicalSpecialty'   => array( 'Orthopedic', 'Trauma' ),
