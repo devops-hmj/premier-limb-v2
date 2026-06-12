@@ -58,7 +58,7 @@
 
 		<!-- wp:pll/faq-item {"question":"Do you accept out-of-state &amp; international patients?"} -->
 		<!-- wp:paragraph -->
-		<p>Yes. Our concierge program coordinates flights, ground transportation, extended-stay housing, and physical therapy. We've served patients from 50+ states and countries.</p>
+		<p>Yes. Our concierge program coordinates flights, ground transportation, extended-stay housing, and on-site therapy. We've served patients from 50+ states and countries.</p>
 		<!-- /wp:paragraph -->
 		<!-- /wp:pll/faq-item -->
 

@@ -83,7 +83,7 @@
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph {"className":"text-[14.5px] leading-[1.7] text-paper/90 max-w-[36ch]"} -->
-				<p class="text-[14.5px] leading-[1.7] text-paper/90 max-w-[36ch]">Physical therapy begins immediately. Most patients return to daily activities within 3 to 4 months and full activity by 6 to 12 months. Final height gain: up to 6 inches.</p>
+				<p class="text-[14.5px] leading-[1.7] text-paper/90 max-w-[36ch]">On-site therapy begins immediately. Most patients return to daily activities within 3 to 4 months and full activity by 6 to 12 months. Final height gain: up to 6 inches.</p>
 				<!-- /wp:paragraph -->
 			</article>
 			<!-- /wp:group -->

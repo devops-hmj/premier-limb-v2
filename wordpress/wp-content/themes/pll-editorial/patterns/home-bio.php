@@ -65,7 +65,7 @@ $pll_portrait = get_theme_file_uri( 'assets/images/Dr-ig-pic.jpg' );
 				<!-- /wp:paragraph -->
 
 				<!-- wp:paragraph {"className":"text-[15.5px] leading-[1.7] text-ink-soft mb-7 max-w-[62ch]"} -->
-				<p class="text-[15.5px] leading-[1.7] text-ink-soft mb-7 max-w-[62ch]">As Medical Director of Orthopaedic Trauma at Pomona Valley Hospital Medical Center, one of the busiest Level II trauma centers in Los Angeles County, and founder of Premier Orthopaedic &amp; Trauma Specialists, a 17+ surgeon orthopaedic group with in-house physical therapy and on-site imaging, Dr. Basmajian built Premier Limb Lengthening on that institutional depth. Premier Limb Lengthening patients have direct access to that infrastructure through Dr. Basmajian’s network.</p>
+				<p class="text-[15.5px] leading-[1.7] text-ink-soft mb-7 max-w-[62ch]">As Medical Director of Orthopaedic Trauma at Pomona Valley Hospital Medical Center, one of the busiest Level II trauma centers in Los Angeles County, and founder of Premier Orthopaedic &amp; Trauma Specialists, a 17+ surgeon orthopaedic group with on-site therapy and on-site imaging, Dr. Basmajian built Premier Limb Lengthening on that institutional depth. Premier Limb Lengthening patients have direct access to that infrastructure through Dr. Basmajian’s network.</p>
 				<!-- /wp:paragraph -->
 
 				<!-- wp:buttons -->

@@ -48,7 +48,7 @@ $pll_portrait = get_theme_file_uri( 'assets/images/dr-picture.jpg' );
 				<!-- wp:group {"layout":{"type":"default"},"className":"v2-cols text-[14.5px] leading-[1.7] text-ink-soft pt-4 border-t border-rule"} -->
 				<div class="wp-block-group v2-cols text-[14.5px] leading-[1.7] text-ink-soft pt-4 border-t border-rule">
 					<!-- wp:paragraph -->
-					<p>Our program is the only US limb lengthening practice offering a full white-glove travel and recovery coordination service: flights, housing, physical therapy, and a dedicated coordinator from first call to final follow-up.</p>
+					<p>Our program is the only US limb lengthening practice offering a full white-glove travel and recovery coordination service: flights, housing, on-site therapy, and a dedicated coordinator from first call to final follow-up.</p>
 					<!-- /wp:paragraph -->
 
 					<!-- wp:paragraph -->
