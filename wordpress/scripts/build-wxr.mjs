@@ -69,7 +69,7 @@ const CATEGORY_DESCRIPTIONS = {
 	"limb-lengthening": "Guides to cosmetic and reconstructive limb lengthening: candidacy, the procedure, and what to expect.",
 	"bone-health": "How bone regenerates, and the nutrition that supports lengthening and recovery.",
 	"impact-on-the-body": "What limb lengthening means for your muscles, pain, and the rest of the body.",
-	"after-limb-lengthening": "Recovery, physical therapy, travel, and life after limb lengthening surgery.",
+	"after-limb-lengthening": "Recovery, on-site therapy, travel, and life after limb lengthening surgery.",
 	"paying-for-limb-lengthening": "Cost, insurance, and financing for limb lengthening.",
 };
 

@@ -183,7 +183,7 @@ function pll_seo_procedure() {
 		'bodyLocation'  => array( 'Femur', 'Tibia' ),
 		'howPerformed'  => 'Distraction osteogenesis via the Precice internal nail system: the bone is cut and gradually pulled apart while new bone regenerates in the gap.',
 		'preparation'   => 'Pre-operative consultation, imaging, and health assessment.',
-		'followup'      => 'On-site physical therapy in Upland, CA. Surgical follow-up visits. Active lengthening over 3-4 months, full recovery in 6-12 months.',
+		'followup'      => 'On-site therapy in Upland, CA. Surgical follow-up visits. Active lengthening over 3-4 months, full recovery in 6-12 months.',
 	);
 }
 

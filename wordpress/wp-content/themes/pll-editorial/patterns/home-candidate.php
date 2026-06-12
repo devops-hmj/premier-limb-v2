@@ -64,7 +64,7 @@
 				<!-- /wp:list-item --><!-- wp:list-item {"className":"list-none py-5 border-b border-rule grid grid-cols-[44px_1fr] items-baseline text-[15.5px] text-ink"} -->
 				<li class="list-none py-5 border-b border-rule grid grid-cols-[44px_1fr] items-baseline text-[15.5px] text-ink"><span class="font-serif italic text-spine text-[20px]">04</span><span>No active bone disease or uncontrolled diabetes.</span></li>
 				<!-- /wp:list-item --><!-- wp:list-item {"className":"list-none py-5 border-b border-rule grid grid-cols-[44px_1fr] items-baseline text-[15.5px] text-ink"} -->
-				<li class="list-none py-5 border-b border-rule grid grid-cols-[44px_1fr] items-baseline text-[15.5px] text-ink"><span class="font-serif italic text-spine text-[20px]">05</span><span>Able to commit to 3 to 6 months of recovery and physical therapy.</span></li>
+				<li class="list-none py-5 border-b border-rule grid grid-cols-[44px_1fr] items-baseline text-[15.5px] text-ink"><span class="font-serif italic text-spine text-[20px]">05</span><span>Able to commit to 3 to 6 months of recovery and on-site therapy.</span></li>
 				<!-- /wp:list-item --><!-- wp:list-item {"className":"list-none py-5 border-b border-rule grid grid-cols-[44px_1fr] items-baseline text-[15.5px] text-ink"} -->
 				<li class="list-none py-5 border-b border-rule grid grid-cols-[44px_1fr] items-baseline text-[15.5px] text-ink"><span class="font-serif italic text-spine text-[20px]">06</span><span>Realistic expectations about height gain (up to 3″ per bone, up to 6″ combined).</span></li>
 				<!-- /wp:list-item --><!-- wp:list-item {"className":"list-none py-5 border-b border-rule grid grid-cols-[44px_1fr] items-baseline text-[15.5px] text-ink"} -->

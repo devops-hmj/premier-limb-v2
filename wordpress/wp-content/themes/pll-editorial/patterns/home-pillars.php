@@ -108,7 +108,7 @@
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph {"className":"flex-1 text-[14.5px] text-ink-soft leading-[1.65]"} -->
-				<p class="flex-1 text-[14.5px] text-ink-soft leading-[1.65]">Founded by Dr. Basmajian, who also founded Premier Orthopaedic &amp; Trauma Specialists, a 17+ surgeon group with in-house physical therapy and on-site imaging. Our patients access that infrastructure through his network.</p>
+				<p class="flex-1 text-[14.5px] text-ink-soft leading-[1.65]">Founded by Dr. Basmajian, who also founded Premier Orthopaedic &amp; Trauma Specialists, a 17+ surgeon group with on-site therapy and on-site imaging. Our patients access that infrastructure through his network.</p>
 				<!-- /wp:paragraph -->
 
 				<!-- wp:buttons -->

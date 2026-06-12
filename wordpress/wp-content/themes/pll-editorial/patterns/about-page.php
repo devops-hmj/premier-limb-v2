@@ -52,11 +52,11 @@
 			<!-- /wp:paragraph -->
 
 			<!-- wp:paragraph {"className":"text-[15.5px] leading-[1.7] text-ink-soft max-w-[58ch] mb-5"} -->
-			<p class="text-[15.5px] leading-[1.7] text-ink-soft max-w-[58ch] mb-5">Dr. Basmajian founded Premier Orthopaedic &amp; Trauma Specialists, a 17+ surgeon orthopaedic group with in-house physical therapy and on-site imaging. That institutional depth is what Premier Limb Lengthening was built on, and it is why we accept cases other practices decline: revision surgery, limb-length discrepancy correction, and complex reconstructions.</p>
+			<p class="text-[15.5px] leading-[1.7] text-ink-soft max-w-[58ch] mb-5">Dr. Basmajian founded Premier Orthopaedic &amp; Trauma Specialists, a 17+ surgeon orthopaedic group with on-site therapy and on-site imaging. That institutional depth is what Premier Limb Lengthening was built on, and it is why we accept cases other practices decline: revision surgery, limb-length discrepancy correction, and complex reconstructions.</p>
 			<!-- /wp:paragraph -->
 
 			<!-- wp:paragraph {"className":"text-[15.5px] leading-[1.7] text-ink-soft max-w-[58ch]"} -->
-			<p class="text-[15.5px] leading-[1.7] text-ink-soft max-w-[58ch]">And because most patients travel for limb lengthening, we built the concierge program from the first call: flights, lodging, physical therapy schedule, post-op check-ins, and one dedicated coordinator owning the entire process.</p>
+			<p class="text-[15.5px] leading-[1.7] text-ink-soft max-w-[58ch]">And because most patients travel for limb lengthening, we built the concierge program from the first call: flights, lodging, on-site therapy schedule, post-op check-ins, and one dedicated coordinator owning the entire process.</p>
 			<!-- /wp:paragraph -->
 		</div>
 		<!-- /wp:group -->
@@ -182,7 +182,7 @@
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph {"className":"text-[15px] leading-[1.7] text-ink-soft max-w-[44ch]"} -->
-				<p class="text-[15px] leading-[1.7] text-ink-soft max-w-[44ch]">Dr. Basmajian is the founder of Premier Orthopaedic &amp; Trauma Specialists, a 17+ surgeon orthopaedic group with in-house physical therapy and on-site imaging. Premier Limb Lengthening patients have direct access to that infrastructure through Dr. Basmajian's network.</p>
+				<p class="text-[15px] leading-[1.7] text-ink-soft max-w-[44ch]">Dr. Basmajian is the founder of Premier Orthopaedic &amp; Trauma Specialists, a 17+ surgeon orthopaedic group with on-site therapy and on-site imaging. Premier Limb Lengthening patients have direct access to that infrastructure through Dr. Basmajian's network.</p>
 				<!-- /wp:paragraph -->
 			</div>
 			<!-- /wp:group -->
@@ -214,7 +214,7 @@
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph {"className":"text-[15px] leading-[1.7] text-ink-soft max-w-[44ch]"} -->
-				<p class="text-[15px] leading-[1.7] text-ink-soft max-w-[44ch]">From your first virtual consult through your final follow-up, a dedicated coordinator owns the logistics: flights, housing, physical therapy schedule, and family communication.</p>
+				<p class="text-[15px] leading-[1.7] text-ink-soft max-w-[44ch]">From your first virtual consult through your final follow-up, a dedicated coordinator owns the logistics: flights, housing, on-site therapy schedule, and family communication.</p>
 				<!-- /wp:paragraph -->
 			</div>
 			<!-- /wp:group -->
