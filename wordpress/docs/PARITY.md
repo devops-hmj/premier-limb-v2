@@ -156,7 +156,9 @@ re-introduces them:
 - [ ] Consent text + legal copy **verbatim** (no em dashes introduced, no paraphrasing)
 - [ ] Spot-check 3 random articles against `scraped_content/*.md` — zero copy drift
 - [ ] Footer legal links resolve; "Results may vary." present
-- [ ] No third-party requests except the GHL chat loader on /consult/ (check DevTools)
+- [ ] No third-party requests except the GHL chat loader, site-wide as of 2026-06-12
+      (check DevTools). The Next reference loads it on /consult/ only, so the chat
+      bubble is masked in parity captures.
 - [ ] prefers-reduced-motion: reveals render instantly, no transforms
 - [ ] No-JS: all content visible (reveals don't hide content), form degrades gracefully
 

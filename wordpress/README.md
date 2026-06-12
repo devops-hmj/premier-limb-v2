@@ -14,7 +14,7 @@ A pixel-perfect WordPress rebuild of [premierlimblengthening.com](https://premie
 |---|---|
 | `wp-content/themes/pll-editorial/` | FSE block theme. Content-only locked patterns: editors change every text/image in WP admin, structure is protected. |
 | `wp-content/plugins/pll-seo/` | Titles, meta descriptions, canonicals, Open Graph, JSON-LD (MedicalBusiness, Physician, Article, FAQPage…), sitemap + robots tweaks, legacy redirects. No Yoast needed. |
-| `wp-content/plugins/pll-forms/` | Consultation form block + REST endpoint that forwards to the GoHighLevel webhook (URL from a `wp-config.php` constant — never in the DB or repo). GHL chat widget on /consult only. |
+| `wp-content/plugins/pll-forms/` | Consultation form block + REST endpoint that forwards to the GoHighLevel webhook (URL from a `wp-config.php` constant — never in the DB or repo). GHL chat widget, site-wide. |
 | `scripts/` | Content pipeline (markdown → Gutenberg blocks → WXR), font/media fetchers, parity-verification harness. |
 | `content/` | Generated `pll-content.wxr` seed + bundled media + `setup.php` (idempotent site configuration). |
 | `standards/` | Vendored 10up Engineering Best Practices (reference). WPCS enforced via `composer.json` + CI. |

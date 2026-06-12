@@ -46,6 +46,9 @@ const MASK_CSS = `
 	header.fixed, .pll-sticky-bar { display: none !important; }
 	.v2-video-stage video, .v2-vbg { visibility: hidden !important; }
 	.v2-video-stage { background: #0a1218 !important; }
+	/* GHL chat bubble: site-wide on WP (2026-06-12), /consult/-only on the
+	   Next reference — mask on both stacks so it never enters the diff. */
+	chat-widget, #chat-widget-container, [id^="lc_text-widget"] { display: none !important; }
 `;
 
 const cliRoutes = process.argv.find((a) => a.startsWith("--routes"))?.split("=")[1];

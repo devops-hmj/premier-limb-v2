@@ -1,8 +1,9 @@
 <?php
 /**
- * GoHighLevel chat widget — loaded ONLY on the consult page, mirroring the
- * Next.js app (app/consult/page.tsx loads it afterInteractive). No other
- * third-party scripts ship anywhere on the site.
+ * GoHighLevel chat widget — loaded site-wide (owner decision 2026-06-12;
+ * launched consult-only, expanded for lead capture on pricing/surgery
+ * surfaces). Still the ONLY third-party script on the site, and it must
+ * stay under the GHL HIPAA tier + BAA (docs/MIGRATION.md §9/§10).
  *
  * @package pll-forms
  */
@@ -14,9 +15,6 @@ const PLL_FORMS_CHAT_WIDGET_ID = '6a20bb6795223f3846a01136';
 add_action(
 	'wp_enqueue_scripts',
 	function () {
-		if ( ! is_page( 'consult' ) ) {
-			return;
-		}
 		wp_enqueue_script(
 			'pll-ghl-chat',
 			'https://beta.leadconnectorhq.com/loader.js',
