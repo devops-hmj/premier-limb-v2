@@ -18,8 +18,8 @@ function pll_site_info() {
 		array(
 			'name'       => 'Premier Limb Lengthening',
 			'tagline'    => 'Cosmetic limb lengthening, founded by Dr. Hrayr Basmajian',
-			'phone'      => '(909) 563-8653',
-			'phone_href' => 'tel:+19095638653',
+			'phone'      => '(951) 620-5663',
+			'phone_href' => 'tel:+19516205663',
 			'street'     => '400 N. Mountain Ave. Suite 305',
 			'city'       => 'Upland',
 			'state'      => 'CA',

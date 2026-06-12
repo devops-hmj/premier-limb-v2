@@ -8,8 +8,8 @@
  * @var array $attributes Block attributes.
  */
 
-$pll_phone      = '(909) 563-8653';
-$pll_phone_href = 'tel:+19095638653';
+$pll_phone      = '(951) 620-5663';
+$pll_phone_href = 'tel:+19516205663';
 if ( function_exists( 'pll_site_info' ) ) {
 	$pll_info       = pll_site_info();
 	$pll_phone      = $pll_info['phone'];
