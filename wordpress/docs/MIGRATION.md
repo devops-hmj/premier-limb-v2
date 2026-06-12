@@ -121,7 +121,8 @@ content already in the database. After uploading the updated theme + plugins:
       Post" TOC, featured image, body, "Keep reading." grid
 - [ ] `/your-surgery/` + the 7 sub-pages (note `/your-surgery/limb-lengthening-expectations/`
       uses the full-bleed photo header)
-- [ ] `/consult/`: submit a test inquiry → arrives in GHL; GHL chat bubble loads on this page only
+- [ ] `/consult/`: submit a test inquiry → arrives in GHL; GHL chat bubble loads site-wide
+      (owner decision 2026-06-12; launched consult-only)
 - [ ] `view-source` on any page: one `<title>` ending in "· Premier Limb Lengthening",
       meta description, canonical on `https://premierlimblengthening.com`, JSON-LD blocks
       (MedicalBusiness graph everywhere; Article on posts; FAQPage on home)
@@ -135,8 +136,10 @@ content already in the database. After uploading the updated theme + plugins:
   webhook only. Confirm the **BAA covers the GoHighLevel intake path** (release blocker
   per HIPAA_AUDIT.md §1.1).
 - **No analytics or pixels anywhere** — the site ships zero third-party scripts except
-  the GHL chat loader on `/consult/`. Per HHS OCR guidance, do not add GA4/Meta Pixel;
-  any future analytics must be BAA-covered or self-hosted.
+  the GHL chat loader (site-wide as of 2026-06-12; BAA-covered vendor). Per HHS OCR
+  guidance on tracking technologies, do not add GA4/Meta Pixel or any tracker directly;
+  future analytics (e.g. Freshpaint, call-tracking) go in **only after a signed BAA**
+  with that vendor, and CSP/security headers must be extended for the new domains.
 - Disable XML-RPC, block REST user enumeration (`/wp-json/wp/v2/users`), disable
   pingbacks, standard managed-WP hardening.
 - Fonts are self-hosted (theme `assets/fonts/`, SIL OFL) — no fonts.googleapis.com calls.
