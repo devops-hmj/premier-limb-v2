@@ -45,9 +45,8 @@ pll-wordpress-handoff-<date>.zip
 
 ```php
 /* GoHighLevel inbound webhook for the consultation form.
-   Provided out-of-band — never commit or email in plaintext.
-   ⚠️ The previous webhook URL exists in the old repo's git history:
-   generate a NEW webhook in GHL at cutover and use it here. */
+   Provided out-of-band via the secure file drop — keep it out of the
+   repo and out of plaintext email. */
 define( 'PLL_GHL_WEBHOOK_URL', '<provided separately>' );
 
 define( 'DISALLOW_FILE_EDIT', true );
