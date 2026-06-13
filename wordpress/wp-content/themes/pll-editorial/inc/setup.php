@@ -32,8 +32,10 @@ function pll_site_info() {
 add_action(
 	'after_setup_theme',
 	function () {
-		// Same compiled stylesheet front and back so the editor canvas matches the site.
-		add_editor_style( array( 'assets/css/pll.css' ) );
+		// Same compiled stylesheet front and back so the editor canvas matches
+		// the site, plus a small canvas-only sheet of "make it editable" fixes
+		// that must never reach the front end (see assets/css/editor.css).
+		add_editor_style( array( 'assets/css/pll.css', 'assets/css/editor.css' ) );
 	}
 );
 
