@@ -1,0 +1,42 @@
+/*
+ * Editor-canvas-only overrides.
+ *
+ * Loaded ONLY via add_editor_style (inc/setup.php) and NEVER enqueued on the
+ * front end (inc/enqueue.php loads pll.css for that). WordPress scopes every
+ * selector here under .editor-styles-wrapper when it injects this file into
+ * the block-editor iframe, so nothing in this file can reach the live site or
+ * affect the pixel-parity contract. This is the place for "make it editable",
+ * not "make it match" — the front end and the editor Preview stay exact.
+ */
+
+/*
+ * Pricing spec lists (pll/pricing-plans, pll/home-pricing, pll/pricing-included)
+ * and the add-on ledger rows (pll/pricing-addons) lay their content out with
+ * fixed-track arbitrary grids: grid-cols-[20px_1fr], grid-cols-[24px_1fr],
+ * grid-cols-[64px_1fr_120px], ...
+ *
+ * On the front end each grid cell holds exactly the elements its track expects,
+ * so the layout is correct. In the editor, core/list-item and core/group wrap
+ * their editable content in extra block/RichText nodes; those extra children
+ * land in the grid tracks and squeeze the text track down to one character per
+ * line, making the price tables miserable to edit. (tailwind.css documents the
+ * identical failure for .pll-prose lists, which is why those use an absolute
+ * marker + padding instead of a grid.)
+ *
+ * Flatten ONLY the fixed-track arbitrary grids to normal flow, IN THE CANVAS
+ * ONLY. The attribute selector matches grid-cols-[ ... ] but deliberately NOT
+ * grid-cols-12 / md:grid-cols-3 (no bracket), so the section/card scaffolding
+ * grids are left alone. Editors get plainly readable, editable text; the
+ * front-end markup and CSS are untouched.
+ */
+.wp-block-list li[class*="grid-cols-["],
+.wp-block-group[class*="grid-cols-["] {
+	display: block;
+}
+
+/* The first child of each spec row is the decorative +/· glyph that used to
+   sit in its own grid track. With the grid flattened, keep a little air between
+   it and the label so the text is comfortable to read while editing. */
+.wp-block-list li[class*="grid-cols-["] > span:first-child {
+	margin-right: 0.4em;
+}
