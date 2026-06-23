@@ -51,7 +51,7 @@
 					<!-- /wp:paragraph -->
 
 					<!-- wp:paragraph {"className":"font-serif text-[22px] lg:text-[26px] leading-none tracking-[-0.02em] text-ink text-right"} -->
-					<p class="font-serif text-[22px] lg:text-[26px] leading-none tracking-[-0.02em] text-ink text-right">$10,000</p>
+					<p class="font-serif text-[22px] lg:text-[26px] leading-none tracking-[-0.02em] text-ink text-right">$5,000</p>
 					<!-- /wp:paragraph -->
 				</div>
 				<!-- /wp:group -->
@@ -71,47 +71,7 @@
 					<!-- /wp:paragraph -->
 
 					<!-- wp:paragraph {"className":"font-serif text-[22px] lg:text-[26px] leading-none tracking-[-0.02em] text-ink text-right"} -->
-					<p class="font-serif text-[22px] lg:text-[26px] leading-none tracking-[-0.02em] text-ink text-right">$10,000</p>
-					<!-- /wp:paragraph -->
-				</div>
-				<!-- /wp:group -->
-
-				<!-- wp:group {"layout":{"type":"default"},"className":"grid grid-cols-[64px_1fr_120px] sm:grid-cols-[80px_2fr_3fr_140px] gap-x-4 sm:gap-x-6 items-baseline py-5 border-b border-rule"} -->
-				<div class="wp-block-group grid grid-cols-[64px_1fr_120px] sm:grid-cols-[80px_2fr_3fr_140px] gap-x-4 sm:gap-x-6 items-baseline py-5 border-b border-rule">
-					<!-- wp:paragraph {"className":"font-mono uppercase tracking-[0.2em] text-[10.5px] text-spine"} -->
-					<p class="font-mono uppercase tracking-[0.2em] text-[10.5px] text-spine">A.03</p>
-					<!-- /wp:paragraph -->
-
-					<!-- wp:heading {"level":3,"className":"font-serif font-medium text-[18px] lg:text-[20px] leading-[1.25] tracking-[-0.01em] text-ink"} -->
-					<h3 class="wp-block-heading font-serif font-medium text-[18px] lg:text-[20px] leading-[1.25] tracking-[-0.01em] text-ink">Bowlegged Correction · Tibial</h3>
-					<!-- /wp:heading -->
-
-					<!-- wp:paragraph {"className":"hidden sm:block text-[13.5px] leading-[1.6] text-ink-soft"} -->
-					<p class="hidden sm:block text-[13.5px] leading-[1.6] text-ink-soft">Standalone or paired with tibia lengthening.</p>
-					<!-- /wp:paragraph -->
-
-					<!-- wp:paragraph {"className":"font-serif text-[22px] lg:text-[26px] leading-none tracking-[-0.02em] text-ink text-right"} -->
-					<p class="font-serif text-[22px] lg:text-[26px] leading-none tracking-[-0.02em] text-ink text-right">$15,000</p>
-					<!-- /wp:paragraph -->
-				</div>
-				<!-- /wp:group -->
-
-				<!-- wp:group {"layout":{"type":"default"},"className":"grid grid-cols-[64px_1fr_120px] sm:grid-cols-[80px_2fr_3fr_140px] gap-x-4 sm:gap-x-6 items-baseline py-5 border-b border-rule"} -->
-				<div class="wp-block-group grid grid-cols-[64px_1fr_120px] sm:grid-cols-[80px_2fr_3fr_140px] gap-x-4 sm:gap-x-6 items-baseline py-5 border-b border-rule">
-					<!-- wp:paragraph {"className":"font-mono uppercase tracking-[0.2em] text-[10.5px] text-spine"} -->
-					<p class="font-mono uppercase tracking-[0.2em] text-[10.5px] text-spine">A.04</p>
-					<!-- /wp:paragraph -->
-
-					<!-- wp:heading {"level":3,"className":"font-serif font-medium text-[18px] lg:text-[20px] leading-[1.25] tracking-[-0.01em] text-ink"} -->
-					<h3 class="wp-block-heading font-serif font-medium text-[18px] lg:text-[20px] leading-[1.25] tracking-[-0.01em] text-ink">Bowlegged Correction · Tibia during Femur</h3>
-					<!-- /wp:heading -->
-
-					<!-- wp:paragraph {"className":"hidden sm:block text-[13.5px] leading-[1.6] text-ink-soft"} -->
-					<p class="hidden sm:block text-[13.5px] leading-[1.6] text-ink-soft">Combined tibia bow correction during a femur procedure.</p>
-					<!-- /wp:paragraph -->
-
-					<!-- wp:paragraph {"className":"font-serif text-[22px] lg:text-[26px] leading-none tracking-[-0.02em] text-ink text-right"} -->
-					<p class="font-serif text-[22px] lg:text-[26px] leading-none tracking-[-0.02em] text-ink text-right">$50,000</p>
+					<p class="font-serif text-[22px] lg:text-[26px] leading-none tracking-[-0.02em] text-ink text-right">$5,000</p>
 					<!-- /wp:paragraph -->
 				</div>
 				<!-- /wp:group -->
@@ -143,7 +103,7 @@
 					<!-- /wp:paragraph -->
 
 					<!-- wp:paragraph {"className":"font-serif text-[22px] lg:text-[26px] leading-none tracking-[-0.02em] text-ink text-right"} -->
-					<p class="font-serif text-[22px] lg:text-[26px] leading-none tracking-[-0.02em] text-ink text-right">$18,000</p>
+					<p class="font-serif text-[22px] lg:text-[26px] leading-none tracking-[-0.02em] text-ink text-right">$14,500</p>
 					<!-- /wp:paragraph -->
 				</div>
 				<!-- /wp:group -->
@@ -163,7 +123,7 @@
 					<!-- /wp:paragraph -->
 
 					<!-- wp:paragraph {"className":"font-serif text-[22px] lg:text-[26px] leading-none tracking-[-0.02em] text-ink text-right"} -->
-					<p class="font-serif text-[22px] lg:text-[26px] leading-none tracking-[-0.02em] text-ink text-right">$22,500</p>
+					<p class="font-serif text-[22px] lg:text-[26px] leading-none tracking-[-0.02em] text-ink text-right">$17,500</p>
 					<!-- /wp:paragraph -->
 				</div>
 				<!-- /wp:group -->
@@ -183,7 +143,7 @@
 					<!-- /wp:paragraph -->
 
 					<!-- wp:paragraph {"className":"font-serif text-[22px] lg:text-[26px] leading-none tracking-[-0.02em] text-ink text-right"} -->
-					<p class="font-serif text-[22px] lg:text-[26px] leading-none tracking-[-0.02em] text-ink text-right">$28,000</p>
+					<p class="font-serif text-[22px] lg:text-[26px] leading-none tracking-[-0.02em] text-ink text-right">$24,500</p>
 					<!-- /wp:paragraph -->
 				</div>
 				<!-- /wp:group -->

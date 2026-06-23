@@ -43,7 +43,7 @@
 				<!-- /wp:list-item --><!-- wp:list-item {"className":"grid grid-cols-[24px_1fr] gap-2 items-baseline py-4 border-b border-rule text-[15px] leading-[1.55] text-ink"} -->
 				<li class="grid grid-cols-[24px_1fr] gap-2 items-baseline py-4 border-b border-rule text-[15px] leading-[1.55] text-ink"><span aria-hidden="true" class="font-serif font-medium text-spine text-[18px]">+</span><span>Anesthesiologist fees</span></li>
 				<!-- /wp:list-item --><!-- wp:list-item {"className":"grid grid-cols-[24px_1fr] gap-2 items-baseline py-4 border-b border-rule text-[15px] leading-[1.55] text-ink"} -->
-				<li class="grid grid-cols-[24px_1fr] gap-2 items-baseline py-4 border-b border-rule text-[15px] leading-[1.55] text-ink"><span aria-hidden="true" class="font-serif font-medium text-spine text-[18px]">+</span><span>Defined block of on-site sessions (60–70)</span></li>
+				<li class="grid grid-cols-[24px_1fr] gap-2 items-baseline py-4 border-b border-rule text-[15px] leading-[1.55] text-ink"><span aria-hidden="true" class="font-serif font-medium text-spine text-[18px]">+</span><span>Defined block of on-site therapy sessions (60–70)</span></li>
 				<!-- /wp:list-item --><!-- wp:list-item {"className":"grid grid-cols-[24px_1fr] gap-2 items-baseline py-4 border-b border-rule text-[15px] leading-[1.55] text-ink"} -->
 				<li class="grid grid-cols-[24px_1fr] gap-2 items-baseline py-4 border-b border-rule text-[15px] leading-[1.55] text-ink"><span aria-hidden="true" class="font-serif font-medium text-spine text-[18px]">+</span><span>Coordination with our patient concierge from first call</span></li>
 				<!-- /wp:list-item --></ul>

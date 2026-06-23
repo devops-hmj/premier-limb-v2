@@ -65,13 +65,15 @@
 
 				<!-- wp:list {"className":"border-t border-rule"} -->
 				<ul class="wp-block-list border-t border-rule"><!-- wp:list-item {"className":"grid grid-cols-[20px_1fr] gap-1.5 items-baseline py-3 border-b border-rule text-[13.5px] text-ink-soft last:border-b-0"} -->
-				<li class="grid grid-cols-[20px_1fr] gap-1.5 items-baseline py-3 border-b border-rule text-[13.5px] text-ink-soft last:border-b-0"><span aria-hidden="true" class="font-serif font-medium text-spine text-[15px]">+</span><span>2 PRECICE internal nail implants</span></li>
+				<li class="grid grid-cols-[20px_1fr] gap-1.5 items-baseline py-3 border-b border-rule text-[13.5px] text-ink-soft last:border-b-0"><span aria-hidden="true" class="font-serif font-medium text-spine text-[15px]">+</span><span>2 PRECICE 4th Generation internal nail implants</span></li>
 				<!-- /wp:list-item --><!-- wp:list-item {"className":"grid grid-cols-[20px_1fr] gap-1.5 items-baseline py-3 border-b border-rule text-[13.5px] text-ink-soft last:border-b-0"} -->
-				<li class="grid grid-cols-[20px_1fr] gap-1.5 items-baseline py-3 border-b border-rule text-[13.5px] text-ink-soft last:border-b-0"><span aria-hidden="true" class="font-serif font-medium text-spine text-[15px]">+</span><span>Hospitalization</span></li>
+				<li class="grid grid-cols-[20px_1fr] gap-1.5 items-baseline py-3 border-b border-rule text-[13.5px] text-ink-soft last:border-b-0"><span aria-hidden="true" class="font-serif font-medium text-spine text-[15px]">+</span><span>All hospitalization/operating room</span></li>
 				<!-- /wp:list-item --><!-- wp:list-item {"className":"grid grid-cols-[20px_1fr] gap-1.5 items-baseline py-3 border-b border-rule text-[13.5px] text-ink-soft last:border-b-0"} -->
 				<li class="grid grid-cols-[20px_1fr] gap-1.5 items-baseline py-3 border-b border-rule text-[13.5px] text-ink-soft last:border-b-0"><span aria-hidden="true" class="font-serif font-medium text-spine text-[15px]">+</span><span>Surgical &amp; anesthesiologist fees</span></li>
 				<!-- /wp:list-item --><!-- wp:list-item {"className":"grid grid-cols-[20px_1fr] gap-1.5 items-baseline py-3 border-b border-rule text-[13.5px] text-ink-soft last:border-b-0"} -->
-				<li class="grid grid-cols-[20px_1fr] gap-1.5 items-baseline py-3 border-b border-rule text-[13.5px] text-ink-soft last:border-b-0"><span aria-hidden="true" class="font-serif font-medium text-spine text-[15px]">+</span><span>60 on-site sessions</span></li>
+				<li class="grid grid-cols-[20px_1fr] gap-1.5 items-baseline py-3 border-b border-rule text-[13.5px] text-ink-soft last:border-b-0"><span aria-hidden="true" class="font-serif font-medium text-spine text-[15px]">+</span><span>60 On-Site therapy sessions (Upland, CA)</span></li>
+				<!-- /wp:list-item --><!-- wp:list-item {"className":"grid grid-cols-[20px_1fr] gap-1.5 items-baseline py-3 border-b border-rule text-[13.5px] text-ink-soft last:border-b-0"} -->
+				<li class="grid grid-cols-[20px_1fr] gap-1.5 items-baseline py-3 border-b border-rule text-[13.5px] text-ink-soft last:border-b-0"><span aria-hidden="true" class="font-serif font-medium text-spine text-[15px]">+</span><span>12 weeks of follow-up care</span></li>
 				<!-- /wp:list-item --></ul>
 				<!-- /wp:list -->
 			</article>
@@ -88,7 +90,7 @@
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph {"className":"font-serif italic text-[14.5px] leading-[1.5] text-muted mb-7 max-w-[36ch] min-h-[48px]"} -->
-				<p class="font-serif italic text-[14.5px] leading-[1.5] text-muted mb-7 max-w-[36ch] min-h-[48px]">Up to 5 cm / 2 in. (single surgery)</p>
+				<p class="font-serif italic text-[14.5px] leading-[1.5] text-muted mb-7 max-w-[36ch] min-h-[48px]">Up to 3 in. (single surgery)</p>
 				<!-- /wp:paragraph -->
 
 				<!-- wp:group {"layout":{"type":"default"},"className":"pt-6 border-t border-rule"} -->
@@ -105,15 +107,17 @@
 
 				<!-- wp:list {"className":"border-t border-rule"} -->
 				<ul class="wp-block-list border-t border-rule"><!-- wp:list-item {"className":"grid grid-cols-[20px_1fr] gap-1.5 items-baseline py-3 border-b border-rule text-[13.5px] text-ink-soft last:border-b-0"} -->
-				<li class="grid grid-cols-[20px_1fr] gap-1.5 items-baseline py-3 border-b border-rule text-[13.5px] text-ink-soft last:border-b-0"><span aria-hidden="true" class="font-serif font-medium text-spine text-[15px]">+</span><span>2 PRECICE internal nail implants</span></li>
+				<li class="grid grid-cols-[20px_1fr] gap-1.5 items-baseline py-3 border-b border-rule text-[13.5px] text-ink-soft last:border-b-0"><span aria-hidden="true" class="font-serif font-medium text-spine text-[15px]">+</span><span>2 PRECICE 4th Generation internal nail implants</span></li>
 				<!-- /wp:list-item --><!-- wp:list-item {"className":"grid grid-cols-[20px_1fr] gap-1.5 items-baseline py-3 border-b border-rule text-[13.5px] text-ink-soft last:border-b-0"} -->
-				<li class="grid grid-cols-[20px_1fr] gap-1.5 items-baseline py-3 border-b border-rule text-[13.5px] text-ink-soft last:border-b-0"><span aria-hidden="true" class="font-serif font-medium text-spine text-[15px]">+</span><span>Hospitalization</span></li>
+				<li class="grid grid-cols-[20px_1fr] gap-1.5 items-baseline py-3 border-b border-rule text-[13.5px] text-ink-soft last:border-b-0"><span aria-hidden="true" class="font-serif font-medium text-spine text-[15px]">+</span><span>All hospitalization/operating room</span></li>
 				<!-- /wp:list-item --><!-- wp:list-item {"className":"grid grid-cols-[20px_1fr] gap-1.5 items-baseline py-3 border-b border-rule text-[13.5px] text-ink-soft last:border-b-0"} -->
 				<li class="grid grid-cols-[20px_1fr] gap-1.5 items-baseline py-3 border-b border-rule text-[13.5px] text-ink-soft last:border-b-0"><span aria-hidden="true" class="font-serif font-medium text-spine text-[15px]">+</span><span>Surgical &amp; anesthesiologist fees</span></li>
 				<!-- /wp:list-item --><!-- wp:list-item {"className":"grid grid-cols-[20px_1fr] gap-1.5 items-baseline py-3 border-b border-rule text-[13.5px] text-ink-soft last:border-b-0"} -->
 				<li class="grid grid-cols-[20px_1fr] gap-1.5 items-baseline py-3 border-b border-rule text-[13.5px] text-ink-soft last:border-b-0"><span aria-hidden="true" class="font-serif font-medium text-spine text-[15px]">+</span><span>12 weeks of follow-up care</span></li>
 				<!-- /wp:list-item --><!-- wp:list-item {"className":"grid grid-cols-[20px_1fr] gap-1.5 items-baseline py-3 border-b border-rule text-[13.5px] text-ink-soft last:border-b-0"} -->
-				<li class="grid grid-cols-[20px_1fr] gap-1.5 items-baseline py-3 border-b border-rule text-[13.5px] text-ink-soft last:border-b-0"><span aria-hidden="true" class="font-serif font-medium text-spine text-[15px]">+</span><span>60 on-site sessions</span></li>
+				<li class="grid grid-cols-[20px_1fr] gap-1.5 items-baseline py-3 border-b border-rule text-[13.5px] text-ink-soft last:border-b-0"><span aria-hidden="true" class="font-serif font-medium text-spine text-[15px]">+</span><span>Syndesmosis screws (2 screws)</span></li>
+				<!-- /wp:list-item --><!-- wp:list-item {"className":"grid grid-cols-[20px_1fr] gap-1.5 items-baseline py-3 border-b border-rule text-[13.5px] text-ink-soft last:border-b-0"} -->
+				<li class="grid grid-cols-[20px_1fr] gap-1.5 items-baseline py-3 border-b border-rule text-[13.5px] text-ink-soft last:border-b-0"><span aria-hidden="true" class="font-serif font-medium text-spine text-[15px]">+</span><span>60 On-Site therapy sessions (Upland, CA)</span></li>
 				<!-- /wp:list-item --></ul>
 				<!-- /wp:list -->
 			</article>
@@ -130,7 +134,7 @@
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph {"className":"font-serif italic text-[14.5px] leading-[1.5] text-muted mb-7 max-w-[36ch] min-h-[48px]"} -->
-				<p class="font-serif italic text-[14.5px] leading-[1.5] text-muted mb-7 max-w-[36ch] min-h-[48px]">Up to 10 cm / 4 in. total (5 cm per leg)</p>
+				<p class="font-serif italic text-[14.5px] leading-[1.5] text-muted mb-7 max-w-[36ch] min-h-[48px]">Up to 6 in. total (5 cm per leg)</p>
 				<!-- /wp:paragraph -->
 
 				<!-- wp:group {"layout":{"type":"default"},"className":"pt-6 border-t border-rule"} -->
@@ -149,15 +153,15 @@
 				<ul class="wp-block-list border-t border-rule"><!-- wp:list-item {"className":"grid grid-cols-[20px_1fr] gap-1.5 items-baseline py-3 border-b border-rule text-[13.5px] text-ink-soft last:border-b-0"} -->
 				<li class="grid grid-cols-[20px_1fr] gap-1.5 items-baseline py-3 border-b border-rule text-[13.5px] text-ink-soft last:border-b-0"><span aria-hidden="true" class="font-serif font-medium text-spine text-[15px]">+</span><span>4 PRECICE internal nail implants</span></li>
 				<!-- /wp:list-item --><!-- wp:list-item {"className":"grid grid-cols-[20px_1fr] gap-1.5 items-baseline py-3 border-b border-rule text-[13.5px] text-ink-soft last:border-b-0"} -->
-				<li class="grid grid-cols-[20px_1fr] gap-1.5 items-baseline py-3 border-b border-rule text-[13.5px] text-ink-soft last:border-b-0"><span aria-hidden="true" class="font-serif font-medium text-spine text-[15px]">+</span><span>All hospitalization across both stays</span></li>
+				<li class="grid grid-cols-[20px_1fr] gap-1.5 items-baseline py-3 border-b border-rule text-[13.5px] text-ink-soft last:border-b-0"><span aria-hidden="true" class="font-serif font-medium text-spine text-[15px]">+</span><span>All hospitalization/operating room across both stays</span></li>
 				<!-- /wp:list-item --><!-- wp:list-item {"className":"grid grid-cols-[20px_1fr] gap-1.5 items-baseline py-3 border-b border-rule text-[13.5px] text-ink-soft last:border-b-0"} -->
 				<li class="grid grid-cols-[20px_1fr] gap-1.5 items-baseline py-3 border-b border-rule text-[13.5px] text-ink-soft last:border-b-0"><span aria-hidden="true" class="font-serif font-medium text-spine text-[15px]">+</span><span>All surgical &amp; anesthesia fees</span></li>
 				<!-- /wp:list-item --><!-- wp:list-item {"className":"grid grid-cols-[20px_1fr] gap-1.5 items-baseline py-3 border-b border-rule text-[13.5px] text-ink-soft last:border-b-0"} -->
 				<li class="grid grid-cols-[20px_1fr] gap-1.5 items-baseline py-3 border-b border-rule text-[13.5px] text-ink-soft last:border-b-0"><span aria-hidden="true" class="font-serif font-medium text-spine text-[15px]">+</span><span>14 weeks follow-up care</span></li>
 				<!-- /wp:list-item --><!-- wp:list-item {"className":"grid grid-cols-[20px_1fr] gap-1.5 items-baseline py-3 border-b border-rule text-[13.5px] text-ink-soft last:border-b-0"} -->
-				<li class="grid grid-cols-[20px_1fr] gap-1.5 items-baseline py-3 border-b border-rule text-[13.5px] text-ink-soft last:border-b-0"><span aria-hidden="true" class="font-serif font-medium text-spine text-[15px]">+</span><span>70 on-site sessions</span></li>
-				<!-- /wp:list-item --><!-- wp:list-item {"className":"grid grid-cols-[20px_1fr] gap-1.5 items-baseline py-3 border-b border-rule text-[13.5px] text-ink-soft last:border-b-0"} -->
 				<li class="grid grid-cols-[20px_1fr] gap-1.5 items-baseline py-3 border-b border-rule text-[13.5px] text-ink-soft last:border-b-0"><span aria-hidden="true" class="font-serif font-medium text-spine text-[15px]">+</span><span>Maximum height increase up to 6 inches, possible consultation required to discuss</span></li>
+				<!-- /wp:list-item --><!-- wp:list-item {"className":"grid grid-cols-[20px_1fr] gap-1.5 items-baseline py-3 border-b border-rule text-[13.5px] text-ink-soft last:border-b-0"} -->
+				<li class="grid grid-cols-[20px_1fr] gap-1.5 items-baseline py-3 border-b border-rule text-[13.5px] text-ink-soft last:border-b-0"><span aria-hidden="true" class="font-serif font-medium text-spine text-[15px]">+</span><span>70 On-Site therapy sessions (Upland, CA)</span></li>
 				<!-- /wp:list-item --></ul>
 				<!-- /wp:list -->
 			</article>
