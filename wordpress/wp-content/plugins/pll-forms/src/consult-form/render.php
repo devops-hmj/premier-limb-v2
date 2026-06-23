@@ -18,8 +18,17 @@ if ( function_exists( 'pll_site_info' ) ) {
 
 $pll_endpoint   = esc_url( rest_url( 'pll/v1/consult' ) );
 $pll_disclaimer = ! empty( $attributes['showEmergencyDisclaimer'] );
+
+/*
+ * Optional GoHighLevel booking calendar. When set, view.js redirects to this
+ * URL on a successful submit with the contact fields appended as prefill
+ * query params. Editable per-block in wp-admin; the filter lets a host pin it
+ * site-wide in code. Public URL, so unlike the webhook it is fine in the DB.
+ */
+$pll_calendar = isset( $attributes['calendarUrl'] ) ? (string) $attributes['calendarUrl'] : '';
+$pll_calendar = (string) apply_filters( 'pll_forms_calendar_url', $pll_calendar, $attributes );
 ?>
-<div class="pll-consult" data-endpoint="<?php echo $pll_endpoint; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped above. ?>">
+<div class="pll-consult" data-endpoint="<?php echo $pll_endpoint; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped above. ?>" data-calendar="<?php echo esc_url( $pll_calendar ); ?>">
 	<?php if ( $pll_disclaimer ) : ?>
 	<p class="mb-4 text-[13px] leading-[1.55] text-warn font-medium"><?php esc_html_e( 'Do not use this form for medical emergencies. If you are experiencing a medical emergency, call 911 or go to the nearest emergency room.', 'pll-forms' ); ?></p>
 	<?php endif; ?>
