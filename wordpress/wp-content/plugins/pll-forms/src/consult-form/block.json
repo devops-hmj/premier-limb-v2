@@ -13,6 +13,10 @@
 		"showEmergencyDisclaimer": {
 			"type": "boolean",
 			"default": false
+		},
+		"calendarUrl": {
+			"type": "string",
+			"default": ""
 		}
 	},
 	"supports": {

@@ -40,6 +40,31 @@ document.querySelectorAll('.pll-consult').forEach((root) => {
 			});
 			if (!res.ok) throw new Error('request failed');
 			form.reset();
+
+			// The lead is now captured in GHL. If a booking calendar is
+			// configured, hand the visitor straight to it with their contact
+			// details prefilled; otherwise show the inline confirmation.
+			const calendar = root.dataset.calendar;
+			if (calendar) {
+				try {
+					const url = new URL(calendar, window.location.origin);
+					const prefill = {
+						first_name: payload.first_name,
+						last_name: payload.last_name,
+						email: payload.email,
+						phone: payload.phone,
+					};
+					for (const [key, value] of Object.entries(prefill)) {
+						if (value) url.searchParams.set(key, value);
+					}
+					label.textContent = 'Opening scheduler…';
+					window.location.assign(url.toString());
+					return;
+				} catch {
+					// Malformed calendar URL: fall back to the inline panel.
+				}
+			}
+
 			form.hidden = true;
 			success.hidden = false;
 		} catch {
