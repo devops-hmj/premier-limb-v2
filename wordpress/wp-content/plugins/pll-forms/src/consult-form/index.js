@@ -16,12 +16,12 @@ registerBlockType( metadata.name, {
 					<TextControl
 						label={ __( 'Booking calendar URL', 'pll-forms' ) }
 						help={ __(
-							'Optional. Paste your GoHighLevel calendar/booking page URL. On a successful submission the visitor is sent there with first name, last name, email, and phone prefilled. Leave blank to show the inline "Request Received" message instead.',
+							'On a successful submission the visitor is sent to the booking calendar with first name, last name, email, and phone prefilled. Leave blank to use the site default (Premier’s branded scheduler). Paste a different GoHighLevel booking URL only to override the default for this form.',
 							'pll-forms'
 						) }
 						type="url"
 						inputMode="url"
-						placeholder="https://api.leadconnectorhq.com/widget/booking/…"
+						placeholder="https://schedule.premierlimblengthening.com/widget/bookings/…"
 						value={ attributes.calendarUrl }
 						onChange={ ( value ) =>
 							setAttributes( { calendarUrl: value } )

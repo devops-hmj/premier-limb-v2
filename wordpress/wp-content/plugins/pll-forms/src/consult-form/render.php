@@ -20,13 +20,16 @@ $pll_endpoint   = esc_url( rest_url( 'pll/v1/consult' ) );
 $pll_disclaimer = ! empty( $attributes['showEmergencyDisclaimer'] );
 
 /*
- * Optional GoHighLevel booking calendar. When set, view.js redirects to this
- * URL on a successful submit with the contact fields appended as prefill
- * query params. Editable per-block in wp-admin; the filter lets a host pin it
- * site-wide in code. Public URL, so unlike the webhook it is fine in the DB.
+ * GoHighLevel booking calendar. On a successful submit, view.js redirects here
+ * with the contact fields appended as prefill query params. Defaults to
+ * Premier's branded scheduler; an editor can override per-block via the
+ * calendarUrl attribute, and a host can override in code via the
+ * pll_forms_calendar_url filter. Public URL, so unlike the webhook it is fine
+ * in the DB/repo.
  */
-$pll_calendar = isset( $attributes['calendarUrl'] ) ? (string) $attributes['calendarUrl'] : '';
-$pll_calendar = (string) apply_filters( 'pll_forms_calendar_url', $pll_calendar, $attributes );
+$pll_calendar_default = 'https://schedule.premierlimblengthening.com/widget/bookings/premier-limb-schedule';
+$pll_calendar         = ! empty( $attributes['calendarUrl'] ) ? (string) $attributes['calendarUrl'] : $pll_calendar_default;
+$pll_calendar         = (string) apply_filters( 'pll_forms_calendar_url', $pll_calendar, $attributes );
 ?>
 <div class="pll-consult" data-endpoint="<?php echo $pll_endpoint; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped above. ?>" data-calendar="<?php echo esc_url( $pll_calendar ); ?>">
 	<?php if ( $pll_disclaimer ) : ?>
