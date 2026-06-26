@@ -22,7 +22,7 @@
 			<!-- /wp:paragraph -->
 
 			<!-- wp:heading {"level":1,"className":"mt-5 font-serif font-normal tracking-[-0.025em] text-ink leading-[0.95] max-w-[16ch] text-[clamp(40px,6vw,92px)]"} -->
-			<h1 class="wp-block-heading mt-5 font-serif font-normal tracking-[-0.025em] text-ink leading-[0.95] max-w-[16ch] text-[clamp(40px,6vw,92px)]">Everything worth <em class="italic text-spine">knowing.</em></h1>
+			<h1 class="wp-block-heading mt-5 font-serif font-normal tracking-[-0.025em] text-ink leading-[0.95] max-w-[16ch] text-[clamp(40px,6vw,92px)]">The Limb Lengthening blog: everything worth <em class="italic text-spine">knowing.</em></h1>
 			<!-- /wp:heading -->
 		</div>
 		<!-- /wp:group -->

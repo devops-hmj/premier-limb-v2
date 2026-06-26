@@ -21,7 +21,7 @@
 			<!-- /wp:paragraph -->
 
 			<!-- wp:heading {"level":1,"className":"mt-5 font-serif font-normal tracking-[-0.025em] text-ink leading-[0.95] max-w-[18ch] text-[clamp(44px,7.2vw,116px)]"} -->
-			<h1 class="wp-block-heading mt-5 font-serif font-normal tracking-[-0.025em] text-ink leading-[0.95] max-w-[18ch] text-[clamp(44px,7.2vw,116px)]">Limb lengthening, <em class="italic text-spine">priced like a partner.</em></h1>
+			<h1 class="wp-block-heading mt-5 font-serif font-normal tracking-[-0.025em] text-ink leading-[0.95] max-w-[18ch] text-[clamp(44px,7.2vw,116px)]">Limb Lengthening Cost, <em class="italic text-spine">priced like a partner.</em></h1>
 			<!-- /wp:heading -->
 		</div>
 		<!-- /wp:group -->
