@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Before &amp; After · Premier Limb Lengthening</title>
+<meta name="description" content="Before and after patient cases from Premier Limb Lengthening, with patient faces anonymized to protect privacy.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   BEFORE & AFTER — Premier Limb Lengthening
+   Concept mock. Design tokens shared with option-b.html.
+   Every image is a labelled placeholder ("Plate 0X").
+   Text placeholders are marked in [ BRACKETS ] where the
+   client / Jaime must supply real content or approvals.
+   ============================================================ */
+:root {
+  --blue:       #254A5D;    /* Pantone 2168 C — the spine */
+  --blue-deep:  #18323f;
+  --blue-wash:  #eaf0f3;
+  --blue-tint:  #f3f6f8;
+  --ink:        #0f1417;
+  --ink-soft:   #3a4047;
+  --paper:      #ffffff;
+  --paper-off:  #f8f6f1;    /* warm newsprint */
+  --paper-2:    #ece8de;
+  --rule:       #d9d5c9;
+  --rule-hard:  #0f1417;
+  --muted:      #6b6f72;
+  --cream:      #f4f0e6;
+  --gold:       #f4d88a;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter Tight', -apple-system, sans-serif;
+  background: var(--paper-off);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+.serif { font-family: 'Newsreader', 'Times New Roman', serif; font-weight: 400; }
+.mono  { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+.wrap { max-width: 1320px; margin: 0 auto; padding: 0 48px; }
+
+.eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--blue); font-weight: 500;
+  display: inline-flex; align-items: center; gap: 12px;
+}
+.eyebrow::before {
+  content: ""; width: 22px; height: 1px; background: var(--blue);
+}
+
+/* Concept banner (mock only — remove before production) */
+.concept-banner {
+  background: var(--gold); color: var(--ink);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase;
+  text-align: center; padding: 7px 48px;
+  border-bottom: 1px solid var(--ink);
+}
+.concept-banner strong { font-weight: 500; }
+
+/* =========================== NAV =========================== */
+.masthead {
+  background: var(--paper-off);
+  border-bottom: 2px solid var(--ink);
+  position: relative;
+  z-index: 5;
+}
+.masthead-strip {
+  background: var(--ink); color: #d4d6d8;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.16em;
+  display: flex; justify-content: space-between;
+  padding: 8px 48px;
+  text-transform: uppercase;
+}
+.masthead-strip .bluebar { display: inline-flex; align-items: center; gap: 10px; }
+.masthead-strip .bluebar::before {
+  content: ""; width: 10px; height: 10px; background: var(--blue);
+}
+.nav {
+  display: grid; grid-template-columns: auto 1fr auto;
+  align-items: center; padding: 18px 48px;
+  gap: 40px;
+  max-width: 1320px; margin: 0 auto;
+}
+.logo { display: flex; align-items: center; gap: 16px; }
+.logo-mark {
+  width: 44px; height: 44px;
+  background: var(--blue); color: #fff;
+  display: grid; place-items: center;
+  font-family: 'Newsreader', serif; font-size: 26px; font-weight: 500;
+  font-style: italic; padding-bottom: 4px;
+}
+.logo-text { line-height: 1.05; }
+.logo-text .top {
+  font-family: 'Newsreader', serif;
+  font-size: 24px; letter-spacing: -0.01em; font-weight: 500;
+}
+.logo-text .bottom {
+  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--muted); margin-top: 3px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.nav-links {
+  display: flex; gap: 30px; justify-content: center;
+  font-size: 13.5px; color: var(--ink);
+  font-weight: 500;
+}
+.nav-links a:hover { color: var(--blue); }
+.nav-links a.active { color: var(--blue); border-bottom: 2px solid var(--blue); padding-bottom: 2px; }
+.nav-right { display: flex; align-items: center; gap: 18px; }
+.nav-phone {
+  font-family: 'Newsreader', serif;
+  font-size: 18px; font-style: italic; color: var(--blue);
+}
+.nav-cta {
+  font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: #fff; background: var(--blue);
+  padding: 14px 22px;
+  display: inline-flex; align-items: center; gap: 10px;
+  transition: background 180ms;
+  font-weight: 500;
+}
+.nav-cta:hover { background: var(--blue-deep); }
+.nav-cta .arr { font-family: 'Newsreader', serif; font-style: italic; font-size: 16px; }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 14px 22px;
+  font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
+  background: var(--blue); color: #fff;
+  border: 1px solid var(--blue);
+  transition: background 180ms, color 180ms, border-color 180ms;
+  cursor: pointer;
+  font-weight: 500;
+}
+.btn:hover { background: var(--blue-deep); border-color: var(--blue-deep); }
+.btn.ghost { background: transparent; color: var(--blue); }
+.btn.ghost:hover { background: var(--blue); color: #fff; }
+.btn.ink { background: var(--ink); border-color: var(--ink); }
+.btn.ink:hover { background: var(--blue); border-color: var(--blue); }
+.btn.gold { background: var(--gold); color: var(--ink); border-color: var(--gold); }
+.btn.gold:hover { background: #fff; border-color: #fff; }
+.btn .arr { font-family: 'Newsreader', serif; font-style: italic; font-size: 17px; margin-top: -2px; }
+
+/* =========================== HERO HEADER (dossier) =========================== */
+.page-hero {
+  background: var(--paper-off);
+  border-bottom: 1px solid var(--ink);
+  padding: 56px 0 48px;
+}
+.page-hero .wrap { display: grid; grid-template-columns: repeat(12, 1fr); gap: 32px; align-items: end; }
+.crumb {
+  grid-column: 1 / 13;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+.crumb a:hover { color: var(--blue); }
+.crumb .sep { margin: 0 10px; }
+.crumb .here { color: var(--ink); }
+
+.page-hero .head-main { grid-column: 1 / 9; }
+.page-hero .eyebrow { margin-bottom: 20px; }
+.page-hero h1 {
+  font-family: 'Newsreader', serif;
+  font-weight: 400;
+  font-size: clamp(56px, 8vw, 128px);
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+.page-hero h1 em { font-style: italic; color: var(--blue); }
+
+.page-hero .head-aside {
+  grid-column: 9 / 13;
+  padding-left: 24px;
+  border-left: 1px solid var(--rule);
+}
+.page-hero .head-aside .deck {
+  font-family: 'Newsreader', serif; font-style: italic;
+  font-size: clamp(18px, 1.8vw, 22px); line-height: 1.35;
+  color: var(--ink-soft);
+  margin-bottom: 20px;
+}
+.page-hero .meta {
+  padding-top: 16px; border-top: 1px solid var(--rule);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--muted); line-height: 1.9;
+}
+.page-hero .meta strong { color: var(--ink); font-weight: 500; }
+
+/* Privacy micro-note under hero */
+.privacy-note {
+  background: var(--blue-tint);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--ink);
+}
+.privacy-note .wrap {
+  display: flex; align-items: center; gap: 18px;
+  padding-top: 18px; padding-bottom: 18px;
+}
+.privacy-note .lock {
+  font-family: 'Newsreader', serif; font-style: italic;
+  font-size: 22px; color: var(--blue); flex-shrink: 0;
+}
+.privacy-note p {
+  font-size: 13px; color: var(--ink-soft); line-height: 1.6; max-width: 96ch;
+}
+.privacy-note p strong { color: var(--ink); font-weight: 600; }
+
+/* ===================== SECTIONS ===================== */
+.section { padding: 110px 0; background: var(--paper-off); }
+.section.tight { padding: 88px 0; }
+.section-head {
+  padding-bottom: 32px;
+  margin-bottom: 56px;
+  border-bottom: 1px solid var(--ink);
+}
+.section-head .eyebrow { margin-bottom: 16px; }
+.section-head h2 {
+  font-family: 'Newsreader', serif;
+  font-weight: 400;
+  font-size: clamp(40px, 5.4vw, 76px);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  max-width: 24ch;
+  text-wrap: balance;
+}
+.section-head h2 em { font-style: italic; color: var(--blue); }
+.section-head .sub {
+  margin-top: 20px; font-size: 15px; color: var(--ink-soft);
+  line-height: 1.7; max-width: 64ch;
+}
+
+/* ============ "HOW TO READ THESE RESULTS" — 3-col framing ============ */
+.section-guide { background: var(--paper); border-top: 1px solid var(--rule); }
+.guide {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--ink);
+}
+.guide .g {
+  padding: 36px 28px 36px 0;
+  border-right: 1px solid var(--rule);
+  display: flex; flex-direction: column; gap: 14px;
+}
+.guide .g:last-child { border-right: 0; padding-right: 0; }
+.guide .g .tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--muted);
+  display: inline-flex; align-items: center; gap: 10px;
+}
+.guide .g .tag .dot { width: 8px; height: 8px; background: var(--blue); }
+.guide .g h3 {
+  font-family: 'Newsreader', serif; font-weight: 500;
+  font-size: 26px; line-height: 1.12; letter-spacing: -0.01em;
+}
+.guide .g h3 em { font-style: italic; color: var(--blue); }
+.guide .g p { font-size: 14px; color: var(--ink-soft); line-height: 1.65; }
+
+/* ============ IMAGE PLACEHOLDER (shared "plate" look) ============ */
+.plate {
+  position: relative; overflow: hidden;
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+}
+.plate::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(135deg, transparent 0 22px, rgba(15,20,23,0.045) 22px 23px);
+}
+.plate .tab {
+  position: absolute; top: 12px; left: 12px; z-index: 2;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--muted); background: var(--paper-off); padding: 4px 8px;
+}
+.plate .tab.before { color: #fff; background: var(--ink); }
+.plate .tab.after  { color: var(--ink); background: var(--gold); }
+.plate img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+.plate .tab { z-index: 2; }
+.plate .cap {
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
+  background: rgba(15,20,23,0.72); color: #fff;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 7px 10px;
+}
+.plate .ctr {
+  position: absolute; inset: 0; z-index: 1;
+  display: grid; place-items: center; text-align: center;
+  padding: 24px;
+  font-family: 'Newsreader', serif; font-style: italic; font-size: 15px;
+  color: var(--muted);
+}
+.plate .ctr .kk {
+  display: block; font-family: 'JetBrains Mono', monospace; font-style: normal;
+  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 10px;
+}
+
+/* ============ FEATURED CASE — interactive before/after slider ============ */
+.section-featured { background: var(--ink); color: #fff; }
+.featured {
+  display: grid; grid-template-columns: minmax(0, 520px) 1fr;
+  gap: 56px; align-items: start;
+}
+
+/* draggable comparison slider */
+.compare {
+  position: relative; user-select: none;
+  aspect-ratio: 3 / 4;
+  border: 1px solid var(--ink);
+  overflow: hidden;
+  background: var(--paper-2);
+  touch-action: none;
+}
+.compare:focus-within { outline: 3px solid var(--blue); outline-offset: 3px; }
+.compare .layer {
+  position: absolute; inset: 0;
+  display: grid; place-items: center; text-align: center; padding: 24px;
+  font-family: 'Newsreader', serif; font-style: italic; font-size: 17px;
+}
+.compare .layer .kk {
+  display: block; font-family: 'JetBrains Mono', monospace; font-style: normal;
+  font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.compare .layer img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+/* AFTER = base layer (full) */
+.compare .after {
+  background:
+    repeating-linear-gradient(135deg, transparent 0 22px, rgba(37,74,93,0.06) 22px 23px),
+    var(--blue-wash);
+  color: var(--blue-deep);
+}
+/* BEFORE = top layer, clipped from the left by --pos */
+.compare .before {
+  background:
+    repeating-linear-gradient(135deg, transparent 0 22px, rgba(15,20,23,0.06) 22px 23px),
+    var(--paper-2);
+  color: var(--ink-soft);
+  clip-path: inset(0 calc(100% - var(--pos, 50%)) 0 0);
+}
+.compare .lbl {
+  position: absolute; top: 14px; z-index: 4;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  padding: 5px 9px;
+}
+.compare .lbl.b { left: 14px; color: #fff; background: var(--ink); }
+.compare .lbl.a { right: 14px; color: var(--ink); background: var(--gold); }
+.compare .handle {
+  position: absolute; top: 0; bottom: 0; z-index: 5;
+  left: var(--pos, 50%); width: 2px; background: #fff;
+  transform: translateX(-1px);
+  box-shadow: 0 0 0 1px rgba(15,20,23,0.25);
+}
+.compare .handle .grip {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  width: 46px; height: 46px; border-radius: 50%;
+  background: #fff; border: 1px solid var(--ink);
+  display: grid; place-items: center;
+  font-family: 'Newsreader', serif; font-style: italic; color: var(--blue);
+  font-size: 18px; cursor: ew-resize;
+  box-shadow: 0 6px 18px rgba(15,20,23,0.22);
+}
+.compare-hint {
+  margin-top: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--muted);
+  display: flex; align-items: center; gap: 8px;
+}
+
+.featured .meta-card { position: sticky; top: 24px; }
+.featured .kcase {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--blue); margin-bottom: 14px;
+}
+.featured h3 {
+  font-family: 'Newsreader', serif; font-weight: 500;
+  font-size: 34px; line-height: 1.08; letter-spacing: -0.015em;
+  margin-bottom: 18px; max-width: 18ch;
+}
+.featured h3 em { font-style: italic; color: var(--blue); }
+.spec {
+  border-top: 1px solid var(--ink);
+  margin-bottom: 24px;
+}
+.spec .row {
+  display: grid; grid-template-columns: 140px 1fr; gap: 16px;
+  padding: 12px 0; border-bottom: 1px solid var(--rule);
+  align-items: baseline;
+}
+.spec .row dt {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--muted);
+}
+.spec .row dd { font-size: 14.5px; color: var(--ink); }
+.spec .row dd em { font-style: italic; color: var(--blue); font-family: 'Newsreader', serif; font-size: 17px; }
+.featured .narr {
+  font-family: 'Newsreader', serif;
+  font-size: 17px; line-height: 1.55; color: var(--ink-soft);
+  margin-bottom: 22px;
+}
+.consent-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--blue); background: var(--blue-tint);
+  border: 1px solid var(--rule);
+  padding: 7px 11px;
+}
+.consent-tag::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--blue); }
+
+/* Featured case rendered dark */
+.section-featured .section-head { border-color: rgba(255,255,255,0.28); }
+.section-featured .section-head h2 { color: #fff; }
+.section-featured .section-head h2 em { color: var(--gold); }
+.section-featured .section-head .sub { color: rgba(255,255,255,0.82); }
+.section-featured .eyebrow { color: var(--gold); }
+.section-featured .eyebrow::before { background: var(--gold); }
+.section-featured .kcase { color: var(--gold); }
+.section-featured h3 { color: #fff; }
+.section-featured h3 em { color: var(--gold); }
+.section-featured .spec { border-top-color: rgba(255,255,255,0.35); }
+.section-featured .spec .row { border-bottom-color: rgba(255,255,255,0.14); }
+.section-featured .spec .row dt { color: rgba(255,255,255,0.6); }
+.section-featured .spec .row dd { color: #fff; }
+.section-featured .spec .row dd em { color: var(--gold); }
+.section-featured .narr { color: rgba(255,255,255,0.85); }
+.section-featured .compare { border-color: rgba(255,255,255,0.28); }
+.section-featured .compare:focus-within { outline-color: var(--gold); }
+.section-featured .compare-hint { color: rgba(255,255,255,0.6); }
+.section-featured .consent-tag { color: var(--gold); background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.2); }
+.section-featured .consent-tag::before { background: var(--gold); }
+
+/* ============ CASE GRID ============ */
+.section-cases { background: var(--paper); border-top: 1px solid var(--rule); }
+
+/* case grid */
+.cases {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px;
+}
+.case {
+  border-top: 2px solid var(--ink); padding-top: 24px;
+}
+.case .pair {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4px;
+  margin-bottom: 20px;
+}
+.case .pair .plate { aspect-ratio: 3 / 4; }
+.case .khead {
+  display: flex; justify-content: space-between; align-items: baseline;
+  gap: 16px; margin-bottom: 12px;
+}
+.case .kno {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--blue);
+}
+.case .kcat {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted);
+}
+.case h3 {
+  font-family: 'Newsreader', serif; font-weight: 500;
+  font-size: 26px; line-height: 1.12; letter-spacing: -0.01em;
+  margin-bottom: 14px;
+}
+.case h3 em { font-style: italic; color: var(--blue); }
+.case .kspec {
+  display: flex; flex-wrap: wrap; gap: 8px 20px;
+  padding: 14px 0; margin-bottom: 14px;
+  border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+}
+.case .kspec .s { display: flex; flex-direction: column; gap: 2px; }
+.case .kspec .s .v {
+  font-family: 'Newsreader', serif; font-size: 22px; color: var(--ink); line-height: 1;
+}
+.case .kspec .s .v em { font-style: italic; color: var(--blue); }
+.case .kspec .s .l {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+}
+.case p.knarr { font-size: 14px; color: var(--ink-soft); line-height: 1.65; margin-bottom: 16px; }
+.case .kfoot { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+
+
+/* ============ CONSENT & PRIVACY COMMITMENT ============ */
+.section-consent { background: var(--paper); }
+.consent {
+  display: grid; grid-template-columns: 5fr 7fr; gap: 56px; align-items: start;
+}
+.consent-aside {
+  background: var(--blue); color: #fff; padding: 44px 40px; position: relative;
+}
+.consent-aside::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--gold);
+}
+.consent-aside .eyebrow { color: var(--gold); }
+.consent-aside .eyebrow::before { background: var(--gold); }
+.consent-aside h3 {
+  font-family: 'Newsreader', serif; font-weight: 500;
+  font-size: 32px; line-height: 1.12; letter-spacing: -0.01em; margin: 18px 0 16px;
+}
+.consent-aside h3 em { font-style: italic; color: var(--gold); }
+.consent-aside p { font-size: 14.5px; line-height: 1.7; color: rgba(255,255,255,0.92); }
+.consent-list { border-top: 1px solid var(--ink); }
+.consent-list .row {
+  display: grid; grid-template-columns: 40px 1fr; gap: 18px;
+  padding: 22px 0; border-bottom: 1px solid var(--rule); align-items: baseline;
+}
+.consent-list .row .no {
+  font-family: 'Newsreader', serif; font-style: italic; color: var(--blue); font-size: 22px;
+}
+.consent-list .row h4 {
+  font-family: 'Newsreader', serif; font-weight: 500; font-size: 20px;
+  line-height: 1.2; margin-bottom: 6px;
+}
+.consent-list .row p { font-size: 14px; color: var(--ink-soft); line-height: 1.6; }
+
+/* ============ DISCLAIMER ============ */
+.disclaimer { background: var(--paper-off); border-top: 1px solid var(--ink); }
+.disclaimer .wrap {
+  padding-top: 32px; padding-bottom: 32px;
+  display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: start;
+}
+.disclaimer .k {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--muted); white-space: nowrap; padding-top: 3px;
+}
+.disclaimer p { font-size: 13px; color: var(--ink-soft); line-height: 1.7; max-width: 100ch; }
+
+/* ============ FINAL CTA ============ */
+.final { background: var(--blue); color: #fff; padding: 130px 0; position: relative; }
+.final .wrap { display: grid; grid-template-columns: repeat(12, 1fr); gap: 32px; align-items: end; }
+.final .lcol { grid-column: 1 / 8; }
+.final .eyebrow { color: var(--gold); }
+.final .eyebrow::before { background: var(--gold); }
+.final h2 {
+  font-family: 'Newsreader', serif; font-weight: 500;
+  font-size: clamp(48px, 6.6vw, 100px); line-height: 0.96; letter-spacing: -0.03em; margin-top: 20px;
+}
+.final h2 em { font-style: italic; color: var(--gold); }
+.final .rcol { grid-column: 9 / 13; padding-left: 20px; border-left: 1px solid rgba(255,255,255,0.25); }
+.final .rcol p {
+  font-family: 'Newsreader', serif; font-style: italic;
+  font-size: 21px; color: rgba(255,255,255,0.92); margin-bottom: 28px; line-height: 1.3;
+}
+.final .rcol .ctas { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+.final .rcol .btn.ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,0.4); }
+.final .rcol .btn.ghost:hover { background: #fff; color: var(--blue); border-color: #fff; }
+
+/* ============ FOOTER ============ */
+.footer { background: var(--ink); color: #d9d9d9; padding: 72px 0 32px; }
+.footer .wrap { padding: 0 48px; }
+.footer-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 56px;
+  padding-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+.footer .f-logo { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; }
+.footer .f-logo .mk {
+  width: 40px; height: 40px; background: var(--blue); color: #fff;
+  display: grid; place-items: center;
+  font-family: 'Newsreader', serif; font-style: italic; font-size: 22px; padding-bottom: 3px;
+}
+.footer .f-logo .t { font-family: 'Newsreader', serif; font-weight: 500; font-size: 22px; color: #fff; }
+.footer .f-tag {
+  font-family: 'Newsreader', serif; font-style: italic;
+  font-size: 18px; color: rgba(255,255,255,0.92); max-width: 34ch; margin-bottom: 24px;
+}
+.footer .f-addr { font-size: 13px; color: rgba(255,255,255,0.85); line-height: 1.8; }
+.footer h4 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 18px; font-weight: 500;
+}
+.footer ul { list-style: none; }
+.footer ul li { padding: 6px 0; }
+.footer ul li a { font-size: 13.5px; color: rgba(255,255,255,0.88); }
+.footer ul li a:hover { color: var(--gold); }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 24px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.14em; color: rgba(255,255,255,0.85);
+  gap: 24px; flex-wrap: wrap;
+}
+.footer-bottom .sw { display: inline-flex; align-items: center; gap: 10px; }
+.footer-bottom .sw a { color: rgba(255,255,255,0.88); }
+.footer-bottom .sw a:hover { color: var(--gold); }
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 1024px) {
+  .wrap, .footer .wrap { padding: 0 28px; }
+  .nav { padding: 18px 28px; }
+  .masthead-strip { padding: 8px 28px; }
+  .concept-banner { padding: 7px 28px; }
+  .nav-links { display: none; }
+  .page-hero .wrap, .guide, .featured, .cases,
+  .consent, .footer-grid { grid-template-columns: 1fr; }
+  .page-hero .head-main, .page-hero .head-aside, .crumb { grid-column: 1; }
+  .page-hero .head-aside { border-left: 0; padding-left: 0; margin-top: 28px; }
+  .featured .meta-card { position: static; }
+  .consent-aside { order: -1; }
+  .final .lcol, .final .rcol { grid-column: 1 / 13; border-left: 0; padding-left: 0; }
+  .disclaimer .wrap { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .guide { grid-template-columns: 1fr; }
+  .case .pair { grid-template-columns: 1fr 1fr; }
+  .masthead-strip { font-size: 9px; padding: 8px 20px; }
+  .wrap, .footer .wrap { padding: 0 20px; }
+  .nav { padding: 16px 20px; }
+  .concept-banner { padding: 7px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- CONCEPT BANNER — remove before production -->
+<div class="concept-banner">
+  <strong>Concept preview</strong> · Before &amp; After · layout &amp; structure for review · all imagery and case details are placeholders
+</div>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="masthead-strip">
+    <span class="bluebar">Pantone 2168 C · Identity</span>
+    <span>Documented Outcomes</span>
+    <span>Upland · Southern California</span>
+  </div>
+  <div class="nav">
+    <a class="logo" href="option-b.html">
+      <div class="logo-mark">P</div>
+      <div class="logo-text">
+        <div class="top">Premier Limb Lengthening</div>
+        <div class="bottom">A Premier Orthopaedic &amp; Trauma Clinic</div>
+      </div>
+    </a>
+    <nav class="nav-links">
+      <a href="option-b.html#surgery">Your Surgery</a>
+      <a href="before-after.html" class="active">Before &amp; After</a>
+      <a href="option-b.html#pricing">Pricing</a>
+      <a href="option-b.html#dr">Dr. Basmajian</a>
+      <a href="option-b.html#faq">FAQ</a>
+    </nav>
+    <div class="nav-right">
+      <a class="nav-phone" href="tel:+19516205663">(951) 620-5663</a>
+      <a class="nav-cta" href="option-b.html#consult">Schedule Consultation <span class="arr">&rarr;</span></a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO HEADER -->
+<section class="page-hero">
+  <div class="wrap">
+    <nav class="crumb" aria-label="Breadcrumb">
+      <a href="option-b.html">Home</a><span class="sep">·</span>
+      <a href="option-b.html#results">Results</a><span class="sep">·</span>
+      <span class="here">Before &amp; After</span>
+    </nav>
+
+    <div class="head-main">
+      <div class="eyebrow">Documented Outcomes</div>
+      <h1>Before &amp;<br><em>after.</em></h1>
+    </div>
+
+    <div class="head-aside">
+      <p class="deck">A measured look at what limb lengthening actually changes: stature and proportion, the bone itself on film, and a return to normal walking.</p>
+      <div class="meta">
+        <div><strong>Surgeon</strong> &nbsp; Dr. Hrayr Basmajian, MD</div>
+        <div><strong>Evidence</strong> &nbsp; Radiographic · Stature · Gait</div>
+        <div><strong>Cases shown</strong> &nbsp; 3 documented, consented</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRIVACY MICRO-NOTE -->
+<div class="privacy-note">
+  <div class="wrap">
+    <span class="lock" aria-hidden="true">&#9679;</span>
+    <p><strong>On patient privacy.</strong> Cosmetic limb lengthening is a deeply personal decision. Every image and story on this page is published only with the patient's written consent, and many patients choose to remain anonymous. We do not publish anyone's face or identifying details without explicit permission. [ Confirm final consent and anonymization policy with Dr. Basmajian before any real case is added. ]</p>
+  </div>
+</div>
+
+<!-- HOW TO READ THESE RESULTS -->
+<section class="section section-guide tight">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">How to Read These Results</div>
+      <h2>Three ways we show <em>the change.</em></h2>
+      <p class="sub">Limb lengthening is not a before/after you judge from one photo. The honest evidence lives in three places, and we present all three so you can weigh the outcome the way a surgeon does.</p>
+    </div>
+
+    <div class="guide">
+      <div class="g">
+        <div class="tag"><span class="dot"></span>01 · Stature</div>
+        <h3><em>Height</em> &amp; proportion</h3>
+        <p>Standing comparisons captured against a fixed scale. The goal is a result that matches your natural proportions, so the change reads as "you look great," not "something looks off." [ Placeholder copy. ]</p>
+      </div>
+      <div class="g">
+        <div class="tag"><span class="dot"></span>02 · Radiographic</div>
+        <h3>The <em>bone</em> on film</h3>
+        <p>X-rays are the clinical proof. They show the internal Precice nail in place, new regenerate bone forming through distraction, and full consolidation once healed. Non-identifying and objective.</p>
+      </div>
+      <div class="g">
+        <div class="tag"><span class="dot"></span>03 · Function</div>
+        <h3><em>Gait</em> &amp; movement</h3>
+        <p>For many patients, especially revision cases, the real result is walking normally again. Before and after comparisons document range of motion and gait once physical therapy is complete. [ Placeholder copy. ]</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED CASE — interactive comparison -->
+<section class="section section-featured">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Featured Case</div>
+      <h2>Drag to <em>compare.</em></h2>
+      <p class="sub">Drag the divider to move between the before and after photos, both alongside Dr. Basmajian. Patient faces are blurred to protect their privacy.</p>
+    </div>
+
+    <div class="featured">
+      <div>
+        <div class="compare" id="compare" style="--pos:50%;">
+          <div class="layer after">
+            <img src="assets/before-after/patient-1-before.jpg" alt="Featured patient standing beside Dr. Basmajian, after photo">
+          </div>
+          <div class="layer before">
+            <img src="assets/before-after/patient-1-after.jpg" alt="Featured patient standing beside Dr. Basmajian, before photo">
+          </div>
+          <span class="lbl b">Before</span>
+          <span class="lbl a">After</span>
+          <div class="handle" id="handle"><div class="grip" aria-hidden="true">&#8646;</div></div>
+          <input type="range" min="0" max="100" value="50" id="compareRange"
+                 aria-label="Reveal consultation or surgery-day photo"
+                 style="position:absolute; inset:0; width:100%; height:100%; opacity:0; cursor:ew-resize; z-index:6; margin:0;">
+        </div>
+        <div class="compare-hint"><span aria-hidden="true">&#8646;</span> Drag the handle to reveal before and after</div>
+      </div>
+
+      <aside class="meta-card">
+        <div class="kcase">Case 01 · Featured</div>
+        <h3>Femur <em>lengthening.</em></h3>
+        <dl class="spec">
+          <div class="row"><dt>Patient</dt><dd>[ e.g. Male, 32, brief descriptor ]</dd></div>
+          <div class="row"><dt>Procedure</dt><dd>Femur · Precice internal nail</dd></div>
+          <div class="row"><dt>Height gain</dt><dd><em>+[ X ]&Prime;</em> [ e.g. 3 inches ]</dd></div>
+          <div class="row"><dt>Lengthening</dt><dd>[ X ] months at ~1&nbsp;mm/day</dd></div>
+          <div class="row"><dt>Full recovery</dt><dd>[ X ] months</dd></div>
+          <div class="row"><dt>Goal</dt><dd>Cosmetic height enhancement</dd></div>
+        </dl>
+        <p class="narr">"[ Short, first-person patient quote goes here. One or two sentences on the motivation and the outcome, in the patient's own words, approved for publication. ]"</p>
+        <span class="consent-tag">Patient identity anonymized</span>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- CASE GRID -->
+<section class="section section-cases">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Case Studies</div>
+      <h2>Documented <em>patient outcomes.</em></h2>
+      <p class="sub">Two further documented cases, each shared with written consent and shown as a single before and after pair. With the featured case above, three are documented in total. [ All imagery, quotes, and metrics below are placeholders to be supplied and approved. ]</p>
+    </div>
+
+    <div class="cases">
+
+      <!-- CASE 02 -->
+      <article class="case">
+        <div class="pair">
+          <div class="plate">
+            <img src="assets/before-after/patient-2-before.jpg" alt="Second patient standing beside Dr. Basmajian, before photo">
+            <span class="tab before">Before</span>
+          </div>
+          <div class="plate">
+            <img src="assets/before-after/patient-2-after.jpg" alt="Second patient standing beside Dr. Basmajian, after photo">
+            <span class="tab after">After</span>
+          </div>
+        </div>
+        <div class="khead"><span class="kno">Case 02</span><span class="kcat">Femur · Precice nail</span></div>
+        <h3>Femur <em>lengthening.</em></h3>
+        <div class="kspec">
+          <div class="s"><span class="v"><em>+[X]&Prime;</em></span><span class="l">Height gain</span></div>
+          <div class="s"><span class="v">[X] mo</span><span class="l">Lengthening</span></div>
+          <div class="s"><span class="v">[X] mo</span><span class="l">To full activity</span></div>
+        </div>
+        <p class="knarr">[ 2 to 3 sentence placeholder narrative in the patient's words: their goal, the experience with Dr. Basmajian, and the result. Keep it factual and understated. ]</p>
+        <div class="kfoot"><span class="consent-tag">Anonymized</span></div>
+      </article>
+
+      <!-- CASE 03 -->
+      <article class="case">
+        <div class="pair">
+          <div class="plate">
+            <img src="assets/before-after/patient-3-before.jpg" alt="Third patient standing beside Dr. Basmajian, before photo">
+            <span class="tab before">Before</span>
+          </div>
+          <div class="plate">
+            <img src="assets/before-after/patient-3-after.jpg" alt="Third patient standing beside Dr. Basmajian, after photo">
+            <span class="tab after">After</span>
+          </div>
+        </div>
+        <div class="khead"><span class="kno">Case 03</span><span class="kcat">Femur · Precice nail</span></div>
+        <h3>Femur <em>lengthening.</em></h3>
+        <div class="kspec">
+          <div class="s"><span class="v"><em>+[X]&Prime;</em></span><span class="l">Height gain</span></div>
+          <div class="s"><span class="v">[X] mo</span><span class="l">Lengthening</span></div>
+          <div class="s"><span class="v">[X] mo</span><span class="l">To full activity</span></div>
+        </div>
+        <p class="knarr">[ 2 to 3 sentence placeholder narrative in the patient's words: their goal, the experience with Dr. Basmajian, and the result. Keep it factual and understated. ]</p>
+        <div class="kfoot"><span class="consent-tag">Anonymized</span></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONSENT & PRIVACY COMMITMENT -->
+<section class="section section-consent">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Our Commitment</div>
+      <h2>How we handle <em>your privacy.</em></h2>
+    </div>
+
+    <div class="consent">
+      <aside class="consent-aside">
+        <div class="eyebrow">Discreet by Default</div>
+        <h3>Your story is <em>yours</em> to share.</h3>
+        <p>We are never performative about patient results. Nothing appears here without your explicit written permission, and choosing to stay private never changes the care you receive. [ Confirm final policy language with counsel and Dr. Basmajian. ]</p>
+      </aside>
+
+      <div class="consent-list">
+        <div class="row">
+          <div class="no">01</div>
+          <div>
+            <h4>Written consent, every time</h4>
+            <p>No photo, X-ray, or story is published without a signed release specific to marketing use. Consent can be withdrawn.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="no">02</div>
+          <div>
+            <h4>Anonymous by choice</h4>
+            <p>Faces and identifying details are removed unless a patient specifically approves them. Radiographic images are non-identifying by nature.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="no">03</div>
+          <div>
+            <h4>Honest presentation</h4>
+            <p>Images are not retouched to exaggerate results. Before and after are captured at the same pose, distance, and scale.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="no">04</div>
+          <div>
+            <h4>HIPAA aligned</h4>
+            <p>Protected health information is governed by our Notice of Privacy Practices. Marketing use is handled separately and only with consent.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEDICAL DISCLAIMER -->
+<div class="disclaimer">
+  <div class="wrap">
+    <div class="k">Important</div>
+    <p>Any before-and-after images, height ranges, timelines, and recovery descriptions on this page reflect individual experiences. Results vary from patient to patient and are not a guarantee of any specific outcome. Limb lengthening is a major surgical procedure with real risks that are reviewed in detail during consultation. Candidacy, expected gain, and recovery are determined case by case by Dr. Basmajian. [ Final disclaimer wording to be approved by counsel. ]</p>
+  </div>
+</div>
+
+<!-- FINAL CTA -->
+<section class="final">
+  <div class="wrap">
+    <div class="lcol">
+      <div class="eyebrow">Begin</div>
+      <h2>See what is realistic <em>for you.</em></h2>
+    </div>
+    <div class="rcol">
+      <p>The most useful before/after is the one built around your body. Dr. Basmajian will review your goals and imaging in a confidential consultation.</p>
+      <div class="ctas">
+        <a class="btn gold" href="option-b.html#consult">Schedule a Confidential Consultation <span class="arr">&rarr;</span></a>
+        <a class="btn ghost" href="tel:+19516205663">Call (951) 620-5663 <span class="arr">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="f-logo">
+          <div class="mk">P</div>
+          <div class="t">Premier Limb Lengthening</div>
+        </div>
+        <div class="f-tag">Cosmetic limb lengthening, founded by Dr. Hrayr Basmajian. Upland, California.</div>
+        <div class="f-addr">
+          400 N. Mountain Ave. Suite 305<br>
+          Upland, CA 91786<br>
+          <a href="tel:+19516205663" style="color:var(--gold);">(951) 620-5663</a>
+        </div>
+      </div>
+      <div>
+        <h4>Procedures</h4>
+        <ul>
+          <li><a href="option-b.html#surgery">Femur Lengthening</a></li>
+          <li><a href="option-b.html#surgery">Tibia Lengthening</a></li>
+          <li><a href="option-b.html#surgery">Revision Surgery</a></li>
+          <li><a href="option-b.html#surgery">Limb-Length Discrepancy</a></li>
+          <li><a href="option-b.html#surgery">Precice Nail Technology</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="option-b.html#pricing">Pricing</a></li>
+          <li><a href="option-b.html#surgery">Recovery Timeline</a></li>
+          <li><a href="before-after.html">Before &amp; After</a></li>
+          <li><a href="option-b.html#faq">FAQ</a></li>
+          <li><a href="option-b.html#blog">Blog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>For Patients</h4>
+        <ul>
+          <li><a href="option-b.html#consult">Schedule Consultation</a></li>
+          <li><a href="option-b.html#virtual">Virtual Consultation</a></li>
+          <li><a href="option-b.html#concierge">Concierge Travel Program</a></li>
+          <li><a href="option-b.html#financing">Financing Options</a></li>
+          <li><a href="option-b.html#portal">Patient Portal</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>&copy; 2026 Premier Limb Lengthening. All rights reserved.</div>
+      <div class="sw">
+        <a href="option-b.html#privacy">Privacy Policy</a> ·
+        <a href="option-b.html#terms">Terms</a> ·
+        <a href="option-b.html#accessibility">Accessibility</a> ·
+        <a href="option-b.html#sitemap">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ---- Before/After comparison slider ---- */
+(function () {
+  var compare = document.getElementById('compare');
+  var range   = document.getElementById('compareRange');
+  if (!compare || !range) return;
+
+  function setPos(pct) {
+    pct = Math.max(0, Math.min(100, pct));
+    compare.style.setProperty('--pos', pct + '%');
+    range.value = pct;
+  }
+  range.addEventListener('input', function () { setPos(parseFloat(range.value)); });
+
+  // Pointer drag anywhere on the frame moves the divider
+  var dragging = false;
+  function moveFromEvent(clientX) {
+    var r = compare.getBoundingClientRect();
+    setPos(((clientX - r.left) / r.width) * 100);
+  }
+  compare.addEventListener('pointerdown', function (e) {
+    dragging = true; moveFromEvent(e.clientX);
+  });
+  window.addEventListener('pointermove', function (e) {
+    if (dragging) moveFromEvent(e.clientX);
+  });
+  window.addEventListener('pointerup', function () { dragging = false; });
+
+  setPos(50);
+})();
+</script>
+
+</body>
+</html>
