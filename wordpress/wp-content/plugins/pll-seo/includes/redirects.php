@@ -16,6 +16,11 @@ defined( 'ABSPATH' ) || exit;
  * article rather than being rebuilt. (The Next.js app interim-302'd it to
  * /blog; a topical 301 transfers more equity.)
  *
+ * /your-visit is a legacy "Your Visit" URL from the pre-rebuild site with no
+ * destination in the current IA. GSC still indexes it as an orphan (~position
+ * 49, no clicks); 301 it to the surgical-journey hub so the residual equity
+ * consolidates instead of decaying on a soft 404.
+ *
  * @return array<string, string>
  */
 function pll_seo_redirect_map() {
@@ -23,6 +28,7 @@ function pll_seo_redirect_map() {
 		'pll_seo_redirects',
 		array(
 			'/video/will-i-be-a-better-athlete' => '/is-leg-lengthening-off-limits-for-athletes/',
+			'/your-visit'                       => '/your-surgery/',
 		)
 	);
 }

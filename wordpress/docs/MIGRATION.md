@@ -4,6 +4,29 @@ This package is a 1:1 WordPress recreation of premierlimblengthening.com (curren
 Next.js build). It contains an FSE block theme, two small custom plugins, and a content
 seed. **No build tools are required on the server** — every compiled asset is included.
 
+> ### What changed in the 2026-07-21 build (since the 20260720 handoff)
+> All in commit `e06ce29` and the follow-up SEO-recovery fixes:
+> - **On-page SEO restore + editable meta**: curated titles/descriptions are promoted into
+>   editable post meta; new `/height-surgery/` and `/leg-lengthening-surgery/` pillar pages.
+> - **New 301**: `/your-visit` → `/your-surgery/` (a legacy orphan URL, a soft 404 at GSC
+>   position ~49 with no destination page).
+> - **Core Web Vitals**: font preload restored to all four above-the-fold faces (a prior
+>   trim to two reintroduced hero FOUT/reflow); CSS/JS cache-bust by **content hash** (survives
+>   the mtime-preserving upload observed on HIPAA Vault); `preconnect`/`dns-prefetch` added for
+>   the Curve origin.
+> - **Curve (ComplyTrack) tracker**: production-gated, async in the footer (see §9).
+>
+> **Two steps the operator MUST run on the ALREADY-LIVE site** (a fresh install does both
+> automatically):
+> 1. **Re-seed the pages** so the restored keyword H1s (pricing, surgery, blog) reach the
+>    database. They live in theme patterns; uploading theme files alone does not rewrite page
+>    content already in the DB. Use the force-reseed in **§6b** (diff first if editors touched
+>    those pages).
+> 2. Be aware the **one-time SEO-meta seeding migration** in `pll-seo` runs once on this deploy
+>    and **overwrites** any titles/descriptions an editor set in the "SEO (PLL)" panel since
+>    launch, replacing them with the curated defaults. If editors have hand-edited SEO fields,
+>    export those values first. (See `pll_seo` `meta.php`; guarded by `pll_seo_meta_seeded`.)
+
 ## 1. What you receive
 
 ```
@@ -109,8 +132,10 @@ content already in the database. After uploading the updated theme + plugins:
 
 - Permalinks **must** stay `/%postname%/` and the category base must stay `category` —
   every legacy URL then resolves with **zero redirects**.
-- The only redirects shipped: `/video/will-i-be-a-better-athlete` → 301 to the athletics
-  article; `/sitemap.xml` and `/sitemap_index.xml` → 301 to `/wp-sitemap.xml`.
+- Redirects shipped (all 301): `/video/will-i-be-a-better-athlete` → the athletics article;
+  `/your-visit` → `/your-surgery/` (legacy orphan, no destination page); `/sitemap.xml` and
+  `/sitemap_index.xml` → `/wp-sitemap.xml`. These fire only on an otherwise-404 request, so
+  they never shadow a real page.
 
 ## 8. Post-install verification
 
@@ -126,6 +151,12 @@ content already in the database. After uploading the updated theme + plugins:
       meta description, canonical on `https://premierlimblengthening.com`, JSON-LD blocks
       (MedicalBusiness graph everywhere; Article on posts; FAQPage on home)
 - [ ] `/robots.txt`, `/wp-sitemap.xml`
+- [ ] `/height-surgery/` and `/leg-lengthening-surgery/` render with the "Medically
+      reviewed by Dr. Hrayr Basmajian … July 2026" byline under the H1; the pricing
+      page shows all six packages (three PRECICE Max + three PRECICE 2); the footer
+      Resources column links both guides
+- [ ] `view-source` on the production domain includes the Curve Tracking Script in
+      `<head>` (absent on any staging host — that is the production gate working)
 - [ ] Log in as an **Editor**: pages open in content-only mode (text/images editable,
       structure locked); FAQ items can be added/removed; posts edit freely
 
@@ -134,11 +165,83 @@ content already in the database. After uploading the updated theme + plugins:
 - The form pipeline stores **no PHI in WordPress** — payloads pass through to the GHL
   webhook only. Confirm the **BAA covers the GoHighLevel intake path** (release blocker
   per HIPAA_AUDIT.md §1.1).
-- **No analytics or pixels anywhere** — the site ships zero third-party scripts except
-  the GHL chat loader (site-wide as of 2026-06-12; BAA-covered vendor). Per HHS OCR
-  guidance on tracking technologies, do not add GA4/Meta Pixel or any tracker directly;
-  future analytics (e.g. Freshpaint, call-tracking) go in **only after a signed BAA**
-  with that vendor, and CSP/security headers must be extended for the new domains.
+- **Third-party scripts (exactly two, both shipped in code)** — the GHL chat loader
+  (site-wide as of 2026-06-12; BAA-covered vendor) and the **Curve (ComplyTrack)
+  compliance tracker** (added 2026-07-17, `pll-seo/includes/tracking.php`). Curve loads
+  from `https://complytrack-be-production.up.railway.app` and is **production-gated**:
+  it renders only when the site is served from `premierlimblengthening.com` (with or
+  without www), so staging/preview hosts emit nothing. Confirm the practice's BAA with
+  Curve is on file. Per HHS OCR guidance on tracking technologies, do not add GA4/Meta
+  Pixel or any other tracker directly; additional analytics go in **only after a
+  signed BAA** with that vendor, with CSP extended for the new domains.
+- **Content-Security-Policy (complete reference policy).** A `default-src 'self'`
+  policy MUST also open the directives below or it breaks shipped functionality:
+  the GHL chat widget loads its avatar/attachment images from GHL CDNs (`img-src`),
+  the post-submit booking widget is an iframe on the branded scheduler domain
+  (`frame-src` — with `default-src 'self'` and no `frame-src`, the calendar is
+  blocked entirely), and the iframe auto-resize helper `form_embed.js` loads from
+  that same scheduler domain (`script-src`). Reference policy, known-good for
+  everything this package ships:
+
+  ```
+  default-src 'self';
+  script-src 'self' 'unsafe-inline'
+      https://complytrack-be-production.up.railway.app
+      https://cdn.jsdelivr.net
+      https://*.leadconnectorhq.com
+      https://schedule.premierlimblengthening.com;
+  connect-src 'self'
+      https://complytrack-be-production.up.railway.app
+      https://*.leadconnectorhq.com
+      wss://*.leadconnectorhq.com
+      https://*.msgsndr.com
+      https://storage.googleapis.com
+      https://firebasestorage.googleapis.com;
+  frame-src 'self'
+      https://schedule.premierlimblengthening.com
+      https://*.leadconnectorhq.com
+      https://*.msgsndr.com;
+  img-src 'self' data: blob:
+      https://*.leadconnectorhq.com
+      https://*.msgsndr.com
+      https://storage.googleapis.com
+      https://firebasestorage.googleapis.com;
+  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+  font-src 'self' data: https://fonts.gstatic.com;
+  media-src 'self'
+      https://*.leadconnectorhq.com
+      https://*.msgsndr.com
+      https://storage.googleapis.com
+      https://firebasestorage.googleapis.com;
+  worker-src 'self' blob:;
+  ```
+
+  Notes on this policy:
+  - **Serialize to a single header line** — raw newlines are invalid in header values;
+    the block above is formatted for readability only.
+  - **Scope it to the front end.** If the header also covers `/wp-admin`, Gravatar
+    avatars (`secure.gravatar.com`) break under this `img-src` and admin screens are
+    untested under it. Front-end-only scoping avoids both.
+  - `cdn.jsdelivr.net` is required by the Curve tracker: when session recording or
+    heatmaps are enabled on the Curve account it dynamically loads `rrweb` and
+    `html2canvas` from jsDelivr. **rrweb is full-DOM session recording** — on a
+    medical intake site that capability must be covered by the Curve BAA (see the
+    tracking-technologies bullet above). If Curve confirms those features are off
+    for this account, the jsDelivr entry can be dropped.
+  - `storage.googleapis.com` / `firebasestorage.googleapis.com` / `*.msgsndr.com`
+    cover the GHL media CDN (chat avatar images, attachments, voice notes).
+  - `'unsafe-eval'` is NOT required — nothing shipped (theme, plugins, Curve, GHL
+    loader, form_embed.js) uses eval. `'unsafe-inline'` IS required (the Curve
+    snippet and the theme's no-js class flip are inline), which means this policy is
+    resource allowlisting, not XSS protection — set `frame-ancestors`, `base-uri`,
+    `object-src 'none'`, and `form-action` per host policy on top.
+
+  After deploying a CSP change, verify **on the production domain** (the Curve
+  tracker is production-gated and never fires on staging): browse `/consult/`
+  end-to-end (submit a test entry, confirm the booking calendar renders in the
+  success panel, chat avatars load, and send a test chat attachment) with the
+  browser console open — any residual `Refused to load…` message names the exact
+  origin still missing.
 - Disable XML-RPC, block REST user enumeration (`/wp-json/wp/v2/users`), disable
   pingbacks, standard managed-WP hardening.
 - Fonts are self-hosted (theme `assets/fonts/`, SIL OFL) — no fonts.googleapis.com calls.

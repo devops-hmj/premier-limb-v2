@@ -82,9 +82,17 @@ add_action(
 add_action(
 	'wp_head',
 	function () {
+		// All four above-the-fold faces (see the note above). Newsreader italic
+		// is the hero H1 accent (<em class="text-spine">) and the LCP text, and
+		// JetBrains Mono backs the ch-unit clamps described above. A 2026-07
+		// change trimmed this list to two, which reintroduced first-paint FOUT
+		// and headline reflow (the exact ch-unit shift the note warns about), so
+		// the italic and mono faces are restored here.
 		$fonts = array(
-			'inter-tight-latin-wght-normal.woff2',
 			'newsreader-latin-wght-normal.woff2',
+			'newsreader-latin-wght-italic.woff2',
+			'inter-tight-latin-wght-normal.woff2',
+			'jetbrains-mono-latin-wght-normal.woff2',
 		);
 		foreach ( $fonts as $font ) {
 			printf(

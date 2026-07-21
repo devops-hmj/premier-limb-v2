@@ -52,6 +52,25 @@ function pll_seo_curve_enabled() {
 	return (bool) apply_filters( 'pll_seo_curve_enabled', $production );
 }
 
+/**
+ * Warm the connection to the Curve origin from <head> so the async loader
+ * (injected from wp_footer) does not pay DNS + TLS handshake latency on its
+ * first fire. Railway origins can cold-start, so the early hint matters for
+ * INP/LCP. Production-gated identically to the snippet, and the origin is
+ * already in the shipped CSP script-src/connect-src (see MIGRATION.md §9).
+ */
+add_action(
+	'wp_head',
+	function () {
+		if ( ! pll_seo_curve_enabled() ) {
+			return;
+		}
+		echo '<link rel="preconnect" href="https://complytrack-be-production.up.railway.app" crossorigin />' . "\n";
+		echo '<link rel="dns-prefetch" href="https://complytrack-be-production.up.railway.app" />' . "\n";
+	},
+	2
+);
+
 add_action(
 	'wp_footer',
 	function () {
