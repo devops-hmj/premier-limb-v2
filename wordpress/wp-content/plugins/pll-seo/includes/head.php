@@ -58,7 +58,8 @@ function pll_seo_og_type() {
  */
 function pll_seo_og_image() {
 	if ( is_singular( 'post' ) ) {
-		$thumb_id = get_post_thumbnail_id( get_queried_object_id() );
+		$post_id  = get_queried_object_id();
+		$thumb_id = get_post_thumbnail_id( $post_id );
 		if ( $thumb_id ) {
 			$url = wp_get_attachment_image_url( $thumb_id, 'full' );
 			if ( $url ) {
@@ -68,36 +69,8 @@ function pll_seo_og_image() {
 				);
 			}
 		}
-		return null;
-	}
-
-	if ( ! is_page() ) {
-		return null;
-	}
-
-	$path = pll_seo_current_path();
-
-	if ( '/dr-basmajian/' === $path ) {
-		return array(
-			'url' => get_theme_file_uri( 'assets/images/dr-picture.jpg' ),
-			'alt' => 'Dr. Hrayr Basmajian',
-		);
-	}
-
-	if ( '/your-surgery/' === $path ) {
-		$uploads = wp_get_upload_dir();
-		return array(
-			'url' => $uploads['baseurl'] . '/pll/your-surgery/overview-magnetic-lengthening.webp',
-			'alt' => 'Magnetic Limb Lengthening Diagram',
-		);
-	}
-
-	// Surgery sub-pages: first content image (or the extracted hero image),
-	// matching the generateMetadata() image extraction in Next.
-	$post = get_post( get_queried_object_id() );
-	if ( $post && $post->post_parent ) {
-		$parent = get_post( $post->post_parent );
-		if ( $parent && 'your-surgery' === $parent->post_name ) {
+		$post = get_post( $post_id );
+		if ( $post ) {
 			$hero = (string) get_post_meta( $post->ID, '_pll_hero_image', true );
 			if ( ! $hero && preg_match( '/<img[^>]+src="([^"]+)"/', $post->post_content, $m ) ) {
 				$hero = $m[1];
@@ -112,9 +85,55 @@ function pll_seo_og_image() {
 				);
 			}
 		}
+		return array(
+			'url' => get_theme_file_uri( 'assets/images/dr-picture.jpg' ),
+			'alt' => get_the_title( $post_id ),
+		);
 	}
 
-	return null;
+	if ( ! is_page() ) {
+		return null;
+	}
+
+	$path = pll_seo_current_path();
+
+	if ( '/dr-basmajian/' === $path || '/dr-basmajian' === $path ) {
+		return array(
+			'url' => get_theme_file_uri( 'assets/images/dr-picture.jpg' ),
+			'alt' => 'Dr. Hrayr Basmajian',
+		);
+	}
+
+	if ( '/your-surgery/' === $path || '/your-surgery' === $path ) {
+		$uploads = wp_get_upload_dir();
+		return array(
+			'url' => $uploads['baseurl'] . '/pll/your-surgery/overview-magnetic-lengthening.webp',
+			'alt' => 'Magnetic Limb Lengthening Diagram',
+		);
+	}
+
+	// Surgery sub-pages or standalone pages: first content image (or extracted hero image).
+	$post = get_post( get_queried_object_id() );
+	if ( $post ) {
+		$hero = (string) get_post_meta( $post->ID, '_pll_hero_image', true );
+		if ( ! $hero && preg_match( '/<img[^>]+src="([^"]+)"/', $post->post_content, $m ) ) {
+			$hero = $m[1];
+		}
+		if ( $hero ) {
+			if ( 0 === strpos( $hero, '/' ) ) {
+				$hero = home_url( $hero );
+			}
+			return array(
+				'url' => $hero,
+				'alt' => get_the_title( $post ),
+			);
+		}
+	}
+
+	return array(
+		'url' => get_theme_file_uri( 'assets/images/dr-picture.jpg' ),
+		'alt' => get_bloginfo( 'name' ),
+	);
 }
 
 add_action(

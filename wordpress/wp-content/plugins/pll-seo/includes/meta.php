@@ -80,6 +80,23 @@ function pll_seo_page_defaults() {
 			'og_description' => 'Transparent 2026 pricing for cosmetic limb lengthening. Bundled implants, OR time, hospitalization, anesthesia, follow-up care, and on-site sessions.',
 			'og_type'        => 'website',
 		),
+		// SEO pillars (PLL_SEO_Audit_Report.docx, Title Tags and Meta
+		// Descriptions). Titles stored WITHOUT the "· Premier Limb
+		// Lengthening" suffix — titles.php appends it.
+		'/height-surgery/'                   => array(
+			'title'          => 'Height Surgery · What It Is, Cost, and How It Works',
+			'description'    => 'Height surgery permanently adds 2 to 3.5 inches by lengthening the femur. Learn how it works, costs, candidacy, and how to choose a surgeon. Call (951) 620-5663.',
+			'og_title'       => 'Height Surgery · What It Is, Cost, and How It Works',
+			'og_description' => 'Height surgery permanently adds 2 to 3.5 inches by lengthening the femur. How it works, costs, candidacy, and how to choose a surgeon.',
+			'og_type'        => 'article',
+		),
+		'/leg-lengthening-surgery/'          => array(
+			'title'          => 'Leg Lengthening Surgery · Procedure, Recovery, and Risks',
+			'description'    => 'Leg lengthening surgery increases height using an internal nail. Learn the procedure, recovery timeline, pain, and risks from a trauma-trained surgeon. Call (951) 620-5663.',
+			'og_title'       => 'Leg Lengthening Surgery · Procedure, Recovery, and Risks',
+			'og_description' => 'Leg lengthening surgery increases height using an internal nail. The procedure, recovery timeline, pain, and risks from a trauma-trained surgeon.',
+			'og_type'        => 'article',
+		),
 		'/your-surgery/'                     => array(
 			'title'          => 'Limb Lengthening Surgery · How It Works',
 			'description'    => 'How limb lengthening works: distraction osteogenesis, Precice internal nail placement, gradual distraction, and a recovery timeline you can plan your life around.',
@@ -129,7 +146,7 @@ function pll_seo_current_path() {
 	}
 	$url  = pll_seo_current_url();
 	$path = wp_parse_url( $url, PHP_URL_PATH );
-	return $path ? $path : '/';
+	return $path ? user_trailingslashit( $path ) : '/';
 }
 
 /**
@@ -144,7 +161,7 @@ function pll_seo_current_url() {
 	}
 	$local = home_url( add_query_arg( array(), trailingslashit( $wp->request ) ) );
 	$path  = wp_parse_url( $local, PHP_URL_PATH );
-	return PLL_SEO_ORIGIN . ( $path ? $path : '/' );
+	return PLL_SEO_ORIGIN . ( $path ? user_trailingslashit( $path ) : '/' );
 }
 
 /**
@@ -277,26 +294,33 @@ function pll_seo_value( $field ) {
 		'og_description' => '_pll_og_description',
 	);
 
-	// Curated overrides are authoritative for the paths they cover, so the
-	// optimized titles and descriptions win even where the WXR seeded weak,
-	// auto-derived post meta. og_* fields inherit via the fallbacks below.
-	$overrides = pll_seo_overrides();
-	$ov_path   = pll_seo_current_path();
-	if ( isset( $overrides[ $ov_path ][ $field ] ) ) {
-		return $overrides[ $ov_path ][ $field ];
-	}
-
+	// Editor-set post meta is authoritative when present, so per-page SEO can be
+	// edited in the block editor (the "SEO (PLL)" document panel). The curated
+	// overrides and page defaults below act as the seeded fallback for any field
+	// left blank. og_* fields inherit via the fallbacks below.
 	if ( is_singular() && isset( $meta_keys[ $field ] ) ) {
 		$meta = (string) get_post_meta( get_queried_object_id(), $meta_keys[ $field ], true );
-		if ( $meta ) {
+		if ( '' !== $meta ) {
 			return $meta;
 		}
 	}
 
+	$overrides    = pll_seo_overrides();
+	$ov_path      = pll_seo_current_path();
+	$ov_slashed   = trailingslashit( $ov_path );
+	$ov_unslashed = untrailingslashit( $ov_path );
+
+	foreach ( array( $ov_path, $ov_slashed, $ov_unslashed ) as $p_key ) {
+		if ( isset( $overrides[ $p_key ][ $field ] ) ) {
+			return $overrides[ $p_key ][ $field ];
+		}
+	}
+
 	$defaults = pll_seo_page_defaults();
-	$path     = pll_seo_current_path();
-	if ( isset( $defaults[ $path ][ $field ] ) ) {
-		return $defaults[ $path ][ $field ];
+	foreach ( array( $ov_path, $ov_slashed, $ov_unslashed ) as $p_key ) {
+		if ( isset( $defaults[ $p_key ][ $field ] ) ) {
+			return $defaults[ $p_key ][ $field ];
+		}
 	}
 
 	// OG fields fall back to the SEO fields.
@@ -308,3 +332,87 @@ function pll_seo_value( $field ) {
 	}
 	return '';
 }
+
+/**
+ * Resolve a root-relative path ('/about/', '/your-surgery/x/', '/slug/') to a
+ * post or page ID. '/' maps to the static front page.
+ *
+ * @param string $path Root-relative path.
+ * @return int Post ID or 0.
+ */
+function pll_seo_resolve_path_id( $path ) {
+	$slug = trim( (string) $path, '/' );
+	if ( '' === $slug ) {
+		return (int) get_option( 'page_on_front' );
+	}
+	$page = get_page_by_path( $slug, OBJECT, 'page' );
+	if ( $page instanceof WP_Post ) {
+		return (int) $page->ID;
+	}
+	$post = get_page_by_path( $slug, OBJECT, 'post' );
+	if ( $post instanceof WP_Post ) {
+		return (int) $post->ID;
+	}
+	$base_slug = basename( $slug );
+	if ( $base_slug !== $slug ) {
+		$page_base = get_page_by_path( $base_slug, OBJECT, 'page' );
+		if ( $page_base instanceof WP_Post ) {
+			return (int) $page_base->ID;
+		}
+		$post_base = get_page_by_path( $base_slug, OBJECT, 'post' );
+		if ( $post_base instanceof WP_Post ) {
+			return (int) $post_base->ID;
+		}
+	}
+	return 0;
+}
+
+/**
+ * One-time launch migration: promote the curated titles/descriptions (the
+ * overrides + page-defaults maps) into real post meta, so that with post meta
+ * now authoritative (see pll_seo_value) the front end keeps the optimized SEO
+ * copy AND every field is editable in the "SEO (PLL)" panel, pre-filled with
+ * the current value. Without this, the weak, auto-derived meta the WXR import
+ * seeded would win over the curated maps.
+ *
+ * Runs once (guarded by the pll_seo_meta_seeded option === PLL_SEO_VERSION), so
+ * later editor edits are never clobbered. Intended for the pre-launch seed; it
+ * deliberately overwrites the weak imported values on that first pass only.
+ */
+add_action(
+	'init',
+	function () {
+		if ( get_option( 'pll_seo_meta_seeded' ) === PLL_SEO_VERSION ) {
+			return;
+		}
+
+		$fields = array(
+			'title'          => '_pll_seo_title',
+			'description'    => '_pll_seo_description',
+			'og_title'       => '_pll_og_title',
+			'og_description' => '_pll_og_description',
+		);
+
+		// page-defaults first, overrides layered on top (overrides are the
+		// more specific curated copy for sub-pages and articles).
+		$map = pll_seo_page_defaults();
+		foreach ( pll_seo_overrides() as $path => $vals ) {
+			$map[ $path ] = array_merge( isset( $map[ $path ] ) ? $map[ $path ] : array(), $vals );
+		}
+
+		foreach ( $map as $path => $vals ) {
+			$post_id = pll_seo_resolve_path_id( $path );
+			if ( ! $post_id ) {
+				continue;
+			}
+			foreach ( $fields as $field => $key ) {
+				if ( ! empty( $vals[ $field ] ) ) {
+					update_post_meta( $post_id, $key, $vals[ $field ] );
+				}
+			}
+		}
+
+		update_option( 'pll_seo_meta_seeded', PLL_SEO_VERSION );
+	},
+	20
+);

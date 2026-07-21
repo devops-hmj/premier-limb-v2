@@ -14,7 +14,8 @@ add_action(
 				'pll/reveal',
 				get_theme_file_uri( 'assets/js/reveal.js' ),
 				array(),
-				(string) filemtime( $reveal )
+				// Content hash, not filemtime — see the stylesheet note below.
+				substr( (string) md5_file( $reveal ), 0, 12 )
 			);
 		}
 	}
@@ -40,10 +41,19 @@ add_action(
 		if ( ! file_exists( $css ) ) {
 			return;
 		}
+		// Cache-bust by CONTENT hash, not filemtime: deploy tools that preserve
+		// file modification times (observed on the 2026-07 HIPAA Vault upload)
+		// leave an mtime-based ?ver unchanged, so returning browsers keep
+		// serving their stale cached stylesheet against new markup. The hash
+		// changes iff the bytes change. Cached per-request via static.
+		static $pll_css_ver = null;
+		if ( null === $pll_css_ver ) {
+			$pll_css_ver = substr( (string) md5_file( $css ), 0, 12 );
+		}
 		printf(
 			// phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedStylesheet -- deliberate: wp_enqueue_style() prints before core's per-block <style> tags and loses the cascade (docs/PARITY.md root cause 1).
 			'<link rel="stylesheet" id="pll-editorial-css" href="%s" media="all" />' . "\n",
-			esc_url( get_theme_file_uri( 'assets/css/pll.css' ) . '?ver=' . filemtime( $css ) )
+			esc_url( get_theme_file_uri( 'assets/css/pll.css' ) . '?ver=' . $pll_css_ver )
 		);
 	},
 	9999
@@ -73,10 +83,8 @@ add_action(
 	'wp_head',
 	function () {
 		$fonts = array(
-			'newsreader-latin-wght-normal.woff2',
-			'newsreader-latin-wght-italic.woff2',
 			'inter-tight-latin-wght-normal.woff2',
-			'jetbrains-mono-latin-wght-normal.woff2',
+			'newsreader-latin-wght-normal.woff2',
 		);
 		foreach ( $fonts as $font ) {
 			printf(

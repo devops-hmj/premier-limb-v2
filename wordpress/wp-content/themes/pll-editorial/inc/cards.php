@@ -37,6 +37,24 @@ function pll_primary_category( $post ) {
 }
 
 /**
+ * Public byline for a post/page. Uses the author's display name so a real
+ * contributor (e.g. an article author) shows through and stays editable from
+ * the user profile, but falls back to the practice attribution when the author
+ * has no meaningful name — including the default "admin" account — so a public
+ * byline never reads "admin". Filterable for a future settings override.
+ *
+ * @param WP_Post $post Post.
+ * @return string
+ */
+function pll_post_byline( $post ) {
+	$name = trim( (string) get_the_author_meta( 'display_name', (int) $post->post_author ) );
+	if ( '' === $name || 'admin' === strtolower( $name ) ) {
+		$name = 'Dr. Hrayr Basmajian';
+	}
+	return apply_filters( 'pll_post_byline', $name, $post );
+}
+
+/**
  * Card excerpt: the seeded meta description, falling back to the excerpt.
  *
  * @param WP_Post $post Post.
@@ -69,6 +87,17 @@ function pll_post_card_html( $post, $opts = array() ) {
 	$thumb_id  = get_post_thumbnail_id( $post );
 	$image_url = $thumb_id ? wp_get_attachment_image_url( $thumb_id, 'large' ) : '';
 	$image_alt = $thumb_id ? (string) get_post_meta( $thumb_id, '_wp_attachment_image_alt', true ) : '';
+
+	if ( ! $image_url ) {
+		$hero = (string) get_post_meta( $post->ID, '_pll_hero_image', true );
+		if ( ! $hero && preg_match( '/<img[^>]+src="([^"]+)"/', $post->post_content, $m ) ) {
+			$hero = $m[1];
+		}
+		if ( $hero ) {
+			$image_url = $hero;
+			$image_alt = get_the_title( $post );
+		}
+	}
 
 	if ( $image_url ) {
 		$media = sprintf(
