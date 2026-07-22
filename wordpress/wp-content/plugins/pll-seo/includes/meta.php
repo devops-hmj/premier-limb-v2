@@ -74,9 +74,9 @@ function pll_seo_page_defaults() {
 			'og_type'        => 'profile',
 		),
 		'/limb-lengthening-pricing-options/' => array(
-			'title'          => 'Limb Lengthening Cost · Pricing & Financing',
+			'title'          => 'Limb Lengthening Cost (2026) · Pricing from $95k | Premier',
 			'description'    => 'Transparent 2026 pricing for cosmetic limb lengthening. Every quote bundles implants, OR time, hospitalization, anesthesia, follow-up care, and on-site sessions.',
-			'og_title'       => 'Limb Lengthening Cost · Pricing & Financing',
+			'og_title'       => 'Limb Lengthening Cost (2026) · Pricing from $95k | Premier',
 			'og_description' => 'Transparent 2026 pricing for cosmetic limb lengthening. Bundled implants, OR time, hospitalization, anesthesia, follow-up care, and on-site sessions.',
 			'og_type'        => 'website',
 		),
@@ -177,33 +177,33 @@ function pll_seo_current_url() {
  */
 function pll_seo_overrides() {
 	return array(
-		// Your Surgery sub-pages.
+		// Your Surgery sub-pages (High-CTR Blueprint).
 		'/your-surgery/how-much-taller-can-i-get-with-limb-lengthening/' => array(
-			'title'       => 'How Much Taller Can I Get With Limb Lengthening?',
-			'description' => 'Most patients gain 3 to 6 inches across one or two procedures. The exact figure depends on bone segment, soft-tissue tolerance, and your starting anatomy.',
+			'title'       => 'How Much Taller Can You Get? (3–6 Inches) | Premier LL',
+			'description' => 'Gain 3 to 6 inches safely with Precice internal magnetic nails. See femur vs. tibia height gains, surgical limits, and starting criteria from Dr. Basmajian.',
 		),
 		'/your-surgery/is-there-an-age-limit-for-limb-lengthening/' => array(
-			'title'       => 'Is There an Age Limit for Limb Lengthening?',
-			'description' => 'There is no fixed cutoff for cosmetic limb lengthening. What matters is bone density, joint health, and overall fitness, and here is how Dr. Basmajian evaluates candidacy.',
+			'title'       => 'Is There an Age Limit for Limb Lengthening? (Ages 20–50+)',
+			'description' => 'Am I too old for leg lengthening? Bone density and health matter more than age. Learn how Dr. Basmajian evaluates candidates in their 20s, 30s, 40s, and 50s.',
 		),
 		'/your-surgery/can-i-bend-my-lengthening-nail/' => array(
-			'title'       => 'Can I Bend My Lengthening Nail?',
+			'title'       => 'Can I Bend My Lengthening Nail? Precice Hardware Care',
 			'description' => 'What happens if you over-stress the Precice internal nail during recovery, and the daily-life precautions that keep your hardware safe through full bone healing.',
 		),
 		'/your-surgery/external-internal-lengthening/' => array(
-			'title'       => 'External vs. Internal Lengthening: A Comparison',
+			'title'       => 'External vs. Internal Lengthening: Precice vs. Frame',
 			'description' => 'Internal magnetic nails versus external fixator frames, and the trade-offs in pain, infection risk, mobility, scarring, and recovery time. Premier uses internal nails only.',
 		),
 		'/your-surgery/exercise-after-limb-lengthening/' => array(
-			'title'       => 'When Can I Exercise After Limb Lengthening?',
-			'description' => 'A week-by-week guide to returning to walking, swimming, cycling, and strength training after limb lengthening, plus the activities to delay until full consolidation.',
+			'title'       => 'When Can You Exercise After Limb Lengthening? (Timeline)',
+			'description' => 'Week-by-week exercise timeline after limb lengthening: walking, swimming, cycling & weightlifting. Learn when full bone consolidation allows return to gym.',
 		),
 		'/your-surgery/will-limb-lengthening-hurt/' => array(
-			'title'       => 'Will Limb Lengthening Hurt? Pain Levels Explained',
-			'description' => 'An honest answer to the most asked question about limb lengthening: how much pain to expect during distraction, how it is managed, and when it fades.',
+			'title'       => 'Will Limb Lengthening Hurt? Pain Levels & Protocol',
+			'description' => 'How painful is limb lengthening surgery? Pain peaks during distraction weeks 1-2 then fades. Read our complete nerve block & physical therapy pain protocol.',
 		),
 		'/your-surgery/limb-lengthening-expectations/' => array(
-			'title'       => 'Limb Lengthening: What to Expect Before & After Surgery',
+			'title'       => 'Limb Lengthening: Timeline Before & After Surgery',
 			'description' => 'A realistic timeline for surgery, distraction, consolidation, and physical therapy, plus the lifestyle changes to plan for in the first six months.',
 		),
 		'/your-surgery/instructions/' => array(
@@ -213,15 +213,15 @@ function pll_seo_overrides() {
 
 		// Articles.
 		'/are-you-a-good-candidate-for-limb-lengthening/' => array(
-			'title'       => 'Is Limb Lengthening Right for You? Candidacy Explained',
+			'title'       => 'Is Limb Lengthening Right for You? Candidacy Checklist',
 			'description' => 'A surgeon-written guide to the four factors that decide candidacy for cosmetic limb lengthening: age, bone health, lifestyle, and mental preparation.',
 		),
 		'/am-i-too-old-for-limb-lengthening/' => array(
-			'title'       => 'Am I Too Old for Limb Lengthening?',
+			'title'       => 'Am I Too Old for Limb Lengthening? (Adults 20–50+)',
 			'description' => 'Adults in their 40s and 50s are routinely good candidates for limb lengthening. What matters is biological readiness, not chronological age, and here is how we screen for it.',
 		),
 		'/limb-lengthening-what-you-gain-what-you-risk/' => array(
-			'title'       => 'Pros and Cons of Limb Lengthening',
+			'title'       => 'Pros and Cons of Limb Lengthening: Benefits vs Risks',
 			'description' => 'The honest trade-offs: height gain, posture change, and confidence weighed against pain, downtime, hardware, and complication risk. Read both sides before deciding.',
 		),
 		'/rewriting-the-body-norm-stigmas-around-limb-lengthening/' => array(
@@ -233,28 +233,28 @@ function pll_seo_overrides() {
 			'description' => 'Yes, cosmetic limb lengthening is a legitimate, surgeon-performed orthopaedic procedure. Here is how the screening, surgery, and recovery differ from medical cases.',
 		),
 		'/leg-up-or-let-down-can-you-gain-height-without-surgery/' => array(
-			'title'       => 'Can You Gain Height Without Surgery?',
-			'description' => 'Posture work, footwear, and growth hormone all have ceilings. A clear-eyed look at every non-surgical method patients try before booking limb lengthening.',
+			'title'       => 'Can You Gain Height Without Surgery? (Fact vs. Myth)',
+			'description' => 'Do posture exercises, insoles, or growth hormones actually increase height? A surgeon\'s clear breakdown of non-surgical limits vs. cosmetic limb lengthening.',
 		),
 		'/is-leg-lengthening-off-limits-for-athletes/' => array(
-			'title'       => 'Is Leg Lengthening Off-Limits for Athletes?',
-			'description' => 'Athletes can return to running, lifting, and most sports after limb lengthening, but timing and biomechanics matter. What to plan for and what to avoid.',
+			'title'       => 'Can Athletes Get Leg Lengthening? Sports & Running Guide',
+			'description' => 'Can you still run, sprint, and lift after limb lengthening? Learn how athletes recover full athletic function and biomechanics after internal nail consolidation.',
 		),
 		'/fixation-methods-in-limb-lengthening-internal-vs-external/' => array(
-			'title'       => 'Fixation Methods in Limb Lengthening: Internal vs. External',
+			'title'       => 'Fixation Methods: Internal Precice vs. External Frame',
 			'description' => 'Internal Precice nails versus external Ilizarov-style frames, and how each method holds bone, distributes load, and shapes your recovery.',
 		),
 		'/will-leg-lengthening-be-obvious/' => array(
-			'title'       => 'Will My Leg Lengthening Be Obvious?',
+			'title'       => 'Will My Leg Lengthening Be Obvious? Scarring & Hardware',
 			'description' => 'With internal nails and modern post-op care, leg lengthening leaves no visible hardware and minimal scarring. Here is what people notice, and what they do not.',
 		),
 		'/limb-lengthening-pain-the-truth/' => array(
-			'title'       => 'Limb Lengthening Pain: What to Expect & How It Is Managed',
-			'description' => 'Pain peaks during the first two weeks of distraction, then fades. The medications, nerve blocks, and physical-therapy strategy that keep patients comfortable.',
+			'title'       => 'Limb Lengthening Pain: What It Feels Like & Recovery',
+			'description' => 'How painful is limb lengthening surgery? Pain peaks during distraction weeks 1-2 then fades. Read our complete nerve block & physical therapy pain protocol.',
 		),
 		'/is-limb-lengthening-covered-by-insurance/' => array(
-			'title'       => 'Is Limb Lengthening Covered by Insurance?',
-			'description' => 'Cosmetic limb lengthening is almost never covered by insurance. Reconstructive cases, like limb-length discrepancy or congenital deformity, sometimes are. What to ask.',
+			'title'       => 'Is Limb Lengthening Covered by Insurance? (2026 Guide)',
+			'description' => 'Does insurance pay for limb lengthening? Cosmetic is out-of-pocket, but reconstructive cases may qualify. Learn what to ask your provider and cost options.',
 		),
 		'/the-importance-of-physical-therapy-in-limb-lengthening/' => array(
 			'title'       => 'Why Physical Therapy Is Critical in Limb Lengthening',
@@ -269,11 +269,11 @@ function pll_seo_overrides() {
 			'description' => 'Calcium, vitamin D, protein, and collagen support new bone formation. A practical pre-op and post-op nutrition plan from the Premier care team.',
 		),
 		'/the-science-behind-bone-regeneration-and-limb-lengthening/' => array(
-			'title'       => 'The Science of Bone Regeneration',
+			'title'       => 'The Science of Bone Regeneration & Growth',
 			'description' => 'Distraction osteogenesis: how slow, controlled separation triggers your body to grow new bone in the gap. A patient-friendly explainer.',
 		),
 		'/what-happens-to-muscle-during-and-after-limb-lengthening/' => array(
-			'title'       => 'Limb Lengthening and Its Effect on Soft Tissues',
+			'title'       => 'Limb Lengthening & Soft Tissue Adaptation',
 			'description' => 'Bone is not the only tissue that lengthens. Muscles, nerves, and tendons adapt too. What that adaptation feels like, and how PT supports it.',
 		),
 	);
