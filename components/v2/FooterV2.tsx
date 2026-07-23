@@ -18,6 +18,7 @@ const sections = {
   ],
   resources: [
     { label: "Blog", href: "/blog" },
+    { label: "Evaluate Your Surgeon", href: "/evaluate-your-surgeon" },
     { label: "Schedule Consultation", href: "/consult" },
     { label: "Financing Options", href: "/limb-lengthening-pricing-options#financing" },
   ],

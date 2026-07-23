@@ -40,6 +40,7 @@ const navItems: NavItem[] = [
   { label: "Pricing", href: "/limb-lengthening-pricing-options" },
   { label: "Dr. Basmajian", href: "/dr-basmajian" },
   { label: "About PLL", href: "/about" },
+  { label: "Evaluate a Surgeon", href: "/evaluate-your-surgeon" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/consult" },
 ];

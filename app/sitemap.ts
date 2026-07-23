@@ -27,6 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${ORIGIN}/your-surgery`,     lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${ORIGIN}/about`,            lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${ORIGIN}/blog`,        lastModified: now, changeFrequency: "weekly",  priority: 0.7 },
+    { url: `${ORIGIN}/evaluate-your-surgeon`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${ORIGIN}/privacy`,          lastModified: now, changeFrequency: "yearly",  priority: 0.3 },
     { url: `${ORIGIN}/terms`,            lastModified: now, changeFrequency: "yearly",  priority: 0.3 },
     { url: `${ORIGIN}/accessibility`,    lastModified: now, changeFrequency: "yearly",  priority: 0.3 },
