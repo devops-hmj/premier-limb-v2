@@ -23,6 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${ORIGIN}/`,                 lastModified: now, changeFrequency: "weekly",  priority: 1.0 },
     { url: `${ORIGIN}/limb-lengthening-pricing-options`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${ORIGIN}/consult`,          lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${ORIGIN}/book-a-consultation`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${ORIGIN}/dr-basmajian`,     lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${ORIGIN}/your-surgery`,     lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${ORIGIN}/about`,            lastModified: now, changeFrequency: "monthly", priority: 0.7 },

@@ -19,7 +19,7 @@ const sections = {
   resources: [
     { label: "Blog", href: "/blog" },
     { label: "Evaluate Your Surgeon", href: "/evaluate-your-surgeon" },
-    { label: "Schedule Consultation", href: "/consult" },
+    { label: "Book a Consultation", href: "/book-a-consultation" },
     { label: "Financing Options", href: "/limb-lengthening-pricing-options#financing" },
   ],
 } as const;
