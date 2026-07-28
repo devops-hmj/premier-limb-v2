@@ -159,52 +159,56 @@ img { max-width: 100%; display: block; }
 
 /* =========================== HERO HEADER (dossier) =========================== */
 .page-hero {
-  background: var(--paper-off);
+  position: relative;
+  overflow: hidden;
+  background-color: var(--ink);
   border-bottom: 1px solid var(--ink);
-  padding: 56px 0 48px;
+  min-height: 60vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 96px 0 64px;
 }
-.page-hero .wrap { display: grid; grid-template-columns: repeat(12, 1fr); gap: 32px; align-items: end; }
+.page-hero::before {          /* hero image — swap assets/before-after/hero.jpg to change it */
+  content: "";
+  position: absolute; inset: 0; z-index: 0;
+  background: url('assets/before-after/hero.jpg') center 30% / cover no-repeat;
+}
+.page-hero::after {           /* readability gradient over the image */
+  content: "";
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(180deg, rgba(15,20,23,0.48) 0%, rgba(15,20,23,0.28) 42%, rgba(15,20,23,0.88) 100%);
+}
+.page-hero .wrap { position: relative; z-index: 2; width: 100%; }
 .crumb {
-  grid-column: 1 / 13;
   font-family: 'JetBrains Mono', monospace;
   font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 28px;
+  color: rgba(255,255,255,0.72);
+  margin-bottom: 24px;
 }
-.crumb a:hover { color: var(--blue); }
+.crumb a:hover { color: #fff; }
 .crumb .sep { margin: 0 10px; }
-.crumb .here { color: var(--ink); }
+.crumb .here { color: #fff; }
 
-.page-hero .head-main { grid-column: 1 / 9; }
-.page-hero .eyebrow { margin-bottom: 20px; }
+.page-hero .eyebrow { color: var(--gold); margin-bottom: 18px; }
+.page-hero .eyebrow::before { background: var(--gold); }
 .page-hero h1 {
   font-family: 'Newsreader', serif;
   font-weight: 400;
   font-size: clamp(56px, 8vw, 128px);
   line-height: 0.9;
   letter-spacing: -0.03em;
-  color: var(--ink);
+  color: #fff;
+  text-shadow: 0 2px 30px rgba(0,0,0,0.45);
 }
-.page-hero h1 em { font-style: italic; color: var(--blue); }
-
-.page-hero .head-aside {
-  grid-column: 9 / 13;
-  padding-left: 24px;
-  border-left: 1px solid var(--rule);
-}
-.page-hero .head-aside .deck {
+.page-hero h1 em { font-style: italic; color: var(--gold); }
+.page-hero .lede {
+  margin-top: 22px;
   font-family: 'Newsreader', serif; font-style: italic;
-  font-size: clamp(18px, 1.8vw, 22px); line-height: 1.35;
-  color: var(--ink-soft);
-  margin-bottom: 20px;
+  font-size: clamp(18px, 1.9vw, 23px); line-height: 1.4;
+  color: rgba(255,255,255,0.92);
+  max-width: 44ch;
+  text-shadow: 0 1px 24px rgba(0,0,0,0.45);
 }
-.page-hero .meta {
-  padding-top: 16px; border-top: 1px solid var(--rule);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--muted); line-height: 1.9;
-}
-.page-hero .meta strong { color: var(--ink); font-weight: 500; }
 
 /* Privacy micro-note under hero */
 .privacy-note {
@@ -250,31 +254,6 @@ img { max-width: 100%; display: block; }
   line-height: 1.7; max-width: 64ch;
 }
 
-/* ============ "HOW TO READ THESE RESULTS" — 3-col framing ============ */
-.section-guide { background: var(--paper); border-top: 1px solid var(--rule); }
-.guide {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  border-top: 1px solid var(--ink);
-}
-.guide .g {
-  padding: 36px 28px 36px 0;
-  border-right: 1px solid var(--rule);
-  display: flex; flex-direction: column; gap: 14px;
-}
-.guide .g:last-child { border-right: 0; padding-right: 0; }
-.guide .g .tag {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--muted);
-  display: inline-flex; align-items: center; gap: 10px;
-}
-.guide .g .tag .dot { width: 8px; height: 8px; background: var(--blue); }
-.guide .g h3 {
-  font-family: 'Newsreader', serif; font-weight: 500;
-  font-size: 26px; line-height: 1.12; letter-spacing: -0.01em;
-}
-.guide .g h3 em { font-style: italic; color: var(--blue); }
-.guide .g p { font-size: 14px; color: var(--ink-soft); line-height: 1.65; }
 
 /* ============ IMAGE PLACEHOLDER (shared "plate" look) ============ */
 .plate {
@@ -621,17 +600,14 @@ img { max-width: 100%; display: block; }
   .masthead-strip { padding: 8px 28px; }
   .concept-banner { padding: 7px 28px; }
   .nav-links { display: none; }
-  .page-hero .wrap, .guide, .featured, .cases,
+  .featured, .cases,
   .consent, .footer-grid { grid-template-columns: 1fr; }
-  .page-hero .head-main, .page-hero .head-aside, .crumb { grid-column: 1; }
-  .page-hero .head-aside { border-left: 0; padding-left: 0; margin-top: 28px; }
   .featured .meta-card { position: static; }
   .consent-aside { order: -1; }
   .final .lcol, .final .rcol { grid-column: 1 / 13; border-left: 0; padding-left: 0; }
   .disclaimer .wrap { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
-  .guide { grid-template-columns: 1fr; }
   .case .pair { grid-template-columns: 1fr 1fr; }
   .masthead-strip { font-size: 9px; padding: 8px 20px; }
   .wrap, .footer .wrap { padding: 0 20px; }
@@ -688,15 +664,7 @@ img { max-width: 100%; display: block; }
     <div class="head-main">
       <div class="eyebrow">Documented Outcomes</div>
       <h1>Before &amp;<br><em>after.</em></h1>
-    </div>
-
-    <div class="head-aside">
-      <p class="deck">A measured look at what limb lengthening actually changes: stature and proportion, the bone itself on film, and a return to normal walking.</p>
-      <div class="meta">
-        <div><strong>Surgeon</strong> &nbsp; Dr. Hrayr Basmajian, MD</div>
-        <div><strong>Evidence</strong> &nbsp; Radiographic · Stature · Gait</div>
-        <div><strong>Cases shown</strong> &nbsp; 3 documented, consented</div>
-      </div>
+      <p class="lede">Real patient journeys with Dr. Basmajian, shown with faces anonymized for privacy.</p>
     </div>
   </div>
 </section>
@@ -709,42 +677,13 @@ img { max-width: 100%; display: block; }
   </div>
 </div>
 
-<!-- HOW TO READ THESE RESULTS -->
-<section class="section section-guide tight">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">How to Read These Results</div>
-      <h2>Three ways we show <em>the change.</em></h2>
-      <p class="sub">Limb lengthening is not a before/after you judge from one photo. The honest evidence lives in three places, and we present all three so you can weigh the outcome the way a surgeon does.</p>
-    </div>
-
-    <div class="guide">
-      <div class="g">
-        <div class="tag"><span class="dot"></span>01 · Stature</div>
-        <h3><em>Height</em> &amp; proportion</h3>
-        <p>Standing comparisons captured against a fixed scale. The goal is a result that matches your natural proportions, so the change reads as "you look great," not "something looks off." [ Placeholder copy. ]</p>
-      </div>
-      <div class="g">
-        <div class="tag"><span class="dot"></span>02 · Radiographic</div>
-        <h3>The <em>bone</em> on film</h3>
-        <p>X-rays are the clinical proof. They show the internal Precice nail in place, new regenerate bone forming through distraction, and full consolidation once healed. Non-identifying and objective.</p>
-      </div>
-      <div class="g">
-        <div class="tag"><span class="dot"></span>03 · Function</div>
-        <h3><em>Gait</em> &amp; movement</h3>
-        <p>For many patients, especially revision cases, the real result is walking normally again. Before and after comparisons document range of motion and gait once physical therapy is complete. [ Placeholder copy. ]</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- FEATURED CASE — interactive comparison -->
 <section class="section section-featured">
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Featured Case</div>
       <h2>Drag to <em>compare.</em></h2>
-      <p class="sub">Drag the divider to move between the before and after photos, both alongside Dr. Basmajian. Patient faces are blurred to protect their privacy.</p>
+      <p class="sub">Drag the divider to move between the before and after photos, both alongside Dr. Basmajian.</p>
     </div>
 
     <div class="featured">
@@ -773,9 +712,6 @@ img { max-width: 100%; display: block; }
           <div class="row"><dt>Patient</dt><dd>[ e.g. Male, 32, brief descriptor ]</dd></div>
           <div class="row"><dt>Procedure</dt><dd>Femur · Precice internal nail</dd></div>
           <div class="row"><dt>Height gain</dt><dd><em>+[ X ]&Prime;</em> [ e.g. 3 inches ]</dd></div>
-          <div class="row"><dt>Lengthening</dt><dd>[ X ] months at ~1&nbsp;mm/day</dd></div>
-          <div class="row"><dt>Full recovery</dt><dd>[ X ] months</dd></div>
-          <div class="row"><dt>Goal</dt><dd>Cosmetic height enhancement</dd></div>
         </dl>
         <p class="narr">"[ Short, first-person patient quote goes here. One or two sentences on the motivation and the outcome, in the patient's own words, approved for publication. ]"</p>
         <span class="consent-tag">Patient identity anonymized</span>
@@ -790,7 +726,6 @@ img { max-width: 100%; display: block; }
     <div class="section-head">
       <div class="eyebrow">Case Studies</div>
       <h2>Documented <em>patient outcomes.</em></h2>
-      <p class="sub">Two further documented cases, each shared with written consent and shown as a single before and after pair. With the featured case above, three are documented in total. [ All imagery, quotes, and metrics below are placeholders to be supplied and approved. ]</p>
     </div>
 
     <div class="cases">
