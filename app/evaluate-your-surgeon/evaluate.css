@@ -147,10 +147,11 @@
   background:
     radial-gradient(
       90% 120% at 12% 4%,
-      rgba(244, 216, 138, 0.13) 0%,
-      rgba(244, 216, 138, 0) 52%
+      rgba(244, 216, 138, 0.16) 0%,
+      rgba(244, 216, 138, 0) 55%
     ),
-    linear-gradient(168deg, #0f1417 0%, #142c37 58%, #1c3d4d 100%);
+    linear-gradient(168deg, rgba(15, 20, 23, 0.88) 0%, rgba(20, 44, 55, 0.85) 58%, rgba(28, 61, 77, 0.90) 100%),
+    url('/images/evaluate-hero.png') center/cover no-repeat;
   border-bottom: 1px solid #0a0e10;
   color: #f4f0e6;
 }
