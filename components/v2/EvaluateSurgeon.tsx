@@ -209,13 +209,6 @@ export function EvaluateSurgeon() {
               side by side, and know exactly what to ask before you commit to a
               six-figure procedure.
             </p>
-            <p className="hero-attrib">
-              This framework was built by Dr. Hrayr Basmajian, MD, MS, Founder
-              of Premier Limb Lengthening, dual fellowship-trained in
-              orthopaedic trauma and reconstruction (Scottsdale and Hannover)
-              and Director of Orthopedic Trauma at Pomona Valley Hospital
-              Medical Center.
-            </p>
             <div className="notice" role="note">
               <span className="n-icon">Note</span>
               <span>
@@ -498,22 +491,25 @@ export function EvaluateSurgeon() {
         <section className="hairline-top">
           <div className="est-wrap">
             <div className="disclaimer">
-              The information on this page is provided for educational purposes
-              and does not constitute medical advice. Limb lengthening surgery
-              using the PRECICE intramedullary lengthening system involves
-              material risks, including but not limited to infection, nerve
-              injury, deep vein thrombosis, hardware failure, premature
-              consolidation, delayed union or nonunion, joint contracture, and
-              outcomes that vary by patient. The PRECICE system is FDA-cleared
-              for specific indications, and not all patients are candidates. No
-              surgical outcome can be guaranteed. Recovery timelines reflect
-              typical ranges and individual experiences may vary. Results,
-              candidacy, and surgical planning are determined on a case-by-case
-              basis following a personal consultation with Dr. Basmajian.
-              Premier Limb Lengthening does not establish a patient-physician
-              relationship through this website. To discuss whether limb
-              lengthening is appropriate for you, schedule a confidential
-              consultation.
+              <span className="est-eyebrow">Medical Disclaimer</span>
+              <p>
+                The information on this page is provided for educational
+                purposes and does not constitute medical advice. Limb
+                lengthening surgery using the PRECICE intramedullary lengthening
+                system involves material risks, including but not limited to
+                infection, nerve injury, deep vein thrombosis, hardware failure,
+                premature consolidation, delayed union or nonunion, joint
+                contracture, and outcomes that vary by patient. The PRECICE
+                system is FDA-cleared for specific indications, and not all
+                patients are candidates. No surgical outcome can be guaranteed.
+                Recovery timelines reflect typical ranges and individual
+                experiences may vary. Results, candidacy, and surgical planning
+                are determined on a case-by-case basis following a personal
+                consultation with Dr. Basmajian. Premier Limb Lengthening does
+                not establish a patient-physician relationship through this
+                website. To discuss whether limb lengthening is appropriate for
+                you, schedule a confidential consultation.
+              </p>
             </div>
           </div>
         </section>
