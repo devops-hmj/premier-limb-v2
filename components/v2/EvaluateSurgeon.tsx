@@ -212,14 +212,17 @@ export function EvaluateSurgeon() {
             <h1 className="serif-h">
               How to evaluate a <em>limb lengthening surgeon.</em>
             </h1>
-            <p className="lede">
-              Most patients research limb lengthening for months before their
-              first consultation, then walk in without a structured way to
-              compare surgeons. This framework fixes that. Score any surgeon
-              across 10 clinical and patient experience criteria, compare them
-              side by side, and know exactly what to ask before you commit to a
-              six-figure procedure.
-            </p>
+            <p className="lede">{SHORT_ANSWER}</p>
+            <div className="hero-review">
+              <span className="hero-review-label">Medically Reviewed By</span>
+              <Link href="/dr-basmajian" className="hero-review-name">
+                Dr. Hrayr Basmajian, MD, MS
+              </Link>
+              <span className="hero-review-cred">
+                Board-certified orthopedic surgeon (ABOS)
+              </span>
+              <span className="hero-review-date">Last updated August 2026</span>
+            </div>
             <div className="notice" role="note">
               <span className="n-icon">Note</span>
               <span>
@@ -229,21 +232,16 @@ export function EvaluateSurgeon() {
               </span>
             </div>
             <div className="hero-ctas">
-              <a className="btn" href="#tool">
+              <Link className="btn" href="/consult">
+                Schedule a Confidential Consultation
+              </Link>
+              <a className="btn btn-ghost" href="#tool">
                 Start Evaluating Surgeons
               </a>
               <button className="btn btn-ghost" type="button" onClick={printQuestions}>
                 Print the Question List
               </button>
             </div>
-          </div>
-        </section>
-
-        {/* ============ SHORT ANSWER ============ */}
-        <section className="short-answer-sec">
-          <div className="est-wrap">
-            <span className="est-eyebrow">The Short Answer</span>
-            <p className="short-answer">{SHORT_ANSWER}</p>
           </div>
         </section>
 
@@ -463,21 +461,29 @@ export function EvaluateSurgeon() {
           </div>
         </section>
 
-        {/* ============ CRITERIA EDUCATION ============ */}
+        {/* ============ QUESTIONS TO ASK (criteria, accordion) ============ */}
         <section id="criteria-explained" className="hairline-top">
           <div className="est-wrap">
-            <span className="est-eyebrow">The Framework, Explained</span>
-            <h2 className="serif-h" style={{ fontSize: "clamp(26px,3.6vw,38px)" }}>
-              Why each criterion <em>matters.</em>
+            <span className="est-eyebrow">Questions to Ask</span>
+            <h2 className="serif-h section-h">
+              What questions should you ask a limb lengthening surgeon?
             </h2>
-            <div className="edu-grid">
+            <p className="section-lede">
+              Ask about fellowship training, total procedure volume, which nail
+              system and generation they use and why, whether they personally
+              handle revisions, and their written complication protocol, then
+              judge responsiveness, thoroughness, and post-op clarity during the
+              consultation itself. Expand each criterion below for the exact
+              questions to ask, or load them straight into the scorecard above.
+            </p>
+            <div className="crit-accordion">
               {CRITERIA.map((c) => (
-                <article className="edu-item" id={`edu-${c.id}`} key={c.id}>
-                  <div>
-                    <span className="e-num">{c.eNum}</span>
-                    <h3>{c.name}</h3>
-                  </div>
-                  <div className="edu-body">
+                <details className="crit-acc-item" id={`edu-${c.id}`} key={c.id}>
+                  <summary>
+                    <span className="crit-acc-num">{c.eNum}</span>
+                    <span className="crit-acc-name">{c.name}</span>
+                  </summary>
+                  <div className="crit-acc-body">
                     <p>{c.why}</p>
                     <div className="edu-qs">
                       <h3 className="edu-qs-h">{c.qsHeading}</h3>
@@ -488,15 +494,15 @@ export function EvaluateSurgeon() {
                       </ul>
                     </div>
                   </div>
-                </article>
+                </details>
               ))}
 
-              <article className="edu-item" id="edu-pricing">
-                <div>
-                  <span className="e-num">{PRICING.eNum}</span>
-                  <h3>{PRICING.name}</h3>
-                </div>
-                <div className="edu-body">
+              <details className="crit-acc-item" id="edu-pricing">
+                <summary>
+                  <span className="crit-acc-num">{PRICING.eNum}</span>
+                  <span className="crit-acc-name">{PRICING.name}</span>
+                </summary>
+                <div className="crit-acc-body">
                   <p>{PRICING.paragraph}</p>
                   <div className="edu-qs">
                     <h3 className="edu-qs-h">{PRICING.qsHeading}</h3>
@@ -507,7 +513,7 @@ export function EvaluateSurgeon() {
                     </ul>
                   </div>
                 </div>
-              </article>
+              </details>
             </div>
           </div>
         </section>
