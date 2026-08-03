@@ -238,9 +238,6 @@ export function EvaluateSurgeon() {
               <a className="btn btn-ghost" href="#tool">
                 Start Evaluating Surgeons
               </a>
-              <button className="btn btn-ghost" type="button" onClick={printQuestions}>
-                Print the Question List
-              </button>
             </div>
           </div>
         </section>
@@ -290,7 +287,7 @@ export function EvaluateSurgeon() {
         </section>
 
         {/* ============ QUALIFICATIONS ============ */}
-        <section className="hairline-top">
+        <section className="band-wash">
           <div className="est-wrap">
             <div className="editorial">
               <span className="est-eyebrow">{QUALIFICATIONS.eyebrow}</span>

@@ -1071,6 +1071,11 @@
   border-top: 1px solid var(--hairline);
   border-bottom: 1px solid var(--hairline);
 }
+.est .band-wash {
+  background: var(--wash);
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+}
 .est .cta-band {
   text-align: center;
   border-top: 1px solid var(--hairline);
@@ -1330,7 +1335,7 @@
   content: "–";
 }
 .est .crit-acc-num {
-  flex: 0 0 auto;
+  flex: 0 0 148px;
   padding-top: 5px;
   font-family: var(--mono);
   font-size: 11px;
@@ -1621,5 +1626,18 @@
   .est .tab-btn {
     font-size: 13px;
     padding: 10px 12px;
+  }
+}
+
+/* Accordion labels: stack the criterion number above the name on phones so
+   the fixed label column doesn't crowd the title. */
+@media screen and (max-width: 640px) {
+  .est .crit-acc-item summary {
+    flex-wrap: wrap;
+  }
+  .est .crit-acc-num {
+    flex-basis: 100%;
+    padding-top: 0;
+    margin-bottom: 4px;
   }
 }
