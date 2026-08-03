@@ -283,6 +283,22 @@ export const FAQ: { q: string; a: string }[] = [
     a: "Common red flags include refusing to share procedure volume, dismissing complication questions, having no written recovery protocol, declining all revision cases, guaranteeing outcomes, and pressure to book quickly. Limb lengthening is a months-long commitment, and a credible surgeon treats the decision with corresponding weight.",
   },
   {
+    q: "Which lengthening device should the surgeon use?",
+    a: "For cosmetic lengthening, the current standard is a fully internal magnetic nail such as the PRECICE system, which lengthens inside the bone with no external frame or pins through the skin. Ask which system and generation the surgeon implants, why they selected it, and how they speak to the device category's full history, including the recalled Stryde nail. A surgeon who cannot explain their own hardware has not earned your confidence.",
+  },
+  {
+    q: "How much does limb lengthening cost, and what is included?",
+    a: "Cosmetic limb lengthening in the United States is typically a five- to six-figure procedure, and what the quote includes matters more than the headline number. Dr. Basmajian's all-inclusive pricing is $95,500 for bilateral femur lengthening, $105,500 for bilateral tibia, and $195,000 for a combined, staged femur-and-tibia procedure, with free consultations. Always ask any surgeon for a fully itemized quote and a written list of what is not included, such as travel, accommodation, and hardware removal.",
+  },
+  {
+    q: "What is the recovery timeline for limb lengthening?",
+    a: "Lengthening happens at roughly one millimeter per day over about three to four months (the distraction phase), followed by a consolidation phase while the new bone hardens. Most patients return to normal daily activity within three to four months and reach full recovery over six to twelve months, depending on the amount of lengthening and individual healing. Ask any surgeon for a week-by-week protocol and who coordinates your physical therapy.",
+  },
+  {
+    q: "How much taller can you get from limb lengthening?",
+    a: "Femur lengthening typically adds up to about 8 cm (roughly 3 inches) and tibia lengthening up to about 5 cm, with a combined femur-and-tibia approach reaching up to roughly 6 inches when staged. The safe amount depends on your anatomy, soft-tissue flexibility, and healing, and is determined case by case at consultation. A responsible surgeon frames every figure as an upper limit, not a promise.",
+  },
+  {
     q: "Does this tool send my scores to Premier Limb Lengthening?",
     a: "No. All scoring data stays in your browser. Premier Limb Lengthening receives information only if you actively choose to email your results to yourself or opt into educational content, and in those cases it receives only your email address and the results you chose to send.",
   },
@@ -299,3 +315,149 @@ export const GHL_WEBHOOK_URL = "REPLACE_WITH_GHL_WEBHOOK_URL";
 
 /** localStorage key. Bump the suffix if the persisted shape changes. */
 export const STORAGE_KEY = "pll_surgeon_eval_v1";
+
+/* ============================================================
+ * Editorial guide content — added to bring the page to parity with the
+ * "How to choose a limb lengthening surgeon" preview. All copy de-dashed
+ * to honor the brand no-em-dash / no-semicolon rule. Prices come from the
+ * canonical lib/pricing-plans.ts (Premier's confirmed 2026 numbers), NOT
+ * the preview's separate PRECICE 2 tier. Credentials verified against
+ * lib/basmajian.ts.
+ * ============================================================ */
+
+/** Featured-snippet TL;DR shown as the first light section under the hero. */
+export const SHORT_ANSWER =
+  "Choose a limb lengthening surgeon on verifiable qualifications, not marketing: board certification in orthopedic surgery, fellowship training in trauma or deformity correction, high procedure volume, the ability to manage complications and revisions personally, and transparent, itemized pricing. Score every surgeon you are considering on the same criteria, including ours, using the free tool on this page.";
+
+export const QUALIFICATIONS = {
+  eyebrow: "Qualifications",
+  heading: "What qualifications should a limb lengthening surgeon have?",
+  paragraphs: [
+    "At minimum, a limb lengthening surgeon should be board-certified in orthopedic surgery and fellowship-trained in orthopedic trauma, deformity correction, or limb reconstruction, the disciplines that manage bone when it heals badly. Verify active state licensure and hospital affiliation, and favor a surgeon who operates personally rather than delegating to residents or fellows.",
+    "Board certification by the American Board of Orthopaedic Surgery (ABOS) is the baseline credential. Membership in the American Academy of Orthopaedic Surgeons (AAOS) and the Limb Lengthening and Reconstruction Society (LLRS) signals subspecialty focus. Fellowship training is the differentiator, because limb lengthening is controlled bone regeneration, and when it deviates from plan it becomes a reconstruction problem that only a trauma-trained or deformity-trained surgeon is equipped to solve. Ask where the fellowship was completed and in what specialty, then verify it.",
+  ],
+};
+
+export const EXPERIENCE = {
+  eyebrow: "Experience",
+  heading: "How much experience should a limb lengthening surgeon have?",
+  paragraphs: [
+    "There is no single threshold, but a credible surgeon shares their volume without hesitation and can point to breadth across cosmetic, trauma, and revision cases. Revision capability matters most: a surgeon who corrects failed lengthenings from other practices has proven, on the hardest cases, that they can manage the complication you hope never to have.",
+    "Surgical outcomes correlate with volume across nearly every orthopedic procedure studied, but raw cosmetic volume is only part of the picture. Breadth is what builds complication judgment. A surgeon whose caseload spans trauma and revision has seen bone behave in ways a cosmetic-only practice never encounters. Ask how many lengthening procedures they have performed in total and per year, their case mix, and, critically, whether they would personally perform your revision if one were ever needed. If the answer is a referral elsewhere, you are choosing two surgeons and vetting only one.",
+  ],
+};
+
+export const DEVICES = {
+  eyebrow: "Devices",
+  heading: "Which lengthening device does the surgeon use, and why?",
+  intro:
+    "The current standard for cosmetic lengthening is a fully internal magnetic nail, the PRECICE system, which lengthens inside the bone at about one millimeter per day with no external frame and no pins through the skin. Ask which system and generation your surgeon implants, why they chose it, and how they speak to the device category's full history, including the recalled Stryde nail.",
+  columns: ["Device", "Type", "Typical lengthening", "Weight-bearing while lengthening", "Status & notes"],
+  rows: [
+    ["PRECICE 2", "Fully internal magnetic nail", "up to about 8 cm (femur), by segment", "Standard (partial)", "Proven since 2011. The established internal option."],
+    ["PRECICE Max", "Fully internal magnetic nail", "up to about 8 cm (femur), by segment", "Accelerated (higher load capacity)", "Current generation. FDA-cleared 2023."],
+    ["STRYDE", "Internal magnetic nail (stainless)", "similar to PRECICE", "Marketed as full", "Withdrawn. Reports of bone changes at the nail junction."],
+    ["LON (Lengthening Over Nail)", "Hybrid, internal nail plus temporary external fixator", "varies", "Limited during the external phase", "Older technique. Requires an external frame for part of treatment."],
+    ["LATN", "Hybrid, external fixator then nailing", "varies", "Limited during the external phase", "Older technique. External frame then conversion to a nail."],
+    ["External fixator (Ilizarov / monolateral)", "External frame, pins and wires through skin", "large corrections possible", "Varies", "Time-tested for complex deformity and trauma. Visible frame and pin care."],
+  ],
+  note:
+    "Premier Limb Lengthening Institute uses the fully internal PRECICE system exclusively and has never used the recalled Stryde nail. External fixation is reserved for specific reconstructive cases, not routine cosmetic lengthening. Descriptors above reflect general device categories. Exact capacity and weight-bearing are determined case by case.",
+};
+
+export const RED_FLAGS = {
+  eyebrow: "Red Flags",
+  heading: "Red flags: how to spot an underqualified surgeon",
+  intro:
+    "The clearest warning signs are a surgeon who will not share procedure volume, dismisses complication questions, keeps no written recovery protocol, declines all revision cases, guarantees outcomes, or pressures you to book quickly. Any one of these is reason to keep looking. This is a months-long commitment, and a credible surgeon treats the decision with corresponding weight.",
+  items: [
+    ["Vague about volume", "Will not share procedure numbers, or stays general after a direct question."],
+    ["Dismisses complications", "Calls them too rare to plan for, with no written protocol you can review."],
+    ["Refers revisions out", "Sends every complication or revision to someone else, so you are vetting only half your care."],
+    ["Guarantees results", "Promises a specific height gain or a pain-free recovery. No ethical surgeon guarantees a surgical outcome."],
+    ["No emergency plan", "Cannot name the hospital that admits their patients if something goes wrong."],
+    ["Sales pressure", "Deposit urgency, discounts to decide today, or a consultation that feels like a pitch."],
+    ["Cannot explain the hardware", "Cannot name the exact device and generation they implant, or waves off questions about device history."],
+    ["Improvised recovery", "Describes a vague timeline instead of a week-by-week protocol with a named care coordinator."],
+  ],
+  note:
+    "A growing share of limb lengthening work in the United States now involves correcting complications from lower-cost procedures performed abroad. A low headline price that omits revision risk and follow-up care is not the saving it appears to be.",
+};
+
+export const COST = {
+  eyebrow: "Cost",
+  heading: "What does limb lengthening cost, and what is included?",
+  intro:
+    "Cosmetic limb lengthening in the U.S. is typically a five- to six-figure procedure, and what the quote includes matters more than the headline number. Insist on a fully itemized quote (implant, hospitalization, anesthesia, therapy, and follow-up) plus a written list of what is not included. The cost of correcting a failed procedure can exceed the original surgery.",
+  columns: ["Procedure", "Typical lengthening", "All-inclusive price"],
+  rows: [
+    ["Bilateral femur lengthening", "Up to 8 cm / 3.2 in", "$95,500"],
+    ["Bilateral tibia lengthening", "Up to 5 cm / 2 in", "$105,500"],
+    ["Combined femur + tibia (staged)", "Up to 10 cm / 4 in", "$195,000"],
+    ["Consultation (virtual or in person)", "", "Free"],
+  ],
+  note:
+    "These are Dr. Basmajian's all-inclusive prices. Each bundle covers the implant, OR and surgical fees, anesthesia, 60 to 70 on-site therapy sessions, and 12 to 14 weeks of follow-up care. Billed separately: rotation correction, hardware removal (1 to 2 years post-op), and travel or accommodation. Financing is available through SoFi and CareCredit.",
+  linkText: "See the full, current pricing options and financing",
+  linkHref: "/limb-lengthening-pricing-options",
+};
+
+export const WHY_PREMIER = {
+  eyebrow: "Why Premier",
+  heading: "Why patients choose Premier Limb Lengthening Institute",
+  intro:
+    "Premier Limb Lengthening Institute is led by Dr. Hrayr Basmajian, a fellowship-trained orthopedic trauma surgeon who serves as Director of Orthopedic Trauma at one of Los Angeles's busiest trauma centers, teaches other surgeons, and personally manages every case. Reconstruction-level skill paired with concierge-level attention, a combination most cosmetic-only practices cannot offer.",
+  points: [
+    "Dual fellowship training, including Hannover Medical School, where the internal lengthening nail was pioneered.",
+    "Orthopaedic trauma depth, the reconstruction skill to manage, and personally revise, complications.",
+    "One surgeon, start to finish. Dr. Basmajian performs your surgery himself. No residents or fellows operating.",
+    "Free consultations, virtual or in person, with no obligation.",
+    "Clean device history: the fully internal PRECICE system only, never the recalled Stryde nail.",
+    "A surgeon's surgeon, recruited from Chair of Trauma at Loma Linda, and teaches other surgeons nationally.",
+  ],
+  closingLead: "Score us against anyone. Then let's talk.",
+  closingSub: "Every consultation is confidential, and there is never pressure to decide.",
+  ctaText: "Schedule a Confidential Consultation",
+  ctaHref: "/consult",
+};
+
+export const MID_CTA = {
+  text: "You can score every surgeon in the country, or start with the one who wrote the framework.",
+  ctaText: "Schedule a Confidential Consultation",
+  ctaHref: "/consult",
+};
+
+export const SOURCES = [
+  { name: "American Academy of Orthopaedic Surgeons (AAOS), OrthoInfo", desc: "Patient education on limb lengthening and deformity correction.", domain: "orthoinfo.aaos.org", href: "https://orthoinfo.aaos.org" },
+  { name: "Limb Lengthening and Reconstruction Society (LLRS)", desc: "Professional society for surgeons who perform limb lengthening and reconstruction.", domain: "llrs.org", href: "https://llrs.org" },
+  { name: "U.S. Food & Drug Administration", desc: "510(k) Premarket Notification database, including device clearances for the PRECICE intramedullary lengthening system.", domain: "accessdata.fda.gov", href: "https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfPMN/pmn.cfm" },
+  { name: "U.S. National Library of Medicine, MedlinePlus", desc: "Consumer health information.", domain: "medlineplus.gov", href: "https://medlineplus.gov" },
+  { name: "Peer-reviewed literature on distraction osteogenesis and magnetic intramedullary lengthening nails", desc: "Indexed in the Journal of Bone & Joint Surgery and via PubMed.", domain: "pubmed.ncbi.nlm.nih.gov", href: "https://pubmed.ncbi.nlm.nih.gov" },
+];
+
+export const CONTINUE_READING = [
+  {
+    label: "Start with the guides",
+    links: [
+      { text: "Meet Dr. Hrayr Basmajian", href: "/dr-basmajian" },
+      { text: "Your surgery: what to expect", href: "/your-surgery" },
+      { text: "How much taller can I get?", href: "/your-surgery/how-much-taller-can-i-get-with-limb-lengthening" },
+    ],
+  },
+  {
+    label: "Go deeper",
+    links: [
+      { text: "Are you a good candidate?", href: "/are-you-a-good-candidate-for-limb-lengthening" },
+      { text: "Internal vs. external fixation", href: "/fixation-methods-in-limb-lengthening-internal-vs-external" },
+      { text: "What you gain, what you risk", href: "/limb-lengthening-what-you-gain-what-you-risk" },
+      { text: "Is it covered by insurance?", href: "/is-limb-lengthening-covered-by-insurance" },
+    ],
+  },
+  {
+    label: "Ready to talk",
+    links: [
+      { text: "Pricing options and financing", href: "/limb-lengthening-pricing-options" },
+      { text: "Schedule a Confidential Consultation", href: "/consult" },
+    ],
+  },
+];

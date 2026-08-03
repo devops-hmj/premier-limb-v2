@@ -980,6 +980,281 @@
   margin: 26px 0 8px;
 }
 
+/* ============================================================
+ * Editorial guide sections (added for parity with the "how to choose"
+ * preview): Short Answer, Qualifications/Experience (reuse .editorial),
+ * Devices/Cost spec tables, Red Flags, Why Premier, mid CTA, Sources,
+ * Continue Reading. Editorial system only (eyebrow + serif heading +
+ * hairlines), no tinted callout boxes.
+ * ============================================================ */
+
+/* Shared section chrome */
+.est .section-h {
+  font-size: clamp(26px, 3.6vw, 38px);
+  margin-bottom: 16px;
+}
+.est .section-lede {
+  font-size: 17px;
+  line-height: 1.65;
+  color: #2a3237;
+  max-width: 720px;
+  margin-bottom: 24px;
+}
+.est .section-note {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--muted);
+  max-width: 780px;
+  margin-top: 18px;
+}
+.est .section-link {
+  display: inline-block;
+  margin-top: 16px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--blue);
+  border-bottom: 1px solid var(--blue);
+  padding-bottom: 2px;
+  text-decoration: none;
+}
+.est .section-link:hover {
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+/* Brand grounds for set-apart sections */
+.est .band-cream {
+  background: var(--cream);
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+}
+.est .cta-band {
+  text-align: center;
+  border-top: 1px solid var(--hairline);
+}
+.est .cta-band-text {
+  font-size: clamp(22px, 3vw, 32px);
+  color: var(--ink);
+  max-width: 760px;
+  margin: 0 auto 24px;
+}
+
+/* Short Answer — featured TL;DR */
+.est .short-answer {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(20px, 2.5vw, 27px);
+  line-height: 1.42;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  max-width: 900px;
+}
+
+/* Spec tables (Devices, Cost) */
+.est .spec-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-top: 8px;
+  border: 1px solid var(--hairline);
+  background: #fff;
+}
+.est table.spec {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 14px;
+}
+.est table.spec.wide {
+  min-width: 760px;
+}
+.est table.spec th,
+.est table.spec td {
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 1px solid #efebe0;
+  vertical-align: top;
+}
+.est table.spec thead th {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue);
+  font-weight: 500;
+  background: var(--cream);
+  border-bottom: 1px solid var(--ink);
+  white-space: nowrap;
+}
+.est table.spec tbody tr:last-child td {
+  border-bottom: none;
+}
+.est table.spec .spec-name {
+  font-weight: 600;
+  color: var(--ink);
+}
+.est table.spec .spec-price {
+  font-family: var(--mono);
+  color: var(--blue);
+  white-space: nowrap;
+}
+
+/* Red flags */
+.est .flags {
+  list-style: none;
+  margin-top: 8px;
+  border-top: 1px solid var(--ink);
+}
+.est .flag {
+  display: grid;
+  gap: 4px 24px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--hairline);
+}
+@media (min-width: 720px) {
+  .est .flag {
+    grid-template-columns: 260px 1fr;
+  }
+}
+.est .flag-title {
+  position: relative;
+  padding-left: 20px;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--ink);
+}
+.est .flag-title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  background: var(--red);
+}
+.est .flag-desc {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: #3a4247;
+}
+
+/* Why Premier */
+.est .premier-points {
+  list-style: none;
+  margin-top: 8px;
+  border-top: 1px solid var(--ink);
+}
+@media (min-width: 760px) {
+  .est .premier-points {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 40px;
+  }
+}
+.est .premier-point {
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--hairline);
+}
+.est .premier-num {
+  flex: 0 0 auto;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--blue);
+}
+.est .premier-text {
+  font-size: 15px;
+  line-height: 1.55;
+  color: #2a3237;
+}
+.est .premier-closing {
+  margin-top: 34px;
+}
+.est .premier-closing-lead {
+  font-size: clamp(22px, 3vw, 32px);
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.est .premier-closing-sub {
+  font-size: 15px;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+/* Sources */
+.est .sources {
+  list-style: none;
+  margin-top: 8px;
+  border-top: 1px solid var(--ink);
+}
+.est .source {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--hairline);
+}
+.est .source-name {
+  display: block;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--ink);
+}
+.est .source-desc {
+  display: block;
+  margin-top: 3px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #3a4247;
+}
+.est .source-link {
+  display: inline-block;
+  margin-top: 6px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--blue);
+}
+.est .source-link:hover {
+  color: var(--ink);
+}
+
+/* Continue Reading */
+.est .continue-grid {
+  display: grid;
+  gap: 32px;
+  margin-top: 24px;
+}
+@media (min-width: 760px) {
+  .est .continue-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+}
+.est .continue-label {
+  display: block;
+  margin-bottom: 12px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.est .continue-col ul {
+  list-style: none;
+}
+.est .continue-col li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--hairline);
+}
+.est .continue-col a {
+  font-family: var(--serif);
+  font-size: 17px;
+  color: var(--ink);
+  text-decoration: none;
+}
+.est .continue-col a:hover {
+  color: var(--blue);
+}
+
 /* Print
  * The mock hid its own `.site-header` / `.site-footer`; here we hide the
  * shared chrome (NavV2 renders <header>, FooterV2 renders <footer>). These

@@ -1,15 +1,26 @@
 "use client";
 
+import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { site } from "@/lib/site";
 import {
   CANONICAL_URL,
+  CONTINUE_READING,
+  COST,
   CRITERIA,
   Criterion,
+  DEVICES,
+  EXPERIENCE,
   FAQ,
   GHL_WEBHOOK_URL,
+  MID_CTA,
   PRICING,
+  QUALIFICATIONS,
+  RED_FLAGS,
+  SHORT_ANSWER,
+  SOURCES,
   STORAGE_KEY,
+  WHY_PREMIER,
 } from "./evaluate/data";
 
 /**
@@ -228,6 +239,14 @@ export function EvaluateSurgeon() {
           </div>
         </section>
 
+        {/* ============ SHORT ANSWER ============ */}
+        <section className="short-answer-sec">
+          <div className="est-wrap">
+            <span className="est-eyebrow">The Short Answer</span>
+            <p className="short-answer">{SHORT_ANSWER}</p>
+          </div>
+        </section>
+
         {/* ============ EDITORIAL INTRO ============ */}
         <section className="hairline-top">
           <div className="est-wrap">
@@ -268,6 +287,32 @@ export function EvaluateSurgeon() {
                 Your scores and notes stay in your browser. Use it on every
                 surgeon you are considering, including Dr. Basmajian.
               </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ============ QUALIFICATIONS ============ */}
+        <section className="hairline-top">
+          <div className="est-wrap">
+            <div className="editorial">
+              <span className="est-eyebrow">{QUALIFICATIONS.eyebrow}</span>
+              <h2 className="serif-h">{QUALIFICATIONS.heading}</h2>
+              {QUALIFICATIONS.paragraphs.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ============ EXPERIENCE ============ */}
+        <section className="hairline-top">
+          <div className="est-wrap">
+            <div className="editorial">
+              <span className="est-eyebrow">{EXPERIENCE.eyebrow}</span>
+              <h2 className="serif-h">{EXPERIENCE.heading}</h2>
+              {EXPERIENCE.paragraphs.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
             </div>
           </div>
         </section>
@@ -467,6 +512,134 @@ export function EvaluateSurgeon() {
           </div>
         </section>
 
+        {/* ============ MID CTA ============ */}
+        <section className="cta-band">
+          <div className="est-wrap">
+            <p className="serif-h cta-band-text">{MID_CTA.text}</p>
+            <Link className="btn" href={MID_CTA.ctaHref}>
+              {MID_CTA.ctaText}
+            </Link>
+          </div>
+        </section>
+
+        {/* ============ DEVICES ============ */}
+        <section id="devices" className="hairline-top">
+          <div className="est-wrap">
+            <span className="est-eyebrow">{DEVICES.eyebrow}</span>
+            <h2 className="serif-h section-h">{DEVICES.heading}</h2>
+            <p className="section-lede">{DEVICES.intro}</p>
+            <div className="spec-wrap">
+              <table className="spec wide">
+                <thead>
+                  <tr>
+                    {DEVICES.columns.map((c) => (
+                      <th key={c} scope="col">
+                        {c}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {DEVICES.rows.map((r, ri) => (
+                    <tr key={ri}>
+                      {r.map((cell, ci) => (
+                        <td key={ci} className={ci === 0 ? "spec-name" : undefined}>
+                          {cell}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="section-note">{DEVICES.note}</p>
+          </div>
+        </section>
+
+        {/* ============ RED FLAGS ============ */}
+        <section id="red-flags" className="hairline-top">
+          <div className="est-wrap">
+            <span className="est-eyebrow">{RED_FLAGS.eyebrow}</span>
+            <h2 className="serif-h section-h">{RED_FLAGS.heading}</h2>
+            <p className="section-lede">{RED_FLAGS.intro}</p>
+            <ul className="flags">
+              {RED_FLAGS.items.map(([title, desc]) => (
+                <li className="flag" key={title}>
+                  <span className="flag-title">{title}</span>
+                  <span className="flag-desc">{desc}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="section-note">{RED_FLAGS.note}</p>
+          </div>
+        </section>
+
+        {/* ============ COST ============ */}
+        <section id="cost" className="hairline-top">
+          <div className="est-wrap">
+            <span className="est-eyebrow">{COST.eyebrow}</span>
+            <h2 className="serif-h section-h">{COST.heading}</h2>
+            <p className="section-lede">{COST.intro}</p>
+            <div className="spec-wrap">
+              <table className="spec cost">
+                <thead>
+                  <tr>
+                    {COST.columns.map((c) => (
+                      <th key={c} scope="col">
+                        {c}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {COST.rows.map((r, ri) => (
+                    <tr key={ri}>
+                      {r.map((cell, ci) => (
+                        <td
+                          key={ci}
+                          className={
+                            ci === 0 ? "spec-name" : ci === 2 ? "spec-price" : undefined
+                          }
+                        >
+                          {cell}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="section-note">{COST.note}</p>
+            <Link className="section-link" href={COST.linkHref}>
+              {COST.linkText} →
+            </Link>
+          </div>
+        </section>
+
+        {/* ============ WHY PREMIER ============ */}
+        <section id="why-premier" className="band-cream">
+          <div className="est-wrap">
+            <span className="est-eyebrow">{WHY_PREMIER.eyebrow}</span>
+            <h2 className="serif-h section-h">{WHY_PREMIER.heading}</h2>
+            <p className="section-lede">{WHY_PREMIER.intro}</p>
+            <ol className="premier-points">
+              {WHY_PREMIER.points.map((p, i) => (
+                <li className="premier-point" key={i}>
+                  <span className="premier-num">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="premier-text">{p}</span>
+                </li>
+              ))}
+            </ol>
+            <div className="premier-closing">
+              <p className="serif-h premier-closing-lead">{WHY_PREMIER.closingLead}</p>
+              <p className="premier-closing-sub">{WHY_PREMIER.closingSub}</p>
+              <Link className="btn" href={WHY_PREMIER.ctaHref}>
+                {WHY_PREMIER.ctaText}
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* ============ FAQ ============ */}
         <section id="faq" className="hairline-top">
           <div className="est-wrap">
@@ -510,6 +683,52 @@ export function EvaluateSurgeon() {
                 website. To discuss whether limb lengthening is appropriate for
                 you, schedule a confidential consultation.
               </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ============ SOURCES & FURTHER READING ============ */}
+        <section id="sources" className="hairline-top no-print">
+          <div className="est-wrap">
+            <span className="est-eyebrow">Sources &amp; Further Reading</span>
+            <h2 className="serif-h section-h">References</h2>
+            <ul className="sources">
+              {SOURCES.map((s) => (
+                <li className="source" key={s.domain}>
+                  <span className="source-name">{s.name}</span>
+                  <span className="source-desc">{s.desc}</span>
+                  <a
+                    className="source-link"
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {s.domain} →
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* ============ CONTINUE READING ============ */}
+        <section id="continue" className="band-cream no-print">
+          <div className="est-wrap">
+            <span className="est-eyebrow">Continue Reading</span>
+            <h2 className="serif-h section-h">Keep going.</h2>
+            <div className="continue-grid">
+              {CONTINUE_READING.map((g) => (
+                <div className="continue-col" key={g.label}>
+                  <span className="continue-label">{g.label}</span>
+                  <ul>
+                    {g.links.map((l) => (
+                      <li key={l.href}>
+                        <Link href={l.href}>{l.text}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
           </div>
         </section>
