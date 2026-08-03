@@ -1335,7 +1335,7 @@
   content: "–";
 }
 .est .crit-acc-num {
-  flex: 0 0 148px;
+  flex: 0 0 168px;
   padding-top: 5px;
   font-family: var(--mono);
   font-size: 11px;
@@ -1343,6 +1343,14 @@
   text-transform: uppercase;
   color: var(--blue);
   white-space: nowrap;
+}
+/* Fixed-width category so the "· NN" lines up across every row. */
+.est .crit-acc-cat {
+  display: inline-block;
+  width: 84px;
+}
+.est .crit-acc-sep {
+  margin: 0 6px;
 }
 .est .crit-acc-name {
   font-family: var(--serif);

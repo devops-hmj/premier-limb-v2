@@ -477,7 +477,7 @@ export function EvaluateSurgeon() {
               {CRITERIA.map((c) => (
                 <details className="crit-acc-item" id={`edu-${c.id}`} key={c.id}>
                   <summary>
-                    <span className="crit-acc-num">{c.eNum}</span>
+                    <CritLabel eNum={c.eNum} />
                     <span className="crit-acc-name">{c.name}</span>
                   </summary>
                   <div className="crit-acc-body">
@@ -496,7 +496,7 @@ export function EvaluateSurgeon() {
 
               <details className="crit-acc-item" id="edu-pricing">
                 <summary>
-                  <span className="crit-acc-num">{PRICING.eNum}</span>
+                  <CritLabel eNum={PRICING.eNum} />
                   <span className="crit-acc-name">{PRICING.name}</span>
                 </summary>
                 <div className="crit-acc-body">
@@ -820,6 +820,22 @@ export function EvaluateSurgeon() {
         </section>
       </main>
     </div>
+  );
+}
+
+// ================= Criterion accordion label =================
+// Splits "Clinical · 01" into a fixed-width category + aligned number so the
+// "· NN" lines up vertically across every row (and names align after it).
+function CritLabel({ eNum }: { eNum: string }) {
+  const [cat, num] = eNum.split(" · ");
+  return (
+    <span className="crit-acc-num">
+      <span className="crit-acc-cat">{cat}</span>
+      <span className="crit-acc-sep" aria-hidden="true">
+        ·
+      </span>
+      <span className="crit-acc-n">{num}</span>
+    </span>
   );
 }
 
