@@ -238,6 +238,9 @@ export function EvaluateSurgeon() {
               <a className="btn btn-ghost" href="#tool">
                 Start Evaluating Surgeons
               </a>
+              <button className="btn btn-ghost" type="button" onClick={printQuestions}>
+                Print the Question List
+              </button>
             </div>
           </div>
         </section>
@@ -597,18 +600,17 @@ export function EvaluateSurgeon() {
                 <tbody>
                   {COST.rows.map((r, ri) => (
                     <tr key={ri}>
-                      {r.map((cell, ci) => (
-                        <td
-                          key={ci}
-                          className={
-                            ci === 0 ? "spec-name" : ci === 2 ? "spec-price" : undefined
-                          }
-                        >
-                          {cell}
-                        </td>
-                      ))}
+                      <td className="spec-name">{r[0]}</td>
+                      <td className="spec-price">{r[1]}</td>
+                      <td className="spec-price">{r[2]}</td>
                     </tr>
                   ))}
+                  <tr>
+                    <td className="spec-name">{COST.consultation.label}</td>
+                    <td className="spec-price" colSpan={2}>
+                      {COST.consultation.value}
+                    </td>
+                  </tr>
                 </tbody>
               </table>
             </div>

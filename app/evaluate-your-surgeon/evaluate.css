@@ -1114,6 +1114,9 @@
 .est table.spec.wide {
   min-width: 760px;
 }
+.est table.spec.cost {
+  min-width: 560px;
+}
 .est table.spec th,
 .est table.spec td {
   text-align: left;

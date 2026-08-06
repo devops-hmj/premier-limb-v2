@@ -288,7 +288,7 @@ export const FAQ: { q: string; a: string }[] = [
   },
   {
     q: "How much does limb lengthening cost, and what is included?",
-    a: "Cosmetic limb lengthening in the United States is typically a five- to six-figure procedure, and what the quote includes matters more than the headline number. Dr. Basmajian's all-inclusive pricing is $95,500 for bilateral femur lengthening, $105,500 for bilateral tibia, and $195,000 for a combined, staged femur-and-tibia procedure, with free consultations. Always ask any surgeon for a fully itemized quote and a written list of what is not included, such as travel, accommodation, and hardware removal.",
+    a: "Cosmetic limb lengthening in the United States is typically a five- to six-figure procedure, and what the quote includes matters more than the headline number. Dr. Basmajian's all-inclusive pricing runs from $75,500 for bilateral femur and $85,500 for bilateral tibia on the proven PRECICE 2 nail, up to $95,500 and $105,500 respectively on the newer PRECICE Max. Combined femur-and-tibia lengthening is $150,000 with PRECICE 2 or $195,000 with PRECICE Max. Consultations are free. Always ask any surgeon for a fully itemized quote and a written list of what is not included, such as travel, accommodation, and hardware removal.",
   },
   {
     q: "What is the recovery timeline for limb lengthening?",
@@ -389,15 +389,15 @@ export const COST = {
   heading: "What does limb lengthening cost, and what is included?",
   intro:
     "Cosmetic limb lengthening in the U.S. is typically a five- to six-figure procedure, and what the quote includes matters more than the headline number. Insist on a fully itemized quote (implant, hospitalization, anesthesia, therapy, and follow-up) plus a written list of what is not included. The cost of correcting a failed procedure can exceed the original surgery.",
-  columns: ["Procedure", "Typical lengthening", "All-inclusive price"],
+  columns: ["Procedure", "PRECICE 2", "PRECICE Max (4th gen)"],
   rows: [
-    ["Bilateral femur lengthening", "Up to 8 cm / 3.2 in", "$95,500"],
-    ["Bilateral tibia lengthening", "Up to 5 cm / 2 in", "$105,500"],
-    ["Combined femur + tibia (staged)", "Up to 10 cm / 4 in", "$195,000"],
-    ["Consultation (virtual or in person)", "", "Free"],
+    ["Bilateral femur lengthening", "$75,500", "$95,500"],
+    ["Bilateral tibia lengthening", "$85,500", "$105,500"],
+    ["Combined femur + tibia (staged)", "$150,000", "$195,000"],
   ],
+  consultation: { label: "Consultation (virtual or in person)", value: "Free" },
   note:
-    "These are Dr. Basmajian's all-inclusive prices. Each bundle covers the implant, OR and surgical fees, anesthesia, 60 to 70 on-site therapy sessions, and 12 to 14 weeks of follow-up care. Billed separately: rotation correction, hardware removal (1 to 2 years post-op), and travel or accommodation. Financing is available through SoFi and CareCredit.",
+    "These are Dr. Basmajian's all-inclusive prices. The newer PRECICE Max (4th-generation) nail costs more than the long-proven PRECICE 2, and Dr. Basmajian recommends the device suited to your anatomy and goals. Each bundle covers the implant, OR and surgical fees, anesthesia, 60 to 70 on-site therapy sessions, and 12 to 14 weeks of follow-up care. Billed separately: rotation correction, hardware removal (1 to 2 years post-op), and travel or accommodation. Financing is available through SoFi and CareCredit.",
   linkText: "See the full, current pricing options and financing",
   linkHref: "/limb-lengthening-pricing-options",
 };
