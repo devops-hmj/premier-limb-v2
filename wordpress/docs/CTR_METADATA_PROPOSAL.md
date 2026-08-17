@@ -135,7 +135,7 @@ These 8 pages carry **~122,600 impressions (83% of the site)** but convert at **
 
 ---
 
-## Structural recommendation (separate, code change — flagged not made)
+## Structural recommendation — ✅ DONE 2026-08-17
 
 The two highest-value sub-pages (item 1 = 32% of all site impressions, item 7) carry a **compounded suffix** ` · Your Surgery · Premier Limb Lengthening` (43 chars) that pushes the useful part of the title past the SERP fold. Options:
 
@@ -143,6 +143,34 @@ The two highest-value sub-pages (item 1 = 32% of all site impressions, item 7) c
 2. **Support a `title_absolute` flag in the overrides map** (currently only `pll_seo_page_defaults()` honors it) so individual high-value pages can control their full title.
 
 Recommend option 1 unless the "· Your Surgery" breadcrumb-style suffix is deliberate for brand reasons.
+
+**Shipped 2026-08-17, going further than option 1.** Measuring the assembled
+titles rather than the map showed the problem was bigger than the sub-page
+segment: the brand suffix itself contains the head term, so 31 of 43 indexed
+titles published "limb lengthening" twice and three category archives published
+it three times, while 32 titles ran past the SERP cutoff. Search Console for the
+90 days to 2026-08-16 put brand queries at **1.2% of impressions and 4.6% of
+clicks** (`premier limb lengthening`: 17 impressions), so the suffix was spending
+the truncation budget on demand that does not exist.
+
+`titles.php` now:
+
+1. skips ` · Premier Limb Lengthening` when the title already carries the head
+   term (`pll_seo_title_has_head_term()`) — a condition, not a deletion, so a
+   future page like "Patient Financing Options" is still branded;
+2. no longer appends ` · Your Surgery` (option 1 above); and
+3. shortens the category archive label to ` · Articles` when the category name
+   already says it.
+
+Result across all 43 pages: average title 72.5 → 49.1 characters, titles past
+the cutoff 32 → 4, head-term repeats 31 → 0, and 9 pages correctly kept the
+brand. `verify-seo-meta.mjs` **V15** crawls the sitemap and enforces all of it,
+including a no-duplicate-titles guard, since dropping a disambiguating segment
+could otherwise collide two pages. Change report:
+https://claude.ai/code/artifact/df974b63-32fc-442a-a296-2b5962ad51d6
+
+Unlike the per-page rewrites below, this was a template change, so it took effect
+on deploy rather than needing the post-meta pass.
 
 ---
 
