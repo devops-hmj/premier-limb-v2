@@ -18,7 +18,21 @@ function pll_seo_faqs() {
 	return array(
 		array(
 			'q' => 'How much does limb lengthening surgery cost?',
-			'a' => 'Bilateral femur lengthening is $95,500 and bilateral tibia lengthening is $105,500. A combined tibia and femur procedure is $195,000, with maximum-height options up to 6 inches discussed during consultation. Every quote includes surgery, implants, anesthesia, hospitalization, and follow-up care. Financing is available through SoFi and CareCredit.',
+			// This answer is published as homepage FAQPage JSON-LD. It used to
+			// quote only the PRECICE Max tier, which declared $95,500 as the
+			// femur price while the pricing page and the SERP anchor both start
+			// at $75,500. Every figure below is sourced from data/pricing.php.
+			//
+			// ⚠️ THIS STRING EXISTS IN THREE PLACES AND ONLY TWO ARE IN GIT.
+			// 1. here            → JSON-LD, ships on code deploy
+			// 2. home-faq.php    → pattern source, INERT on a seeded site
+			// 3. post_content    → the visible homepage, in the DATABASE
+			// setup.php pll_compose_patterns() inlines patterns at seed time, so
+			// editing (2) does nothing to a live site. Changing this answer
+			// WITHOUT hand-editing (3) makes the homepage's structured data
+			// contradict its own visible text. Runbook: docs/MIGRATION.md §6f.
+			// verify-seo-meta.mjs raises ACTION REQUIRED until it is done.
+			'a' => 'Bilateral femur lengthening is $75,500 with the PRECICE 2 nail and $95,500 with PRECICE Max. Bilateral tibia is $85,500 and $105,500. Combined tibia and femur is $150,000 and $195,000. Every quote includes surgery, implants, anesthesia, hospitalization, and follow-up care. Financing is available through SoFi and CareCredit.',
 		),
 		array(
 			'q' => 'How much height can I gain?',
