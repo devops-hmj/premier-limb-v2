@@ -357,8 +357,9 @@ rather than assume.
    the deploy.
 
 Same caveat, shorter, in §6c step 6. Applies to every future footer pattern
-change, including the "Medically Reviewed By" credential block
-(docs/MEDICAL_REVIEW_LOG.md).
+change. It used to call out the "Medically Reviewed By" credential block, which
+was removed on 2026-08-18 (docs/MEDICAL_REVIEW_LOG.md). That removal was itself
+a footer pattern change, and this check ran clean before it shipped.
 
 ### 6f. Homepage cost FAQ: the visible paragraph must be edited by hand (2026-08)
 

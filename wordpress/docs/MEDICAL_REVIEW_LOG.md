@@ -87,46 +87,43 @@ optional (currently administrative PAA only, so no byline).
 | `/about/` | No | No | N/A | N/A | N/A |
 | `/consult/` | No | No | N/A | N/A | N/A |
 
-## Site-wide footer credential block
+## Site-wide footer credential block: built, published, removed
 
-A second, separate mechanism. The per-page byline above attributes review of one
-page's clinical content. The footer block attributes clinical review of the
-site's medical content generally, and it is a public claim about a named
-physician, so it carries its own approval and its own switch.
+**Removed 2026-08-18. Do not rebuild it without a new decision.**
 
-**Status: PUBLISHED on production since 2026-08-17.** `pll_medical_review_footer`
-is `1`. Verified live the same day: the block renders on `/`,
-`/limb-lengthening-pricing-options/` and `/dr-basmajian/`, and is absent from
-`/privacy/`, `/terms/` and `/accessibility/`.
+A second mechanism used to exist alongside the per-page byline above: a
+"Medically Reviewed By" credential block in the site footer, naming
+Dr. Basmajian and three credential lines on every front-end view. It was built
+2026-08-14 behind an off-by-default option, switched on in production
+2026-08-17, and deleted three days later at the client's direction (Jaime):
+per-page attribution on the pages that were actually clinically reviewed is
+enough, and a site-wide claim was more than the scope called for.
 
-The shipped default in code is still `0`, so a fresh install, a Playground boot
-or the handoff zip still render nothing until someone turns it on deliberately.
+What was removed, all of it:
 
-⚠️ **Open: attach the written approval artifact.** Sign-off was confirmed by the
-site owner on 2026-08-17 and the switch was flipped on that confirmation. The
-record below has no document reference yet. Attach the email, doc or meeting
-note from Dr. Basmajian and fill in the Artifact column. Until then the row is
-an assertion without evidence, which is the one thing this log exists to
-prevent. The earlier position stands for context: the July 2026 approval covers
-`/height-surgery/` and `/leg-lengthening-surgery/` only, and a per-page approval
-does not by itself authorise the site-wide claim.
+| Piece | Where it lived |
+|---|---|
+| Block markup (heading, name, three credential lines, link) | `themes/pll-editorial/patterns/footer.php` |
+| `pll_medical_review_footer_enabled()`, `pll_medical_review_footer_excluded()`, and the `render_block_core/group` suppression filter | `themes/pll-editorial/inc/setup.php` |
+| Registered setting, "Medical review attribution" section, checkbox field, `pll_render_medical_review_field()` | `themes/pll-editorial/inc/settings.php` |
+| `pll_medical_review_footer` option row | production database |
 
-Both may appear on the same page. That is intentional and must not be
-"deduplicated": the byline is a per-page review date under the H1, the footer
-block is a site-wide credential attribution.
+**What deliberately survives, because it is the originally scoped work:** the
+per-page "Medically reviewed by Dr. Hrayr Basmajian" byline driven by
+`pll_seo_review_dates()`, live on `/height-surgery/` and
+`/leg-lengthening-surgery/`, and the `MedicalWebPage` + `reviewedBy` JSON-LD on
+those same two paths. Both are covered by the July 2026 sign-off
+(`PLL_Pillar_Pages_Clinical_Review.docx`) and are unaffected by this removal.
+Everything above the "Policy" heading still applies.
 
-### What it is
+The reason worth carrying forward: a site-wide credential block is a public
+claim about a named physician's review of *all* the site's medical content,
+which is a broader assertion than any per-page sign-off supports. That is why
+it shipped switched off, and it is why the written approval never materialised
+before it was cut. If it is ever revisited, it needs its own written sign-off
+on the exact credential strings, not an extension of a per-page approval.
 
-A credential block in the site footer, below the four-column link grid and above
-the "Results may vary." line, on every front-end view that uses the footer
-template part. Markup lives in
-[`wp-content/themes/pll-editorial/patterns/footer.php`](../wp-content/themes/pll-editorial/patterns/footer.php).
-Plain core blocks with no `templateLock` and no `lock`, so an editor-role user
-can change every string and the link URL in Appearance > Editor > Patterns >
-Footer with no code access.
-
-Exact copy. Approve it as a set, or line by line, but nothing here is a
-placeholder:
+### The exact copy, for the record
 
 | Element | Exact string |
 |---|---|
@@ -135,55 +132,14 @@ placeholder:
 | Credential line 1 | `Board-Certified Orthopedic Surgeon` |
 | Credential line 2 | `Orthopedic Trauma Medical Director` |
 | Credential line 3 | `Fellowship-Trained Limb Reconstruction Specialist` |
-| Link label | `View Full Credentials` |
+| Link label | `View Full Credentials` (to `/dr-basmajian/`) |
 
-The link points to `/dr-basmajian/`, the same destination as the per-page
-byline and the same URL the Physician schema `@id` is built on.
-
-### Where it never renders
-
-`/privacy/`, `/terms/`, `/accessibility/`, any 404 view, and any search-results
-view. The three legal documents are counsel-authored and carry no medical
-content, so a clinical-review claim there would be affirmatively false. 404 and
-search have no content to attribute. Suppression removes the markup entirely
-rather than hiding it with CSS, because a hidden but present "Medically Reviewed
-By" on a Terms page is still a crawlable false claim. The exclusion list lives in
-`pll_medical_review_footer_excluded()`
-([`inc/setup.php`](../wp-content/themes/pll-editorial/inc/setup.php)).
-
-### The switch
-
-| Path | How |
-|---|---|
-| **Owner (primary, no deploy)** | Settings > PLL Site > "Medical review attribution" > check "Show 'Medically Reviewed By' in the footer" > Save Changes. Takes effect on the next page load. Unchecking removes the block just as fast. |
-| **Developer (one line)** | `add_filter( 'pll_medical_review_footer_enabled', '__return_true' );` in a mu-plugin. `'__return_false'` forces it off regardless of the checkbox, which is the emergency kill switch. |
-| **WP-CLI** | `wp option update pll_medical_review_footer 1` to publish, `wp option update pll_medical_review_footer 0` to hide. |
-| **Shipped default** | `0`, hidden. A fresh install, a fresh Playground boot, and the handoff zip all render nothing until someone deliberately turns it on. |
-
-### Procedure at go-live
-
-1. Ask Dr. Basmajian to approve the exact six strings above as an accurate
-   description of his credentials and of his clinical-review role over the
-   site's medical content. Get it in writing.
-2. Record the approval in the table below: date, approver, and the artifact
-   (email, doc, or meeting note).
-3. Flip the checkbox on production.
-4. Spot-check `/` and `/privacy/` on production. The block must be present on
-   the first and absent from the second.
-5. If Dr. B declines one credential line, edit that line in the Site Editor
-   rather than turning the whole block off. If he declines the site-wide
-   attribution entirely, leave the switch off. Per-page attribution is already
-   covered by `pll_seo_review_dates()` above.
-
-**Never enable the switch on production before step 1 is complete.**
-
-Deploy note: if anyone has saved a Footer customisation in the Site Editor on the
-target install, WordPress stores a `wp_template_part` post that shadows the theme
-file and the block will not appear. It fails silently. Run the pre-deploy check
-in [MIGRATION.md](MIGRATION.md) §6e before deploying this block.
+It was suppressed by design on `/privacy/`, `/terms/`, `/accessibility/`, 404
+and search, since a clinical-review claim on a counsel-authored legal document
+would have been affirmatively false.
 
 ### Site-wide sign-off record
 
-| Approved (Y/N) | Date | Approver | Artifact | Switch state |
+| Approved (Y/N) | Date | Approver | Artifact | Final state |
 |---|---|---|---|---|
-| **Y** | 2026-08-17 | Dr. Basmajian, relayed by the site owner | **MISSING — attach the written approval** | ON (production, `pll_medical_review_footer = 1`) |
+| Withdrawn | 2026-08-18 | Client direction (Jaime), relayed by the site owner | n/a | REMOVED from code and database |

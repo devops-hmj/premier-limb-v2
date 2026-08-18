@@ -23,10 +23,7 @@ $pll_logo = get_theme_file_uri( 'assets/images/PLL-white-logo.png' );
 		<div class="wp-block-group grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr] gap-10 lg:gap-14 pb-14 border-b border-white/15">
 			<!-- wp:group {"layout":{"type":"default"},"className":"md:col-span-2 lg:col-span-1"} -->
 			<div class="wp-block-group md:col-span-2 lg:col-span-1">
-				<!-- wp:image {"sizeSlug":"full","className":"mb-6"} -->
-				<?php // w/h utilities (not h-auto w-auto): the Next build honors the 220x68 attrs, upscaling the 202x62 source. ?>
-				<figure class="wp-block-image size-full mb-6"><img src="<?php echo esc_url( $pll_logo ); ?>" alt="<?php esc_attr_e( 'Premier Limb Lengthening Institute', 'pll-editorial' ); ?>" width="220" height="68" class="block w-[220px] h-[68px] max-w-full"/></figure>
-				<!-- /wp:image -->
+				<!-- wp:pll/figure {"url":"<?php echo esc_url( $pll_logo ); ?>","alt":"<?php esc_attr_e( 'Premier Limb Lengthening Institute', 'pll-editorial' ); ?>","figClass":"wp-block-image size-full mb-6","imgClass":"block w-[220px] h-[68px] max-w-full","width":220,"height":68} /-->
 
 				<!-- wp:paragraph {"className":"font-serif italic text-[18px] text-paper/90 max-w-[34ch] mb-6"} -->
 				<p class="font-serif italic text-[18px] text-paper/90 max-w-[34ch] mb-6">Cosmetic limb lengthening in Upland, California, founded by Dr. Hrayr Basmajian</p>
@@ -53,6 +50,8 @@ $pll_logo = get_theme_file_uri( 'assets/images/PLL-white-logo.png' );
 				<li class="py-1.5"><a href="/limb-lengthening-pricing-options/" class="text-[13.5px] text-paper/85 hover:text-cream transition-colors">Pricing</a></li>
 				<!-- /wp:list-item --><!-- wp:list-item {"className":"py-1.5"} -->
 				<li class="py-1.5"><a href="/consult/" class="text-[13.5px] text-paper/85 hover:text-cream transition-colors">Contact</a></li>
+				<!-- /wp:list-item --><!-- wp:list-item {"className":"py-1.5"} -->
+				<li class="py-1.5"><a href="/book-a-consultation/" class="text-[13.5px] text-paper/85 hover:text-cream transition-colors">Book a Consultation</a></li>
 				<!-- /wp:list-item --></ul>
 				<!-- /wp:list -->
 			</div>
@@ -90,7 +89,13 @@ $pll_logo = get_theme_file_uri( 'assets/images/PLL-white-logo.png' );
 				<ul class="wp-block-list list-none"><!-- wp:list-item {"className":"py-1.5"} -->
 				<li class="py-1.5"><a href="/blog/" class="text-[13.5px] text-paper/85 hover:text-cream transition-colors">Blog</a></li>
 				<!-- /wp:list-item --><!-- wp:list-item {"className":"py-1.5"} -->
-				<li class="py-1.5"><a href="/consult/" class="text-[13.5px] text-paper/85 hover:text-cream transition-colors">Schedule Consultation</a></li>
+				<li class="py-1.5"><a href="/evaluate-your-surgeon/" class="text-[13.5px] text-paper/85 hover:text-cream transition-colors">Evaluate Your Surgeon</a></li>
+				<!-- /wp:list-item --><!-- wp:list-item {"className":"py-1.5"} -->
+				<li class="py-1.5"><a href="/height-surgery/" class="text-[13.5px] text-paper/85 hover:text-cream transition-colors">Height Surgery Guide</a></li>
+				<!-- /wp:list-item --><!-- wp:list-item {"className":"py-1.5"} -->
+				<li class="py-1.5"><a href="/leg-lengthening-surgery/" class="text-[13.5px] text-paper/85 hover:text-cream transition-colors">Leg Lengthening Guide</a></li>
+				<!-- /wp:list-item --><!-- wp:list-item {"className":"py-1.5"} -->
+				<li class="py-1.5"><a href="<?php echo esc_url( $pll_info['cta_href'] ); ?>" class="text-[13.5px] text-paper/85 hover:text-cream transition-colors"><?php echo esc_html( $pll_info['cta_label'] ); ?></a></li>
 				<!-- /wp:list-item --><!-- wp:list-item {"className":"py-1.5"} -->
 				<li class="py-1.5"><a href="/limb-lengthening-pricing-options/#financing" class="text-[13.5px] text-paper/85 hover:text-cream transition-colors">Financing Options</a></li>
 				<!-- /wp:list-item --></ul>
