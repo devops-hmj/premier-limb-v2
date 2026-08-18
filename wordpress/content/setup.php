@@ -471,6 +471,146 @@ function pll_restore_legal_domain_text() {
 pll_restore_legal_domain_text();
 
 /**
+ * 3d) Clinical content additions (schema_updates package).
+ *
+ * Injects the visible "Patients Also Ask" accordion and the "Medically
+ * reviewed by" byline into the relevant pages AFTER the WXR import and the
+ * pattern-composed pages exist. Idempotent (guarded by content markers), so it
+ * survives re-import and PLL_SEED_FORCE without duplicating.
+ *
+ * The PAA questions and answers are pulled from the pll-seo plugin's canonical
+ * data (pll_seo_paa), the SAME source the FAQPage JSON-LD is built from, so the
+ * visible copy and the structured data are generated from one source and always
+ * match verbatim (SEO audit Critical 3). Content edits require re-seeding with
+ * PLL_SEED_FORCE (the marker guard intentionally skips already-injected pages).
+ */
+
+/**
+ * The medical-review sign-off map lives in the pll-seo plugin
+ * (pll_seo_review_dates(), includes/schema.php), NOT here. It is the single
+ * source for both outputs: the byline seeded below, and the MedicalWebPage +
+ * reviewedBy JSON-LD emitted on the front end. This file runs at seed time
+ * only, so a map kept here could never feed the schema. Add a signed-off path
+ * to the plugin function, then re-seed.
+ */
+
+/**
+ * "Medically reviewed by" byline block markup for a given review month.
+ *
+ * @param string $month_year e.g. "July 2026".
+ * @return string Block markup.
+ */
+function pll_render_review_byline( $month_year ) {
+	return '<!-- wp:paragraph {"className":"pll-medical-review mt-2 mb-8 font-mono uppercase tracking-[0.14em] text-[11px] text-muted"} -->' . "\n"
+		. '<p class="pll-medical-review mt-2 mb-8 font-mono uppercase tracking-[0.14em] text-[11px] text-muted">Medically reviewed by <a href="/dr-basmajian/">Dr. Hrayr Basmajian</a>, dual fellowship-trained orthopedic trauma surgeon. Last reviewed: ' . esc_html( $month_year ) . '.</p>' . "\n"
+		. '<!-- /wp:paragraph -->';
+}
+
+/**
+ * Build the visible "Patients Also Ask" section (pll/faq accordion) from a
+ * question/answer set. Only HTML-structural characters are encoded in the
+ * answer so the rendered text matches the schema string verbatim.
+ *
+ * @param array<int, array{q: string, a: string}> $qas Question/answer pairs.
+ * @return string Block markup ('' when empty).
+ */
+function pll_render_paa_section( $qas ) {
+	if ( empty( $qas ) ) {
+		return '';
+	}
+	$items = '';
+	foreach ( $qas as $qa ) {
+		$attr   = wp_json_encode( array( 'question' => $qa['q'] ) );
+		$answer = str_replace( array( '&', '<', '>' ), array( '&amp;', '&lt;', '&gt;' ), $qa['a'] );
+		$items .= '<!-- wp:pll/faq-item ' . $attr . ' -->' . "\n"
+			. '<!-- wp:paragraph -->' . "\n" . '<p>' . $answer . '</p>' . "\n" . '<!-- /wp:paragraph -->' . "\n"
+			. '<!-- /wp:pll/faq-item -->' . "\n";
+	}
+	return '<!-- wp:group {"tagName":"section","layout":{"type":"default"},"anchor":"patients-also-ask","className":"bg-paper-off py-16 lg:py-24 border-t border-rule"} -->' . "\n"
+		. '<section class="wp-block-group bg-paper-off py-16 lg:py-24 border-t border-rule" id="patients-also-ask">' . "\n"
+		. '<!-- wp:group {"layout":{"type":"default"},"className":"mx-auto max-w-wrap px-6 lg:px-12"} -->' . "\n"
+		. '<div class="wp-block-group mx-auto max-w-wrap px-6 lg:px-12">' . "\n"
+		. '<!-- wp:group {"tagName":"header","layout":{"type":"default"},"className":"pb-6 mb-8 border-b border-ink"} -->' . "\n"
+		. '<header class="wp-block-group pb-6 mb-8 border-b border-ink">' . "\n"
+		. '<!-- wp:paragraph {"className":"eyebrow mb-3"} -->' . "\n" . '<p class="eyebrow mb-3">Common Questions</p>' . "\n" . '<!-- /wp:paragraph -->' . "\n"
+		. '<!-- wp:heading {"level":2,"className":"mt-2 font-serif font-normal tracking-[-0.02em] text-ink leading-[1.0] text-[clamp(30px,4.4vw,56px)]"} -->' . "\n"
+		. '<h2 class="wp-block-heading mt-2 font-serif font-normal tracking-[-0.02em] text-ink leading-[1.0] text-[clamp(30px,4.4vw,56px)]">Patients also <em class="italic text-spine">ask.</em></h2>' . "\n"
+		. '<!-- /wp:heading -->' . "\n"
+		. '</header>' . "\n" . '<!-- /wp:group -->' . "\n"
+		. '<!-- wp:pll/faq -->' . "\n" . $items . '<!-- /wp:pll/faq -->' . "\n"
+		. '</div>' . "\n" . '<!-- /wp:group -->' . "\n"
+		. '</section>' . "\n" . '<!-- /wp:group -->';
+}
+
+/**
+ * Inject PAA blocks and (when signed off) the review byline into the pages
+ * named in pll_seo_paa_all() / pll_seo_review_dates().
+ */
+function pll_seed_clinical_additions() {
+	// The PAA copy, the FAQPage schema, and the review-date map all come from
+	// pll-seo; if the plugin is inactive we inject nothing (visible copy and
+	// schema stay in lockstep).
+	if ( ! function_exists( 'pll_seo_paa_all' ) || ! function_exists( 'pll_seo_resolve_path_id' ) || ! function_exists( 'pll_seo_review_dates' ) ) {
+		return;
+	}
+
+	$paa_all      = pll_seo_paa_all();
+	$review_dates = pll_seo_review_dates();
+	$paths        = array_unique( array_merge( array_keys( $paa_all ), array_keys( $review_dates ) ) );
+
+	foreach ( $paths as $path ) {
+		$post_id = pll_seo_resolve_path_id( $path );
+		if ( ! $post_id ) {
+			// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+			error_log( 'pll seed: clinical additions could not resolve ' . $path );
+			continue;
+		}
+		$post    = get_post( $post_id );
+		$content = $post->post_content;
+		$changed = false;
+
+		// (a) Medically-reviewed byline — only for signed-off paths, once.
+		if ( isset( $review_dates[ $path ] ) && false === strpos( $content, 'pll-medical-review' ) ) {
+			$byline = pll_render_review_byline( $review_dates[ $path ] );
+			// Directly under the H1. Pillars carry the H1 in post_content, so
+			// insert after the first heading close; WXR pages render the H1 from
+			// the template, so there is no H1 in content and we prepend.
+			$marker = '<!-- /wp:heading -->';
+			$pos    = strpos( $content, $marker );
+			if ( false !== strpos( $content, '"level":1' ) && false !== $pos ) {
+				$at      = $pos + strlen( $marker );
+				$content = substr( $content, 0, $at ) . "\n\n" . $byline . substr( $content, $at );
+			} else {
+				$content = $byline . "\n\n" . $content;
+			}
+			$changed = true;
+		}
+
+		// (b) Patients Also Ask accordion — above the footer / final CTA.
+		if ( isset( $paa_all[ $path ] ) && false === strpos( $content, 'patients-also-ask' ) ) {
+			$paa    = pll_render_paa_section( $paa_all[ $path ] );
+			$needle = '<!-- wp:pattern {"slug":"pll/final-cta"} /-->';
+			if ( false !== strpos( $content, $needle ) ) {
+				$content = str_replace( $needle, $paa . "\n\n" . $needle, $content );
+			} else {
+				$content = rtrim( $content ) . "\n\n" . $paa;
+			}
+			$changed = true;
+		}
+
+		if ( $changed ) {
+			wp_update_post(
+				array(
+					'ID'           => $post_id,
+					'post_content' => wp_slash( $content ),
+				)
+			);
+		}
+	}
+}
+pll_seed_clinical_additions();
+
+/**
  * 4) Reading settings.
  */
 if ( $pll_home_id ) {
