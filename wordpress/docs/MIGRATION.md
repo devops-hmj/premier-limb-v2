@@ -456,14 +456,45 @@ repo is not the deploy baseline.**
 | `themes/pll-editorial/assets/css/pll.css` | **executed (enqueued)** | GAP-3 layout, and the `.pll-faq .pll-faq-q` reset that stops `.pll-prose h3` breaking the accordion |
 | `themes/pll-editorial/src/css/tailwind.css` | build input, never served | recompile with `npm run build:css` |
 | `plugins/pll-seo/includes/schema.php` | **executed on `wp_head`** | GAP-2 `wptexturize()` on both fields, plus a guard on the pricing FAQPage branch |
-| `plugins/pll-seo/includes/data/paa.php` | **executed** | copy is UNCHANGED. Ship it only if the server's copy differs. It was untracked in git until 38ca855 |
+| `plugins/pll-seo/includes/data/paa.php` | **executed** | copy is UNCHANGED. Ship it only if the server's copy differs, and **verify it against git first** (see the warning below). It was untracked in git until 38ca855 |
 | `plugins/pll-seo/pll-seo.php` | **executed** | the `data/paa` include entry, previously uncommitted |
+
+> **Before you ship `data/paa.php`, confirm the working tree is not mid-test.**
+>
+> ```
+> cd wordpress
+> git diff --exit-code -- wp-content/plugins/pll-seo/includes/data/paa.php
+> node scripts/verify-paa.mjs          # S8 must pass: 19/19 pairs match the lock
+> ```
+>
+> That file holds locked clinical copy, and the guard's failure mode is proven
+> by deliberately corrupting it. During this ticket a corruption marker sat in
+> the working tree for about twenty minutes. HEAD and the handoff zips were
+> never affected, but this line of the runbook says to ship the file **from
+> disk**, so an un-reverted test would publish wrong clinical copy to a medical
+> site. The corruption test is now atomic
+> (`node scripts/verify-paa.mjs --self-test`, restore in a `finally`), and the
+> two commands above are the belt and braces. Never ship this file from a tree
+> that fails either one.
 
 `content/setup.php` also changed, but it is **seed-time only**. Do not run it on
 production. `pll_seed_clinical_additions()` self-guards on the
 `patients-also-ask` marker (`setup.php`), so it is inert on already-seeded pages
 either way. Every fix above is render-time and reaches the six live pages on the
 next uncached request.
+
+**Related, and it does NOT reach production by deploying code.** QA round 1
+found that `patterns/home-concierge.php` emits five `<h4>` directly under the
+section `<h2>`, so the homepage's content-region heading order is invalid. The
+pattern has been corrected to `<h3>` (pure level change: `h1..h4` share one
+declaration in `pll.css` and all the type is on utility classes, so nothing
+moves visually). But `pll_compose_patterns()` **inlines pattern content into
+`post_content` at seed time**, exactly as MIGRATION section 6f describes for the
+homepage cost FAQ. Editing the pattern file therefore does nothing to an
+already-seeded homepage. Fresh installs and the handoff zip get the fix; the
+live site needs a block-editor pass or a re-seed. Until then, expect the
+homepage to keep failing the heading-order check, and do **not** reach for
+`PLL_SEED_FORCE` to fix it.
 
 **Blast radius.** `faq-item/render.php` and `pll.css` affect every FAQ accordion
 site-wide, the homepage and both pillar pages included. `schema.php` affects
