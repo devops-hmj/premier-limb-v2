@@ -24,7 +24,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import archiver from "archiver";
 import fg from "fast-glob";
-import { chromium } from "playwright";
+import { chromium, request as pwRequest } from "playwright";
 
 const __dir = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dir, "..");
@@ -201,34 +201,37 @@ playground.stderr.on("data", (d) => { bootLog += d; process.stderr.write(d); });
 const BOOT_TIMEOUT_MS = 900000;
 const SEEDED_ROUTE = "/limb-lengthening-pricing-options/";
 const bootStart = Date.now();
-await new Promise((resolve, reject) => {
-	let settled = false;
-	const tick = async () => {
-		if (settled) return;
+
+// Polled with Playwright's request client rather than node's fetch. Undici
+// surfaces the connection resets a mid-boot Playground hands out as an
+// unhandled error rather than a rejected promise, which killed this script
+// with a bare exit 1 and no message. Playwright also keeps a cookie jar, which
+// the auto-login redirect needs.
+let bootDied = null;
+playground.on("exit", (code) => { bootDied = code; });
+const bootCtx = await pwRequest.newContext({ ignoreHTTPSErrors: true });
+try {
+	for (;;) {
+		if (bootDied !== null) {
+			throw new Error(`Playground exited with code ${bootDied} during boot. Last log:\n${bootLog.slice(-800)}`);
+		}
 		if (Date.now() - bootStart > BOOT_TIMEOUT_MS) {
-			settled = true;
-			clearInterval(timer);
-			reject(new Error(`Playground boot timeout (${BOOT_TIMEOUT_MS / 1000}s). Last log:\n${bootLog.slice(-800)}`));
-			return;
+			throw new Error(`Playground boot timeout (${BOOT_TIMEOUT_MS / 1000}s). Last log:\n${bootLog.slice(-800)}`);
 		}
 		try {
-			const r = await fetch(`http://127.0.0.1:${PLAYGROUND_PORT}${SEEDED_ROUTE}`, {
-				redirect: "follow",
-				signal: AbortSignal.timeout(10000),
-			});
-			if (r.status === 200 && !settled) {
-				settled = true;
-				clearInterval(timer);
+			const r = await bootCtx.get(`http://127.0.0.1:${PLAYGROUND_PORT}${SEEDED_ROUTE}`, { timeout: 15000 });
+			if (r.status() === 200) {
 				console.log(`  \u2713 seeded after ${Math.round((Date.now() - bootStart) / 1000)}s (HTTP 200 on ${SEEDED_ROUTE})`);
-				resolve();
+				break;
 			}
 		} catch {
-			// connection refused, or still seeding: keep waiting
+			// connection refused, reset, or still seeding: keep waiting
 		}
-	};
-	const timer = setInterval(tick, 5000);
-	tick();
-});
+		await new Promise((r) => setTimeout(r, 5000));
+	}
+} finally {
+	await bootCtx.dispose();
+}
 
 console.log("\nPlayground up — running route checks via Playwright…\n");
 
