@@ -91,6 +91,31 @@ await Promise.all([
 ]);
 console.log("  ✓ pll-editorial.zip, pll-seo.zip, pll-forms.zip");
 
+// Kill whatever holds a TCP port, whoever it is. Used by the opt-in reclaim
+// path and by teardown, which cannot rely on the child pid: the wp-playground
+// launcher exits while its workers keep serving, and on Windows killing a
+// parent does not take its children with it.
+function killPortOwner(port) {
+	if (process.platform === "win32") {
+		const net = spawnSync("netstat", ["-ano"], { encoding: "utf8" });
+		const pids = new Set(
+			(net.stdout ?? "")
+				.split("\n")
+				.filter((l) => l.includes(`:${port}`) && /LISTENING/i.test(l))
+				.map((l) => l.trim().split(/\s+/).pop())
+				.filter((pid) => pid && pid !== "0" && Number(pid) !== process.pid)
+		);
+		for (const pid of pids) spawnSync("taskkill", ["/F", "/T", "/PID", pid], { stdio: "ignore" });
+		return pids.size;
+	}
+	const lsof = spawnSync("lsof", ["-ti", `:${port}`], { encoding: "utf8" });
+	const pids = (lsof.stdout ?? "").split("\n").map((x) => x.trim()).filter(Boolean);
+	for (const pid of pids) {
+		try { process.kill(Number(pid), "SIGKILL"); } catch { /* gone */ }
+	}
+	return pids.length;
+}
+
 // ── 3b. refuse to grade someone else's instance ──────────────────────────────
 //
 // This harness once printed "18/18 routes passed" while its own Playground had
@@ -112,12 +137,30 @@ const portBusy = await new Promise((resolve) => {
 	setTimeout(() => { probe.destroy(); resolve(false); }, 3000);
 });
 if (portBusy) {
-	console.error(`
+	// Opt-in, never automatic. Killing an unidentified listener because it is
+	// in our way is exactly the kind of helpfulness that loses someone's work.
+	if (process.env.PLL_SMOKE_RECLAIM) {
+		console.error(`
+⚑ :${PLAYGROUND_PORT} is busy and PLL_SMOKE_RECLAIM is set — killing the listener.`);
+		killPortOwner(PLAYGROUND_PORT);
+		await new Promise((r) => setTimeout(r, 3000));
+	} else {
+		console.error(`
 ✗ Something is already listening on :${PLAYGROUND_PORT}.`);
-	console.error("  Refusing to run: this harness would otherwise grade that instance");
-	console.error("  instead of the zip it just extracted, and report a pass for it.");
-	console.error("  Most likely a previous PLL_SMOKE_KEEP=1 run. Stop it, then retry.");
-	process.exit(1);
+		console.error("  Refusing to run: this harness would otherwise grade that instance");
+		console.error("  instead of the zip it just extracted, and report a pass for it.");
+		console.error("  That false pass is a real defect this check exists to prevent.");
+		console.error("");
+		console.error("  Most likely an orphaned PLL_SMOKE_KEEP=1 run. On Windows a hard");
+		console.error("  kill (taskkill /F) gives the harness no chance to clean up, so the");
+		console.error("  Playground outlives it. Release it with either:");
+		console.error("");
+		console.error(`      PLL_SMOKE_RECLAIM=1 node scripts/smoke-test.mjs`);
+		console.error(`      # or, to see what you are killing first:`);
+		console.error(`      netstat -ano | findstr :${PLAYGROUND_PORT}`);
+		console.error(`      taskkill /F /T /PID <pid>`);
+		process.exit(1);
+	}
 }
 
 // ── 4. write smoke blueprint ─────────────────────────────────────────────────
@@ -394,28 +437,12 @@ function releaseInstance() {
 	if (releasedAlready) return;
 	releasedAlready = true;
 	try { playground.kill(); } catch { /* already gone */ }
-	if (process.platform === "win32") {
-		// Kill the launcher's whole tree, if the launcher is still around.
-		if (playground.pid) {
-			spawnSync("taskkill", ["/F", "/T", "/PID", String(playground.pid)], { stdio: "ignore" });
-		}
-		// Then whatever is actually holding the port, launcher or re-parented worker.
-		const net = spawnSync("netstat", ["-ano"], { encoding: "utf8" });
-		const pids = new Set(
-			(net.stdout ?? "")
-				.split("\n")
-				.filter((l) => l.includes(`:${PLAYGROUND_PORT}`) && /LISTENING/i.test(l))
-				.map((l) => l.trim().split(/\s+/).pop())
-				.filter((pid) => pid && pid !== "0" && Number(pid) !== process.pid)
-		);
-		for (const pid of pids) spawnSync("taskkill", ["/F", "/T", "/PID", pid], { stdio: "ignore" });
-	} else {
+	if (process.platform === "win32" && playground.pid) {
+		spawnSync("taskkill", ["/F", "/T", "/PID", String(playground.pid)], { stdio: "ignore" });
+	} else if (playground.pid) {
 		try { process.kill(-playground.pid, "SIGKILL"); } catch { /* no process group */ }
-		const lsof = spawnSync("lsof", ["-ti", `:${PLAYGROUND_PORT}`], { encoding: "utf8" });
-		for (const pid of (lsof.stdout ?? "").split("\n").map((x) => x.trim()).filter(Boolean)) {
-			try { process.kill(Number(pid), "SIGKILL"); } catch { /* gone */ }
-		}
 	}
+	killPortOwner(PLAYGROUND_PORT);
 }
 
 // Every abnormal exit path, not just the happy one. Without these, Ctrl-C or a

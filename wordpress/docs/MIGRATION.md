@@ -496,6 +496,21 @@ live site needs a block-editor pass or a re-seed. Until then, expect the
 homepage to keep failing the heading-order check, and do **not** reach for
 `PLL_SEED_FORCE` to fix it.
 
+> **How to actually land it, if the owner wants it.** Optional: nothing else in
+> this deploy depends on it.
+>
+> - wp-admin → Pages → **Home** → the "Your surgery. Our concierge." section →
+>   select each of the five card titles → change the heading level from H4 to
+>   H3 → Update. Nothing else changes: verified 0 computed-style and 0 geometry
+>   differences across all five headings at 1440 and 390.
+> - Confirmed still needed: a read-only GET against production shows
+>   `h2 → h4 "Travel Coordination"` today.
+>
+> **`PLL_SEED_FORCE` is not a shortcut for this.** It recomposes the whole Home
+> page from patterns and destroys every editorial change the owner has made
+> since launch — including the FAQ cost answer that section 6f exists to
+> protect. The manual editor pass is the only safe route.
+
 **What a human will SEE change, page by page (AC-15).** The file list above says
 what moves on disk. This says what moves on screen, which is what you need in
 order to judge whether a post-deploy screenshot is a success or a rollback.
@@ -511,6 +526,32 @@ order to judge whether a post-deploy screenshot is a success or a rollback.
 | **Every page with a FAQ accordion**: the six above plus `/`, `/height-surgery/`, `/leg-lengthening-surgery/` | **No visual change.** Each question changes from a `<span>` to an `<h3>` and gains an `aria-expanded` attribute. Type, spacing and click behaviour are identical. The difference is visible only to screen readers, outline parsers and search crawlers. |
 | `/` (homepage) | **No visual change from this deploy.** The five "Your surgery. Our concierge." card titles change from `<h4>` to `<h3>`, fixing a skipped heading level. `h3` and `h4` share one rule in `pll.css` and all the type is carried by utility classes, so rendering is unchanged. **Caveat, and it matters:** the homepage is composed from patterns and inlined into `post_content` at seed time, so editing `patterns/home-concierge.php` does **not** reach an already-seeded site. On production this row is a no-op until someone repeats the change in the block editor. Same trap as section 6f. A fresh install gets it for free. |
 | `/evaluate-your-surgeon/` | **No change.** Its FAQ is a core `<details>`/`<summary>` block, not `pll/faq`, so the renderer fix cannot reach it. Its questions are still not headings. Logged as a follow-up, deliberately not fixed here. |
+
+> **The homepage heading fix does NOT reach production on this deploy.**
+>
+> `patterns/home-concierge.php` now emits `<h3>` instead of `<h4>` for the five
+> concierge card titles, fixing an `h2 → h4` skip in the content region. On a
+> **fresh install** that lands automatically. On **production it is inert**, and
+> will stay inert after this deploy: `pll_compose_patterns()` inlines pattern
+> markup into `post_content` at seed time rather than emitting a `wp:pattern`
+> reference, so the homepage in the database still holds the old `<h4>` tags.
+> Confirmed by read-only GET against production, which still shows
+> `h2 → h4 "Travel Coordination"`. Same trap as section 6f, in a third place.
+>
+> To actually fix it on production, a separate pass is needed:
+>
+> - wp-admin → Pages → **Home** → the "Your surgery. Our concierge." section →
+>   select each of the five card titles → change the heading level from H4 to
+>   H3 → Update. Nothing else changes: `h3` and `h4` share one rule in
+>   `pll.css` and every type utility is on the element, so the rendering is
+>   byte-identical. Verified: 0 computed-style and 0 geometry differences
+>   across all five headings at 1440 and 390.
+>
+> **Do NOT use `PLL_SEED_FORCE` to shortcut this.** It recomposes the entire
+> Home page from patterns and destroys every editorial change the owner has
+> made since launch, including the FAQ cost answer that section 6f exists to
+> protect. The manual editor pass is the only safe route, and it is optional:
+> nothing else in this deploy depends on it.
 
 **Blast radius.** `faq-item/render.php` and `pll.css` affect every FAQ accordion
 site-wide, the homepage and both pillar pages included. `schema.php` affects
