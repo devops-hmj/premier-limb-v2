@@ -25,6 +25,10 @@ module.exports = {
     "./wp-content/themes/pll-editorial/inc/**/*.php",
     "./wp-content/plugins/pll-forms/src/**/*.{js,jsx,php}",
     "./wp-content/plugins/pll-forms/includes/**/*.php",
+    // Seed-time markup (PAA accordion, medically-reviewed byline, related-links
+    // line) is emitted from content/setup.php, so its utility classes must be
+    // scanned here or they would be missing from the compiled pll.css.
+    "./content/setup.php",
   ],
   theme: {
     // Editorial / magazine grid — 1320px max container, 48px gutter.
