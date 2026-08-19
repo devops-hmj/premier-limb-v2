@@ -1,0 +1,134 @@
+{
+	"paths": {
+		"/your-surgery/how-much-taller-can-i-get-with-limb-lengthening/": [
+			{
+				"q": "How many inches can limb lengthening surgery add?",
+				"q_sha256": "2abb6b12f7e7a8886d41a221b5ab50e3648a276ad4e1ca28b1d92357e0f599ea",
+				"a_sha256": "ecbefe3337678da2ee603174d4cbc710681d91110d9f41a6e10b906429ec3bdf",
+				"a_chars": 306
+			},
+			{
+				"q": "Does limb lengthening surgery make you look disproportionate?",
+				"q_sha256": "b2ec2bc22ce2dfdd7db4fb007ff7a271df8810f3d86df756625210b3c7a7a459",
+				"a_sha256": "5075c2a64c67ad1cc7f40036afe15cbc0cf8f5af0c4e65edad5b6b9898153129",
+				"a_chars": 319
+			},
+			{
+				"q": "How much taller can surgery make you?",
+				"q_sha256": "54eec82d77aa53eb21fbefff6359e972420adf9ccedabf1b33132357884f684a",
+				"a_sha256": "9aaf4eb60bac6e168b9aaaafe00970e0336b43724204735c52fcf03e0285bd7a",
+				"a_chars": 245
+			},
+			{
+				"q": "Can you grow taller after your growth plates close?",
+				"q_sha256": "da1d47490de02b29c65a08ac81ce725da3e86cb91c2492db7a9e28fbbd87db08",
+				"a_sha256": "d9abe14c9e57e2451985eef7ead9a5fcbff0c9cfc58a69f0011caa69f1ed7ffc",
+				"a_chars": 339
+			}
+		],
+		"/limb-lengthening-pricing-options/": [
+			{
+				"q": "How much does limb lengthening surgery cost in the USA?",
+				"q_sha256": "416eeae3502ce3e60ad59c0747e1fe0481e5e4c4ab5b156e45cf1feed9eaf808",
+				"a_sha256": "d8e9128218f2296117d955a69fbf17447268e1908414c33a9f51a197b9412625",
+				"a_chars": 415
+			},
+			{
+				"q": "Is limb lengthening surgery covered by insurance?",
+				"q_sha256": "4e4cd05c27e5b72ca420233b65206963f0d70aa1d303b88fa6b965ab3647f341",
+				"a_sha256": "bb8c271b0773dbe5d154143612a61d1d5c4a91eb1fa25c97d77a648a2c52277a",
+				"a_chars": 365
+			},
+			{
+				"q": "Why do limb lengthening surgery prices vary so much?",
+				"q_sha256": "872cf71106045cede9fc1d987bec115b07cd907bf2d85d18e7503f42b0cc8614",
+				"a_sha256": "1c8099a6ded762a8a7ee6dc2775e3cf0c23ab85ee24bcf803233725a1a1ffc01",
+				"a_chars": 469
+			}
+		],
+		"/limb-lengthening-what-you-gain-what-you-risk/": [
+			{
+				"q": "Is limb lengthening surgery safe?",
+				"q_sha256": "3069411bdbdf052514e1f25f02aee3394b720d8bdddf35f48585bf4dea9441b5",
+				"a_sha256": "d89528cc7f09b3cb5db11cb4cbd5c5e81650bd154d2308372d21cc307e479d55",
+				"a_chars": 500
+			},
+			{
+				"q": "Does limb lengthening surgery make you disabled?",
+				"q_sha256": "0e12b2b464903c158cd46d4612e965c04d35587b045c7d269ad340efda51c963",
+				"a_sha256": "9fb7271b8ffe77fdca8d80aac2a3bd7f86f3e9162a73c4f77bbbb75347408e64",
+				"a_chars": 404
+			},
+			{
+				"q": "Is limb lengthening surgery worth it?",
+				"q_sha256": "fb3eb6c793d1c10dc02180dae4a8ed7793f062f9f5485c8ed4bf765a269f42b1",
+				"a_sha256": "d00b641456a01937bc41ca0dd4c1270805aa30ef099e4aeb2cc237f56d99185d",
+				"a_chars": 466
+			}
+		],
+		"/is-leg-lengthening-off-limits-for-athletes/": [
+			{
+				"q": "Can you run after limb lengthening surgery?",
+				"q_sha256": "4a22d3876b52a20a872989dd6adf0b500aecde5eb762dcfeaad1553dd8207b56",
+				"a_sha256": "a9e6cc3a63d21090d95a76d25b6f0505ad326bde234093453d71fa0ae08b7eec",
+				"a_chars": 447
+			},
+			{
+				"q": "Can you play sports after leg lengthening surgery?",
+				"q_sha256": "a25d1804a404d66c315211373ab17423e512eb5ca548b0ed1e4e6bf0f0c61b15",
+				"a_sha256": "78f0880dc658a1ed85a104e2ee51cb93a90f2390ab8f486ed52b659ef61faad0",
+				"a_chars": 417
+			},
+			{
+				"q": "Can you play football after limb lengthening surgery?",
+				"q_sha256": "d4511a21d1a45808ce81a6791af2fae2d8eb11ad8f306d2f4d6180c1d7f24239",
+				"a_sha256": "b1f40c4e2ed100db131baf8a3f8c1fa0fefa230201511db25d420e5eadf5b5ef",
+				"a_chars": 461
+			}
+		],
+		"/limb-lengthening-pain-the-truth/": [
+			{
+				"q": "How painful is limb lengthening surgery?",
+				"q_sha256": "47df7975558a3d52fa768844fe9a99e2953e533675b4d5f9167e1e97228a4d75",
+				"a_sha256": "a76404096f199f94214f90fe5b27d6559e70bb7d25fced0c39966c4a8edafe6b",
+				"a_chars": 476
+			},
+			{
+				"q": "Does height surgery hurt?",
+				"q_sha256": "bd32cf3c131d7c4c8fb47810c7d534aa78cdae4c71499c15d6782c01330d07ce",
+				"a_sha256": "daebcab3d59a17b9700724a88a3ed1d712c0c0047d81039e54d99e60f31a1c00",
+				"a_chars": 398
+			},
+			{
+				"q": "How much pain is there during the lengthening phase?",
+				"q_sha256": "65762d0bbdd10425b41a625b795fcdb03918ff51695d6f072d75b15f7cfef9d3",
+				"a_sha256": "8dd39fda1c755ac639333f4af30b0193c2033560d3d9c31dbd2bd7b655d5fa2c",
+				"a_chars": 444
+			}
+		],
+		"/is-limb-lengthening-covered-by-insurance/": [
+			{
+				"q": "Does insurance cover leg lengthening surgery?",
+				"q_sha256": "e1fc1724d413f563c2790b34638253e0b294d05b93b8c1e2c93015c3a9c0e5ac",
+				"a_sha256": "3e47d58f9efd292e507343c053f06df91349710441562265b92a1db9b0812499",
+				"a_chars": 431
+			},
+			{
+				"q": "How do people pay for limb lengthening surgery?",
+				"q_sha256": "5e644449a64d6ccaa3a90a34a6f30e22af65881da2eb53ad6a37b84f5b687e12",
+				"a_sha256": "deb48bd000ed4c9b383a91cb25a472719a2406abcacdfd52cf4033d322410c05",
+				"a_chars": 345
+			},
+			{
+				"q": "Is cosmetic limb lengthening tax deductible?",
+				"q_sha256": "7e3ccf830cb454054f2e294b72977055dc26a715c87cec7f8aa354a1d170a008",
+				"a_sha256": "387b3385e22174274181fd23644de1d04f8b6a40b87f85b0ea7f9094127dc49b",
+				"a_chars": 422
+			}
+		]
+	},
+	"totals": {
+		"paths": 6,
+		"pairs": 19
+	}
+}

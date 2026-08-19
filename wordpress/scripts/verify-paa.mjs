@@ -37,7 +37,9 @@
  * (did not run, never counted as a pass) and ACTION REQUIRED. Exit code is
  * non-zero if any error-severity check failed.
  */
-import { readFile } from "node:fs/promises";
+import { readFile, writeFile } from "node:fs/promises";
+import { createHash } from "node:crypto";
+import { writeFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -68,6 +70,58 @@ const MUST_NOT_HAVE_PAA = [
 ];
 
 const SECTION_TITLE = "Patients also ask.";
+
+// The locked-copy snapshot. data/paa.php is the source of truth for the words;
+// this file is the tripwire that says nobody changed them by accident.
+//
+// Everything else in the static section is STRUCTURAL: counts, path keys, the
+// presence of wptexturize(), the <h3> wrapper, the CSS selectors. None of it
+// ties the Q&A text to anything, so before this lock existed a static run
+// scored 26/26 with an answer rewritten. That is the wrong failure mode for
+// copy that is mapped to real GSC impression volume, clinically reviewed, and
+// published on a medical site.
+//
+// Hashes, not prose, on purpose: a second copy of the text could be "fixed" to
+// match a bad edit without anyone noticing. A hash mismatch cannot be resolved
+// by editing prose, only by deliberately regenerating the lock, which shows up
+// in review as a diff to this file.
+//
+// To change the copy on purpose: edit data/paa.php, then
+//     node scripts/verify-paa.mjs --write-lock
+// and put BOTH files in the same commit, with the sign-off in the message.
+// SHA-256 over the 19 pairs, normalized: `path|q|a` in file order, joined with
+// a newline, UTF-8. Amendment A1.4 requires this to live as a committed
+// constant so that changing locked copy cannot be done without a deliberate,
+// reviewable edit to THIS line.
+const PAA_COPY_DIGEST = "e45e6baca47fdcee1eea6fa5c6e21c1acbfb1c88dcb5fa6bbf4c6b9067409ed0";
+const digestOf = (parsed) =>
+	sha256(
+		Object.entries(parsed)
+			.flatMap(([p, pairs]) => pairs.map((x) => `${p}|${x.q}|${x.a}`))
+			.join("\n")
+	);
+
+const LOCK_PATH = path.join(ROOT, "scripts/paa-copy.lock.json");
+const WRITE_LOCK = process.argv.includes("--write-lock");
+const SELF_TEST = process.argv.includes("--self-test");
+const sha256 = (t) => createHash("sha256").update(t, "utf8").digest("hex");
+
+/** The lock shape for one parsed PAA map. */
+const lockOf = (parsed) => {
+	const paths = {};
+	for (const [p, pairs] of Object.entries(parsed)) {
+		paths[p] = pairs.map((x) => ({
+			q: x.q,
+			q_sha256: sha256(x.q),
+			a_sha256: sha256(x.a),
+			a_chars: [...x.a].length,
+		}));
+	}
+	return {
+		paths,
+		totals: { paths: Object.keys(paths).length, pairs: Object.values(paths).reduce((n, v) => n + v.length, 0) },
+	};
+};
 
 // ── reporting ──────────────────────────────────────────────────────────────
 const results = [];
@@ -130,6 +184,57 @@ function parsePaa(src) {
 	return out;
 }
 
+// ── --self-test: prove the guard actually fails on a copy edit ────────────
+// AC-13 requires this guard to exit 0 clean AND non-zero on a corrupted answer,
+// for the SAME invocation. Doing that by hand means editing locked clinical
+// copy on disk, running, and remembering to put it back. That went wrong once
+// already: a corruption marker sat in data/paa.php for ~20 minutes and was
+// still there when the next reader picked the tree up, while MIGRATION section
+// 6g tells a deployer to ship that exact file FROM DISK.
+//
+// So the mutation is never a manual step. This mode writes the file, runs a
+// child process, and restores the original bytes in a finally, including on
+// SIGINT. The original is captured in memory before anything is written.
+if (SELF_TEST) {
+	const { spawnSync } = await import("node:child_process");
+	const target = path.join(SEO, "includes/data/paa.php");
+	const original = await readFile(target, "utf8");
+	let restored = false;
+	const restore = () => {
+		if (restored) return;
+		restored = true;
+		// Synchronous on purpose: this must also work from a signal handler.
+		writeFileSync(target, original, "utf8");
+	};
+	process.on("SIGINT", () => { restore(); process.exit(130); });
+	process.on("SIGTERM", () => { restore(); process.exit(143); });
+	let ok = false;
+	let childOut = "";
+	try {
+		const marker = "PLL SELF TEST MUTATION ";
+		const mutated = original.replace(
+			"'a' => 'The surgery itself is performed under general anesthesia,",
+			"'a' => '" + marker + "The surgery itself is performed under general anesthesia,"
+		);
+		if (mutated === original) throw new Error("self-test could not find the answer it mutates");
+		await writeFile(target, mutated, "utf8");
+		const r = spawnSync(process.execPath, [path.join(ROOT, "scripts/verify-paa.mjs")], { encoding: "utf8" });
+		childOut = `${r.stdout ?? ""}${r.stderr ?? ""}`;
+		ok = r.status !== 0;
+	} finally {
+		restore();
+	}
+	const after = await readFile(target, "utf8");
+	const clean = after === original;
+	console.log("── verify-paa --self-test ─────────────────────────────────────");
+	const failLine = childOut.split("\n").find((l) => l.startsWith("✗")) ?? "(no failing check reported)";
+	console.log(`${ok ? "✓" : "✗"} a mutated answer makes the STATIC run exit non-zero`);
+	console.log(`    ${failLine.trim()}`);
+	console.log(`${clean ? "✓" : "✗"} data/paa.php restored byte-for-byte`);
+	if (!clean) console.error("    RESTORE FAILED. Run: git checkout -- wp-content/plugins/pll-seo/includes/data/paa.php");
+	process.exit(ok && clean ? 0 : 1);
+}
+
 // ── read the sources ───────────────────────────────────────────────────────
 const [paaSrc, schemaSrc, pluginSrc, setupSrc, itemSrcRender, itemBuildRender, faqSrcRender, faqBuildRender, cssSrc, cssBuilt] =
 	await Promise.all([
@@ -168,6 +273,81 @@ console.log(`   ${Object.keys(paa).length} paths, ${Object.values(paa).reduce((a
 		(paa[p] ?? []).filter((x) => !x.q.trim() || !x.a.trim()).map((x) => `${p}  q="${x.q.slice(0, 40)}" a="${x.a.slice(0, 40)}"`)
 	);
 	check("S1 every question has a non-empty answer", empty.length === 0, empty);
+}
+
+// ── S8: the locked copy has not drifted (no network) ──────────────────────
+// This is the check that makes `node scripts/verify-paa.mjs` alone able to
+// catch a copy edit. Before it, only the RENDERED comparison (R6) could, and
+// that needs a live origin whose seeded post_content still holds the original
+// text. A future agent editing data/paa.php on a laptop got a green run.
+{
+	// The single committed digest (A1.4). The per-pair lock below exists to
+	// NAME what changed; this is the tripwire that says something did.
+	const actualDigest = digestOf(paa);
+	check(
+		`S8 locked-copy digest matches (${PAA_COPY_DIGEST.slice(0, 12)}…)`,
+		actualDigest === PAA_COPY_DIGEST,
+		actualDigest === PAA_COPY_DIGEST ? [] : [
+			`expected: ${PAA_COPY_DIGEST}`,
+			`actual  : ${actualDigest}`,
+			"The locked Q&A copy in data/paa.php changed. It is mapped to real GSC",
+			"impression volume and clinically reviewed, so this is a stop, not a nit.",
+			"If the change is intentional AND signed off: update PAA_COPY_DIGEST in",
+			"this file and run `node scripts/verify-paa.mjs --write-lock`, in one commit.",
+		]
+	);
+
+	const current = lockOf(paa);
+	if (WRITE_LOCK) {
+		await writeFile(LOCK_PATH, JSON.stringify(current, null, "\t") + "\n", "utf8");
+		console.log(`⚑ REGENERATED ${path.relative(ROOT, LOCK_PATH)} from data/paa.php`);
+		console.log("    Commit it together with the copy change and name the sign-off in the message.");
+	}
+	let locked = null;
+	try {
+		locked = JSON.parse(await readFile(LOCK_PATH, "utf8"));
+	} catch {
+		// fall through: reported as a failure below
+	}
+	check(
+		"S8 the locked-copy snapshot exists",
+		!!locked,
+		locked ? [] : [`missing or unreadable: ${path.relative(ROOT, LOCK_PATH)}`, "Regenerate with: node scripts/verify-paa.mjs --write-lock"]
+	);
+	if (locked) {
+		const drift = [];
+		const allPaths = new Set([...Object.keys(locked.paths ?? {}), ...Object.keys(current.paths)]);
+		for (const p of allPaths) {
+			const was = locked.paths?.[p];
+			const now = current.paths[p];
+			if (!was) { drift.push(`${p}: not in the lock (new path)`); continue; }
+			if (!now) { drift.push(`${p}: in the lock but gone from data/paa.php`); continue; }
+			if (was.length !== now.length) { drift.push(`${p}: ${was.length} pairs locked, ${now.length} now`); continue; }
+			for (let i = 0; i < now.length; i += 1) {
+				if (was[i].q_sha256 !== now[i].q_sha256) {
+					drift.push(`${p} Q${i + 1} CHANGED\n      locked: ${was[i].q}\n      now   : ${now[i].q}`);
+				}
+				if (was[i].a_sha256 !== now[i].a_sha256) {
+					drift.push(
+						`${p} A${i + 1} CHANGED (${was[i].a_chars} chars locked, ${now[i].a_chars} now)\n` +
+						`      question: ${now[i].q}`
+					);
+				}
+			}
+		}
+		check(
+			`S8 all ${current.totals.pairs} question/answer pairs match the locked copy`,
+			drift.length === 0,
+			drift.length
+				? [...drift, "", "This copy is mapped to real GSC impression volume and is clinically reviewed.", "If the change is intentional and signed off: node scripts/verify-paa.mjs --write-lock"]
+				: []
+		);
+		check(
+			"S8 the lock still covers 6 paths and 19 pairs",
+			locked.totals?.paths === 6 && locked.totals?.pairs === 19,
+			[`lock totals: ${JSON.stringify(locked.totals)}`]
+		);
+	}
 }
 
 // ── S2: the plugin actually loads the data file ────────────────────────────
@@ -355,10 +535,24 @@ function faqPageOf(html) {
 }
 
 if (!LIVE_BASE) {
+	// A1.4 item 2: name every blind spot out loud. One lumped skip line let a
+	// static-only pass read as full coverage, which is exactly how "26/26
+	// passed" was reported for a tree with a rewritten answer. Static mode can
+	// never do these, and saying so per check is the honest form of that.
+	const why = "needs a rendered origin: PLL_BASE=http://127.0.0.1:9400 for local dev, or PLL_VERIFY_LIVE=1 for production";
+	skip("R1 the section renders exactly once per page", why);
+	skip("R2 every question is an <h3> wrapping its toggle button", why);
+	skip("R3 the section title renders as <h2> \"Patients also ask.\"", why);
+	skip("R4 document heading order is valid on the six", why);
+	skip("R5 aria-expanded is present in the server HTML on all 19 toggles", why);
 	skip(
-		"R1-R7 rendered PAA checks (headings, aria-expanded, verbatim schema, outline, scope)",
-		"needs PLL_BASE=http://127.0.0.1:9400 for the local dev server, or PLL_VERIFY_LIVE=1 for production. Whether a question is an <h3> and whether the copy matches the schema by codepoint can only be answered by real HTML."
+		"R6 visible answer text matches the FAQPage JSON-LD by codepoint",
+		why + ". This is the ONE thing static mode structurally cannot check: there is no rendered page and no wp_head. S8 guards the source copy against edits, but only a rendered origin can prove the published text and the published schema agree"
 	);
+	skip("R7 rendered PAA copy and schema carry no em dash, en dash or semicolon", why);
+	skip("R8 no PAA section on the homepage, the pillars or /evaluate-your-surgeon/", why);
+	skip("R9 the shared pll/faq accordions did not regress, heading order included", why);
+	skip("R10 sitemap crawl: PAA appears on exactly the six ticket paths", why);
 } else {
 	console.log(`\n── rendered, against ${LIVE_BASE} ─────────────────────────────`);
 
@@ -523,17 +717,50 @@ if (!LIVE_BASE) {
 	}
 
 	// R9 — the shared renderer did not regress the other accordions.
+	//
+	// Two things this used to get wrong, both found in QA review.
+	//
+	// It skipped silently when a page had no pll/faq block, so
+	// /evaluate-your-surgeon/ scored two passes on `0 === 0` and `7 >= 0`.
+	// Neither assertion could ever fail there. A check that cannot fail is not
+	// a check, so the page is now an explicit SKIP naming the reason.
+	//
+	// And it asserted only toggle and aria counts, never heading order, while
+	// AC-11 requires "heading order is valid per AC-4" on these pages. That is
+	// asserted here now, on the same content region AC-4 uses.
 	for (const p of MUST_NOT_HAVE_PAA) {
 		const html = pages.get(p);
-		if (!html || !/class="pll-faq /.test(html)) continue;
-		const toggles = (html.match(/<h3 class="pll-faq-q">\s*<button/g) ?? []).length;
+		if (!html) continue;
 		const items = (html.match(/class="pll-faq-item/g) ?? []).length;
+
+		if (!/class="pll-faq /.test(html) || items === 0) {
+			skip(
+				`R9 ${p} shared pll/faq accordion assertions`,
+				"this page renders no pll/faq-item blocks, so the renderer fix cannot reach it and every count-based assertion here would pass trivially"
+			);
+		} else {
+			const toggles = (html.match(/<h3 class="pll-faq-q">\s*<button/g) ?? []).length;
+			check(
+				`R9 ${p} all ${items} shared-accordion questions are <h3> too (got ${toggles})`,
+				toggles === items
+			);
+			const aria = (html.match(/aria-expanded="(true|false)"/g) ?? []).length;
+			check(`R9 ${p} every accordion toggle carries aria-expanded (got ${aria} for ${items} items)`, aria >= items);
+		}
+
+		// AC-11's heading-order half, on the same content region as AC-4.
+		const footerAt = html.search(/<footer/i);
+		const docH = headings(footerAt > 0 ? html.slice(0, footerAt) : html);
+		const lv = docH.map((h) => h.level);
+		const skips = [];
+		for (let i = 1; i < lv.length; i += 1) {
+			if (lv[i] > lv[i - 1] + 1) skips.push(`h${lv[i - 1]} → h${lv[i]}: "${textOf(docH[i].html).slice(0, 50)}"`);
+		}
 		check(
-			`R9 ${p} all ${items} shared-accordion questions are <h3> too (got ${toggles})`,
-			items > 0 && toggles === items
+			`R9 ${p} content-region heading order is valid (AC-11 via AC-4)`,
+			skips.length === 0,
+			skips
 		);
-		const aria = (html.match(/aria-expanded="(true|false)"/g) ?? []).length;
-		check(`R9 ${p} every accordion toggle carries aria-expanded (got ${aria} for ${items} items)`, aria >= items);
 	}
 
 	// R10 — the whole sitemap, so nothing outside the six ever grows a PAA
