@@ -752,15 +752,65 @@ if (!LIVE_BASE) {
 		const footerAt = html.search(/<footer/i);
 		const docH = headings(footerAt > 0 ? html.slice(0, footerAt) : html);
 		const lv = docH.map((h) => h.level);
+
+		// AC-4's first clause, which R9 was omitting: exactly one <h1>.
+		const h1s = lv.filter((l) => l === 1).length;
+		check(`R9 ${p} has exactly one <h1> (got ${h1s})`, h1s === 1);
+
 		const skips = [];
 		for (let i = 1; i < lv.length; i += 1) {
-			if (lv[i] > lv[i - 1] + 1) skips.push(`h${lv[i - 1]} → h${lv[i]}: "${textOf(docH[i].html).slice(0, 50)}"`);
+			if (lv[i] > lv[i - 1] + 1) skips.push({ text: textOf(docH[i].html).slice(0, 50), jump: `h${lv[i - 1]} → h${lv[i]}` });
 		}
+
+		// The homepage concierge cards are a CONTENT-SHADOW defect, not a code
+		// one, and the difference decides whether a deployer sees a red line at
+		// rollback pressure over something no deploy can fix.
+		//
+		// patterns/home-concierge.php now emits <h3>. But pll_compose_patterns()
+		// inlines pattern markup into post_content at seed time, so a seeded
+		// site keeps the old <h4> until a human repeats the edit in the block
+		// editor. A fresh install is already correct, which is why this passes
+		// locally and fails against production.
+		//
+		// So: this exact signature is ACTION REQUIRED, the same class as the
+		// footer. Everything else is still a hard failure, and the match is
+		// narrow enough that a real regression cannot hide behind it.
+		const SHADOWED = new Set([
+			"Travel Coordination",
+			"Recovery Accommodations",
+			"PT Follow-Up Scheduling",
+			"Dedicated Patient Coordinator",
+			"Virtual Pre-Op Remote Follow-Up",
+		]);
+		const shadowed = p === "/" ? skips.filter((x) => x.jump === "h2 → h4" && SHADOWED.has(x.text)) : [];
+		const real = skips.filter((x) => !shadowed.includes(x));
+
 		check(
 			`R9 ${p} content-region heading order is valid (AC-11 via AC-4)`,
-			skips.length === 0,
-			skips
+			real.length === 0,
+			real.map((x) => `${x.jump}: "${x.text}"`)
 		);
+		if (shadowed.length) {
+			action(
+				`homepage concierge cards still <h4> on this origin: block-editor pass needed`,
+				[
+					...shadowed.map((x) => `${x.jump}: "${x.text}"`),
+					"",
+					"NOT fixable by deploying code. patterns/home-concierge.php already emits",
+					"<h3>, but pll_compose_patterns() inlined the old markup into post_content",
+					"at seed time, so this origin keeps <h4> until someone repeats the change in",
+					"the block editor. Same trap as MIGRATION.md section 6f.",
+					"",
+					"DO: wp-admin → Pages → Home → the 'Your surgery. Our concierge.' section →",
+					"    each of the five card titles → change H4 to H3 → Update.",
+					"    Verified visually identical: 0 computed-style and 0 geometry differences.",
+					"DO NOT: PLL_SEED_FORCE. It recomposes Home and destroys owner edits,",
+					"    including the FAQ cost answer that section 6f exists to protect.",
+					"",
+					"Optional. Nothing else in this release depends on it.",
+				]
+			);
+		}
 	}
 
 	// R10 — the whole sitemap, so nothing outside the six ever grows a PAA

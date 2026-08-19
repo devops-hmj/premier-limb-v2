@@ -565,18 +565,40 @@ rollback is safe and is preferred over reverting all of it.
 1. Deploy the files above.
 2. **Purge WP Rocket.** The PAA markup is fully cached. Skip this and step 3
    reports stale HTML that reads exactly like a code failure.
-3. Verify:
+3. **Optional, and only if the owner wants it:** do the homepage block-editor
+   pass described in the callout above (five concierge card titles, H4 to H3).
+   It is the one item in this release that a code deploy cannot land, because
+   the homepage lives in `post_content`. Skipping it is fine and changes nothing
+   visually — step 4 will simply report it as an outstanding manual step.
+4. Verify:
 
    ```
    PLL_VERIFY_LIVE=1 npm run verify:paa
    ```
 
-   Expect 6/6 on all of: questions are `<h3>`, the section title is still `<h2>`
-   reading "Patients also ask.", heading order valid, visible copy identical to
-   the FAQPage JSON-LD **by codepoint**, `aria-expanded` on all 19 toggles, and
-   the section present on exactly the six ticket paths and nowhere else.
+   **Expect 6/6 and a clean exit on everything this deploy controls:** questions
+   are `<h3>`, the section title is still `<h2>` reading "Patients also ask.",
+   heading order valid on the six, visible copy identical to the FAQPage JSON-LD
+   **by codepoint**, `aria-expanded` on all 19 toggles, and the section present
+   on exactly the six ticket paths and nowhere else.
 
-4. Re-request indexing for the six URLs in Search Console, and re-run the Rich
+   **Expect these two `⚑ ACTION REQUIRED` lines as well.** They are not
+   failures, they do not affect the exit code, and neither is fixable by
+   deploying code:
+
+   ```
+   ⚑ ACTION REQUIRED: site footer heading order (pre-existing, NOT this ticket)
+   ⚑ ACTION REQUIRED: homepage concierge cards still <h4> on this origin: block-editor pass needed
+   ```
+
+   The second one disappears once step 3 is done. If you skipped step 3, it is
+   expected and correct. **Do not treat either as a reason to roll back**, and
+   do not reach for `PLL_SEED_FORCE` to silence the second: it would destroy
+   owner edits, including the FAQ cost answer that section 6f protects.
+
+   Anything printed with a `✗` IS a real failure and does affect the exit code.
+
+5. Re-request indexing for the six URLs in Search Console, and re-run the Rich
    Results test on `/is-leg-lengthening-off-limits-for-athletes/`. FAQ rich
    results are no longer surfaced for non-government, non-health-authority
    sites, so expect valid-but-not-shown. That is not a failure.

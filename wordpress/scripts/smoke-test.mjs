@@ -54,43 +54,6 @@ if (!zips.length) {
 const HANDOFF_ZIP = path.join(DIST, zips.at(-1));
 console.log(`\nSmoke-testing: ${path.basename(HANDOFF_ZIP)}`);
 
-// ── 2. extract the zip ──────────────────────────────────────────────────────
-
-await rm(SMOKE_DIR, { recursive: true, force: true });
-await mkdir(SMOKE_DIR, { recursive: true });
-
-// Use Node's built-in unzip (Playground CLI ships yauzl transitively, but
-// we can use the native unzip via spawnSync with PowerShell Expand-Archive)
-console.log("Extracting handoff zip…");
-const extract = spawnSync(
-	"powershell.exe",
-	["-NoProfile", "-NonInteractive", "-Command",
-		`Expand-Archive -Path '${HANDOFF_ZIP}' -DestinationPath '${SMOKE_DIR}' -Force`],
-	{ stdio: "inherit" }
-);
-if (extract.status !== 0) {
-	console.error("✗ Extraction failed");
-	process.exit(1);
-}
-
-// ── 3. create individual theme/plugin zips ──────────────────────────────────
-
-console.log("Building theme + plugin zips…");
-const themeDir = path.join(SMOKE_DIR, "wp-content", "themes", "pll-editorial");
-const themeSeoDir = path.join(SMOKE_DIR, "wp-content", "plugins", "pll-seo");
-const themeFormsDir = path.join(SMOKE_DIR, "wp-content", "plugins", "pll-forms");
-
-const themeZip = path.join(SMOKE_DIR, "pll-editorial.zip");
-const seoZip = path.join(SMOKE_DIR, "pll-seo.zip");
-const formsZip = path.join(SMOKE_DIR, "pll-forms.zip");
-
-await Promise.all([
-	zipDir(themeDir, themeZip),
-	zipDir(themeSeoDir, seoZip),
-	zipDir(themeFormsDir, formsZip),
-]);
-console.log("  ✓ pll-editorial.zip, pll-seo.zip, pll-forms.zip");
-
 // Kill whatever holds a TCP port, whoever it is. Used by the opt-in reclaim
 // path and by teardown, which cannot rely on the child pid: the wp-playground
 // launcher exits while its workers keep serving, and on Windows killing a
@@ -116,13 +79,18 @@ function killPortOwner(port) {
 	return pids.length;
 }
 
-// ── 3b. refuse to grade someone else's instance ──────────────────────────────
+// ── 1b. refuse to grade someone else's instance ──────────────────────────────
 //
 // This harness once printed "18/18 routes passed" while its own Playground had
 // died on `EADDRINUSE` and every request was served by a leftover instance from
 // the previous day's zip. Exit code 0. AC-14 exists to prove the PACKAGED build
 // works, so a gate that will happily measure whatever happens to be on the port
 // is worse than no gate at all.
+//
+// This runs BEFORE the extraction on purpose. It used to sit after, so a run
+// that was going to refuse anyway had already done `rm -rf dist/smoke-tmp` and
+// wiped the working directory of the very instance it was refusing to touch.
+// Check first, destroy second.
 //
 // Two independent defences. First, refuse to start if the port is already busy:
 // a stale listener is a stop, never a fallback. Second, a nonce written into the
@@ -162,6 +130,43 @@ if (portBusy) {
 		process.exit(1);
 	}
 }
+
+// ── 2. extract the zip ──────────────────────────────────────────────────────
+
+await rm(SMOKE_DIR, { recursive: true, force: true });
+await mkdir(SMOKE_DIR, { recursive: true });
+
+// Use Node's built-in unzip (Playground CLI ships yauzl transitively, but
+// we can use the native unzip via spawnSync with PowerShell Expand-Archive)
+console.log("Extracting handoff zip…");
+const extract = spawnSync(
+	"powershell.exe",
+	["-NoProfile", "-NonInteractive", "-Command",
+		`Expand-Archive -Path '${HANDOFF_ZIP}' -DestinationPath '${SMOKE_DIR}' -Force`],
+	{ stdio: "inherit" }
+);
+if (extract.status !== 0) {
+	console.error("✗ Extraction failed");
+	process.exit(1);
+}
+
+// ── 3. create individual theme/plugin zips ──────────────────────────────────
+
+console.log("Building theme + plugin zips…");
+const themeDir = path.join(SMOKE_DIR, "wp-content", "themes", "pll-editorial");
+const themeSeoDir = path.join(SMOKE_DIR, "wp-content", "plugins", "pll-seo");
+const themeFormsDir = path.join(SMOKE_DIR, "wp-content", "plugins", "pll-forms");
+
+const themeZip = path.join(SMOKE_DIR, "pll-editorial.zip");
+const seoZip = path.join(SMOKE_DIR, "pll-seo.zip");
+const formsZip = path.join(SMOKE_DIR, "pll-forms.zip");
+
+await Promise.all([
+	zipDir(themeDir, themeZip),
+	zipDir(themeSeoDir, seoZip),
+	zipDir(themeFormsDir, formsZip),
+]);
+console.log("  ✓ pll-editorial.zip, pll-seo.zip, pll-forms.zip");
 
 // ── 4. write smoke blueprint ─────────────────────────────────────────────────
 
@@ -386,6 +391,7 @@ const ROUTES = [
 
 let passed = 0;
 let failed = 0;
+let instanceDied = false;
 
 const browser = await chromium.launch();
 const context = await browser.newContext();
@@ -412,6 +418,31 @@ for (const [route, expectTitle] of ROUTES) {
 	} catch (e) {
 		console.error(`  ✗ ${route} — ${e.message.split("\n")[0]}`);
 		failed++;
+	}
+
+	// A dead instance is not a route failure and must not be reported as one.
+	// php.wasm can take the whole Playground down mid-sweep (zend_mm_panic).
+	// When that happened, every remaining route "failed" and the run reported a
+	// 30/41 result that reads exactly like a broken build. It is not: the thing
+	// under test stopped existing. Confirm the instance is still ours and still
+	// answering before blaming the next route.
+	if (failed > 0 && !instanceDied) {
+		let alive = false;
+		try {
+			const id = await fetch(`${BASE}/pll-smoke-run-id.txt`, { signal: AbortSignal.timeout(10000) });
+			alive = id.ok && (await id.text()).trim() === RUN_NONCE;
+		} catch {
+			alive = false;
+		}
+		if (!alive) {
+			console.error("");
+			console.error(`✗ The Playground on :${PLAYGROUND_PORT} stopped answering as run ${RUN_NONCE}.`);
+			console.error("  It died mid-sweep, so the route failures above are noise, not results.");
+			console.error("  Check the boot log for a php.wasm abort (zend_mm_panic, out of memory).");
+			console.error("  This run proves NOTHING about the packaged build. Re-run it.");
+			instanceDied = true;
+			break;
+		}
 	}
 }
 
@@ -481,6 +512,11 @@ PLL_SMOKE_KEEP set — holding the PACKAGED instance on ${BASE}`);
 releaseInstance();
 
 console.log(`\n${passed}/${ROUTES.length} routes passed the smoke test`);
+
+if (instanceDied) {
+	console.error(`\n✗ Smoke test INCONCLUSIVE — the Playground died mid-run, so nothing was proven. Re-run.`);
+	process.exit(1);
+}
 
 if (failed > 0) {
 	console.error(`\n✗ Smoke test FAILED — ${failed} route(s) returned unexpected responses`);
