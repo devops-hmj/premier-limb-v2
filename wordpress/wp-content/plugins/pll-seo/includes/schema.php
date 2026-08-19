@@ -132,7 +132,18 @@ function pll_seo_article( $post ) {
  * Post-deprecation compliant (audit Critical 3): one FAQPage per URL, all Q/A
  * in a single mainEntity array, no promotional language in answer fields. The
  * $qas passed in must match the visible on-page text verbatim (homepage FAQ
- * comes from pll_seo_faqs(); PAA pages come from pll_seo_paa()).
+ * comes from pll_seo_faqs(), PAA pages come from pll_seo_paa()).
+ *
+ * Both fields are run through wptexturize() before they are published. The
+ * visible copy lives in post_content, which the_content texturizes on every
+ * request, so a straight apostrophe in the data file rendered as a curly one
+ * on the page while the schema kept the straight one. That divergence was live
+ * on /is-leg-lengthening-off-limits-for-athletes/, the only PAA page whose
+ * answers contain an apostrophe. Texturizing here fixes it in the correct
+ * direction: the rendered page is the published artifact and the schema must
+ * describe it, so the data files stay authored in plain ASCII and survive the
+ * next copy edit. wptexturize() self-guards on the run_wptexturize filter, so
+ * a site that turns texturization off keeps both sides in lockstep anyway.
  *
  * @param array<int, array{q: string, a: string}> $qas Question/answer pairs.
  * @return array
@@ -142,10 +153,10 @@ function pll_seo_faqpage_from( $qas ) {
 	foreach ( $qas as $faq ) {
 		$entities[] = array(
 			'@type'          => 'Question',
-			'name'           => $faq['q'],
+			'name'           => wptexturize( $faq['q'] ),
 			'acceptedAnswer' => array(
 				'@type' => 'Answer',
-				'text'  => $faq['a'],
+				'text'  => wptexturize( $faq['a'] ),
 			),
 		);
 	}
@@ -833,7 +844,13 @@ function pll_seo_schemas_for_view() {
 		} elseif ( '/limb-lengthening-pricing-options/' === $path ) {
 			$schemas[] = pll_seo_pricing_schema();
 			$schemas[] = pll_seo_pricing_procedures();
-			$schemas[] = pll_seo_faqpage_from( pll_seo_paa( $path ) );
+			// Guarded like the article and sub-page branches: an unguarded call
+			// publishes an empty FAQPage (mainEntity: []) the moment the pricing
+			// key goes missing from data/paa.php.
+			$pricing_qas = pll_seo_paa( $path );
+			if ( $pricing_qas ) {
+				$schemas[] = pll_seo_faqpage_from( $pricing_qas );
+			}
 		} elseif ( '/evaluate-your-surgeon/' === $path ) {
 			// Interactive surgeon-evaluation guide: MedicalWebPage (reviewed by
 			// Dr. Basmajian) + HowTo (5-step process) + FAQPage. Port of the

@@ -430,6 +430,81 @@ Related sitewide changes in the same deploy, both plain code with no manual step
   showed. `verify-seo-meta.mjs` V14 now compares the two price lists to each
   other, which is what nothing was doing before.
 
+### 6g. "Patients Also Ask" headings, schema verbatim, and layout (2026-08-18)
+
+**Pure code deploy. No manual editor step, no `post_content` change, no
+migration. This is the whole point of how it was built.**
+
+The six PAA sections were already live before this change. What was wrong:
+
+| Gap | Symptom on production before the deploy |
+|---|---|
+| GAP-1 | 0 of 19 questions were headings. Each was a bare `<span>` inside the toggle button, so no outline parser or screen reader saw them. |
+| GAP-2 | `/is-leg-lengthening-off-limits-for-athletes/` published `individual’s` in its copy and `individual's` in its FAQPage JSON-LD. `the_content` texturizes, the schema builder did not. |
+| GAP-3 | Five of six nest the section in the 8-column reading well, so `.pll-prose h2` overrode the title's size, the gutter was applied twice, and the background and top rule were no-ops. The sixth rendered a quarter wider than the rest. |
+| GAP-4 | `aria-expanded` was absent from the server HTML on **every** accordion on the site. The Interactivity API removes a bound attribute whose expression cannot be resolved server-side, and `state.isOpen` was a JS-only getter. |
+
+**Files changed on disk. Diff every one against the server before writing: the
+repo is not the deploy baseline.**
+
+| File | What serves it | Why |
+|---|---|---|
+| `themes/pll-editorial/build/faq-item/render.php` | **THIS is the file WordPress executes** | GAP-1 `<h3 class="pll-faq-q">` wrapper, GAP-4 `aria-expanded` default |
+| `themes/pll-editorial/src/blocks/faq-item/render.php` | reference only, never executed | keep `src/` and `build/` in sync or CI fails |
+| `themes/pll-editorial/build/faq/render.php` | **executed** | GAP-4 `wp_interactivity_state( 'pll/faq', … )` server-side twin of `view.js` |
+| `themes/pll-editorial/src/blocks/faq/render.php` | reference only | same |
+| `themes/pll-editorial/assets/css/pll.css` | **executed (enqueued)** | GAP-3 layout, and the `.pll-faq .pll-faq-q` reset that stops `.pll-prose h3` breaking the accordion |
+| `themes/pll-editorial/src/css/tailwind.css` | build input, never served | recompile with `npm run build:css` |
+| `plugins/pll-seo/includes/schema.php` | **executed on `wp_head`** | GAP-2 `wptexturize()` on both fields, plus a guard on the pricing FAQPage branch |
+| `plugins/pll-seo/includes/data/paa.php` | **executed** | copy is UNCHANGED. Ship it only if the server's copy differs. It was untracked in git until 38ca855 |
+| `plugins/pll-seo/pll-seo.php` | **executed** | the `data/paa` include entry, previously uncommitted |
+
+`content/setup.php` also changed, but it is **seed-time only**. Do not run it on
+production. `pll_seed_clinical_additions()` self-guards on the
+`patients-also-ask` marker (`setup.php`), so it is inert on already-seeded pages
+either way. Every fix above is render-time and reaches the six live pages on the
+next uncached request.
+
+**Blast radius.** `faq-item/render.php` and `pll.css` affect every FAQ accordion
+site-wide, the homepage and both pillar pages included. `schema.php` affects
+JSON-LD on all article and page routes. Neither can take the site down (no new
+function calls are introduced) but both are visible. Deploy in one window with a
+human watching, not piecemeal. The three concerns are independent, so a partial
+rollback is safe and is preferred over reverting all of it.
+
+**Order of operations:**
+
+1. Deploy the files above.
+2. **Purge WP Rocket.** The PAA markup is fully cached. Skip this and step 3
+   reports stale HTML that reads exactly like a code failure.
+3. Verify:
+
+   ```
+   PLL_VERIFY_LIVE=1 npm run verify:paa
+   ```
+
+   Expect 6/6 on all of: questions are `<h3>`, the section title is still `<h2>`
+   reading "Patients also ask.", heading order valid, visible copy identical to
+   the FAQPage JSON-LD **by codepoint**, `aria-expanded` on all 19 toggles, and
+   the section present on exactly the six ticket paths and nowhere else.
+
+4. Re-request indexing for the six URLs in Search Console, and re-run the Rich
+   Results test on `/is-leg-lengthening-off-limits-for-athletes/`. FAQ rich
+   results are no longer surfaced for non-government, non-health-authority
+   sites, so expect valid-but-not-shown. That is not a failure.
+
+**What was deliberately NOT changed:**
+
+- Question and answer copy. Locked to real GSC impression volume and clinically
+  reviewed.
+- The section title stays `<h2>` reading "Patients also *ask.*". The source doc
+  asked for H3/H4, which would make the outline worse on all six pages (an H3
+  after a run of H2s reads as a subsection of the last body section, and H4
+  questions under a correct H2 skip a level). H2 → H3 preserves the relationship
+  the doc actually specifies and needs no `post_content` migration.
+- No PAA block was added to `/height-surgery/` or `/leg-lengthening-surgery/`.
+  They are not among the six and carry their own page-specific FAQ.
+
 ## 7. URL parity contract (do not change)
 
 - Permalinks **must** stay `/%postname%/` and the category base must stay `category` —

@@ -19,7 +19,10 @@
     "parity:check": "npm run parity:capture && npm run parity:head && npm run parity:report",
     "build": "npm run build:css && npm run build:blocks && npm run build:form-block && npm run generate:content",
     "package": "npm run build && node scripts/package-handoff.mjs",
-    "smoke-test": "node scripts/smoke-test.mjs"
+    "smoke-test": "node scripts/smoke-test.mjs",
+    "verify:sitemap": "node scripts/verify-sitemap.mjs",
+    "verify:seo-meta": "node scripts/verify-seo-meta.mjs",
+    "verify:paa": "node scripts/verify-paa.mjs"
   },
   "devDependencies": {
     "@wordpress/scripts": "^30.7.0",

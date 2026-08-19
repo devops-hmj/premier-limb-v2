@@ -6,7 +6,16 @@
  * every key route returns HTTP 200 with a non-empty HTML body.
  *
  * Usage: node scripts/smoke-test.mjs
+ *        PLL_SMOKE_KEEP=1 node scripts/smoke-test.mjs   leave the instance up
  * Prerequisite: npm run package must have been run first.
+ *
+ * PLL_SMOKE_KEEP holds the Playground open on :9401 after the route checks and
+ * skips the temp-dir cleanup, so other guards can be pointed at the PACKAGED
+ * build rather than at the mounted dev server. That distinction matters: a fix
+ * that only works with --mount is not a fix. Example:
+ *     PLL_SMOKE_KEEP=1 node scripts/smoke-test.mjs &
+ *     PLL_BASE=http://127.0.0.1:9401 npm run verify:paa
+ * Ctrl-C, or kill the process, to release it.
  */
 import { spawnSync, spawn } from "node:child_process";
 import { mkdir, rm, writeFile } from "node:fs/promises";
@@ -166,16 +175,59 @@ let bootLog = "";
 playground.stdout.on("data", (d) => { bootLog += d; process.stdout.write(d); });
 playground.stderr.on("data", (d) => { bootLog += d; process.stderr.write(d); });
 
-// Wait for Playground to be ready (it prints the URL once booted)
+// Wait for Playground to be SEEDED, not merely to be answering HTTP.
+//
+// Three separate traps live here, and this harness fell into all of them.
+//
+// 1. The original check scraped stdout for a readiness banner and gave up after
+//    90s. Booting from the handoff zip installs a theme and two plugin zips,
+//    imports the WXR and runs setup.php; on Windows that is roughly ten
+//    minutes. So the check timed out on a perfectly healthy boot and AC-14
+//    could never be run against the packaged build, which is the only build
+//    that matters.
+//
+// 2. Polling the port instead is too eager in the other direction. PHP answers
+//    as soon as WordPress is installed, long before setup.php has composed the
+//    pattern-built pages, so /about/, /consult/, the pillars and the pricing
+//    page all 404 on a boot that simply is not finished.
+//
+// 3. The CLI's own "Ready!" banner means the HTTP server is up, NOT that the
+//    blueprint finished. Accepting it produced six 30s page.goto timeouts on
+//    the routes that had not been seeded yet.
+//
+// The honest signal is a route that cannot exist until setup.php has run.
+// /limb-lengthening-pricing-options/ is composed from patterns by the seeder,
+// so a 200 there means the seed completed. Nothing else is accepted.
+const BOOT_TIMEOUT_MS = 900000;
+const SEEDED_ROUTE = "/limb-lengthening-pricing-options/";
+const bootStart = Date.now();
 await new Promise((resolve, reject) => {
-	const timeout = setTimeout(() => reject(new Error("Playground boot timeout (90s)")), 90000);
-	const check = setInterval(() => {
-		if (bootLog.includes(`127.0.0.1:${PLAYGROUND_PORT}`) ||
-			bootLog.includes(`localhost:${PLAYGROUND_PORT}`) ||
-			bootLog.includes("Ready!") || bootLog.includes("Server started")) {
-			clearInterval(check); clearTimeout(timeout); resolve();
+	let settled = false;
+	const tick = async () => {
+		if (settled) return;
+		if (Date.now() - bootStart > BOOT_TIMEOUT_MS) {
+			settled = true;
+			clearInterval(timer);
+			reject(new Error(`Playground boot timeout (${BOOT_TIMEOUT_MS / 1000}s). Last log:\n${bootLog.slice(-800)}`));
+			return;
 		}
-	}, 500);
+		try {
+			const r = await fetch(`http://127.0.0.1:${PLAYGROUND_PORT}${SEEDED_ROUTE}`, {
+				redirect: "follow",
+				signal: AbortSignal.timeout(10000),
+			});
+			if (r.status === 200 && !settled) {
+				settled = true;
+				clearInterval(timer);
+				console.log(`  \u2713 seeded after ${Math.round((Date.now() - bootStart) / 1000)}s (HTTP 200 on ${SEEDED_ROUTE})`);
+				resolve();
+			}
+		} catch {
+			// connection refused, or still seeding: keep waiting
+		}
+	};
+	const timer = setInterval(tick, 5000);
+	tick();
 });
 
 console.log("\nPlayground up — running route checks via Playwright…\n");
@@ -189,8 +241,12 @@ const ROUTES = [
 	"/blog/",
 	"/about/",
 	"/consult/",
+	"/book-a-consultation/",
 	"/dr-basmajian/",
 	"/limb-lengthening-pricing-options/",
+	"/height-surgery/",
+	"/leg-lengthening-surgery/",
+	"/evaluate-your-surgeon/",
 	"/your-surgery/",
 	"/your-surgery/will-limb-lengthening-hurt/",
 	"/privacy/",
@@ -229,6 +285,25 @@ for (const route of ROUTES) {
 }
 
 await browser.close();
+
+// ── 6b. optional hold ─────────────────────────────────────────
+
+if (process.env.PLL_SMOKE_KEEP) {
+	console.log(`
+${passed}/${ROUTES.length} routes passed the smoke test`);
+	if (failed > 0) console.error(`✗ ${failed} route(s) returned unexpected responses`);
+	console.log(`
+PLL_SMOKE_KEEP set — holding the PACKAGED instance on ${BASE}`);
+	console.log(`Point the guards at it, e.g. PLL_BASE=${BASE} npm run verify:paa`);
+	console.log("Ctrl-C to stop. dist/smoke-tmp/ is left in place on purpose.");
+	const release = () => {
+		playground.kill();
+		process.exit(failed > 0 ? 1 : 0);
+	};
+	process.on("SIGINT", release);
+	process.on("SIGTERM", release);
+	await new Promise(() => {});
+}
 
 // ── 7. teardown ───────────────────────────────────────────────────────────────
 
