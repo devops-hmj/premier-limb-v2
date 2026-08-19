@@ -496,6 +496,22 @@ live site needs a block-editor pass or a re-seed. Until then, expect the
 homepage to keep failing the heading-order check, and do **not** reach for
 `PLL_SEED_FORCE` to fix it.
 
+**What a human will SEE change, page by page (AC-15).** The file list above says
+what moves on disk. This says what moves on screen, which is what you need in
+order to judge whether a post-deploy screenshot is a success or a rollback.
+
+| Page | Visible change after this deploy |
+|---|---|
+| `/limb-lengthening-pricing-options/` | **NO VISIBLE CHANGE.** Deliberate and load-bearing. This page renders the PAA section full bleed, pixel-identical to the homepage FAQ, which is exactly right, so every CSS rule in this change is scoped under `.pll-prose` and none of it can reach here. Measured against production before and after: title `x=108 w=1224 56px`, accordion `x=210 w=1020`, background `rgb(248,246,241)`, `border-top 1px` — identical at 1440 and at 390. If anything on this page moves, that is a regression, **even if it looks better**. |
+| `/limb-lengthening-what-you-gain-what-you-risk/` | The PAA title grows from 36px to 56px at desktop and its top margin tightens from 48px to 8px. The section's left edge moves left to line up with the body copy above it (the page gutter was being applied twice). A stray 1px rule above the section disappears, along with an invisible background band. |
+| `/is-leg-lengthening-off-limits-for-athletes/` | Same as above. Plus, not visible on the page but visible to Google: the FAQ structured data now carries the same curly apostrophes the visible copy has always shown. |
+| `/limb-lengthening-pain-the-truth/` | Same as the `what-you-gain` row. |
+| `/is-limb-lengthening-covered-by-insurance/` | Same as the `what-you-gain` row. |
+| `/your-surgery/how-much-taller-can-i-get-with-limb-lengthening/` | Same as the `what-you-gain` row. |
+| **Every page with a FAQ accordion**: the six above plus `/`, `/height-surgery/`, `/leg-lengthening-surgery/` | **No visual change.** Each question changes from a `<span>` to an `<h3>` and gains an `aria-expanded` attribute. Type, spacing and click behaviour are identical. The difference is visible only to screen readers, outline parsers and search crawlers. |
+| `/` (homepage) | **No visual change from this deploy.** The five "Your surgery. Our concierge." card titles change from `<h4>` to `<h3>`, fixing a skipped heading level. `h3` and `h4` share one rule in `pll.css` and all the type is carried by utility classes, so rendering is unchanged. **Caveat, and it matters:** the homepage is composed from patterns and inlined into `post_content` at seed time, so editing `patterns/home-concierge.php` does **not** reach an already-seeded site. On production this row is a no-op until someone repeats the change in the block editor. Same trap as section 6f. A fresh install gets it for free. |
+| `/evaluate-your-surgeon/` | **No change.** Its FAQ is a core `<details>`/`<summary>` block, not `pll/faq`, so the renderer fix cannot reach it. Its questions are still not headings. Logged as a follow-up, deliberately not fixed here. |
+
 **Blast radius.** `faq-item/render.php` and `pll.css` affect every FAQ accordion
 site-wide, the homepage and both pillar pages included. `schema.php` affects
 JSON-LD on all article and page routes. Neither can take the site down (no new

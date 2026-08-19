@@ -673,43 +673,39 @@ button.is-open .pll-burger-b { transform: rotate(-45deg); }
 }
 
 /* ---- "Patients also ask." section -------------------------------------
-   The section markup is frozen in post_content by content/setup.php, and it
-   was authored as a full-bleed band: bg-paper-off, a border-t, and an inner
-   mx-auto max-w-wrap px-6 lg:px-12 measure. Five of the six pages that carry
-   it nest it inside the 8-column reading well of single.html or
-   page-service-sub.html, where the background is a no-op against the body
-   (also paper-off), the rule is stray, and the gutter is applied twice. The
-   sixth, /limb-lengthening-pricing-options/, renders it full bleed and came
-   out a quarter wider than the other five. The markup cannot change without a
-   post_content migration over six live pages, so the section is normalized
-   here instead, to one measure on all six.
+   The section markup is frozen in post_content by content/setup.php, and it is
+   the SAME markup as the canonical homepage FAQ (patterns/home-faq.php): a
+   full-bleed band wrapping mx-auto max-w-wrap px-6 lg:px-12 around a
+   .pll-faq max-w-[1020px] mx-auto. That markup is not broken.
 
-   804px is that measure: the reading well. A 1320px wrap less its 96px gutter
-   is 1224px, and 8 of 12 columns of that is 802.7px in single.html (40px gaps)
-   and 805.3px in page-service-sub.html (32px gaps). The five article pages
-   inherit it from the well they sit in. The pricing page gets it explicitly,
-   left aligned inside its own wrap so the accordion starts on the same line as
-   the body copy above it rather than floating in the middle of the page. */
-#patients-also-ask {
+   Where it is broken is the container. Five of the six pages nest the section
+   inside the 8-column reading well of single.html or page-service-sub.html,
+   and the well distorts it three ways: the gutter is applied twice (the well
+   already has one), the bg-paper-off band and its border-t paint against an
+   <article> that is already paper-off so the band is invisible and the rule is
+   stray, and .pll-prose h2 (0-1-1) beats the title's own utilities (0-1-0) and
+   renders it at 36px with a 48px top margin instead of the intended clamp.
+
+   The sixth, /limb-lengthening-pricing-options/, renders the section full
+   bleed, pixel-identical to the homepage #faq, exactly as the design system
+   intends. It is CORRECT and every rule below is therefore scoped under
+   .pll-prose so that nothing here can reach it. GAP-3 is "five pages are
+   distorted by their container", not "six pages disagree with each other":
+   these pages sit in a narrower column by construction and comparing measures
+   across template contexts is what produced the regression this scoping
+   reverts. Fidelity to the canonical FAQ treatment is the invariant, degrading
+   only as far as each template context forces. */
+.pll-prose #patients-also-ask {
   background: none;
   border-top: 0;
 }
-#patients-also-ask > .wp-block-group > header,
-#patients-also-ask .pll-faq {
-  max-width: 804px;
-  margin-left: 0;
-  margin-right: auto;
-}
-/* In the reading well the gutter is already there and the measure IS the
-   column, so the section spans it edge to edge. */
+/* In the reading well the gutter is already there, so the section spans the
+   column edge to edge instead of insetting itself a second time. The 1020px
+   measure on .pll-faq is left alone: inside an ~803px column it is inert. */
 .pll-prose #patients-also-ask > .wp-block-group {
   max-width: none;
   padding-left: 0;
   padding-right: 0;
-}
-.pll-prose #patients-also-ask > .wp-block-group > header,
-.pll-prose #patients-also-ask .pll-faq {
-  max-width: none;
 }
 /* The section title is a peer of the body H2s and the utility classes on it
    say so. .pll-prose h2 (0-1-1) beats them (0-1-0) and was silently rendering

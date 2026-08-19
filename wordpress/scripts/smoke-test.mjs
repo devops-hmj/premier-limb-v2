@@ -18,6 +18,7 @@
  * Ctrl-C, or kill the process, to release it.
  */
 import { spawnSync, spawn } from "node:child_process";
+import net from "node:net";
 import { mkdir, rm, writeFile } from "node:fs/promises";
 import { createWriteStream } from "node:fs";
 import path from "node:path";
@@ -90,6 +91,35 @@ await Promise.all([
 ]);
 console.log("  ✓ pll-editorial.zip, pll-seo.zip, pll-forms.zip");
 
+// ── 3b. refuse to grade someone else's instance ──────────────────────────────
+//
+// This harness once printed "18/18 routes passed" while its own Playground had
+// died on `EADDRINUSE` and every request was served by a leftover instance from
+// the previous day's zip. Exit code 0. AC-14 exists to prove the PACKAGED build
+// works, so a gate that will happily measure whatever happens to be on the port
+// is worse than no gate at all.
+//
+// Two independent defences. First, refuse to start if the port is already busy:
+// a stale listener is a stop, never a fallback. Second, a nonce written into the
+// document root by this run's blueprint and read back over HTTP, so readiness
+// can only be satisfied by the instance this process spawned.
+const RUN_NONCE = `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
+
+const portBusy = await new Promise((resolve) => {
+	const probe = net.createConnection({ host: "127.0.0.1", port: PLAYGROUND_PORT });
+	probe.on("connect", () => { probe.destroy(); resolve(true); });
+	probe.on("error", () => resolve(false));
+	setTimeout(() => { probe.destroy(); resolve(false); }, 3000);
+});
+if (portBusy) {
+	console.error(`
+✗ Something is already listening on :${PLAYGROUND_PORT}.`);
+	console.error("  Refusing to run: this harness would otherwise grade that instance");
+	console.error("  instead of the zip it just extracted, and report a pass for it.");
+	console.error("  Most likely a previous PLL_SMOKE_KEEP=1 run. Stop it, then retry.");
+	process.exit(1);
+}
+
 // ── 4. write smoke blueprint ─────────────────────────────────────────────────
 
 // Paths relative to blueprint file (--blueprint-may-read-adjacent-files)
@@ -148,6 +178,14 @@ const blueprint = {
 			step: "runPHP",
 			code: "<?php require '/wordpress/wp-load.php'; require '/wordpress/pll-seed/setup.php';",
 		},
+		// Identity nonce, written LAST so it cannot appear before the seed is
+		// finished. Readiness reads it back over HTTP: a foreign instance either
+		// 404s here or serves a different nonce, and both are hard failures.
+		{
+			step: "writeFile",
+			path: "/wordpress/pll-smoke-run-id.txt",
+			data: { resource: "literal", name: "pll-smoke-run-id.txt", contents: RUN_NONCE },
+		},
 	],
 };
 
@@ -175,57 +213,94 @@ let bootLog = "";
 playground.stdout.on("data", (d) => { bootLog += d; process.stdout.write(d); });
 playground.stderr.on("data", (d) => { bootLog += d; process.stderr.write(d); });
 
-// Wait for Playground to be SEEDED, not merely to be answering HTTP.
+// Wait until this harness's OWN instance has finished seeding.
 //
-// Three separate traps live here, and this harness fell into all of them.
+// Four traps live here. The first three were found by the developer, the last
+// two by QA, and every one of them produced a green run over a site that was
+// not what it claimed to be.
 //
-// 1. The original check scraped stdout for a readiness banner and gave up after
-//    90s. Booting from the handoff zip installs a theme and two plugin zips,
-//    imports the WXR and runs setup.php; on Windows that is roughly ten
-//    minutes. So the check timed out on a perfectly healthy boot and AC-14
-//    could never be run against the packaged build, which is the only build
-//    that matters.
+// 1. The original gate scraped stdout for a readiness banner with a 90s
+//    timeout. A cold boot off the handoff zip takes ~106-120s, so AC-14 was
+//    simply unrunnable and no one had ever measured the packaged build.
+// 2. Polling the port is too eager: PHP answers as soon as WordPress installs,
+//    long before setup.php composes the pattern-built pages. 9/18 routes 404.
+// 3. The CLI's "Ready!" banner means the HTTP server is up, NOT that the
+//    blueprint finished. Six 30s page.goto timeouts.
+// 4. A 200 on a seeder-composed route STILL does not mean the seed finished.
+//    The static front page is assigned near the very end of setup.php, after
+//    the PAA injection, so `/` served the BLOG INDEX at check time and the
+//    route sweep recorded it as a pass. The seeded route was necessary, not
+//    sufficient.
+// 5. None of it proved the answers came from this process's Playground at all.
+//    A leftover listener on the port satisfied every check above.
 //
-// 2. Polling the port instead is too eager in the other direction. PHP answers
-//    as soon as WordPress is installed, long before setup.php has composed the
-//    pattern-built pages, so /about/, /consult/, the pillars and the pricing
-//    page all 404 on a boot that simply is not finished.
-//
-// 3. The CLI's own "Ready!" banner means the HTTP server is up, NOT that the
-//    blueprint finished. Accepting it produced six 30s page.goto timeouts on
-//    the routes that had not been seeded yet.
-//
-// The honest signal is a route that cannot exist until setup.php has run.
-// /limb-lengthening-pricing-options/ is composed from patterns by the seeder,
-// so a 200 there means the seed completed. Nothing else is accepted.
+// So readiness now requires all three, in order: the child is alive and never
+// reported EADDRINUSE; the nonce this run wrote is served back verbatim; and
+// `/` is the real front page, not the posts index. The nonce is written by the
+// last blueprint step and the front page is assigned by the last thing
+// setup.php does, so together they bracket the end of the seed.
 const BOOT_TIMEOUT_MS = 900000;
 const SEEDED_ROUTE = "/limb-lengthening-pricing-options/";
 const bootStart = Date.now();
 
-// Polled with Playwright's request client rather than node's fetch. Undici
-// surfaces the connection resets a mid-boot Playground hands out as an
-// unhandled error rather than a rejected promise, which killed this script
-// with a bare exit 1 and no message. Playwright also keeps a cookie jar, which
-// the auto-login redirect needs.
+// Recorded for the timeout message, NOT treated as fatal on its own. The
+// wp-playground CLI's launcher process exits while its worker processes keep
+// serving: an instance whose launcher reported code 1 was verified still
+// answering on the port, still serving this run's nonce, and still fully
+// seeded. Aborting on the exit code therefore kills healthy boots. The nonce
+// below is what actually proves the instance is alive AND ours, which is the
+// guarantee that matters.
 let bootDied = null;
 playground.on("exit", (code) => { bootDied = code; });
+
+const fatalBootLog = () => /EADDRINUSE|address already in use/i.test(bootLog);
+
+// Polled with Playwright's request client rather than node's fetch: undici
+// surfaces the connection resets a mid-boot Playground hands out as an
+// unhandled error, which killed this script with a bare exit 1 and no message.
+// It also keeps the cookie jar the auto-login redirect needs.
 const bootCtx = await pwRequest.newContext({ ignoreHTTPSErrors: true });
+const base = `http://127.0.0.1:${PLAYGROUND_PORT}`;
 try {
 	for (;;) {
-		if (bootDied !== null) {
-			throw new Error(`Playground exited with code ${bootDied} during boot. Last log:\n${bootLog.slice(-800)}`);
+		if (fatalBootLog()) {
+			throw new Error(
+				`Playground could not bind :${PLAYGROUND_PORT} (EADDRINUSE). Refusing to ` +
+				`measure whatever else is on that port. Last log:\n${bootLog.slice(-800)}`
+			);
 		}
 		if (Date.now() - bootStart > BOOT_TIMEOUT_MS) {
-			throw new Error(`Playground boot timeout (${BOOT_TIMEOUT_MS / 1000}s). Last log:\n${bootLog.slice(-800)}`);
+			throw new Error(
+				`Playground boot timeout (${BOOT_TIMEOUT_MS / 1000}s)` +
+				`${bootDied === null ? "" : `, and the launcher exited with code ${bootDied}`}. Last log:\n${bootLog.slice(-800)}`
+			);
 		}
 		try {
-			const r = await bootCtx.get(`http://127.0.0.1:${PLAYGROUND_PORT}${SEEDED_ROUTE}`, { timeout: 15000 });
-			if (r.status() === 200) {
-				console.log(`  \u2713 seeded after ${Math.round((Date.now() - bootStart) / 1000)}s (HTTP 200 on ${SEEDED_ROUTE})`);
-				break;
+			// (a) identity: our nonce, served by our instance.
+			const idRes = await bootCtx.get(`${base}/pll-smoke-run-id.txt`, { timeout: 15000 });
+			if (idRes.status() === 200) {
+				const served = (await idRes.text()).trim();
+				if (served !== RUN_NONCE) {
+					throw new Error(
+						`:${PLAYGROUND_PORT} is serving run id "${served}" but this run is ` +
+						`"${RUN_NONCE}". That is a different Playground. Aborting.`
+					);
+				}
+				// (b) the seeder composed its pages.
+				const seeded = await bootCtx.get(base + SEEDED_ROUTE, { timeout: 15000 });
+				// (c) the front page is the front page, not the posts index.
+				const home = await bootCtx.get(base + "/", { timeout: 15000 });
+				const homeTitle = (await home.text()).match(/<title[^>]*>([^<]*)<\/title>/i)?.[1] ?? "";
+				const frontPageReady = home.status() === 200 && !/blog|articles/i.test(homeTitle);
+				if (seeded.status() === 200 && frontPageReady) {
+					console.log(`  \u2713 seeded after ${Math.round((Date.now() - bootStart) / 1000)}s`);
+					console.log(`    run id ${RUN_NONCE} confirmed, front page "${homeTitle.slice(0, 60)}"`);
+					break;
+				}
 			}
-		} catch {
-			// connection refused, reset, or still seeding: keep waiting
+		} catch (err) {
+			// A run-id mismatch is fatal; anything else is "still booting".
+			if (/different Playground/.test(err.message)) throw err;
 		}
 		await new Promise((r) => setTimeout(r, 5000));
 	}
@@ -239,25 +314,31 @@ console.log("\nPlayground up — running route checks via Playwright…\n");
 // Use a real browser instead of fetch() to avoid Windows loopback quirks.
 
 const BASE = `http://127.0.0.1:${PLAYGROUND_PORT}`;
+// Each route carries a substring its <title> must contain. HTTP 200 plus a
+// non-empty body is not enough: `/` returned the BLOG INDEX with a perfectly
+// good 200 while the front page had not been assigned yet, and the sweep
+// scored it. The titles are the SEO contract (verify-seo-meta.mjs guards their
+// exact text), so pinning a distinctive fragment here costs nothing and turns
+// "something answered" into "the right page answered".
 const ROUTES = [
-	"/",
-	"/blog/",
-	"/about/",
-	"/consult/",
-	"/book-a-consultation/",
-	"/dr-basmajian/",
-	"/limb-lengthening-pricing-options/",
-	"/height-surgery/",
-	"/leg-lengthening-surgery/",
-	"/evaluate-your-surgeon/",
-	"/your-surgery/",
-	"/your-surgery/will-limb-lengthening-hurt/",
-	"/privacy/",
-	"/terms/",
-	"/accessibility/",
-	"/are-you-a-good-candidate-for-limb-lengthening/",
-	"/am-i-too-old-for-limb-lengthening/",
-	"/category/limb-lengthening/",
+	["/", "Cosmetic Limb Lengthening Surgery"],
+	["/blog/", "Blog"],
+	["/about/", "About"],
+	["/consult/", "Contact"],
+	["/book-a-consultation/", "Consultation"],
+	["/dr-basmajian/", "Basmajian"],
+	["/limb-lengthening-pricing-options/", "Cost"],
+	["/height-surgery/", "Height Surgery"],
+	["/leg-lengthening-surgery/", "Leg Lengthening Surgery"],
+	["/evaluate-your-surgeon/", "Surgeon"],
+	["/your-surgery/", "How It Works"],
+	["/your-surgery/will-limb-lengthening-hurt/", "Hurt"],
+	["/privacy/", "Privacy"],
+	["/terms/", "Terms"],
+	["/accessibility/", "Accessibility"],
+	["/are-you-a-good-candidate-for-limb-lengthening/", "Right for You"],
+	["/am-i-too-old-for-limb-lengthening/", "Too Old"],
+	["/category/limb-lengthening/", "Articles"],
 ];
 
 let passed = 0;
@@ -267,16 +348,20 @@ const browser = await chromium.launch();
 const context = await browser.newContext();
 const page = await context.newPage();
 
-for (const route of ROUTES) {
+for (const [route, expectTitle] of ROUTES) {
 	try {
 		const resp = await page.goto(BASE + route, { waitUntil: "domcontentloaded", timeout: 30000 });
 		const status = resp?.status() ?? 0;
 		const html = await page.content();
-		const ok = status === 200 && html.length > 500 && html.includes("<html");
-		if (ok) {
-			const title = await page.title().catch(() => "");
+		const title = await page.title().catch(() => "");
+		const served = status === 200 && html.length > 500 && html.includes("<html");
+		const rightPage = title.toLowerCase().includes(expectTitle.toLowerCase());
+		if (served && rightPage) {
 			console.log(`  ✓ ${route} — HTTP ${status} "${title}" (${(html.length / 1024).toFixed(0)} KB)`);
 			passed++;
+		} else if (served) {
+			console.error(`  ✗ ${route} — HTTP 200 but the WRONG PAGE: title "${title}" does not contain "${expectTitle}"`);
+			failed++;
 		} else {
 			console.error(`  ✗ ${route} — HTTP ${status}, body ${html.length}B`);
 			failed++;

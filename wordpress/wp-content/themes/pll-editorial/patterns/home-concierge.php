@@ -10,7 +10,7 @@
  */
 
 ?>
-<!-- wp:group {"tagName":"section","layout":{"type":"default"},"templateLock":"contentOnly","lock":{"move":true,"remove":true},"anchor":"concierge","className":"bg-paper-off py-20 lg:py-28 border-b border-rule"} -->
+<!-- wp:group {"tagName":"section","layout":{"type":"default"},"templateLock":"contentOnly","anchor":"concierge","className":"bg-paper-off py-20 lg:py-28 border-b border-rule"} -->
 <section class="wp-block-group bg-paper-off py-20 lg:py-28 border-b border-rule" id="concierge">
 	<!-- wp:group {"layout":{"type":"default"},"className":"mx-auto max-w-wrap px-6 lg:px-12"} -->
 	<div class="wp-block-group mx-auto max-w-wrap px-6 lg:px-12">
@@ -42,8 +42,8 @@
 						<p class="font-serif italic text-spine text-[22px]">01</p>
 						<!-- /wp:paragraph -->
 
-						<!-- wp:heading {"level":4,"className":"font-serif font-medium text-[20px] lg:text-[22px] leading-[1.15] tracking-[-0.01em] text-ink"} -->
-						<h4 class="wp-block-heading font-serif font-medium text-[20px] lg:text-[22px] leading-[1.15] tracking-[-0.01em] text-ink">Travel Coordination</h4>
+						<!-- wp:heading {"level":3,"className":"font-serif font-medium text-[20px] lg:text-[22px] leading-[1.15] tracking-[-0.01em] text-ink"} -->
+						<h3 class="wp-block-heading font-serif font-medium text-[20px] lg:text-[22px] leading-[1.15] tracking-[-0.01em] text-ink">Travel Coordination</h3>
 						<!-- /wp:heading -->
 
 						<!-- wp:paragraph {"className":"col-span-2 sm:col-span-1 text-[14px] leading-[1.6] text-ink-soft"} -->
@@ -62,8 +62,8 @@
 						<p class="font-serif italic text-spine text-[22px]">02</p>
 						<!-- /wp:paragraph -->
 
-						<!-- wp:heading {"level":4,"className":"font-serif font-medium text-[20px] lg:text-[22px] leading-[1.15] tracking-[-0.01em] text-ink"} -->
-						<h4 class="wp-block-heading font-serif font-medium text-[20px] lg:text-[22px] leading-[1.15] tracking-[-0.01em] text-ink">Recovery Accommodations</h4>
+						<!-- wp:heading {"level":3,"className":"font-serif font-medium text-[20px] lg:text-[22px] leading-[1.15] tracking-[-0.01em] text-ink"} -->
+						<h3 class="wp-block-heading font-serif font-medium text-[20px] lg:text-[22px] leading-[1.15] tracking-[-0.01em] text-ink">Recovery Accommodations</h3>
 						<!-- /wp:heading -->
 
 						<!-- wp:paragraph {"className":"col-span-2 sm:col-span-1 text-[14px] leading-[1.6] text-ink-soft"} -->
@@ -82,8 +82,8 @@
 						<p class="font-serif italic text-spine text-[22px]">03</p>
 						<!-- /wp:paragraph -->
 
-						<!-- wp:heading {"level":4,"className":"font-serif font-medium text-[20px] lg:text-[22px] leading-[1.15] tracking-[-0.01em] text-ink"} -->
-						<h4 class="wp-block-heading font-serif font-medium text-[20px] lg:text-[22px] leading-[1.15] tracking-[-0.01em] text-ink">PT &amp; Follow-Up Scheduling</h4>
+						<!-- wp:heading {"level":3,"className":"font-serif font-medium text-[20px] lg:text-[22px] leading-[1.15] tracking-[-0.01em] text-ink"} -->
+						<h3 class="wp-block-heading font-serif font-medium text-[20px] lg:text-[22px] leading-[1.15] tracking-[-0.01em] text-ink">PT &amp; Follow-Up Scheduling</h3>
 						<!-- /wp:heading -->
 
 						<!-- wp:paragraph {"className":"col-span-2 sm:col-span-1 text-[14px] leading-[1.6] text-ink-soft"} -->
@@ -102,8 +102,8 @@
 						<p class="font-serif italic text-spine text-[22px]">04</p>
 						<!-- /wp:paragraph -->
 
-						<!-- wp:heading {"level":4,"className":"font-serif font-medium text-[20px] lg:text-[22px] leading-[1.15] tracking-[-0.01em] text-ink"} -->
-						<h4 class="wp-block-heading font-serif font-medium text-[20px] lg:text-[22px] leading-[1.15] tracking-[-0.01em] text-ink">Dedicated Patient Coordinator</h4>
+						<!-- wp:heading {"level":3,"className":"font-serif font-medium text-[20px] lg:text-[22px] leading-[1.15] tracking-[-0.01em] text-ink"} -->
+						<h3 class="wp-block-heading font-serif font-medium text-[20px] lg:text-[22px] leading-[1.15] tracking-[-0.01em] text-ink">Dedicated Patient Coordinator</h3>
 						<!-- /wp:heading -->
 
 						<!-- wp:paragraph {"className":"col-span-2 sm:col-span-1 text-[14px] leading-[1.6] text-ink-soft"} -->
@@ -122,8 +122,8 @@
 						<p class="font-serif italic text-spine text-[22px]">05</p>
 						<!-- /wp:paragraph -->
 
-						<!-- wp:heading {"level":4,"className":"font-serif font-medium text-[20px] lg:text-[22px] leading-[1.15] tracking-[-0.01em] text-ink"} -->
-						<h4 class="wp-block-heading font-serif font-medium text-[20px] lg:text-[22px] leading-[1.15] tracking-[-0.01em] text-ink">Virtual Pre-Op &amp; Remote Follow-Up</h4>
+						<!-- wp:heading {"level":3,"className":"font-serif font-medium text-[20px] lg:text-[22px] leading-[1.15] tracking-[-0.01em] text-ink"} -->
+						<h3 class="wp-block-heading font-serif font-medium text-[20px] lg:text-[22px] leading-[1.15] tracking-[-0.01em] text-ink">Virtual Pre-Op &amp; Remote Follow-Up</h3>
 						<!-- /wp:heading -->
 
 						<!-- wp:paragraph {"className":"col-span-2 sm:col-span-1 text-[14px] leading-[1.6] text-ink-soft"} -->
@@ -140,13 +140,9 @@
 
 				<!-- wp:buttons {"className":"mt-10 flex gap-3.5 flex-wrap"} -->
 				<div class="wp-block-buttons mt-10 flex gap-3.5 flex-wrap">
-					<!-- wp:button -->
-					<div class="wp-block-button"><a class="wp-block-button__link wp-element-button group inline-flex items-center gap-3 px-5 py-3.5 bg-spine text-paper uppercase tracking-wide text-[12px] font-medium border border-spine hover:bg-spine-deep hover:border-spine-deep transition-colors" href="/#concierge-full">Learn About Our Concierge Program<span class="font-serif italic text-[17px] transition-transform group-hover:translate-x-1" aria-hidden="true">→</span></a></div>
-					<!-- /wp:button -->
+					<!-- wp:pll/cta {"label":"Learn About Our Concierge Program","url":"/consult/","linkClass":"wp-block-button__link wp-element-button group inline-flex items-center gap-3 px-5 py-3.5 bg-spine text-paper uppercase tracking-wide text-[12px] font-medium border border-spine hover:bg-spine-deep hover:border-spine-deep transition-colors","arrowClass":"font-serif italic text-[17px] transition-transform group-hover:translate-x-1"} /-->
 
-					<!-- wp:button -->
-					<div class="wp-block-button"><a class="wp-block-button__link wp-element-button group inline-flex items-center gap-3 px-5 py-3.5 bg-transparent text-spine border border-spine uppercase tracking-wide text-[12px] font-medium hover:bg-spine hover:text-paper transition-colors" href="/#virtual">Schedule a Virtual Consultation<span class="font-serif italic text-[17px] transition-transform group-hover:translate-x-1" aria-hidden="true">→</span></a></div>
-					<!-- /wp:button -->
+					<!-- wp:pll/cta {"label":"Schedule a Virtual Consultation","url":"/book-a-consultation/","linkClass":"wp-block-button__link wp-element-button group inline-flex items-center gap-3 px-5 py-3.5 bg-transparent text-spine border border-spine uppercase tracking-wide text-[12px] font-medium hover:bg-spine hover:text-paper transition-colors","arrowClass":"font-serif italic text-[17px] transition-transform group-hover:translate-x-1"} /-->
 				</div>
 				<!-- /wp:buttons -->
 			</div>
@@ -156,9 +152,7 @@
 			<aside class="wp-block-group lg:sticky lg:top-24 js-reveal pll-delay-100">
 				<!-- wp:group {"layout":{"type":"default"},"className":"relative"} -->
 				<div class="wp-block-group relative">
-					<!-- wp:image {"sizeSlug":"full","className":"v2-portrait v2-portrait-diag aspect-[4/5] bg-paper-warm border border-rule mb-4 relative overflow-hidden"} -->
-					<figure class="wp-block-image size-full v2-portrait v2-portrait-diag aspect-[4/5] bg-paper-warm border border-rule mb-4 relative overflow-hidden" aria-label="Dr. Basmajian reviewing an X-ray"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/dr-xray.jpg' ) ); ?>" alt="Dr. Hrayr Basmajian reviewing an X-ray of a patient's femur" class="w-full h-full object-cover"/></figure>
-					<!-- /wp:image -->
+					<!-- wp:pll/figure {"url":"<?php echo esc_url( get_theme_file_uri( 'assets/images/dr-xray.jpg' ) ); ?>","alt":"Dr. Hrayr Basmajian reviewing an X-ray of a patient's femur","figClass":"wp-block-image size-full v2-portrait v2-portrait-diag aspect-[4/5] bg-paper-warm border border-rule mb-4 relative overflow-hidden","imgClass":"w-full h-full object-cover","ariaLabel":"Dr. Basmajian reviewing an X-ray"} /-->
 
 					<!-- wp:paragraph {"className":"absolute z-10 top-3 left-3 px-2 py-1 font-mono uppercase tracking-[0.2em] text-[10.5px] text-muted bg-paper-off"} -->
 					<p class="absolute z-10 top-3 left-3 px-2 py-1 font-mono uppercase tracking-[0.2em] text-[10.5px] text-muted bg-paper-off">Reviewing Imaging</p>
