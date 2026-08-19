@@ -374,6 +374,67 @@ for (const [route, expectTitle] of ROUTES) {
 
 await browser.close();
 
+// ── 6a. teardown that actually releases the port ─────────────────────────────
+//
+// playground.kill() alone is not enough, for two reasons discovered the hard
+// way. The wp-playground CLI forks worker processes and its launcher exits
+// while they keep serving, so by teardown time the pid we hold may already be
+// gone while :9401 is still bound. And on Windows killing a parent does not
+// take its children with it.
+//
+// The consequence, when this script was interrupted, was an orphaned
+// Playground squatting on :9401 forever. The NEXT run then found the port busy
+// and, before the pre-bind check existed, silently graded that stale instance
+// and reported 18/18. So this leak is not untidiness, it is the thing that
+// manufactured the false pass.
+//
+// Release by port, not just by pid: whatever owns :9401 dies.
+let releasedAlready = false;
+function releaseInstance() {
+	if (releasedAlready) return;
+	releasedAlready = true;
+	try { playground.kill(); } catch { /* already gone */ }
+	if (process.platform === "win32") {
+		// Kill the launcher's whole tree, if the launcher is still around.
+		if (playground.pid) {
+			spawnSync("taskkill", ["/F", "/T", "/PID", String(playground.pid)], { stdio: "ignore" });
+		}
+		// Then whatever is actually holding the port, launcher or re-parented worker.
+		const net = spawnSync("netstat", ["-ano"], { encoding: "utf8" });
+		const pids = new Set(
+			(net.stdout ?? "")
+				.split("\n")
+				.filter((l) => l.includes(`:${PLAYGROUND_PORT}`) && /LISTENING/i.test(l))
+				.map((l) => l.trim().split(/\s+/).pop())
+				.filter((pid) => pid && pid !== "0" && Number(pid) !== process.pid)
+		);
+		for (const pid of pids) spawnSync("taskkill", ["/F", "/T", "/PID", pid], { stdio: "ignore" });
+	} else {
+		try { process.kill(-playground.pid, "SIGKILL"); } catch { /* no process group */ }
+		const lsof = spawnSync("lsof", ["-ti", `:${PLAYGROUND_PORT}`], { encoding: "utf8" });
+		for (const pid of (lsof.stdout ?? "").split("\n").map((x) => x.trim()).filter(Boolean)) {
+			try { process.kill(Number(pid), "SIGKILL"); } catch { /* gone */ }
+		}
+	}
+}
+
+// Every abnormal exit path, not just the happy one. Without these, Ctrl-C or a
+// thrown assertion leaves the instance running and the next run inherits it.
+process.on("exit", releaseInstance);
+process.on("SIGINT", () => { releaseInstance(); process.exit(130); });
+process.on("SIGTERM", () => { releaseInstance(); process.exit(143); });
+process.on("SIGHUP", () => { releaseInstance(); process.exit(129); });
+process.on("uncaughtException", (err) => {
+	console.error(err);
+	releaseInstance();
+	process.exit(1);
+});
+process.on("unhandledRejection", (err) => {
+	console.error(err);
+	releaseInstance();
+	process.exit(1);
+});
+
 // ── 6b. optional hold ─────────────────────────────────────────
 
 if (process.env.PLL_SMOKE_KEEP) {
@@ -384,18 +445,13 @@ ${passed}/${ROUTES.length} routes passed the smoke test`);
 PLL_SMOKE_KEEP set — holding the PACKAGED instance on ${BASE}`);
 	console.log(`Point the guards at it, e.g. PLL_BASE=${BASE} npm run verify:paa`);
 	console.log("Ctrl-C to stop. dist/smoke-tmp/ is left in place on purpose.");
-	const release = () => {
-		playground.kill();
-		process.exit(failed > 0 ? 1 : 0);
-	};
-	process.on("SIGINT", release);
-	process.on("SIGTERM", release);
+	console.log("If this process is killed, the instance is released with it.");
 	await new Promise(() => {});
 }
 
 // ── 7. teardown ───────────────────────────────────────────────────────────────
 
-playground.kill();
+releaseInstance();
 
 console.log(`\n${passed}/${ROUTES.length} routes passed the smoke test`);
 
