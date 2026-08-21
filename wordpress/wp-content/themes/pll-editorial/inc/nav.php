@@ -60,24 +60,20 @@ function pll_nav_items() {
 				'submenu' => $surgery_submenu,
 			),
 			array(
+				'label' => 'About Dr. Basmajian',
+				'href'  => '/dr-basmajian/',
+			),
+			array(
 				'label' => 'Pricing',
 				'href'  => '/limb-lengthening-pricing-options/',
 			),
 			array(
-				'label' => 'Dr. Basmajian',
-				'href'  => '/dr-basmajian/',
-			),
-			array(
-				'label' => 'About PLL',
-				'href'  => '/about/',
+				'label' => 'Evaluate a Surgeon',
+				'href'  => '/evaluate-your-surgeon/',
 			),
 			array(
 				'label' => 'Blog',
 				'href'  => '/blog/',
-			),
-			array(
-				'label' => 'Contact',
-				'href'  => '/consult/',
 			),
 		)
 	);
@@ -108,15 +104,17 @@ function pll_logo_img( $tone = 'light', $width = 200, $classes = '' ) {
 	$asset  = $assets[ $tone ] ?? $assets['light'];
 	$height = (int) round( $width * $asset['h'] / $asset['w'] );
 
+	// Width/height ATTRIBUTES (not a fixed inline style) so the browser keeps
+	// the aspect-ratio hint for CLS while max-w-full lets the logo shrink when
+	// its wrapper is constrained (the mobile header caps it to make room for
+	// the click-to-call button).
 	return sprintf(
-		'<img src="%s" alt="%s" width="%d" height="%d" class="block h-auto w-auto max-w-full%s" style="width:%dpx;height:%dpx" />',
+		'<img src="%s" alt="%s" width="%d" height="%d" class="block h-auto max-w-full%s" />',
 		esc_url( get_theme_file_uri( $asset['file'] ) ),
 		esc_attr__( 'Premier Limb Lengthening Institute', 'pll-editorial' ),
 		$width,
 		$height,
-		$classes ? ' ' . esc_attr( $classes ) : '',
-		$width,
-		$height
+		$classes ? ' ' . esc_attr( $classes ) : ''
 	);
 }
 
@@ -196,15 +194,21 @@ function pll_render_overlay_nav() {
 		}
 	}
 
+	// Mobile (<sm): the click-to-call button IS the primary CTA — the phone
+	// number must be visible without scrolling or opening a menu (conversion
+	// requirement). Consult stays available in the hero body, the floating
+	// widget, and the sticky bar; from sm up the desktop layout is unchanged
+	// (gold italic phone text + Consult button).
 	return sprintf(
 		'<header class="relative z-30" data-wp-interactive="pll/header">' .
-		'<div class="mx-auto max-w-wrap px-6 lg:px-12 py-4 lg:py-5 grid grid-cols-[auto_1fr_auto] items-center gap-6 lg:gap-10">' .
-		'<a href="%1$s" aria-label="%2$s" class="flex items-center shrink-0">%3$s</a>' .
+		'<div class="mx-auto max-w-wrap px-6 lg:px-12 py-4 lg:py-5 grid grid-cols-[auto_1fr_auto] items-center gap-4 sm:gap-6 lg:gap-10">' .
+		'<a href="%1$s" aria-label="%2$s" class="flex items-center min-w-0 shrink sm:shrink-0 max-w-[132px] sm:max-w-none">%3$s</a>' .
 		'<nav class="hidden lg:flex items-center justify-center gap-7 text-[13.5px] font-medium text-white/90" aria-label="Primary">%4$s</nav>' .
 		'<div class="flex items-center gap-4 lg:gap-5 justify-self-end">' .
+		'<a href="%5$s" class="sm:hidden inline-flex items-center gap-2 px-4 py-3 bg-spine text-paper font-medium tracking-wide text-[13px] whitespace-nowrap hover:bg-spine-deep transition-colors">%6$s</a>' .
 		'<a href="%5$s" class="hidden sm:inline-block font-serif italic text-[17px] lg:text-[18px] hover:text-white transition-colors" style="color:#F4D88A">%6$s</a>' .
-		'<a href="%7$s" class="inline-flex items-center gap-2.5 px-4 lg:px-5 py-3 lg:py-3.5 bg-spine text-paper font-medium uppercase tracking-wide text-[11px] lg:text-[12px] hover:bg-spine-deep transition-colors">' .
-		'<span class="hidden sm:inline">Schedule Consultation</span><span class="sm:hidden">Consult</span>' .
+		'<a href="%7$s" class="hidden sm:inline-flex items-center gap-2.5 px-4 lg:px-5 py-3 lg:py-3.5 bg-spine text-paper font-medium uppercase tracking-wide text-[11px] lg:text-[12px] hover:bg-spine-deep transition-colors">' .
+		'%8$s' .
 		'<span class="font-serif italic text-[15px]" aria-hidden="true">→</span></a>' .
 		'</div></div></header>',
 		esc_url( home_url( '/' ) ),
@@ -213,6 +217,7 @@ function pll_render_overlay_nav() {
 		$links,
 		esc_url( $info['phone_href'] ),
 		esc_html( $info['phone'] ),
-		esc_url( home_url( '/consult/' ) )
+		esc_url( $info['cta_href'] ),
+		esc_html( $info['cta_label'] )
 	);
 }
