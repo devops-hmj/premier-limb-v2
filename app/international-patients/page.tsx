@@ -6,7 +6,7 @@ import { FinalCta } from "@/components/v2/FinalCta";
 import { PillarFaq } from "@/components/v2/PillarFaq";
 import { Prose } from "@/components/content/Prose";
 import { Reveal } from "@/components/v2/Reveal";
-import { DraftBanner } from "@/components/v2/DraftBanner";
+import { CoverHero } from "@/components/v2/CoverHero";
 
 import "../v2.css";
 
@@ -29,6 +29,8 @@ export const metadata: Metadata = {
 };
 
 const body = `
+> **Draft, not for publication. YMYL, legal-review gated.** Nothing here goes live until Legal signs off on the concierge-scope statement and any cross-border or regulatory language, Dr. B signs off on every clinical framing and the Hannover credential wording, and every note in this style is resolved. Hero and section imagery are pattern placeholders and must be swapped.
+
 Patients search for this care under several phrases, including limb lengthening for international patients, international limb lengthening in the USA, and traveling to the US for limb lengthening. They describe the same path: a patient whose home is in another country choosing to have the procedure performed in the United States. This page explains why patients make that choice, how the practice supports an international stay, and what the process looks like from first contact to the flight home.
 
 ## Why patients travel to the United States
@@ -107,37 +109,40 @@ export default function InternationalPatientsPage() {
   return (
     <>
       <NavV2 forceVisible />
-      <DraftBanner
-        owners={[
-          "Legal (concierge scope, cross-border, visa)",
-          "Dr. B (in-country stay, credentials)",
-          "Jaime (brand and voice)",
-        ]}
-        note="YMYL, legal-review gated. The concierge-scope statement and any cross-border or regulatory language must be written verbatim by Legal, not drafted. Two FAQ answers are deliberately incomplete and say so inline."
-      />
 
       <article className="bg-paper-off">
-        <section className="border-b border-ink pt-14 lg:pt-20 pb-16 lg:pb-20">
-          <div className="mx-auto max-w-wrap px-6 lg:px-12">
-            <span className="eyebrow mb-5">International Patients</span>
-            <h1 className="font-serif font-normal tracking-[-0.025em] text-ink leading-[0.98] max-w-[20ch] text-[clamp(40px,6.4vw,104px)]">
-              Limb Lengthening for International{" "}
-              <em className="italic text-spine">Patients.</em>
-            </h1>
-            <p className="mt-4 font-mono uppercase tracking-[0.14em] text-[11px] text-muted">
-              Medically reviewed by{" "}
-              <a href="/dr-basmajian" className="underline">
-                Dr. Hrayr Basmajian
-              </a>
-            </p>
-            <p className="mt-7 max-w-[62ch] font-serif italic text-[19px] lg:text-[22px] leading-[1.4] text-ink-soft">
-              Limb lengthening for international patients is the same
-              internal-nail procedure offered to patients who travel to the
-              United States from another country. Patients complete imaging
-              review and consultation remotely, travel to the practice in
-              California for surgery, stay through the early lengthening period,
-              and continue follow-up by telehealth after returning home.
-            </p>
+        <CoverHero
+          eyebrow="International Patients"
+          title="Limb Lengthening for International"
+          accent="Patients"
+          deck="Patients complete imaging review and consultation remotely, travel to the practice in California for surgery, stay through the early lengthening period, and continue follow-up by telehealth after returning home."
+        />
+
+        <section className="bg-paper-off py-16 lg:py-24">
+          <div className="mx-auto max-w-wrap px-6 lg:px-12 grid grid-cols-12 gap-6 lg:gap-8">
+            <div className="col-span-12 lg:col-span-8">
+              <p className="eyebrow mb-5">Traveling to the United States</p>
+              <p className="font-serif text-[22px] lg:text-[28px] leading-[1.45] text-ink">
+                Limb lengthening for international patients is the same
+                internal-nail limb lengthening procedure offered to patients who
+                travel to the United States from abroad. The care is coordinated
+                around an extended stay: a remote consultation and imaging review
+                before travel, surgery and the early lengthening period in
+                California, then telehealth follow-up once the patient returns
+                home.
+              </p>
+              <p className="mt-7 text-[16px] leading-[1.75] text-ink-soft">
+                For the procedure itself, see{" "}
+                <a href="/leg-lengthening-surgery">
+                  how limb lengthening surgery works
+                </a>
+                . For the day-to-day logistics of the trip, see{" "}
+                <a href="/traveling-for-limb-lengthening">
+                  traveling for limb lengthening
+                </a>
+                .
+              </p>
+            </div>
           </div>
         </section>
 

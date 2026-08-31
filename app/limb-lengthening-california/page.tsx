@@ -6,7 +6,7 @@ import { FinalCta } from "@/components/v2/FinalCta";
 import { PillarFaq } from "@/components/v2/PillarFaq";
 import { Prose } from "@/components/content/Prose";
 import { Reveal } from "@/components/v2/Reveal";
-import { DraftBanner } from "@/components/v2/DraftBanner";
+import { CoverHero } from "@/components/v2/CoverHero";
 
 import "../v2.css";
 
@@ -28,6 +28,8 @@ export const metadata: Metadata = {
 };
 
 const lede = `
+> **Draft, not for publication.** Hero and section imagery above are the pattern placeholders and must be swapped. Every note in this style marks copy a human still owes. Resolve and delete all of them, then clear the noindex flag before publishing.
+
 California patients researching this procedure often find that several of the best-known limb lengthening practices in the country are based outside the state, in places like Florida, Maryland, and Nevada. Premier Limb Lengthening is a California-based option. The clinic is in Upland, and its surgeon, its method, and its concierge support are all set up for patients who live in California and want their care close to home.
 
 ## The surgeon behind the practice
@@ -115,33 +117,34 @@ export default function LimbLengtheningCaliforniaPage() {
   return (
     <>
       <NavV2 forceVisible />
-      <DraftBanner
-        owners={["Jaime (NAP, city slate, nav placement)", "Dr. B (credential wording)"]}
-        note="California state hub for the geo cluster. Copy is a build-ready v1 from the marketing sprint, but the clinic NAP, the Google Business Profile details, and the list of which California cities get their own page are all unconfirmed."
-      />
 
       <article className="bg-paper-off">
-        <section className="border-b border-ink pt-14 lg:pt-20 pb-16 lg:pb-20">
-          <div className="mx-auto max-w-wrap px-6 lg:px-12">
-            <span className="eyebrow mb-5">Locations · California</span>
-            <h1 className="font-serif font-normal tracking-[-0.025em] text-ink leading-[0.98] max-w-[20ch] text-[clamp(40px,6.4vw,104px)]">
-              Limb Lengthening Surgery in{" "}
-              <em className="italic text-spine">California.</em>
-            </h1>
-            <p className="mt-4 font-mono uppercase tracking-[0.14em] text-[11px] text-muted">
-              Medically reviewed by{" "}
-              <a href="/dr-basmajian" className="underline">
-                Dr. Hrayr Basmajian
-              </a>
-            </p>
-            <p className="mt-7 max-w-[62ch] font-serif italic text-[19px] lg:text-[22px] leading-[1.4] text-ink-soft">
-              Limb lengthening surgery in California is available at Premier Limb
-              Lengthening in Upland, in the Inland Empire east of Los Angeles.
-              Board-certified orthopedic surgeon Dr. Hrayr Basmajian performs
-              precision limb lengthening with an internal nail, serving patients
-              across Los Angeles, Orange County, the Inland Empire, San Diego,
-              and the wider state.
-            </p>
+        <CoverHero
+          eyebrow="Locations · California"
+          title="Limb Lengthening Surgery in"
+          accent="California"
+          deck="Board-certified orthopedic surgeon Dr. Hrayr Basmajian performs precision limb lengthening with an internal nail in Upland, serving patients across Los Angeles, Orange County, the Inland Empire, San Diego, and the wider state."
+        />
+
+        <section className="bg-paper-off py-16 lg:py-24">
+          <div className="mx-auto max-w-wrap px-6 lg:px-12 grid grid-cols-12 gap-6 lg:gap-8">
+            <div className="col-span-12 lg:col-span-8">
+              <p className="eyebrow mb-5">The California Practice</p>
+              <p className="font-serif text-[22px] lg:text-[28px] leading-[1.45] text-ink">
+                Limb lengthening surgery in California is available at Premier
+                Limb Lengthening in Upland, in the Inland Empire east of Los
+                Angeles. Board-certified orthopedic surgeon Dr. Hrayr Basmajian
+                performs precision limb lengthening with an internal nail,
+                serving patients across Los Angeles, Orange County, the Inland
+                Empire, San Diego, and the wider state. The practice is one
+                California location that patients travel to from across the state.
+              </p>
+              <p className="mt-7 text-[16px] leading-[1.75] text-ink-soft">
+                For the full procedure guides, see{" "}
+                <a href="/height-surgery">height surgery</a> and{" "}
+                <a href="/leg-lengthening-surgery">leg lengthening surgery</a>.
+              </p>
+            </div>
           </div>
         </section>
 

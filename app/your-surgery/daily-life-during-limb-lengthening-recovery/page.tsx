@@ -6,7 +6,7 @@ import { FinalCta } from "@/components/v2/FinalCta";
 import { PillarFaq } from "@/components/v2/PillarFaq";
 import { Prose } from "@/components/content/Prose";
 import { Reveal } from "@/components/v2/Reveal";
-import { DraftBanner } from "@/components/v2/DraftBanner";
+import { CoverHero } from "@/components/v2/CoverHero";
 
 import "../../v2.css";
 
@@ -36,6 +36,8 @@ export const metadata: Metadata = {
 };
 
 const body = `
+> **Draft, not for publication.** Every section below is written against a general weight-bearing assumption Dr. B has not confirmed. He needs to sign off on stair, toilet, and shower timing by phase, the wound-care guidance on when incisions can get wet, the assistive-device progression, and the level of caregiver help recommended by phase. Hero and section imagery are pattern placeholders and must be swapped.
+
 ## Stairs, and living in a two-story house
 
 Yes, most patients handle stairs, and a two-story house is workable with a plan. Early on you take stairs slowly, one at a time, with a handrail and often a helper nearby for the first few days. The simplest setup is to plan to live on one level for the first week or two, with a bed, a bathroom, and everything you need on the same floor, then add stairs back as your strength returns. If your only bathroom is upstairs, we will talk through it before surgery.
@@ -102,29 +104,35 @@ export default function DailyLifeDuringRecoveryPage() {
   return (
     <>
       <NavV2 forceVisible />
-      <DraftBanner
-        owners={["Dr. B (weight-bearing, wound care, device progression)", "Jaime and Rafael (slug)"]}
-        note="Every section is written against a general weight-bearing assumption Dr. B has not confirmed. He needs to sign off on stair, toilet, and shower timing by phase, the wound-care guidance on when incisions can get wet, the assistive-device progression, and the level of caregiver help recommended by phase."
-      />
 
       <article className="bg-paper-off">
-        <section className="border-b border-ink pt-14 lg:pt-20 pb-16 lg:pb-20">
-          <div className="mx-auto max-w-wrap px-6 lg:px-12">
-            <span className="eyebrow mb-5">Your Surgery · Recovery</span>
-            <h1 className="font-serif font-normal tracking-[-0.025em] text-ink leading-[0.98] max-w-[20ch] text-[clamp(40px,6.4vw,104px)]">
-              Daily Life During{" "}
-              <em className="italic text-spine">Recovery.</em>
-            </h1>
-            <p className="mt-4 font-mono uppercase tracking-[0.14em] text-[11px] text-muted">
-              Stairs, bathrooms, and help at home
-            </p>
-            <p className="mt-7 max-w-[62ch] font-serif italic text-[19px] lg:text-[22px] leading-[1.4] text-ink-soft">
-              Most patients can manage daily life at home during limb lengthening
-              recovery with a walker and a few inexpensive bathroom aids, and no
-              live-in nurse. You will be up and moving with support within days.
-              Stairs, the toilet, and showering are all doable with the right
-              setup, which is easiest to arrange before surgery.
-            </p>
+        <CoverHero
+          eyebrow="Your Surgery · Recovery"
+          title="Daily Life During"
+          accent="Recovery"
+          deck="Stairs, bathrooms, and help at home. Most patients manage daily life with a walker and a few inexpensive bathroom aids, and no live-in nurse."
+        />
+
+        <section className="bg-paper-off py-16 lg:py-24">
+          <div className="mx-auto max-w-wrap px-6 lg:px-12 grid grid-cols-12 gap-6 lg:gap-8">
+            <div className="col-span-12 lg:col-span-8">
+              <p className="eyebrow mb-5">The Practical Side</p>
+              <p className="font-serif text-[22px] lg:text-[28px] leading-[1.45] text-ink">
+                Most patients can manage daily life at home during limb
+                lengthening recovery with a walker and a few inexpensive bathroom
+                aids, and no live-in nurse. You will be up and moving with
+                support within days. Stairs, the toilet, and showering are all
+                doable with the right setup, which is easiest to arrange before
+                surgery.
+              </p>
+              <p className="mt-7 text-[16px] leading-[1.75] text-ink-soft">
+                For the week-by-week clinical picture, see{" "}
+                <a href="/your-surgery/limb-lengthening-expectations">
+                  the full recovery timeline
+                </a>
+                .
+              </p>
+            </div>
           </div>
         </section>
 

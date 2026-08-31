@@ -6,7 +6,7 @@ import { FinalCta } from "@/components/v2/FinalCta";
 import { PillarFaq } from "@/components/v2/PillarFaq";
 import { Prose } from "@/components/content/Prose";
 import { Reveal } from "@/components/v2/Reveal";
-import { DraftBanner } from "@/components/v2/DraftBanner";
+import { CoverHero } from "@/components/v2/CoverHero";
 
 import "../v2.css";
 
@@ -27,6 +27,8 @@ export const metadata: Metadata = {
 };
 
 const body = `
+> **Draft, not for publication.** Hero and section imagery are the pattern placeholders and must be swapped. Every note in this style marks copy a human still owes, including the minimum-stay figure. Resolve and delete all of them, then clear the noindex flag before publishing.
+
 Most people who search for traveling for limb lengthening are planning a trip to a clinic that is not in their home city. Some are flying in from another U.S. state, and others are coming from abroad. This guide walks through the whole trip, from the airport to the drive home, so the travel is the easy part and your energy stays on recovery.
 
 ## Which airport do you fly into?
@@ -132,36 +134,34 @@ export default function TravelingForLimbLengtheningPage() {
   return (
     <>
       <NavV2 forceVisible />
-      <DraftBanner
-        owners={[
-          "Dr. B (minimum stay, follow-up protocol)",
-          "Legal and Jaime (concierge scope)",
-          "Jaime (travel pricing, visa letter)",
-        ]}
-        note="Logistics deep-dive under the International Patients pillar. The ten-day minimum local stay is carried over unverified from the source draft and needs Dr. B to confirm or correct it before this goes anywhere near publication."
-      />
 
       <article className="bg-paper-off">
-        <section className="border-b border-ink pt-14 lg:pt-20 pb-16 lg:pb-20">
-          <div className="mx-auto max-w-wrap px-6 lg:px-12">
-            <span className="eyebrow mb-5">International Patients · Travel</span>
-            <h1 className="font-serif font-normal tracking-[-0.025em] text-ink leading-[0.98] max-w-[20ch] text-[clamp(40px,6.4vw,104px)]">
-              Traveling for Limb{" "}
-              <em className="italic text-spine">Lengthening.</em>
-            </h1>
-            <p className="mt-4 font-mono uppercase tracking-[0.14em] text-[11px] text-muted">
-              Medically reviewed by{" "}
-              <a href="/dr-basmajian" className="underline">
-                Dr. Hrayr Basmajian
-              </a>
-            </p>
-            <p className="mt-7 max-w-[62ch] font-serif italic text-[19px] lg:text-[22px] leading-[1.4] text-ink-soft">
-              Traveling for limb lengthening means flying into Ontario
-              International Airport, staying near the Upland, California clinic
-              for a short local period around surgery, then returning home for
-              remote follow-up. A patient concierge helps you arrange near-clinic
-              housing, so the logistics are handled before you ever board a plane.
-            </p>
+        <CoverHero
+          eyebrow="International Patients · Travel"
+          title="Traveling for Limb"
+          accent="Lengthening"
+          deck="Fly into Ontario International Airport, stay near the Upland clinic for a short local period around surgery, then return home for remote follow-up. A patient concierge helps you arrange near-clinic housing, so the logistics are handled before you ever board a plane."
+        />
+
+        <section className="bg-paper-off py-16 lg:py-24">
+          <div className="mx-auto max-w-wrap px-6 lg:px-12 grid grid-cols-12 gap-6 lg:gap-8">
+            <div className="col-span-12 lg:col-span-8">
+              <p className="eyebrow mb-5">The Trip, End to End</p>
+              <p className="font-serif text-[22px] lg:text-[28px] leading-[1.45] text-ink">
+                Traveling for limb lengthening means flying into Ontario
+                International Airport (ONT), staying near the clinic in Upland,
+                California for a minimum local period after surgery, and
+                attending scheduled appointments before you fly home. A patient
+                concierge helps arrange near-clinic housing, and your follow-up
+                care continues remotely once you are back home.
+              </p>
+              <p className="mt-7 text-[16px] leading-[1.75] text-ink-soft">
+                For patients coming from abroad, start with{" "}
+                <a href="/international-patients">international patients</a>. For
+                the procedure itself, see{" "}
+                <a href="/leg-lengthening-surgery">leg lengthening surgery</a>.
+              </p>
+            </div>
           </div>
         </section>
 
