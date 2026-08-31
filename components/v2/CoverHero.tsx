@@ -22,6 +22,7 @@ export function CoverHero({
   title,
   accent,
   deck,
+  image,
 }: {
   eyebrow: string;
   /** Leading part of the H1, rendered in white. */
@@ -29,11 +30,13 @@ export function CoverHero({
   /** Trailing part of the H1, rendered as the gold italic accent. */
   accent: string;
   deck: string;
+  /** Root-relative path under public/images/heroes/. */
+  image: string;
 }) {
   return (
     <section className="relative flex items-center min-h-[620px] border-b border-ink">
       <Image
-        src="/images/heroes/how-much-taller-hero.jpg"
+        src={image}
         alt=""
         fill
         priority

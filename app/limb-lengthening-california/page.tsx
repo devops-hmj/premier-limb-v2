@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 };
 
 const lede = `
-> **Draft, not for publication.** Hero and section imagery above are the pattern placeholders and must be swapped. Every note in this style marks copy a human still owes. Resolve and delete all of them, then clear the noindex flag before publishing.
+> **Draft, not for publication.** The two section images below are still placeholder art and must be swapped. Every note in this style marks copy a human still owes. Resolve and delete all of them, then clear the noindex flag before publishing.
 
 California patients researching this procedure often find that several of the best-known limb lengthening practices in the country are based outside the state, in places like Florida, Maryland, and Nevada. Premier Limb Lengthening is a California-based option. The clinic is in Upland, and its surgeon, its method, and its concierge support are all set up for patients who live in California and want their care close to home.
 
@@ -120,6 +120,7 @@ export default function LimbLengtheningCaliforniaPage() {
 
       <article className="bg-paper-off">
         <CoverHero
+          image="/images/heroes/california-surgery-hero.jpg"
           eyebrow="Locations · California"
           title="Limb Lengthening Surgery in"
           accent="California"

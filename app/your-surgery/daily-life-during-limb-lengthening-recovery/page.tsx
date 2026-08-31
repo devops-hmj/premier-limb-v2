@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 };
 
 const body = `
-> **Draft, not for publication.** Every section below is written against a general weight-bearing assumption Dr. B has not confirmed. He needs to sign off on stair, toilet, and shower timing by phase, the wound-care guidance on when incisions can get wet, the assistive-device progression, and the level of caregiver help recommended by phase. Hero and section imagery are pattern placeholders and must be swapped.
+> **Draft, not for publication.** Every section below is written against a general weight-bearing assumption Dr. B has not confirmed. He needs to sign off on stair, toilet, and shower timing by phase, the wound-care guidance on when incisions can get wet, the assistive-device progression, and the level of caregiver help recommended by phase. The two section images below are still placeholder art and must be swapped.
 
 ## Stairs, and living in a two-story house
 
@@ -107,6 +107,7 @@ export default function DailyLifeDuringRecoveryPage() {
 
       <article className="bg-paper-off">
         <CoverHero
+          image="/images/heroes/daily-life-recovery-hero.jpg"
           eyebrow="Your Surgery · Recovery"
           title="Daily Life During"
           accent="Recovery"

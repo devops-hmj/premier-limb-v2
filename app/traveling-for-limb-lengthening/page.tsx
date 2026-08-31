@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 };
 
 const body = `
-> **Draft, not for publication.** Hero and section imagery are the pattern placeholders and must be swapped. Every note in this style marks copy a human still owes, including the minimum-stay figure. Resolve and delete all of them, then clear the noindex flag before publishing.
+> **Draft, not for publication.** The two section images below are still placeholder art and must be swapped. Every note in this style marks copy a human still owes, including the minimum-stay figure. Resolve and delete all of them, then clear the noindex flag before publishing.
 
 Most people who search for traveling for limb lengthening are planning a trip to a clinic that is not in their home city. Some are flying in from another U.S. state, and others are coming from abroad. This guide walks through the whole trip, from the airport to the drive home, so the travel is the easy part and your energy stays on recovery.
 
@@ -137,6 +137,7 @@ export default function TravelingForLimbLengtheningPage() {
 
       <article className="bg-paper-off">
         <CoverHero
+          image="/images/heroes/traveling-hero.jpg"
           eyebrow="International Patients · Travel"
           title="Traveling for Limb"
           accent="Lengthening"

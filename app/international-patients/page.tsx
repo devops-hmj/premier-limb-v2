@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 };
 
 const body = `
-> **Draft, not for publication. YMYL, legal-review gated.** Nothing here goes live until Legal signs off on the concierge-scope statement and any cross-border or regulatory language, Dr. B signs off on every clinical framing and the Hannover credential wording, and every note in this style is resolved. Hero and section imagery are pattern placeholders and must be swapped.
+> **Draft, not for publication. YMYL, legal-review gated.** Nothing here goes live until Legal signs off on the concierge-scope statement and any cross-border or regulatory language, Dr. B signs off on every clinical framing and the Hannover credential wording, and every note in this style is resolved. The two section images below are still placeholder art and must be swapped.
 
 Patients search for this care under several phrases, including limb lengthening for international patients, international limb lengthening in the USA, and traveling to the US for limb lengthening. They describe the same path: a patient whose home is in another country choosing to have the procedure performed in the United States. This page explains why patients make that choice, how the practice supports an international stay, and what the process looks like from first contact to the flight home.
 
@@ -112,6 +112,7 @@ export default function InternationalPatientsPage() {
 
       <article className="bg-paper-off">
         <CoverHero
+          image="/images/heroes/international-patients-hero.jpg"
           eyebrow="International Patients"
           title="Limb Lengthening for International"
           accent="Patients"
