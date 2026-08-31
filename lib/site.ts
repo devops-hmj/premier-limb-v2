@@ -7,8 +7,8 @@
 export const site = {
   name: "Premier Limb Lengthening",
   tagline: "Cosmetic limb lengthening, founded by Dr. Hrayr Basmajian",
-  phone: "(909) 563-8653",
-  phoneHref: "tel:+19095638653",
+  phone: "(951) 620-5663",
+  phoneHref: "tel:+19516205663",
   address: {
     street: "400 N. Mountain Ave. Suite 305",
     city: "Upland",

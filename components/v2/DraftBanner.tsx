@@ -21,26 +21,33 @@ export function DraftBanner({
   note: string;
 }) {
   return (
-    <div
-      role="note"
-      aria-label="Draft page, not approved for publication"
-      className="bg-ink text-paper border-b-4 border-gold"
-    >
-      <div className="mx-auto max-w-wrap px-6 lg:px-12 py-4 lg:py-5">
-        <p className="font-mono uppercase tracking-[0.2em] text-[10.5px] text-gold mb-2">
-          Draft for review · not published · noindex
-        </p>
-        <p className="max-w-[80ch] text-[15px] leading-[1.6] text-paper/90">
-          {note}
-        </p>
-        <p className="mt-3 font-mono uppercase tracking-[0.14em] text-[10.5px] text-paper/70">
-          Sign-off still required from: {owners.join(" · ")}
-        </p>
-        <p className="mt-3 text-[13.5px] leading-[1.6] text-paper/60">
-          Highlighted callouts in the body mark the exact copy a human still
-          owes. Nothing on this page is approved, and every figure inside a
-          callout is unverified.
-        </p>
+    // NavV2 renders `fixed inset-x-0 top-0`, so it occupies no space in flow.
+    // Anything placed first on the page slides underneath it. Every other
+    // template clears the bar with pt-28 on its opening section; because this
+    // banner comes before that section, it has to own the offset instead, or
+    // its first two lines disappear behind the nav.
+    <div className="bg-paper-off pt-[78px]">
+      <div
+        role="note"
+        aria-label="Draft page, not approved for publication"
+        className="bg-ink text-paper border-b-4 border-gold"
+      >
+        <div className="mx-auto max-w-wrap px-6 lg:px-12 py-5 lg:py-6">
+          <p className="font-mono uppercase tracking-[0.2em] text-[10.5px] text-gold mb-2">
+            Draft for review · not published · noindex
+          </p>
+          <p className="max-w-[80ch] text-[15px] leading-[1.6] text-paper/90">
+            {note}
+          </p>
+          <p className="mt-3 font-mono uppercase tracking-[0.14em] text-[10.5px] text-paper/70">
+            Sign-off still required from: {owners.join(" · ")}
+          </p>
+          <p className="mt-3 text-[13.5px] leading-[1.6] text-paper/60">
+            Highlighted callouts in the body mark the exact copy a human still
+            owes. Nothing on this page is approved, and every figure inside a
+            callout is unverified.
+          </p>
+        </div>
       </div>
     </div>
   );

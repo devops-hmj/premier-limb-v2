@@ -108,7 +108,7 @@ export default function DailyLifeDuringRecoveryPage() {
       />
 
       <article className="bg-paper-off">
-        <section className="border-b border-ink pt-20 lg:pt-28 pb-16 lg:pb-20">
+        <section className="border-b border-ink pt-14 lg:pt-20 pb-16 lg:pb-20">
           <div className="mx-auto max-w-wrap px-6 lg:px-12">
             <span className="eyebrow mb-5">Your Surgery · Recovery</span>
             <h1 className="font-serif font-normal tracking-[-0.025em] text-ink leading-[0.98] max-w-[20ch] text-[clamp(40px,6.4vw,104px)]">
