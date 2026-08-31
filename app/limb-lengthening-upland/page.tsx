@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 };
 
 const nearMe = `
-> **Draft, not for publication.** This is the map-pack anchor, so accurate NAP is the whole point of the page. Every address, phone, hour, Google Business Profile and geo value below is a fill for Jaime and none of it has been invented. Imagery is stand-in art.
+> **Draft, not for publication.** This is the map-pack anchor, so accurate NAP is the whole point of the page. Every address, phone, hour, Google Business Profile and geo value below is a fill for Jaime and none of it has been invented. All three image slots are placeholders and marketing owes the art: a real exterior photograph, a real interior photograph, and the live Google Maps embed. Generated or stock imagery is not acceptable on this page, because a map-pack anchor asserts a real location.
 
 ## Where can I get limb lengthening surgery near Upland, CA?
 
@@ -132,16 +132,18 @@ export default function LimbLengtheningUplandPage() {
           <div className="mx-auto max-w-wrap px-6 lg:px-12">
             <figure className="mb-10">
               <Image
-                src="/images/heroes/california-surgery-hero.jpg"
-                alt="Stand-in image, pending the Upland clinic exterior photograph"
+                src="/images/heroes/how-much-taller-hero.jpg"
+                alt="Placeholder image, pending a real photograph of the Upland clinic exterior"
                 width={1600}
                 height={900}
                 priority
                 className="w-full h-auto border border-ink"
               />
               <figcaption className="mt-3 font-serif italic text-[14.5px] leading-[1.5] text-muted">
-                Stand-in art. Replace with the clinic exterior photograph in
-                Upland.
+                PLACEHOLDER, marketing owes art. Replace with a real
+                photograph of the Upland clinic exterior. Not stock, not
+                generated: this page asserts a physical address, so the building
+                has to be the actual building.
               </figcaption>
             </figure>
 
@@ -174,8 +176,9 @@ export default function LimbLengtheningUplandPage() {
                 className="w-full h-auto border border-ink"
               />
               <figcaption className="mt-3 font-serif italic text-[14.5px] leading-[1.5] text-muted">
-                Placeholder art. Replace with the Google Map embed for the
-                verified Business Profile listing.
+                PLACEHOLDER, not art. This slot takes the live Google Maps
+                embed from the verified Business Profile listing, which arrives
+                with Jaime's NAP values.
               </figcaption>
             </figure>
           </section>
@@ -193,8 +196,9 @@ export default function LimbLengtheningUplandPage() {
                 className="w-full h-auto border border-ink"
               />
               <figcaption className="mt-3 font-serif italic text-[14.5px] leading-[1.5] text-muted">
-                Placeholder art. Replace with a consultation photograph taken at
-                the Upland practice.
+                PLACEHOLDER, marketing owes art. Replace with a real
+                photograph of the consultation room or waiting area at the
+                Upland practice.
               </figcaption>
             </figure>
           </section>
